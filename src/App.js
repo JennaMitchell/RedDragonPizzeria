@@ -1,0 +1,47 @@
+import { Route, Routes, Navigate } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import NavBar from "./components/nav/nav-bar";
+import HomePageMain from "./pages/homepage/homepage-main";
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#d32f2f",
+      light: "#e57373",
+      dark: "#b71c1c",
+    },
+    secondary: {
+      main: "#212121",
+      light: "#f5f5f5",
+      dark: "#616161",
+    },
+  },
+  typography: {
+    fontFamily: "Libre Baskerville",
+    fontWeightRegular: 400,
+    fontWeightBold: 700,
+  },
+});
+
+function App() {
+  return (
+    <div className="root">
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/home" />} />
+          <Route
+            path="/home"
+            element={
+              <>
+                <NavBar />
+                <HomePageMain />
+              </>
+            }
+          ></Route>
+          <Route path="/menu" element=""></Route>
+        </Routes>
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export default App;
