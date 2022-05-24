@@ -22,7 +22,7 @@ const NavButtons = () => {
       </Button>
       <ShoppingCartContainer>
         <ShoppingCartItemsTracker>0</ShoppingCartItemsTracker>
-        <ShoppingCart color="secondary" />
+        <ShoppingCart color="secondary.light" />
       </ShoppingCartContainer>
     </ButtonContainer>
   );
