@@ -36,14 +36,17 @@ const PhotoCarouselMainPage = () => {
     }
   };
   useEffect(() => {
-    const timerId = setInterval(() => {
-      if (currentCarouselId === carouselData.length - 1) {
-        setCurrentCarouselId(0);
-      } else {
-        setCurrentCarouselId(currentCarouselId + 1);
-      }
-    }, 20000);
-    return () => clearInterval(timerId);
+    if (!imgContainerEntered) {
+      // if statement is used to pause the timer when the user is hovering over the image
+      const timerId = setInterval(() => {
+        if (currentCarouselId === carouselData.length - 1) {
+          setCurrentCarouselId(0);
+        } else {
+          setCurrentCarouselId(currentCarouselId + 1);
+        }
+      }, 15000);
+      return () => clearInterval(timerId);
+    }
     // the retrun will trigger when you cause the function to re-render due to a state change
   });
 
