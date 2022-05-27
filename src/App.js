@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/nav/nav-bar";
 import Footer from "./components/footer/footer";
 import HomePageMain from "./pages/homepage/homepage-main";
+import FullMenuHomepage from "./pages/full-menu/full-menu-homepage";
 export const theme = createTheme({
   palette: {
     primary: {
@@ -11,13 +12,13 @@ export const theme = createTheme({
       dark: "#b71c1c",
     },
     secondary: {
-      main: "#212121",
+      main: "#616161",
       light: "#f5f5f5",
-      dark: "#616161",
+      dark: "#212121",
     },
   },
   typography: {
-    fontFamily: "Libre Baskerville",
+    fontFamily: "Libre Baskerville ,sans-serif",
     fontWeightRegular: 400,
     fontWeightBold: 700,
   },
@@ -39,7 +40,16 @@ function App() {
               </>
             }
           ></Route>
-          <Route path="/menu" element=""></Route>
+          <Route
+            path="/menu"
+            element={
+              <>
+                <NavBar />
+                <FullMenuHomepage />
+                <Footer />
+              </>
+            }
+          ></Route>
         </Routes>
       </ThemeProvider>
     </div>

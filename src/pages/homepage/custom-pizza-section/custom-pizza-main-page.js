@@ -3,7 +3,8 @@ import {
   TopContainer,
 } from "./custom-pizza-main-page-styled-components";
 import peperoniPhoto from "../../../img/pep-pizza-1.jpg";
-import { Grid, Typography, Card, Button } from "@mui/material";
+import { Grid, Typography, Card } from "@mui/material";
+import { StyledButton } from "../../../generic-styled-components/generic-styled-components";
 
 const CustomPizzaSectionMainPage = () => {
   return (
@@ -26,9 +27,9 @@ const CustomPizzaSectionMainPage = () => {
           </Typography>
         </Grid>
         <Grid item xs={1}>
-          <Button variant={"contained"} size={"large"} color="secondary">
-            Custom Peperonni Pizza
-          </Button>
+          <StyledButton variant={"contained"} size={"large"} color="secondary">
+            Peperonni Pizza Maker
+          </StyledButton>
         </Grid>
       </Grid>
       <Card

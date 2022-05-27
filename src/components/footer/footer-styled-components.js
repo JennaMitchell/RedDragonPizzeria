@@ -6,13 +6,12 @@ const TopContainer = styled("div", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(280px,280px)",
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.dark,
   border: "none",
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
   alignContent: "flex-start",
   justifyContent: "space-evenly",
-
   position: "relative",
 }));
 

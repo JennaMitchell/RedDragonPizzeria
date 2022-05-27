@@ -29,37 +29,6 @@ const MenuContainer = styled("div", {
   marginBottom: "20px",
 }));
 
-const MenuSelectorContainer = styled("div", {
-  name: "MenuSelectorContainer",
-  slot: "Wrapper",
-})(({ theme }) => ({
-  width: "max(100%,100%)",
-  height: "max(50px,50px)",
-  backgroundColor: theme.palette.secondary.main,
-  border: "none",
-  borderRadius: "25px",
-  display: "grid",
-  placeItems: "center",
-  gridTemplateColumns: "repeat(5,1fr)",
-  position: "relative",
-}));
-const MenuSelectorButton = styled("button", {
-  name: "MenuSelectorButton",
-  slot: "Wrapper",
-})(({ theme }) => ({
-  width: "max(100%,100%)",
-  height: "max(100%,100%)",
-  backgroundColor: "inherit",
-  color: theme.palette.secondary.light,
-  border: "none",
-  borderRadius: "25px",
-  display: "grid",
-  placeItems: "center",
-  fontSize: "20px",
-  "&:hover": {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
 const LogoContainer = styled("div", {
   name: "LogoContainer",
   slot: "Wrapper",
@@ -70,7 +39,7 @@ const LogoContainer = styled("div", {
   alignItems: "center",
   justifyItems: "center",
   borderRadius: "50%",
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.dark,
 }));
 const LogoImage = styled("img", {
   name: "LogoImage",
@@ -80,11 +49,4 @@ const LogoImage = styled("img", {
   height: "max(70%,70%)",
 });
 
-export {
-  TopContainer,
-  MenuContainer,
-  MenuSelectorContainer,
-  MenuSelectorButton,
-  LogoContainer,
-  LogoImage,
-};
+export { TopContainer, MenuContainer, LogoContainer, LogoImage };

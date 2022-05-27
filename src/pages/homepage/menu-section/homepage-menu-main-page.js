@@ -1,7 +1,6 @@
 import {
   TopContainer,
   MenuContainer,
-  MenuSelectorContainer,
   LogoContainer,
   LogoImage,
 } from "./homepage-menu-main-page-styled-components";
@@ -11,6 +10,7 @@ import MenuSelectorButton from "./hompage-menu-selector-button";
 import logo from "../../../img/logo.png";
 import homepageMenuData from "./homepage-menu-data";
 import HomepageMenuItem from "./homepage-menu-item";
+import { MenuSelectorContainer } from "../../../generic-styled-components/generic-styled-components";
 
 const HomepageMenuTopFile = () => {
   const menuButtonTitles = ["All", "Pizza", "Drinks", "Salads", "Desserts"];
@@ -67,7 +67,7 @@ const HomepageMenuTopFile = () => {
         </LogoContainer>
         <Typography
           variant="subtitle1"
-          color="secondary.main"
+          color="secondary.dark"
           sx={{
             textDecoration: "underline",
             fontSize: "38px",

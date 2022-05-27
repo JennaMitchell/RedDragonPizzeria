@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import chalkCircle from "../../img/chalk-circle.png";
 
 const SelectorButton = styled("button", {
   name: "MenuSelectorButton",
@@ -6,13 +7,14 @@ const SelectorButton = styled("button", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(100%,100%)",
-  backgroundColor: "inherit",
+  backgroundColor: "transparent",
   color: theme.palette.secondary.light,
   border: "none",
   borderRadius: "25px",
   display: "grid",
   placeItems: "center",
-  fontSize: "20px",
+  fontSize: "32px",
+  fontFamily: "Fredericka the Great ,cursive",
 }));
 
 const ActiveSelectorButton = styled("button", {
@@ -21,16 +23,21 @@ const ActiveSelectorButton = styled("button", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(100%,100%)",
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.secondary.light,
+  backgroundImage: `url(${chalkCircle})`,
   border: "none",
-  borderRadius: "25px",
+  backgroundColor: "transparent",
+  color: theme.palette.secondary.light,
   display: "grid",
   placeItems: "center",
-  fontSize: "20px",
+  fontSize: "32px",
+
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "75%",
+  backgroundPosition: "center",
+  fontFamily: "Fredericka the Great ,cursive",
 }));
 
-const MenuSelectorButton = ({ id, activeId, title, onClickHandler }) => {
+const FullMenuSelectorButton = ({ id, activeId, title, onClickHandler }) => {
   const buttonHandler = () => {
     onClickHandler(title, id);
   };
@@ -40,4 +47,4 @@ const MenuSelectorButton = ({ id, activeId, title, onClickHandler }) => {
     return <SelectorButton onClick={buttonHandler}>{title}</SelectorButton>;
   }
 };
-export default MenuSelectorButton;
+export default FullMenuSelectorButton;

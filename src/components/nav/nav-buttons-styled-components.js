@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { Button } from "@mui/material";
 
 const ButtonContainer = styled("div", {
   name: "ButtonContainer",
@@ -7,11 +8,35 @@ const ButtonContainer = styled("div", {
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
   display: "grid",
-  gridTemplateColumns: "repeat(4,max-content)",
+  gridTemplateColumns: "repeat(6,max-content)",
   alignItems: "center",
   justifyContent: "space-evenly",
   gap: "20px",
 });
+
+const StyledButton = styled(Button, {
+  name: "StyledButton",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.dark,
+  color: theme.palette.secondary.light,
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.secondary.dark,
+  },
+}));
+
+const StyledHomeButton = styled(Button, {
+  name: "StyledHomeButton",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.secondary.light,
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.secondary.dark,
+  },
+}));
 
 const ShoppingCartContainer = styled("div", {
   name: "ShoppingCartContainer",
@@ -33,7 +58,7 @@ const ShoppingCartItemsTracker = styled("div", {
   position: "absolute",
   top: "-6px",
   right: "-8px",
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.dark,
   color: theme.palette.secondary.light,
   borderRadius: "50%",
   textAlign: "center",
@@ -58,4 +83,6 @@ export {
   ShoppingCartItemsTracker,
   ShoppingCartContainer,
   ButtonContainer,
+  StyledButton,
+  StyledHomeButton,
 };

@@ -12,10 +12,10 @@ const LogoContainer = styled("div", {
   display: "grid",
   alignItems: "center",
   justifyItems: "center",
-  marginLeft: 15,
+  marginLeft: "15px",
   borderRadius: "50%",
 
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.secondary.dark,
 }));
 const LogoImage = styled("img", {
   name: "LogoImage",
