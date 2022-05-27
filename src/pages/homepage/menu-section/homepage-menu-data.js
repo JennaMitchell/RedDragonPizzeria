@@ -4,49 +4,49 @@ const homepageMenuData = {
       title: "Neapolitan Pizza",
       description:
         "Your choice of crust, topped with mozzarella cheese, fresh tomato's, and basil",
-      price: "$14.99",
+      price: "$14.99 +",
     },
     {
       title: "Chicago Pizza",
       description:
         "Deep dish pizza, served with mozarallea,spicy peperonni and covered with marinara sauce",
-      price: "$12.99",
+      price: "$12.99 +",
     },
     {
       title: "New York-Style Pizza",
       description:
         "Large hand-tossed thin crust pizza, served with mozzarella and spicy peperonni",
-      price: "$17.99",
+      price: "$17.99 +",
     },
     {
       title: "Sicilian Pizza",
       description:
         "Deep dish pizza, served with onions, tomatos and toma Cheese",
-      price: "$12.99",
+      price: "$12.99 +",
     },
     {
       title: "Greek Pizza",
       description:
         "Your choice of crust, served with feta ,roasted red peppers, artichokes, olives and basil",
-      price: "$13.99",
+      price: "$13.99 +",
     },
     {
       title: "California Pizza",
       description:
         "Thin crust pizza, served with chicken, peanut sauce, artichoke hearts and goat cheese ",
-      price: "$14.99",
+      price: "$14.99 +",
     },
     {
       title: "Detroit Pizza",
       description:
         "Rectangular deep dish pizza, served with fresh marinara sauce, mozzarella cheese, and spicy peperonni",
-      price: "$12.99",
+      price: "$12.99 +",
     },
     {
       title: "St. Louis Pizza",
       description:
         "Thin crust pizza, served with fresh marinara sauce, provel cheese, spicy peperonni and green peppers",
-      price: "$14.99",
+      price: "$14.99 +",
     },
   ],
   Drinks: [

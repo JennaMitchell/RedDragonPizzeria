@@ -11,6 +11,7 @@ const PhotoGalleryContainer = styled("div", {
   display: "grid",
   placeItems: "center",
   position: "relative",
+  backgroundImage: `url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)`,
 }));
 
 const LeftSliderButton = styled("button", {
@@ -63,8 +64,11 @@ const ImageContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "min(1200px,1200px)",
-  height: "min(800px,800px)",
+  height: "min(92.5%,92.5%)",
   position: "relative",
+  display: "grid",
+  placeItems: "center",
+  borderRadius: "15px",
 }));
 
 export {

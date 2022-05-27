@@ -12,6 +12,7 @@ const PhotoGalleryImg = styled("img", {
   position: "relative",
   opacity: 0,
   visibility: "hidden",
+  borderRadius: "15px",
 }));
 
 const LeftBanner = styled("div", { name: "LeftBanner", slot: "Wrapper" })(

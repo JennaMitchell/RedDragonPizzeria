@@ -5,7 +5,7 @@ import {
   LogoContainer,
   StyledToolBar,
 } from "./nav-bar-styled-components";
-import logo from "../../img/logo.jpg";
+import logo from "../../img/logo.png";
 import { Typography } from "@mui/material";
 import NavButtons from "./nav-buttons";
 

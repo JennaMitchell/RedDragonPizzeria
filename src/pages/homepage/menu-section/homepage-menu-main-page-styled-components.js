@@ -76,9 +76,8 @@ const LogoImage = styled("img", {
   name: "LogoImage",
   slot: "Wrapper",
 })({
-  width: "max(90%,90%)",
-  height: "max(90%,90%)",
-  borderRadius: "50%",
+  width: "max(70%,70%)",
+  height: "max(70%,70%)",
 });
 
 export {

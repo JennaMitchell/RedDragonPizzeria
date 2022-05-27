@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import NavBar from "./components/nav/nav-bar";
+import Footer from "./components/footer/footer";
 import HomePageMain from "./pages/homepage/homepage-main";
 export const theme = createTheme({
   palette: {
@@ -34,6 +35,7 @@ function App() {
               <>
                 <NavBar />
                 <HomePageMain />
+                <Footer />
               </>
             }
           ></Route>
