@@ -1,14 +1,14 @@
 import { styled } from "@mui/material/styles";
 import cityStreets from "../../img/city-streets.jpg";
-import chalkBoard from "../../img/chalk-board.jpg";
+
 import woodenBoard from "../../img/plank.jpg";
 
 const TopContainer = styled("div", {
   name: "TopContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(100%,100%)",
-  height: "max(800px,800px)",
+  height: "max(1200px,1200px)",
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
@@ -26,7 +26,9 @@ const MenuContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(1000px,1000px)",
-  height: "max(400px,400px)",
+  height: "min(1000px,1000px)",
+  overflowY: "scroll",
+  overflowX: "hidden",
   backgroundColor: theme.palette.secondary.dark,
   border: "none",
   display: "grid",
@@ -43,7 +45,8 @@ const BoardImageContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(max-content,max-content)",
-  height: "max(max-content,max-content)",
+  height: "min(max-content,1000px)",
+
   padding: "10px 25px 10px 25px",
   display: "grid",
   placeItems: "center",
@@ -56,7 +59,7 @@ const BoardImageContainer = styled("div", {
 const MenuSelectorContainer = styled("div", {
   name: "MenuSelectorContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(100%,100%)",
   height: "max(100px,100px)",
   backgroundColor: "transparent",

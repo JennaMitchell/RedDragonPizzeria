@@ -57,13 +57,14 @@ const homepageMenuData = {
     },
     {
       title: "Milligun's Deep Stout",
-      description: "10oz Glass of Guinness",
+      description:
+        "Taken from a keg with floating lumps of coal, initial strong charcoal taste followed by delicious warm honey golden taste",
       price: "$4.99",
     },
     {
       title: "The Hairy Wizard",
       description:
-        " A complex, deep, hearty flavor lingering of coffee, burnt grain and a hint of plum. ",
+        " A complex, deep, hearty flavored stout, with a lingering taste of coffee, burnt grain and a hint of plum. ",
       price: "$3.99",
     },
     {
@@ -86,7 +87,7 @@ const homepageMenuData = {
     },
     {
       title: "Crazy Al's Gnomish Knock-Out Lager",
-      description: "Very bitter dark ale. Rumored to kick you out in one sip",
+      description: "Very bitter dark ale. Rumored to knock you out in one sip",
       price: "$6.99",
     },
     {
@@ -100,21 +101,38 @@ const homepageMenuData = {
       title: "Caesar Salad ",
       description:
         " Romaine lettuce, croutons, and Parmesan tossed with a dressing featuring lemon juice, olive oil, Dijon mustard, Worcestershire sauce, salt, and pepper",
-      price: "$4.99",
+      price: "$4.99+",
     },
     {
       title: "Leafy Green Salad ",
       description: "Iceberg lettuce, arugula, and spinach",
-      price: "$4.99",
+      price: "$4.99+",
     },
     {
       title: "Greek Salad ",
       description:
         "Tomatoes, cucumbers, olives, feta, and onions. Lightly dressed with olive oil, salt, pepper, and oregano. ",
-      price: "$4.99",
+      price: "$4.99+",
+    },
+    {
+      title: "Garden Salad ",
+      description: "Lettuce, Tomatoes, Mushrooms, Onions and Black Olives  ",
+      price: "$4.99+",
     },
   ],
-  Desserts: [
+  "Sides + Sweets": [
+    {
+      title: "Garlic Sticks ",
+      description:
+        "Homemade bread sticks, coated in garlic butter and topped with graded Romono Cheese, served with a side of tomato sauce ",
+      price: "$4.99",
+    },
+    {
+      title: "Garlic Knots",
+      description:
+        "Homemade bread knots, coated in butter, and topped with garlic salt ",
+      price: "$4.99",
+    },
     {
       title: "Pizza Cookie ",
       description: "Gaint chocalate chip cookie, cooked in a pizza pan.",

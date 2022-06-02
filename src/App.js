@@ -4,6 +4,7 @@ import NavBar from "./components/nav/nav-bar";
 import Footer from "./components/footer/footer";
 import HomePageMain from "./pages/homepage/homepage-main";
 import FullMenuHomepage from "./pages/full-menu/full-menu-homepage";
+import PizzaMakerHomepage from "./pages/pizza-maker/pizza-maker-homepage.js";
 export const theme = createTheme({
   palette: {
     primary: {
@@ -39,7 +40,7 @@ function App() {
                 <Footer />
               </>
             }
-          ></Route>
+          />
           <Route
             path="/menu"
             element={
@@ -49,7 +50,17 @@ function App() {
                 <Footer />
               </>
             }
-          ></Route>
+          />
+          <Route
+            path="/pizza-maker"
+            element={
+              <>
+                <NavBar />
+                <PizzaMakerHomepage />
+                <Footer />
+              </>
+            }
+          />
         </Routes>
       </ThemeProvider>
     </div>

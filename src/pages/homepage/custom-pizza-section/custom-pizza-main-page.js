@@ -3,6 +3,7 @@ import {
   TopContainer,
 } from "./custom-pizza-main-page-styled-components";
 import peperoniPhoto from "../../../img/pep-pizza-1.jpg";
+
 import { Grid, Typography, Card } from "@mui/material";
 import { StyledButton } from "../../../generic-styled-components/generic-styled-components";
 
@@ -13,14 +14,18 @@ const CustomPizzaSectionMainPage = () => {
         container
         columns={1}
         rowSpacing={"30px"}
-        sx={{ width: "max(78%,78%)", height: "max(max-content,max-content)" }}
+        sx={{
+          width: "max(78%,78%)",
+          height: "max(max-content,max-content)",
+          position: "relative",
+        }}
       >
         <Grid item xs={1}>
           <Typography variant={"h3"} color="secondary.light">
             Create a Custom Peperonni Pizza
           </Typography>
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={1} sx={{ postion: "relative" }}>
           <Typography variant={"h5"} color="secondary.light">
             Create a peperonni pizza with custom peperonni configuration, or
             choose from the most popular designs

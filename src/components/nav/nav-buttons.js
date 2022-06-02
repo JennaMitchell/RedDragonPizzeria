@@ -27,7 +27,11 @@ const NavButtons = () => {
           Menu
         </NavLink>
       </StyledButton>
-      <StyledButton variant="contained">Pizza Maker</StyledButton>
+      <StyledButton variant="contained">
+        <NavLink to="/pizza-maker" className={classes.navLink}>
+          Pizza Maker
+        </NavLink>
+      </StyledButton>
       <StyledButton variant="contained">Order Online</StyledButton>
       <ShoppingCartContainer>
         <ShoppingCartItemsTracker>0</ShoppingCartItemsTracker>

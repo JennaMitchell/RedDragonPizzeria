@@ -1,5 +1,4 @@
 import { Grid, Typography } from "@mui/material";
-import { styled } from "@mui/system";
 
 const HomepageMenuItem = ({ title, description, cost }) => {
   return (

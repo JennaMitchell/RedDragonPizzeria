@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Toolbar } from "@mui/material";
+import roof from "../../img/Roof.png";
 
 const LogoContainer = styled("div", {
   name: "LogoContainer",
@@ -14,6 +15,7 @@ const LogoContainer = styled("div", {
   justifyItems: "center",
   marginLeft: "15px",
   borderRadius: "50%",
+  position: "relative",
 
   backgroundColor: theme.palette.secondary.dark,
 }));
@@ -23,6 +25,7 @@ const LogoImage = styled("img", {
 })({
   width: "max(70%,70%)",
   height: "max(70%,70%)",
+  position: "relative",
 });
 const LogoTitleContainer = styled("div", {
   name: "LogoTitleContainer",
@@ -33,6 +36,7 @@ const LogoTitleContainer = styled("div", {
   gridTemplateColumns: "1fr 3fr",
   alignItems: "center",
   justifyContent: "space-between",
+  position: "relative",
 });
 
 const StyledToolBar = styled(Toolbar, {
@@ -44,6 +48,29 @@ const StyledToolBar = styled(Toolbar, {
   gridTemplateColumns: "max-content max-content",
   alignItems: "center",
   justifyContent: "space-between",
+  position: "relative",
 });
 
-export { LogoContainer, LogoImage, LogoTitleContainer, StyledToolBar };
+const RoofSvgContainer = styled("div", {
+  name: "RoofSvgContainer",
+  slot: "Wrapper",
+})({
+  width: "max(100%,100%)",
+  height: "max(50px,50px)",
+  position: "absolute",
+  top: "90px",
+  left: "0px",
+  backgroundImage: `url(${roof})`,
+  backgroundPosition: "center",
+
+  backgroundSize: "101%",
+  zIndex: "2",
+});
+
+export {
+  LogoContainer,
+  LogoImage,
+  LogoTitleContainer,
+  StyledToolBar,
+  RoofSvgContainer,
+};

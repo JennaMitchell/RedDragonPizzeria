@@ -13,7 +13,13 @@ import HomepageMenuItem from "./homepage-menu-item";
 import { MenuSelectorContainer } from "../../../generic-styled-components/generic-styled-components";
 
 const HomepageMenuTopFile = () => {
-  const menuButtonTitles = ["All", "Pizza", "Drinks", "Salads", "Desserts"];
+  const menuButtonTitles = [
+    "All",
+    "Pizza",
+    "Drinks",
+    "Salads",
+    "Sides + Sweets",
+  ];
   const [activeMenuButton, setActiveMenuButton] = useState(1);
   const [selectedMenuButton, setSelectedMenuButton] = useState("Pizza");
   let menuData = [];

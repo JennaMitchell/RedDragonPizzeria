@@ -4,14 +4,16 @@ import {
   LogoImage,
   LogoContainer,
   StyledToolBar,
+  RoofSvgContainer,
 } from "./nav-bar-styled-components";
 import logo from "../../img/logo.png";
 import { Typography } from "@mui/material";
 import NavButtons from "./nav-buttons";
 
+
 const NavBar = () => {
   return (
-    <AppBar color="primary" position="relative">
+    <AppBar color="primary" sx={{ position: "relative" }} position="relative">
       <StyledToolBar>
         <LogoTitleContainer>
           <LogoContainer>
@@ -21,6 +23,7 @@ const NavBar = () => {
         </LogoTitleContainer>
         <NavButtons />
       </StyledToolBar>
+      <RoofSvgContainer />
     </AppBar>
   );
 };
