@@ -1,10 +1,9 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
+
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
-import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
@@ -18,6 +17,14 @@ const NewPizzaPopup = ({
 }) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const onClosePepperoniHandler = () => {
+    retrievePizzaType("Pepperoni Marker");
+    onCloseFunction();
+  };
+  const onCloseBuildHandler = () => {
+    retrievePizzaType("Build a Pizza");
+    onCloseFunction();
+  };
   const onCloseHandler = () => {
     onCloseFunction();
   };
@@ -28,11 +35,19 @@ const NewPizzaPopup = ({
       open={newPizzaPopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
+      PaperProps={{
+        style: {
+          borderRadius: "10px",
+          border: "none",
+        },
+      }}
     >
-      <DialogTitle id="responsive-dialog-title" sx={{ textAlign: "center" }}>
-        {"Pick a Pizza Type"}
-      </DialogTitle>
-      <DialogContent sx={{ backgroundColor: "secondary.light" }}>
+      <DialogContent
+        sx={{
+          backgroundColor: "secondary.dark",
+          color: "secondary.light",
+        }}
+      >
         <Grid
           container
           columns={1}
@@ -40,7 +55,7 @@ const NewPizzaPopup = ({
         >
           <Typography variant="h4">Pepperoni Layout Maker </Typography>
           <Typography variant="h6">or</Typography>
-          <Typography variant="h4">Custom Pizza</Typography>
+          <Typography variant="h4">Build a Pizza</Typography>
         </Grid>
       </DialogContent>
       <DialogActions
@@ -51,12 +66,19 @@ const NewPizzaPopup = ({
           gridTemplateColumns: "repeat(2,max-content)",
           alignItems: "center",
           justifyContent: "space-between",
+          backgroundColor: "secondary.dark",
+          padding: "0px 20px 20px 20px",
         }}
       >
-        <PopupButton onClick={onCloseHandler}>
+        <PopupButton
+          onClick={onClosePepperoniHandler}
+          sx={{ borderRadius: "5px" }}
+        >
           Pepperoni Layout Maker
         </PopupButton>
-        <PopupButton onClick={onCloseHandler}>Custom Pizza</PopupButton>
+        <PopupButton onClick={onCloseBuildHandler} sx={{ borderRadius: "5px" }}>
+          Build a Pizza
+        </PopupButton>
       </DialogActions>
     </Dialog>
   );

@@ -13,7 +13,7 @@ const PopupButton = styled(Button, {
   display: "grid",
   placeItems: "center",
   position: "relative",
-  borderRadius: "10px",
+  borderRadius: "3px",
   boxShadow: "0 0 10px black",
   "&:hover": {
     backgroundColor: theme.palette.primary.light,

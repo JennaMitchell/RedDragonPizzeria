@@ -1,0 +1,67 @@
+const addItemMenuDatabase = {
+  size: {
+    active: true,
+    data: [
+      { type: "sm", price: "$6.99" },
+      { type: "md", price: "$7.99" },
+      { type: "lg", price: "$8.99" },
+      { type: "xl", price: "$10.99" },
+      { type: "xxl", price: "$12.99" },
+    ],
+  },
+  crust: {
+    active: false,
+    data: [
+      { type: "Thin", price: " +$0.00" },
+      { type: "Hand Tossed", price: "+$0.00" },
+      { type: "Deep Dish", price: "+$1.99" },
+    ],
+  },
+  cheese: {
+    active: false,
+    data: [
+      { type: "Mozarella", price: " +$0.00" },
+      { type: "Provolone", price: "+$0.00" },
+      { type: "Cheddar", price: "+$0.00" },
+    ],
+  },
+  veggies: {
+    active: false,
+    data: [
+      { type: "Green Pepper", price: " +$1.00" },
+      { type: "Red Pepper", price: " +$1.00" },
+      { type: "Jalapenos", price: " +$1.00" },
+      { type: "Black Olives", price: " +$1.00" },
+      { type: "Mushrooms", price: " +$1.00" },
+      { type: "Banana Pepper", price: " +$1.00" },
+      { type: "Tomatoe Slices", price: " +$1.00" },
+      { type: "Spinach", price: " +$1.00" },
+    ],
+  },
+  meats: {
+    active: false,
+    data: [
+      { type: "Pepperoni", price: " +$1.00" },
+      { type: "Bacon", price: " +$1.00" },
+      { type: "Ham", price: " +$1.00" },
+      { type: "Beef", price: " +$1.00" },
+      { type: "Italian Sausage", price: " +$1.00" },
+      { type: "Chicken", price: " +$1.00" },
+      { type: "Salami", price: " +$1.00" },
+      { type: "Steak", price: " +$1.00" },
+    ],
+  },
+  other: {
+    active: false,
+    data: [
+      { type: "Pineapple", price: " +$1.00" },
+      { type: "Hot Sauces", price: " +$1.00" },
+      { type: "Extra Cheese", price: " +$1.00" },
+      { type: "Shredded Provolone", price: " +$1.00" },
+      { type: "Cheddar Cheese", price: " +$1.00" },
+      { type: "Feta Cheese", price: " +$1.00" },
+      { type: "Parmesan-Asiago Cheese", price: " +$1.00" },
+    ],
+  },
+};
+export default addItemMenuDatabase;

@@ -49,7 +49,7 @@ const PizzaSliceLineArtTwo = styled("img", {
   width: "max(140px,140px)",
   height: "max(90px,90px)",
   position: "absolute",
-  top: "350px",
+  top: "340px",
   left: "10px",
   display: "grid",
   placeItems: "center",

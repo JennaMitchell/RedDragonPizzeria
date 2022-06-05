@@ -41,7 +41,7 @@ const pizzaMenuDatabase = {
       "Fresh Baby Spinach",
     ],
     meats: [
-      "Peperoni",
+      "Pepperoni",
       "Bacon",
       "Ham",
       "Beef",
