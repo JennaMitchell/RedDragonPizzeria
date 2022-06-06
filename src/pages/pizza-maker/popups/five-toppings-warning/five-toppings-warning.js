@@ -3,36 +3,30 @@ import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
 
-import { PopupButton } from "./generic-popup-styled-components";
+import { PopupButton } from "../generic-popup-styled-components";
+import { useDispatch } from "react-redux";
+import { storeActions } from "../../../../store/store";
 
-const NewPizzaPopup = ({
-  newPizzaPopup,
-  onCloseFunction,
-  retrievePizzaType,
-}) => {
+const FiveToppingsWarning = ({ fiveToppingsWarningPopup }) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const onClosePepperoniHandler = () => {
-    retrievePizzaType("Pepperoni Maker");
-    onCloseFunction();
-  };
-  const onCloseBuildHandler = () => {
-    retrievePizzaType("Build a Pizza");
-    onCloseFunction();
-  };
+
+  const dispatch = useDispatch();
+
   const onCloseHandler = () => {
-    onCloseFunction();
+    dispatch(storeActions.setFiveToppingsWarning(false));
   };
 
   return (
     <Dialog
       fullScreen={fullScreen}
-      open={newPizzaPopup}
+      open={fiveToppingsWarningPopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
       PaperProps={{
@@ -42,6 +36,16 @@ const NewPizzaPopup = ({
         },
       }}
     >
+      <DialogTitle
+        sx={{
+          backgroundColor: "secondary.dark",
+          color: "error.main",
+          textAlign: "center",
+          fontSize: "26px",
+        }}
+      >
+        Warning !
+      </DialogTitle>
       <DialogContent
         sx={{
           backgroundColor: "secondary.dark",
@@ -53,9 +57,10 @@ const NewPizzaPopup = ({
           columns={1}
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
-          <Typography variant="h4">Pepperoni Layout Maker </Typography>
-          <Typography variant="h6">or</Typography>
-          <Typography variant="h4">Build a Pizza</Typography>
+          <Typography variant="h6">Five toppings limited reached!</Typography>
+          <Typography variant="h6">
+            Please deselect a topping option to add another
+          </Typography>
         </Grid>
       </DialogContent>
       <DialogActions
@@ -63,24 +68,17 @@ const NewPizzaPopup = ({
           width: "max(100%,100%)",
           height: "max(max-content,max-content)",
           display: "grid",
-          gridTemplateColumns: "repeat(2,max-content)",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           backgroundColor: "secondary.dark",
           padding: "0px 20px 20px 20px",
         }}
       >
-        <PopupButton
-          onClick={onClosePepperoniHandler}
-          sx={{ borderRadius: "5px" }}
-        >
-          Pepperoni Layout Maker
-        </PopupButton>
-        <PopupButton onClick={onCloseBuildHandler} sx={{ borderRadius: "5px" }}>
-          Build a Pizza
+        <PopupButton onClick={onCloseHandler} sx={{ borderRadius: "5px" }}>
+          Close
         </PopupButton>
       </DialogActions>
     </Dialog>
   );
 };
-export default NewPizzaPopup;
+export default FiveToppingsWarning;

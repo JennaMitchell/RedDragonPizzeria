@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import chalkCircle from "../../img/chalk-circle.png";
+import chalkCircle from "../../img/full-menu/chalk-circle.png";
 
 const SelectorButton = styled("button", {
   name: "MenuSelectorButton",

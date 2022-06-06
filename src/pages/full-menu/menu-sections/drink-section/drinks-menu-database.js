@@ -1,4 +1,4 @@
-import horizonalUnderline from "../../../../img/chalk_underline_horizontal.png";
+import horizonalUnderline from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
 import {
   SmallUnderlineContainer,
   StyledTypography,

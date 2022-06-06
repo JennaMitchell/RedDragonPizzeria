@@ -11,9 +11,9 @@ import {
   SectionBreaker,
 } from "../general-styled-components/general-styled-components";
 
-import verticalUnderline from "../../../../img/chalk_underline_vertical.png";
-import horizontalUnderLine from "../../../../img/chalk_underline_horizontal.png";
-import bellpepperLineArt from "../../../../img/bell-pepper-lineart-1.png";
+import verticalUnderline from "../../../../img/line-art/underlines/chalk_underline_vertical.png";
+import horizontalUnderLine from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import bellpepperLineArt from "../../../../img/line-art/veggies/bell-pepper-lineart-1.png";
 import {
   renderReadySaladDataColumnOne,
   renderReadySaladDataColumnTwo,

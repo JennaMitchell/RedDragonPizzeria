@@ -1,7 +1,7 @@
-import pizzaDough from "../../../img/pizza-dough.jpg";
-import pizzaPrep from "../../../img/pizza-prep.jpg";
-import pizzaOven from "../../../img/pizza-oven.jpg";
-import pizzaBox from "../../../img/pizza-box.jpg";
+import pizzaDough from "../../../img/homepage/pizza-dough.jpg";
+import pizzaPrep from "../../../img/homepage/pizza-prep.jpg";
+import pizzaOven from "../../../img/homepage/pizza-oven.jpg";
+import pizzaBox from "../../../img/homepage/pizza-box.jpg";
 
 const carouselData = [
   {

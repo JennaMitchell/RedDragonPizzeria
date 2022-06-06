@@ -6,10 +6,9 @@ import {
   StyledToolBar,
   RoofSvgContainer,
 } from "./nav-bar-styled-components";
-import logo from "../../img/logo.png";
+import logo from "../../img/logo/logo.png";
 import { Typography } from "@mui/material";
 import NavButtons from "./nav-buttons";
-
 
 const NavBar = () => {
   return (

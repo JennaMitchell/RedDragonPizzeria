@@ -7,7 +7,7 @@ import {
 import { Typography, Grid } from "@mui/material";
 import { useState } from "react";
 import MenuSelectorButton from "./hompage-menu-selector-button";
-import logo from "../../../img/logo.png";
+import logo from "../../../img/logo/logo.png";
 import homepageMenuData from "./homepage-menu-data";
 import HomepageMenuItem from "./homepage-menu-item";
 import { MenuSelectorContainer } from "../../../generic-styled-components/generic-styled-components";

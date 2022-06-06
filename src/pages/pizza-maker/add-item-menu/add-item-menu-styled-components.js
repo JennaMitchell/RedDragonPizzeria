@@ -17,7 +17,7 @@ const AddItemMenuContainer = styled(Container, {
   transition: "all 0.5s",
 }));
 
-const InterfaceContainer = styled(Container, {
+const InterfaceContainer = styled("div", {
   name: "InterfaceContainer",
   slot: "Wrapper",
 })(({ theme }) => ({

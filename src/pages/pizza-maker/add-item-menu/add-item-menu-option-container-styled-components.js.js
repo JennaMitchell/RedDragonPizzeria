@@ -7,12 +7,12 @@ const TopContainer = styled("div", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.dark,
   display: "grid",
   gridTemplateRows: "max-content",
   gridAutoFlow: "row",
   placeItems: "center",
-  transition: "all 0.5s",
+  transition: "all 1.5s",
   color: theme.palette.secondary.light,
 }));
 const CategoryButton = styled(Button, {
@@ -25,11 +25,13 @@ const CategoryButton = styled(Button, {
   display: "grid",
   placeItems: "center",
   transition: "all 0.5s",
-  marginTop: "10px",
+
   boxShadow: "0 0 5px black",
   border: "1px solid black",
   fontSize: "28px",
   color: theme.palette.secondary.light,
+  marginTop: "10px",
+  textTransform: "capitalize",
 }));
 const InfoContainer = styled("div", {
   name: "InfoContainer",
@@ -41,45 +43,46 @@ const InfoContainer = styled("div", {
   display: "grid",
   placeItems: "center",
   transition: "all 0.5s",
-  marginTop: "10px",
-  boxShadow: "0 0 5px black",
-  border: "1px solid black",
+  paddingTop: "10px",
+
   fontSize: "28px",
   color: theme.palette.secondary.light,
   gridAutoFlow: "row",
+  borderLeft: "1px solid black",
+  borderBottom: "1px solid black",
+  borderRight: "1px solid black",
+  boxShadow: "0 0 5px black",
+  borderEndEndRadius: "5px",
+  borderEndStartRadius: "7px",
 }));
 
 const ThreeColumnRow = styled("div", {
   name: "ThreeColumnRow",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(100%,100%)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: "inherit",
   display: "grid",
-  placeItems: "center",
-  transition: "all 0.5s",
-  marginTop: "10px",
-
-  gridAutoFlow: "row",
-  gridTemplateColumns: "repeat(3,1fr)",
+  alignItems: "center",
+  justifyContent: "space-evenly",
+  gridTemplateColumns: "repeat(3,max-content)",
+  marginBottom: "10px",
 }));
 
 const TwoColumnRow = styled("div", {
   name: "TwoColumnRow",
   slot: "Wrapper",
-})(({ theme }) => ({
-  width: "max(100%,100%)",
+})(() => ({
+  width: "max(85%,85%)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: "inherit",
   display: "grid",
-  placeItems: "center",
+  alignItems: "center",
+  justifyContent: "space-around",
   transition: "all 0.5s",
-  marginTop: "10px",
-
-  color: theme.palette.secondary.light,
-  gridAutoFlow: "row",
   gridTemplateColumns: "repeat(2,max-content)",
+  marginBottom: "10px",
 }));
 
 const OneColumnRow = styled("div", {
@@ -88,25 +91,26 @@ const OneColumnRow = styled("div", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: "inherit",
   display: "grid",
   placeItems: "center",
   transition: "all 0.5s",
+  marginBottom: "10px",
 }));
 
 const SelectorContainer = styled("div", {
   name: "SelectorContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(90%,90%)",
+  width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: "inherit",
   display: "grid",
   alignItems: "center",
   justifyContent: "space-between",
   color: theme.palette.secondary.light,
-  gridAutoFlow: "row",
   gridTemplateColumns: "max-content max-content",
+  marginLeft: "5px",
 }));
 
 const SelectorTitle = styled(Typography, {
@@ -115,11 +119,12 @@ const SelectorTitle = styled(Typography, {
 })(({ theme }) => ({
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.secondary.light,
+
   display: "grid",
   placeItems: "center",
   color: theme.palette.secondary.dark,
-  fontSize: "28px",
+  fontSize: "14px",
+  marginLeft: "5px",
 }));
 
 export {

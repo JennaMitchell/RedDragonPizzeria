@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Toolbar } from "@mui/material";
-import roof from "../../img/Roof.png";
+import roof from "../../img/homepage/roof.png";
 
 const LogoContainer = styled("div", {
   name: "LogoContainer",

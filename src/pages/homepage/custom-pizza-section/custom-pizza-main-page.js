@@ -2,7 +2,7 @@ import {
   ImageContainer,
   TopContainer,
 } from "./custom-pizza-main-page-styled-components";
-import peperoniPhoto from "../../../img/pep-pizza-1.jpg";
+import peperoniPhoto from "../../../img/homepage/pep-pizza-1.jpg";
 
 import { Grid, Typography, Card } from "@mui/material";
 import { StyledButton } from "../../../generic-styled-components/generic-styled-components";

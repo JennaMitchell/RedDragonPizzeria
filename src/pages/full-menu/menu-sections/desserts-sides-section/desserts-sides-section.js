@@ -9,8 +9,8 @@ import {
 } from "../general-styled-components/general-styled-components";
 import { Grid } from "@mui/material";
 
-import horizontalUnderLine from "../../../../img/chalk_underline_horizontal.png";
-import cookieLineArt from "../../../../img/cookie-lineart-1-half.png";
+import horizontalUnderLine from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import cookieLineArt from "../../../../img/line-art/dessert/cookie-lineart-1-half.png";
 import {
   renderReadySidesContainer,
   pizzaCookieSection,

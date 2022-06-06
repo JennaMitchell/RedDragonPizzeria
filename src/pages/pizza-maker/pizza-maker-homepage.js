@@ -2,7 +2,6 @@ import {
   TopContainer,
   NewPizzaButton,
   KitchenTableContainer,
-  PizzaPanContainer,
   PizzaPeelWithPan,
   PizzaPeelWithoutPan,
   MenuButton,
@@ -12,15 +11,15 @@ import {
 } from "./pizza-maker-homepage-styled-components";
 import { useState } from "react";
 import { keyframes } from "@emotion/react";
-
 import NewPizzaPopup from "./popups/new-pizza-popup";
-import tablePhoto from "../../img/wood-table-cropped.png";
-import pizzaPan from "../../img/pizza-pan.png";
-import pizzaPeel from "../../img/pizza-peel.png";
-import pizzaPeelWithPan from "../../img/pizza-peel-with-pan.png";
+import tablePhoto from "../../img/pizza-builder/wood-table-cropped.png";
+
+import pizzaPeel from "../../img/pizza-builder/pizza-peel.png";
+import pizzaPeelWithPan from "../../img/pizza-builder/pizza-peel-with-pan.png";
 import { useEffect } from "react";
 
 import AddItemMenu from "./add-item-menu/add-item-menu";
+import BuildAPizzaDisplayImage from "./pizza-image-manager/build-a-pizza/build-a-pizza-top-image-container";
 
 const PizzaMakerHomepage = () => {
   const [newPizzaPopup, setNewPizzaPopup] = useState(true);
@@ -71,7 +70,7 @@ const PizzaMakerHomepage = () => {
           <OpenMenuIcon onClick={pizzaMenuHandler} />
         )}
       </MenuButton>
-      {panDropedOff && <PizzaPanContainer src={pizzaPan} alt="Pizza Pan" />}
+      {panDropedOff && <BuildAPizzaDisplayImage />}
       <PizzaPeelWithPan
         src={pizzaPeelWithPan}
         alt="Pizza Peel"

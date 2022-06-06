@@ -15,11 +15,11 @@ import {
   StyledTypography,
 } from "../general-styled-components/general-styled-components";
 
-import horizontalUnderLine from "../../../../img/chalk_underline_horizontal.png";
-import verticalUnderLine from "../../../../img/chalk_underline_vertical.png";
-import beerLineArt from "../../../../img/beer-lineart-2.png";
-import cocktailLineArt from "../../../../img/lemonade-lineart-1.png";
-import shotGlassLineArt from "../../../../img/shot-glass-lineart-1.png";
+import horizontalUnderLine from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import verticalUnderLine from "../../../../img/line-art/underlines/chalk_underline_vertical.png";
+import beerLineArt from "../../../../img/line-art/drinks/beer-lineart-2.png";
+import cocktailLineArt from "../../../../img/line-art/drinks/lemonade-lineart-1.png";
+import shotGlassLineArt from "../../../../img/line-art/drinks/shot-glass-lineart-1.png";
 import {
   renderReadyBeerData,
   renderReadyCocktailsDataRowOne,

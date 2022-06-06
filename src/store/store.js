@@ -1,6 +1,16 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 const initialState = {
-  buildAPizzaUserSelectedObject: {},
+  buildAPizzaUserSelectedObject: {
+    size: ["Medium"],
+    sauce: [],
+    crust: [],
+    cheese: [],
+    veggies: [],
+    meats: [],
+    other: [],
+  },
+  buildAPizzaObjectToggle: false,
+  fiveToppingsWarning: false,
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -8,6 +18,12 @@ const storeSlice = createSlice({
   reducers: {
     setBuildAPizzaUserSelectedObject(state, { payload }) {
       state.buildAPizzaUserSelectedObject = payload;
+    },
+    setBuildAPizzaObjectToggle(state, { payload }) {
+      state.buildAPizzaObjectToggle = payload;
+    },
+    setFiveToppingsWarning(state, { payload }) {
+      state.fiveToppingsWarning = payload;
     },
   },
 });

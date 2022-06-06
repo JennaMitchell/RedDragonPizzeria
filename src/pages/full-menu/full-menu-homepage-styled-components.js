@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
-import cityStreets from "../../img/city-streets.jpg";
+import cityStreets from "../../img/full-menu/city-streets.jpg";
 
-import woodenBoard from "../../img/plank.jpg";
+import woodenBoard from "../../img/full-menu/plank.jpg";
 
 const TopContainer = styled("div", {
   name: "TopContainer",

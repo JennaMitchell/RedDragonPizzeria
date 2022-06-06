@@ -12,7 +12,12 @@ import {
 import AddItemMenuOptionButton from "./add-item-menu-option-button.js";
 import { useSelector } from "react-redux";
 
-const AddItemMenuOptionContainer = ({ data, active, objectSection }) => {
+const AddItemMenuOptionContainer = ({
+  data,
+  active,
+  objectSection,
+  categoryButtonHandler,
+}) => {
   const numberOfRows = Math.floor(data.length / 3);
   const renderReadyThreeColumnRows = [];
   const renderReadyTwoColumnRow = [];
@@ -20,22 +25,28 @@ const AddItemMenuOptionContainer = ({ data, active, objectSection }) => {
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
-  // creating the active array by checking our obejct in storage
+  // creating the active array by checking our object in storage
   let activeButtonArray = [];
   for (let q = 0; q < data.length; q++) {
-    if (buildAPizzaUserSelectedObject[objectSection].includes(data[q].type)) {
-      activeButtonArray[q] = true;
+    if (buildAPizzaUserSelectedObject[objectSection].length !== 0) {
+      if (buildAPizzaUserSelectedObject[objectSection].includes(data[q].type)) {
+        activeButtonArray[q] = true;
+      }
     } else {
       activeButtonArray[q] = false;
     }
   }
+
+  const categoryButtonCaller = () => {
+    categoryButtonHandler(objectSection);
+  };
 
   for (let i = 0; i < numberOfRows; i++) {
     let numberSpanStart = (i + 1) * 3 - 3;
     //{ type, active, objectSection }
 
     renderReadyThreeColumnRows[i] = (
-      <ThreeColumnRow>
+      <ThreeColumnRow key={` ${objectSection} ${i}`}>
         <SelectorContainer>
           <AddItemMenuOptionButton
             type={data[numberSpanStart]}
@@ -69,7 +80,7 @@ const AddItemMenuOptionContainer = ({ data, active, objectSection }) => {
 
   if (data.length % 3 === 1) {
     renderReadyOneColumnRow[0] = (
-      <OneColumnRow>
+      <OneColumnRow key={` ${objectSection} ${data.length - 1}`}>
         <SelectorContainer>
           <AddItemMenuOptionButton
             type={data[data.length - 1]}
@@ -83,7 +94,7 @@ const AddItemMenuOptionContainer = ({ data, active, objectSection }) => {
   }
   if (data.length % 3 === 2) {
     renderReadyTwoColumnRow[0] = (
-      <TwoColumnRow>
+      <TwoColumnRow key={` ${objectSection} ${data.length - 2}`}>
         <SelectorContainer>
           <AddItemMenuOptionButton
             type={data[data.length - 2]}
@@ -115,11 +126,13 @@ const AddItemMenuOptionContainer = ({ data, active, objectSection }) => {
     renderReadyData.push(renderReadyTwoColumnRow[0]);
   }
   renderReadyData = renderReadyData.map((code) => code);
-  // combing the rows into one mega ready object
+  // combining the rows into one mega ready object
 
   return (
-    <TopContainer>
-      <CategoryButton>{objectSection}</CategoryButton>
+    <TopContainer key={objectSection}>
+      <CategoryButton onClick={categoryButtonCaller}>
+        {objectSection}
+      </CategoryButton>
       {active && <InfoContainer>{renderReadyData}</InfoContainer>}
     </TopContainer>
   );

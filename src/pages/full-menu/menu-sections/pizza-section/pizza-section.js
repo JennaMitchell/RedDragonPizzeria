@@ -15,12 +15,12 @@ import {
   PizzaSliceLineArtTwo,
   TomatoLineArt,
 } from "./pizza-section-styled-components";
-import pizzaUnderline from "../../../../img/chalk_underline_horizontal.png";
-import verticalUnderline from "../../../../img/chalk_underline_vertical.png";
-import pizzaSliceLineArtOne from "../../../../img/pizza-slice-lineart-1.png";
-import pizzaSliceLineArtTwo from "../../../../img/pizza-slice-lineart-2.png";
+import pizzaUnderline from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import verticalUnderline from "../../../../img/line-art/underlines/chalk_underline_vertical.png";
+import pizzaSliceLineArtOne from "../../../../img/line-art/pizza/pizza-slice-lineart-1.png";
+import pizzaSliceLineArtTwo from "../../../../img/line-art/pizza/pizza-slice-lineart-2.png";
 // import pizzaMenuImage from "../../../../img/pizza-lineart-2.png";
-import tomatoLineArt from "../../../../img/tomatoes-lineart-1.png";
+import tomatoLineArt from "../../../../img/line-art/veggies/tomatoes-lineart-1.png";
 import {
   renderReadyPizzaSizes,
   renderReadyPizzaCrusts,
