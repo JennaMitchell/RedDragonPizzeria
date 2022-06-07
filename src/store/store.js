@@ -11,6 +11,7 @@ const initialState = {
   },
   buildAPizzaObjectToggle: false,
   fiveToppingsWarning: false,
+  chooseACrustWarning: false,
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -24,6 +25,9 @@ const storeSlice = createSlice({
     },
     setFiveToppingsWarning(state, { payload }) {
       state.fiveToppingsWarning = payload;
+    },
+    setChooseACrustWarning(state, { payload }) {
+      state.chooseACrustWarning = payload;
     },
   },
 });

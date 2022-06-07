@@ -76,14 +76,7 @@ const PizzaSizeImageManager = ({ size }) => {
       );
       break;
     default:
-      <PizzaPanContainer
-        src={pizzaPan}
-        sx={{
-          width: "max(550px,550px)",
-          height: "max(550px,550px)",
-        }}
-        alt="pizza pan"
-      />;
+      renderReadyPizzaPan = "";
   }
 
   return <>{renderReadyPizzaPan}</>;

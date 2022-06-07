@@ -14,6 +14,8 @@ const addItemMenuDatabase = {
     data: [
       { type: "Thin", price: " +$0.00" },
       { type: "Hand Tossed", price: "+$0.00" },
+      { type: "Brooklyn Style", price: "+$0.99" },
+      { type: "New York Style", price: "+$0.99" },
       { type: "Deep Dish", price: "+$1.99" },
     ],
   },
@@ -30,7 +32,7 @@ const addItemMenuDatabase = {
   cheese: {
     active: false,
     data: [
-      { type: "Mozarella", price: " +$0.00" },
+      { type: "Mozzarella", price: " +$0.00" },
       { type: "Provolone", price: "+$0.00" },
       { type: "Cheddar", price: "+$0.00" },
     ],

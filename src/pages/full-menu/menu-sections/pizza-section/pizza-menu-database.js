@@ -58,6 +58,7 @@ const pizzaMenuDatabase = {
       "Cheddar Cheese",
       "Feta Cheese",
       "Parmesan-Asiago Cheese",
+      "Mozzarella Cheese",
     ],
   },
   pizza: [

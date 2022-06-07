@@ -1,6 +1,9 @@
 import { styled } from "@mui/material";
 import { useSelector } from "react-redux";
 import PizzaSizeImageManager from "./pizza-size-image-manager";
+import PizzaDoughImageManger from "./pizza-dough-image-manager";
+import PizzaSauceImageManger from "./pizza-sauce-image-manager";
+import PizzaCheeseImageManager from "./pizza-cheese-image-manager";
 const TopImageContainer = styled("div", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -25,6 +28,14 @@ const BuildAPizzaDisplayImage = () => {
   return (
     <TopImageContainer>
       <PizzaSizeImageManager size={buildAPizzaUserSelectedObject.size[0]} />
+      <PizzaDoughImageManger dough={buildAPizzaUserSelectedObject.crust[0]} />
+      <PizzaSauceImageManger
+        sauce={buildAPizzaUserSelectedObject.sauce[0]}
+        crust={buildAPizzaUserSelectedObject.crust[0]}
+      />
+      <PizzaCheeseImageManager
+        cheese={buildAPizzaUserSelectedObject.cheese[0]}
+      />
     </TopImageContainer>
   );
 };

@@ -63,7 +63,7 @@ const PizzaMakerHomepage = () => {
         pizzaCreationType={pizzaCreationType}
       />
 
-      <MenuButton sx={{ left: `${pizzaMenuActive && `500px`}` }}>
+      <MenuButton sx={{ left: `${pizzaMenuActive && `550px`}` }}>
         {pizzaMenuActive ? (
           <CloseMenuIcon onClick={pizzaMenuHandler} />
         ) : (

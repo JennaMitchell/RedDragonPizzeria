@@ -5,7 +5,7 @@ const AddItemMenuContainer = styled(Container, {
   name: "AddItemMenuContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(500px,500px)",
+  width: "max(550px,550px)",
   height: "max(100%,100%)",
   backgroundColor: theme.palette.primary.dark,
   display: "grid",
@@ -13,7 +13,7 @@ const AddItemMenuContainer = styled(Container, {
   alignItems: "flex-start",
   position: "absolute",
   top: "0px",
-  left: "-500px",
+  left: "-550px",
   transition: "all 0.5s",
 }));
 

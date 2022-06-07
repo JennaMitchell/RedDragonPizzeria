@@ -52,17 +52,25 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
     );
 
     // needed to create a new copy and not a reference of the object in storage
+    // if statement is ued for all other sections that aren't toppings
     if (
       objectSection !== "veggies" &&
       objectSection !== "meats" &&
       objectSection !== "other"
     ) {
-      copyOfDataObject[objectSection][0] = type;
-      dispatch(storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject));
-      dispatch(
-        storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
-      );
-      // the toggle is strictly used to cause a render since redux only preforms a shallow object check, nothing well have changed to trigger the render
+      // if statement to clear the selection if the type has already been set.
+      if (copyOfDataObject[objectSection][0] === type) {
+        copyOfDataObject[objectSection][0] = "";
+      } else {
+        copyOfDataObject[objectSection][0] = type;
+        dispatch(
+          storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
+        );
+        dispatch(
+          storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
+        );
+        // the toggle is strictly used to cause a render since redux only preforms a shallow object check, nothing well have changed to trigger the render
+      }
     } else {
       if (active) {
         // if a user clicks on an already active button we need to clear it from the active selected list

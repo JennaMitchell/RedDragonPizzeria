@@ -7,6 +7,7 @@ import {
   SelectorContainer,
   SelectorTitle,
   OneColumnRow,
+  MaxContentContainer,
 } from "./add-item-menu-option-container-styled-components.js";
 
 import AddItemMenuOptionButton from "./add-item-menu-option-button.js";
@@ -47,32 +48,38 @@ const AddItemMenuOptionContainer = ({
 
     renderReadyThreeColumnRows[i] = (
       <ThreeColumnRow key={` ${objectSection} ${i}`}>
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[numberSpanStart]}
-            objectSection={objectSection}
-            active={activeButtonArray[numberSpanStart]}
-          />
-          <SelectorTitle>{data[numberSpanStart].type}</SelectorTitle>
-        </SelectorContainer>
+        <MaxContentContainer>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[numberSpanStart]}
+              objectSection={objectSection}
+              active={activeButtonArray[numberSpanStart]}
+            />
+            <SelectorTitle>{data[numberSpanStart].type}</SelectorTitle>
+          </SelectorContainer>
+        </MaxContentContainer>
 
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[numberSpanStart + 1]}
-            objectSection={objectSection}
-            active={activeButtonArray[numberSpanStart + 1]}
-          />
-          <SelectorTitle>{data[numberSpanStart + 1].type}</SelectorTitle>
-        </SelectorContainer>
+        <MaxContentContainer>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[numberSpanStart + 1]}
+              objectSection={objectSection}
+              active={activeButtonArray[numberSpanStart + 1]}
+            />
+            <SelectorTitle>{data[numberSpanStart + 1].type}</SelectorTitle>
+          </SelectorContainer>
+        </MaxContentContainer>
 
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[numberSpanStart + 2]}
-            objectSection={objectSection}
-            active={activeButtonArray[numberSpanStart + 2]}
-          />
-          <SelectorTitle>{data[numberSpanStart + 2].type}</SelectorTitle>
-        </SelectorContainer>
+        <MaxContentContainer>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[numberSpanStart + 2]}
+              objectSection={objectSection}
+              active={activeButtonArray[numberSpanStart + 2]}
+            />
+            <SelectorTitle>{data[numberSpanStart + 2].type}</SelectorTitle>
+          </SelectorContainer>
+        </MaxContentContainer>
       </ThreeColumnRow>
     );
   }
@@ -80,38 +87,44 @@ const AddItemMenuOptionContainer = ({
 
   if (data.length % 3 === 1) {
     renderReadyOneColumnRow[0] = (
-      <OneColumnRow key={` ${objectSection} ${data.length - 1}`}>
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[data.length - 1]}
-            objectSection={objectSection}
-            active={activeButtonArray[data.length - 1]}
-          />
-          <SelectorTitle>{data[data.length - 1].type}</SelectorTitle>
-        </SelectorContainer>
-      </OneColumnRow>
+      <MaxContentContainer>
+        <OneColumnRow key={` ${objectSection} ${data.length - 1}`}>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[data.length - 1]}
+              objectSection={objectSection}
+              active={activeButtonArray[data.length - 1]}
+            />
+            <SelectorTitle>{data[data.length - 1].type}</SelectorTitle>
+          </SelectorContainer>
+        </OneColumnRow>
+      </MaxContentContainer>
     );
   }
   if (data.length % 3 === 2) {
     renderReadyTwoColumnRow[0] = (
       <TwoColumnRow key={` ${objectSection} ${data.length - 2}`}>
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[data.length - 2]}
-            objectSection={objectSection}
-            active={activeButtonArray[data.length - 2]}
-          />
-          <SelectorTitle>{data[data.length - 2].type}</SelectorTitle>
-        </SelectorContainer>
+        <MaxContentContainer>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[data.length - 2]}
+              objectSection={objectSection}
+              active={activeButtonArray[data.length - 2]}
+            />
+            <SelectorTitle>{data[data.length - 2].type}</SelectorTitle>
+          </SelectorContainer>
+        </MaxContentContainer>
 
-        <SelectorContainer>
-          <AddItemMenuOptionButton
-            type={data[data.length - 1]}
-            objectSection={objectSection}
-            active={activeButtonArray[data.length - 1]}
-          />
-          <SelectorTitle>{data[data.length - 1].type}</SelectorTitle>
-        </SelectorContainer>
+        <MaxContentContainer>
+          <SelectorContainer>
+            <AddItemMenuOptionButton
+              type={data[data.length - 1]}
+              objectSection={objectSection}
+              active={activeButtonArray[data.length - 1]}
+            />
+            <SelectorTitle>{data[data.length - 1].type}</SelectorTitle>
+          </SelectorContainer>
+        </MaxContentContainer>
       </TwoColumnRow>
     );
   }

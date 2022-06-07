@@ -28,7 +28,7 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
     let tempDatabaseCopy = JSON.parse(JSON.stringify(addItemMenuData));
     let arrayOfFalseActiveMenu;
 
-    // the if statement below is used to clear the other opend menus
+    // the if statement below is used to clear the other opened menus
     if (pizzaCreationType === "Pepperoni Maker") {
       arrayOfFalseActiveMenu = pepperoniMakerDataTypes.filter(
         (type) => type !== clickedSection
