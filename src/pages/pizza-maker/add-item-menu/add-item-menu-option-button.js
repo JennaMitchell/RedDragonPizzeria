@@ -44,6 +44,7 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
   const buildAPizzaObjectToggle = useSelector(
     (state) => state.buildAPizzaObjectToggle
   );
+
   type = type.type;
 
   const selectorIconContainerHandler = () => {
@@ -59,10 +60,19 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       objectSection !== "other"
     ) {
       // if statement to clear the selection if the type has already been set.
+
       if (copyOfDataObject[objectSection][0] === type) {
-        copyOfDataObject[objectSection][0] = "";
+        copyOfDataObject[objectSection][0] = [];
+        dispatch(
+          storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
+        );
+        dispatch(
+          storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
+        );
+        // the toggle
       } else {
         copyOfDataObject[objectSection][0] = type;
+
         dispatch(
           storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
         );
@@ -75,7 +85,9 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       if (active) {
         // if a user clicks on an already active button we need to clear it from the active selected list
         let tempArray = copyOfDataObject[objectSection].slice();
-        tempArray.filter((item) => item !== type);
+
+        tempArray = tempArray.filter((item) => item !== type);
+
         copyOfDataObject[objectSection] = tempArray;
         dispatch(
           storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)

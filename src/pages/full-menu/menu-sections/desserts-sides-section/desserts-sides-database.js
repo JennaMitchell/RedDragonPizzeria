@@ -5,7 +5,8 @@ import {
   PictureTextContainer,
   StyledTypography,
 } from "../general-styled-components/general-styled-components";
-
+import breadLineArt from "../../../../img/line-art/bread/bread-line-art.png";
+import garlicKnotLineArt from "../../../../img/line-art/bread/garlic-knot-line-art.png";
 const dessertsNSidesData = {
   Cookie: [
     {
@@ -17,12 +18,14 @@ const dessertsNSidesData = {
   Sides: [
     {
       title: "Garlic Sticks ",
+      image: breadLineArt,
       description:
         "Homemade bread sticks, coated in garlic butter and topped with graded Romono Cheese, served with a side of tomato sauce ",
       price: "sm. $4.99 lg. $6.99",
     },
     {
       title: "Garlic Knots",
+      image: garlicKnotLineArt,
       description:
         "Homemade bread knots, coated in butter, and topped with garlic salt ",
       price: "sm. $4.99 lg. $6.99",
@@ -35,7 +38,7 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
     if (index % 2 === 0) {
       return (
         <PictureTextContainer key={index}>
-          <LeftImageContainer alt={sides.title} />
+          <LeftImageContainer alt={sides.title} src={sides.image} />
           <ThreeRowsTextContainer>
             <StyledTypography
               variant="h4"
@@ -101,7 +104,7 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
               {sides.price}
             </StyledTypography>
           </ThreeRowsTextContainer>
-          <RightImageContainer alt={sides.title} />
+          <RightImageContainer alt={sides.title} src={sides.image} />
         </PictureTextContainer>
       );
     }

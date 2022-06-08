@@ -30,6 +30,7 @@ const AddItemMenuOptionContainer = ({
   let activeButtonArray = [];
   for (let q = 0; q < data.length; q++) {
     if (buildAPizzaUserSelectedObject[objectSection].length !== 0) {
+      console.log(buildAPizzaUserSelectedObject[objectSection]);
       if (buildAPizzaUserSelectedObject[objectSection].includes(data[q].type)) {
         activeButtonArray[q] = true;
       }

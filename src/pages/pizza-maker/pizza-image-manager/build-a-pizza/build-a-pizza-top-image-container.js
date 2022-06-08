@@ -4,6 +4,7 @@ import PizzaSizeImageManager from "./pizza-size-image-manager";
 import PizzaDoughImageManger from "./pizza-dough-image-manager";
 import PizzaSauceImageManger from "./pizza-sauce-image-manager";
 import PizzaCheeseImageManager from "./pizza-cheese-image-manager";
+import PizzaToppingsImageManager from "./pizza-toppings-image-manager";
 const TopImageContainer = styled("div", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -34,6 +35,12 @@ const BuildAPizzaDisplayImage = () => {
         crust={buildAPizzaUserSelectedObject.crust[0]}
       />
       <PizzaCheeseImageManager
+        cheese={buildAPizzaUserSelectedObject.cheese[0]}
+      />
+      <PizzaToppingsImageManager
+        veggies={buildAPizzaUserSelectedObject.veggies}
+        meats={buildAPizzaUserSelectedObject.meats}
+        other={buildAPizzaUserSelectedObject.other}
         cheese={buildAPizzaUserSelectedObject.cheese[0]}
       />
     </TopImageContainer>

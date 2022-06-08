@@ -154,7 +154,7 @@ const RightImageContainer = styled("img", {
   name: "RightImageContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(150px,150px)",
+  width: "max(250px,250px)",
   height: "max(150px,150px)",
   display: "grid",
   placeItems: "center",
@@ -168,7 +168,7 @@ const LeftImageContainer = styled("img", {
   name: "LeftImageContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(150px,150px)",
+  width: "max(250px,250px)",
   height: "max(150px,150px)",
   display: "grid",
   placeItems: "center",

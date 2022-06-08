@@ -46,8 +46,9 @@ const addItemMenuDatabase = {
       { type: "Red Pepper", price: " +$1.00" },
       { type: "Black Olives", price: " +$1.00" },
       { type: "Mushrooms", price: " +$1.00" },
+      { type: "Onion", price: " +$1.00" },
       { type: "Banana Pepper", price: " +$1.00" },
-      { type: "Tomatoe Slices", price: " +$1.00" },
+      { type: "Tomato Slices", price: " +$1.00" },
     ],
   },
   meats: {
@@ -56,11 +57,8 @@ const addItemMenuDatabase = {
       { type: "Pepperoni", price: " +$1.00" },
       { type: "Bacon", price: " +$1.00" },
       { type: "Ham", price: " +$1.00" },
-      { type: "Beef", price: " +$1.00" },
       { type: "Italian Sausage", price: " +$1.00" },
       { type: "Chicken", price: " +$1.00" },
-      { type: "Salami", price: " +$1.00" },
-      { type: "Steak", price: " +$1.00" },
     ],
   },
   other: {
