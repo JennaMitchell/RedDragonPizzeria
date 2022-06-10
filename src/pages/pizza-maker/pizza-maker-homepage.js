@@ -8,18 +8,21 @@ import {
   OpenMenuIcon,
   CloseMenuIcon,
   MainTitle,
+  MainTitleContainer,
 } from "./pizza-maker-homepage-styled-components";
 import { useState } from "react";
 import { keyframes } from "@emotion/react";
 import NewPizzaPopup from "./popups/new-pizza-popup";
-import tablePhoto from "../../img/pizza-builder/wood-table-cropped.png";
 
-import pizzaPeel from "../../img/pizza-builder/pizza-peel.png";
-import pizzaPeelWithPan from "../../img/pizza-builder/pizza-peel-with-pan.png";
+import pizzaPeel from "../../img/pizza-maker/peel/pizza-peel.png";
+import pizzaPeelWithPan from "../../img/pizza-maker/peel/pizza-peel-with-pan.png";
 import { useEffect } from "react";
 
 import AddItemMenu from "./add-item-menu/add-item-menu";
 import BuildAPizzaDisplayImage from "./pizza-image-manager/build-a-pizza/build-a-pizza-top-image-container";
+import PepperoniMakerDisplayImage from "./pizza-image-manager/pepperoni-maker/pepperoni-maker-pan-manager";
+import BuildAPizzaOrderReviewBoard from "./pizza-image-manager/build-a-pizza/order-review-board/build-a-pizza-order-review-board";
+import PepperoniMakerOrderReviewBoard from "./pizza-image-manager/pepperoni-maker/order-review-board/pepperoni-maker-order-review-board";
 
 const PizzaMakerHomepage = () => {
   const [newPizzaPopup, setNewPizzaPopup] = useState(true);
@@ -38,11 +41,11 @@ const PizzaMakerHomepage = () => {
 
   const pizzaPeelSlideIn = keyframes({
     "0%": { right: "-1200px" },
-    "100%": { right: "0px" },
+    "100%": { right: "300px", display: "none" },
   });
 
   const pizzaPeelSlideOut = keyframes({
-    "0%": { right: "0px" },
+    "0%": { right: "300px" },
     "100%": { right: "-1200px" },
   });
 
@@ -56,7 +59,11 @@ const PizzaMakerHomepage = () => {
 
   return (
     <TopContainer>
-      <MainTitle variant="h2">{pizzaCreationType}</MainTitle>
+      <MainTitleContainer
+        sx={{ visibility: `${!panDropedOff ? "hidden" : "visible"}` }}
+      >
+        <MainTitle variant="h2">{pizzaCreationType}</MainTitle>
+      </MainTitleContainer>
 
       <AddItemMenu
         pizzaMenuActive={pizzaMenuActive}
@@ -70,7 +77,7 @@ const PizzaMakerHomepage = () => {
           <OpenMenuIcon onClick={pizzaMenuHandler} />
         )}
       </MenuButton>
-      {panDropedOff && <BuildAPizzaDisplayImage />}
+
       <PizzaPeelWithPan
         src={pizzaPeelWithPan}
         alt="Pizza Peel"
@@ -97,7 +104,19 @@ const PizzaMakerHomepage = () => {
         onCloseFunction={newPizzaHandler}
         retrievePizzaType={pizzaCreationTypeHandler}
       />
-      <KitchenTableContainer src={tablePhoto} alt="wooden table" />
+      {pizzaCreationType !== "Custom Pepperoni Layout" && (
+        <KitchenTableContainer>
+          {panDropedOff && <BuildAPizzaDisplayImage />}
+          {panDropedOff && <BuildAPizzaOrderReviewBoard />}
+        </KitchenTableContainer>
+      )}
+      {pizzaCreationType === "Custom Pepperoni Layout" && (
+        <KitchenTableContainer>
+          {panDropedOff && <PepperoniMakerDisplayImage />}
+          {panDropedOff && <PepperoniMakerOrderReviewBoard />}
+        </KitchenTableContainer>
+      )}
+
       <NewPizzaButton onClick={newPizzaHandler} />
     </TopContainer>
   );

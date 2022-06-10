@@ -19,7 +19,7 @@ const TopImageContainer = styled("div", {
   zIndex: 2,
 }));
 
-const BuildAPizzaDisplayImage = () => {
+const PepperoniMakerDisplayImage = () => {
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
@@ -44,4 +44,4 @@ const BuildAPizzaDisplayImage = () => {
     </TopImageContainer>
   );
 };
-export default BuildAPizzaDisplayImage;
+export default PepperoniMakerDisplayImage;

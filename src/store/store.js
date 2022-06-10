@@ -8,7 +8,9 @@ const initialState = {
     veggies: [],
     meats: [],
     other: [],
+    pepperoni: [],
   },
+  pepperoniLayoutDatabase: {},
   buildAPizzaObjectToggle: false,
   fiveToppingsWarning: false,
   chooseACrustWarning: false,
@@ -28,6 +30,9 @@ const storeSlice = createSlice({
     },
     setChooseACrustWarning(state, { payload }) {
       state.chooseACrustWarning = payload;
+    },
+    setPepperoniLayoutDatabase(state, { payload }) {
+      state.pepperoniLayoutDatabase = payload;
     },
   },
 });

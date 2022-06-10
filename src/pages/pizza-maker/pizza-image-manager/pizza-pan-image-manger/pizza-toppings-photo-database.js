@@ -32,7 +32,7 @@ const pizzaToppingsPhotoDatabase = {
   "Black Olives": blackOlivesImage,
   Mushrooms: mushroomImage,
   Onion: onionSlice,
-  "Banna Pepper": bananaPepperImage,
+  "Banana Pepper": bananaPepperImage,
   "Tomato Slices": tomatoSlice,
   Pepperoni: pepperoniImage,
   Bacon: baconImage,

@@ -12,8 +12,8 @@ const addItemMenuDatabase = {
   crust: {
     active: false,
     data: [
-      { type: "Thin", price: " +$0.00" },
-      { type: "Hand Tossed", price: "+$0.00" },
+      { type: "Thin", price: "-$1.00" },
+      { type: "Hand Tossed", price: "$0.00" },
       { type: "Brooklyn Style", price: "+$0.99" },
       { type: "New York Style", price: "+$0.99" },
       { type: "Deep Dish", price: "+$1.99" },
@@ -22,19 +22,19 @@ const addItemMenuDatabase = {
   sauce: {
     active: false,
     data: [
-      { type: "Marinara", price: " +$0.00" },
-      { type: "Robust Tomato", price: "+$0.00" },
-      { type: "BBQ", price: "+$0.00" },
-      { type: "Alfredo", price: "+$0.00" },
-      { type: "Garlic Parmesan White", price: "+$0.00" },
+      { type: "Marinara", price: "$0.00" },
+      { type: "Robust Tomato", price: "$0.00" },
+      { type: "BBQ", price: "$0.00" },
+      { type: "Alfredo", price: "$0.00" },
+      { type: "Garlic Parmesan White", price: "$0.00" },
     ],
   },
   cheese: {
     active: false,
     data: [
-      { type: "Mozzarella", price: " +$0.00" },
-      { type: "Provolone", price: "+$0.00" },
-      { type: "Cheddar", price: "+$0.00" },
+      { type: "Mozzarella", price: "$0.00" },
+      { type: "Provolone", price: "$0.00" },
+      { type: "Cheddar", price: "$0.00" },
     ],
   },
   veggies: {
@@ -72,6 +72,10 @@ const addItemMenuDatabase = {
       { type: "Feta Cheese", price: " +$1.00" },
       { type: "Parmesan-Asiago Cheese", price: " +$1.00" },
     ],
+  },
+  pepperoni: {
+    active: false,
+    data: [],
   },
 };
 export default addItemMenuDatabase;

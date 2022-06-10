@@ -9,6 +9,8 @@ import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
 
 import { PopupButton } from "./generic-popup-styled-components";
+import { useDispatch } from "react-redux";
+import { storeActions } from "../../../store/store";
 
 const NewPizzaPopup = ({
   newPizzaPopup,
@@ -16,13 +18,27 @@ const NewPizzaPopup = ({
   retrievePizzaType,
 }) => {
   const theme = useTheme();
+  const defaultUserData = {
+    size: ["Medium"],
+    sauce: [],
+    crust: [],
+    cheese: [],
+    veggies: [],
+    meats: [],
+    other: [],
+    pepperoni: [],
+  };
+
+  const dispatch = useDispatch();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const onClosePepperoniHandler = () => {
-    retrievePizzaType("Pepperoni Maker");
+    retrievePizzaType("Custom Pepperoni Layout");
+    dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
     onCloseFunction();
   };
   const onCloseBuildHandler = () => {
     retrievePizzaType("Build a Pizza");
+    dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
     onCloseFunction();
   };
   const onCloseHandler = () => {
@@ -53,7 +69,7 @@ const NewPizzaPopup = ({
           columns={1}
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
-          <Typography variant="h4">Pepperoni Layout Maker </Typography>
+          <Typography variant="h4">Custom Pepperoni Layout </Typography>
           <Typography variant="h6">or</Typography>
           <Typography variant="h4">Build a Pizza</Typography>
         </Grid>
@@ -74,7 +90,7 @@ const NewPizzaPopup = ({
           onClick={onClosePepperoniHandler}
           sx={{ borderRadius: "5px" }}
         >
-          Pepperoni Layout Maker
+          Custom Pepperoni Layout
         </PopupButton>
         <PopupButton onClick={onCloseBuildHandler} sx={{ borderRadius: "5px" }}>
           Build a Pizza

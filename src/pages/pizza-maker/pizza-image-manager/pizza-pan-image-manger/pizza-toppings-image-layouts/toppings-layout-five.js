@@ -52,8 +52,8 @@ const ToppingsLayoutFive = ({ image, alt }) => {
     width: "max(10%,10%)",
     height: "max(10%,10%)",
     position: "absolute",
-    bottom: "10.5%",
-    left: "30.5%",
+    bottom: "20.5%",
+    left: "18.5%",
     zIndex: 10,
   }));
   const SixImagePosition = styled("img", {

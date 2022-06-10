@@ -7,7 +7,8 @@ const AddItemMenuContainer = styled(Container, {
 })(({ theme }) => ({
   width: "max(550px,550px)",
   height: "max(100%,100%)",
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: theme.palette.secondary.dark,
+
   display: "grid",
   justifyItems: "center",
   alignItems: "flex-start",
@@ -23,7 +24,7 @@ const InterfaceContainer = styled("div", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(calc(100% - 40px),calc(100% - 40px))",
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: "inherit",
   display: "grid",
   gridTemplateRows: "repeat(6,max-content)",
   justifyItems: "center",

@@ -62,13 +62,16 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       // if statement to clear the selection if the type has already been set.
 
       if (copyOfDataObject[objectSection][0] === type) {
-        copyOfDataObject[objectSection][0] = [];
-        dispatch(
-          storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
-        );
-        dispatch(
-          storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
-        );
+        if (objectSection !== "size") {
+          // so that the size image will always be rendered
+          copyOfDataObject[objectSection][0] = [];
+          dispatch(
+            storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
+          );
+          dispatch(
+            storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
+          );
+        }
         // the toggle
       } else {
         copyOfDataObject[objectSection][0] = type;

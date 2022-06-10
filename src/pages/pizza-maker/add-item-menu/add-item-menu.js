@@ -8,6 +8,7 @@ import AddItemMenuOptionContainer from "./add-item-menu-option-container";
 import { useState } from "react";
 import FiveToppingsWarning from "../popups/five-toppings-warning/five-toppings-warning";
 import { useSelector } from "react-redux";
+
 const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   // Sizes, Crust, Cheese, Veggies, Meats, Other,
   const [addItemMenuData, setAddItemMenuData] = useState(addItemMenuDatabase);
@@ -21,7 +22,13 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
     "meats",
     "other",
   ];
-  const pepperoniMakerDataTypes = ["size", "crust", "sauce", "cheese"];
+  const pepperoniMakerDataTypes = [
+    "size",
+    "crust",
+    "sauce",
+    "cheese",
+    "pepperoni",
+  ];
   // category button handler
   const categoryButtonHandler = (clickedSection) => {
     // temp deep copy
@@ -29,7 +36,7 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
     let arrayOfFalseActiveMenu;
 
     // the if statement below is used to clear the other opened menus
-    if (pizzaCreationType === "Pepperoni Maker") {
+    if (pizzaCreationType === "Custom Pepperoni Layout") {
       arrayOfFalseActiveMenu = pepperoniMakerDataTypes.filter(
         (type) => type !== clickedSection
       );
@@ -45,6 +52,7 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
     // once its down cleaing we activate the one sextion that was clicked
     tempDatabaseCopy[clickedSection].active =
       !tempDatabaseCopy[clickedSection].active;
+
     // then pass the modified object to the state
     setAddItemMenuData(tempDatabaseCopy);
   };
@@ -77,7 +85,7 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   );
 
   let renderReadyData = "";
-  if (pizzaCreationType === "Pepperoni Maker") {
+  if (pizzaCreationType === "Custom Pepperoni Layout") {
     renderReadyData = renderReadyPepperoniLayout;
   } else {
     renderReadyData = renderReadyBuildAPizzaMenu;
@@ -85,8 +93,14 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   const fiveToppingsWarningActive = useSelector(
     (state) => state.fiveToppingsWarning
   );
+
   return (
-    <AddItemMenuContainer sx={{ left: `${pizzaMenuActive && `0px`}` }}>
+    <AddItemMenuContainer
+      sx={{
+        left: `${pizzaMenuActive && `0px`}`,
+        boxShadow: `${pizzaMenuActive && `0 0 10px white`} `,
+      }}
+    >
       {fiveToppingsWarningActive && (
         <FiveToppingsWarning
           fiveToppingsWarningPopup={fiveToppingsWarningActive}

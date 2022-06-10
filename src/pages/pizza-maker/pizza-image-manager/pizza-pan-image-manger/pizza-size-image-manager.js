@@ -1,4 +1,4 @@
-import pizzaPan from "../../../../img/pizza-builder/pizza-pan.png";
+import pizzaPan from "../../../../img/pizza-maker/pan/pizza-pan.png";
 import { styled } from "@mui/material";
 const PizzaPanContainer = styled("img", {
   name: "TopImageContainer",

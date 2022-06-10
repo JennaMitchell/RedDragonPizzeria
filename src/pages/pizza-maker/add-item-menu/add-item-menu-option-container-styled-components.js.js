@@ -7,7 +7,7 @@ const TopContainer = styled("div", {
 })(({ theme }) => ({
   width: "max(100%,100%)",
   height: "max(max-content,max-content)",
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: "inherit",
   display: "grid",
   gridTemplateRows: "max-content",
   gridAutoFlow: "row",
@@ -32,6 +32,10 @@ const CategoryButton = styled(Button, {
   color: theme.palette.secondary.light,
   marginTop: "10px",
   textTransform: "capitalize",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.secondary.dark,
+  },
 }));
 const InfoContainer = styled("div", {
   name: "InfoContainer",

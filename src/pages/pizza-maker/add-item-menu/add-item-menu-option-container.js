@@ -12,6 +12,7 @@ import {
 
 import AddItemMenuOptionButton from "./add-item-menu-option-button.js";
 import { useSelector } from "react-redux";
+import AddItemMenuPepperoniSection from "./pepperoni-section/add-item-menu-pepperoni-section.js";
 
 const AddItemMenuOptionContainer = ({
   data,
@@ -26,11 +27,10 @@ const AddItemMenuOptionContainer = ({
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
-  // creating the active array by checking our object in storage
+  // creating the active array by checking the buildAPizzaUserSelectedObject object in storage
   let activeButtonArray = [];
   for (let q = 0; q < data.length; q++) {
     if (buildAPizzaUserSelectedObject[objectSection].length !== 0) {
-      console.log(buildAPizzaUserSelectedObject[objectSection]);
       if (buildAPizzaUserSelectedObject[objectSection].includes(data[q].type)) {
         activeButtonArray[q] = true;
       }
@@ -88,8 +88,8 @@ const AddItemMenuOptionContainer = ({
 
   if (data.length % 3 === 1) {
     renderReadyOneColumnRow[0] = (
-      <MaxContentContainer>
-        <OneColumnRow key={` ${objectSection} ${data.length - 1}`}>
+      <MaxContentContainer key={` ${objectSection} ${data.length - 1}`}>
+        <OneColumnRow>
           <SelectorContainer>
             <AddItemMenuOptionButton
               type={data[data.length - 1]}
@@ -139,8 +139,15 @@ const AddItemMenuOptionContainer = ({
   if (renderReadyTwoColumnRow.length !== 0) {
     renderReadyData.push(renderReadyTwoColumnRow[0]);
   }
-  renderReadyData = renderReadyData.map((code) => code);
-  // combining the rows into one mega ready object
+  if (objectSection === "pepperoni") {
+    renderReadyData = (
+      <AddItemMenuPepperoniSection
+        crust={buildAPizzaUserSelectedObject.size[0]}
+      />
+    );
+  }
+  // renderReadyData = renderReadyData.map((code) => code);
+  // // combining the rows into one mega ready object
 
   return (
     <TopContainer key={objectSection}>

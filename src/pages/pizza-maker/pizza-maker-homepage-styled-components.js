@@ -2,7 +2,10 @@ import { styled } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CancelIcon from "@mui/icons-material/Cancel";
+import plankImage from "../../img/full-menu/plank.jpg";
+
 import { Typography } from "@mui/material";
+import tableImage from "../../img/pizza-maker/table/wood-table-cropped.png";
 
 const TopContainer = styled("div", {
   name: "TopContainer",
@@ -38,7 +41,7 @@ const NewPizzaButton = styled(CancelIcon, {
   },
 }));
 
-const KitchenTableContainer = styled("img", {
+const KitchenTableContainer = styled("div", {
   name: "KitchenTableContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
@@ -46,10 +49,16 @@ const KitchenTableContainer = styled("img", {
   height: "max(600px,600px)",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
-  placeItems: "center",
-  position: "relative",
+  gridTemplateColumns: "max-content max-content",
+  alignItems: "center",
+  justifyContent: "space-evenly",
+
   boxShadow: "0 0 20px black",
   border: "1px solid black",
+  backgroundImage: `url(${tableImage})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "100%",
+  backgroundPosition: "center",
 }));
 
 const PizzaPanContainer = styled("img", {
@@ -118,7 +127,7 @@ const MenuButton = styled("div", {
 
   backgroundColor: theme.palette.secondary.light,
   "&:hover": {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.light,
   },
 }));
 const OpenMenuIcon = styled(ArrowForwardIosIcon, {
@@ -153,11 +162,33 @@ const MainTitle = styled(Typography, {
   height: "max(max-content,max-content)",
   display: "grid",
   placeItems: "center",
+  border: "2px solid black",
+
+  color: theme.palette.secondary.light,
+  backgroundColor: theme.palette.secondary.dark,
+  padding: "15px 30px 15px 30px",
+  borderRadius: "10px",
+  fontFamily: "Fredericka the Great ,cursive",
+}));
+const MainTitleContainer = styled("div", {
+  name: "MainTitleContainer",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(max-content,max-content)",
+  height: "max(max-content,max-content)",
+  display: "grid",
+  placeItems: "center",
   position: "absolute",
   top: "12.5%",
   left: "50%",
   transform: "translate(-50%,-50%)",
-  color: theme.palette.secondary.light,
+  boxShadow: "0 0 10px black",
+  padding: "12.5px",
+  border: "2px solid black",
+  backgroundImage: `url(${plankImage})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "none",
+  borderRadius: "10px",
 }));
 
 export {
@@ -171,4 +202,5 @@ export {
   OpenMenuIcon,
   CloseMenuIcon,
   MainTitle,
+  MainTitleContainer,
 };
