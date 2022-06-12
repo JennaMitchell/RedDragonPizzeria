@@ -7,10 +7,12 @@ import {
   PepperoniButtonImage,
 } from "./add-item-menu-pepperoni-section-styled-components";
 
-import { useState } from "react";
 import trianglePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-triangle-slice.png";
 import squarePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
 import circlePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-slice.png";
+import { useDispatch, useSelector } from "react-redux";
+import { storeActions } from "../../../../store/store";
+
 const AddItemMenuPepperoniSection = ({ crust }) => {
   const crustObject = {
     Small: 10,
@@ -20,30 +22,35 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
     "XX-large": 30,
   };
 
-  const [typeOfPepperoni, setTypeOfPepperoni] = useState(false);
+  const dispatch = useDispatch();
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
+
+  const addPepperoniToPanHandler = (shape) => {
+    const tempArray = JSON.parse(JSON.stringify(pepperoniLayoutDatabase));
+    tempArray.push({
+      pepperoniId: `${tempArray.length}`,
+      coordinates: {
+        x: `${tempArray.length * 10 + 70}px `,
+        y: `${tempArray.length * 10 + 70}px`,
+      },
+      shape: `${shape}`,
+    });
+
+    dispatch(storeActions.setPepperoniLayoutDatabase(tempArray));
+  };
 
   const trianglePepperoniHandler = () => {
-    if (typeOfPepperoni === "Triangle") {
-      setTypeOfPepperoni("");
-    } else {
-      setTypeOfPepperoni("Triangle");
-    }
+    addPepperoniToPanHandler("triangle");
   };
 
   const squarePepperoniHandler = () => {
-    if (typeOfPepperoni === "Square") {
-      setTypeOfPepperoni("");
-    } else {
-      setTypeOfPepperoni("Square");
-    }
+    addPepperoniToPanHandler("square");
   };
 
   const circlePepperoniHandler = () => {
-    if (typeOfPepperoni === "Circle") {
-      setTypeOfPepperoni("");
-    } else {
-      setTypeOfPepperoni("Circle");
-    }
+    addPepperoniToPanHandler("circle");
   };
 
   const dropDownValues = [];
@@ -57,7 +64,6 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
   // pepperoniId : {
   // coordinates: { x: "" y: ""}
   // shape : "circle"
-  //}
 
   return (
     <TopContainer>
@@ -74,40 +80,16 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
       </StyledTypography>
 
       <PepperoniTypeSelectorContainer>
-        <PepperoniTypeButton
-          onClick={trianglePepperoniHandler}
-          sx={{
-            backgroundColor: `${
-              typeOfPepperoni === "Triangle" && "secondary.light"
-            }`,
-            boxShadow: `${typeOfPepperoni === "Triangle" && "0 0 5px black"}`,
-          }}
-        >
+        <PepperoniTypeButton onClick={trianglePepperoniHandler} sx={{}}>
           <PepperoniButtonImage
             src={trianglePepperoni}
             alt="triangle pepperoni"
           />
         </PepperoniTypeButton>
-        <PepperoniTypeButton
-          onClick={squarePepperoniHandler}
-          sx={{
-            backgroundColor: `${
-              typeOfPepperoni === "Square" && "secondary.light"
-            }`,
-            boxShadow: `${typeOfPepperoni === "Square" && "0 0 5px black"}`,
-          }}
-        >
+        <PepperoniTypeButton onClick={squarePepperoniHandler} sx={{}}>
           <PepperoniButtonImage src={squarePepperoni} alt="square pepperoni" />
         </PepperoniTypeButton>
-        <PepperoniTypeButton
-          onClick={circlePepperoniHandler}
-          sx={{
-            backgroundColor: `${
-              typeOfPepperoni === "Circle" && "secondary.light"
-            }`,
-            boxShadow: `${typeOfPepperoni === "circle" && "0 0 5px black"}`,
-          }}
-        >
+        <PepperoniTypeButton onClick={circlePepperoniHandler} sx={{}}>
           <PepperoniButtonImage src={circlePepperoni} alt="circle pepperoni" />
         </PepperoniTypeButton>
       </PepperoniTypeSelectorContainer>

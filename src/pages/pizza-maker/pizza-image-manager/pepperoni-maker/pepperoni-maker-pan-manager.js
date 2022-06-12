@@ -5,6 +5,8 @@ import PizzaDoughImageManger from "../pizza-pan-image-manger/pizza-dough-image-m
 import PizzaSauceImageManger from "../pizza-pan-image-manger/pizza-sauce-image-manager";
 import PizzaCheeseImageManager from "../pizza-pan-image-manger/pizza-cheese-image-manager";
 import PizzaToppingsImageManager from "../pizza-pan-image-manger/pizza-toppings-image-manager";
+import CustomPepperoniLayout from "../pizza-pan-image-manger/custom-pepperoni-layout/custom-pepperoni-layout";
+
 const TopImageContainer = styled("div", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -41,6 +43,7 @@ const PepperoniMakerDisplayImage = () => {
         other={buildAPizzaUserSelectedObject.other}
         cheese={buildAPizzaUserSelectedObject.cheese[0]}
       />
+      <CustomPepperoniLayout />
     </TopImageContainer>
   );
 };

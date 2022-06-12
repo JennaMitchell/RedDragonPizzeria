@@ -10,7 +10,7 @@ const initialState = {
     other: [],
     pepperoni: [],
   },
-  pepperoniLayoutDatabase: {},
+  pepperoniLayoutDatabase: [],
   buildAPizzaObjectToggle: false,
   fiveToppingsWarning: false,
   chooseACrustWarning: false,
