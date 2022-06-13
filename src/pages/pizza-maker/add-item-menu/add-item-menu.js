@@ -6,13 +6,24 @@ import {
 import addItemMenuDatabase from "./add-item-menu-database";
 import AddItemMenuOptionContainer from "./add-item-menu-option-container";
 import { useState } from "react";
-import FiveToppingsWarning from "../popups/five-toppings-warning/five-toppings-warning";
+import FiveToppingsWarning from "../popups/five-toppings-warning";
 import { useSelector } from "react-redux";
+import PepperoniPizzaResizeWarning from "../popups/pepperoni-pizza-resize-warning";
+import PepperoniLimitReachedWarning from "../popups/pepperoni-limit-reached-warning";
 
 const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   // Sizes, Crust, Cheese, Veggies, Meats, Other,
   const [addItemMenuData, setAddItemMenuData] = useState(addItemMenuDatabase);
-
+  let renderReadyData = "";
+  const fiveToppingsWarningActive = useSelector(
+    (state) => state.fiveToppingsWarning
+  );
+  const pepperoniPizzaResizeWarning = useSelector(
+    (state) => state.pepperoniPizzaResizeWarning
+  );
+  const pepperoniLimitReachedWarning = useSelector(
+    (state) => state.pepperoniLimitReachedWarning
+  );
   const buildAPizzaDataTypes = [
     "size",
     "crust",
@@ -84,15 +95,11 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
     }
   );
 
-  let renderReadyData = "";
   if (pizzaCreationType === "Custom Pepperoni Layout") {
     renderReadyData = renderReadyPepperoniLayout;
   } else {
     renderReadyData = renderReadyBuildAPizzaMenu;
   }
-  const fiveToppingsWarningActive = useSelector(
-    (state) => state.fiveToppingsWarning
-  );
 
   return (
     <AddItemMenuContainer
@@ -106,6 +113,17 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
           fiveToppingsWarningPopup={fiveToppingsWarningActive}
         />
       )}
+      {pepperoniPizzaResizeWarning && (
+        <PepperoniPizzaResizeWarning
+          togglePopup={pepperoniPizzaResizeWarning}
+        />
+      )}
+      {pepperoniLimitReachedWarning && (
+        <PepperoniLimitReachedWarning
+          togglePopup={pepperoniLimitReachedWarning}
+        />
+      )}
+
       <InterfaceContainer>{renderReadyData}</InterfaceContainer>
     </AddItemMenuContainer>
   );

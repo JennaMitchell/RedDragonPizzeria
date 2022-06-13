@@ -5,6 +5,9 @@ import trianglePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepp
 import squarePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
 import circlePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepperoni-slice.png";
 import { storeActions } from "../../../../../store/store";
+import customPepperoniBoundaryData from "./custom-pepperoni-boundary-data";
+import DeletePepperoniWarning from "../../../popups/delete-pepperoni-warning";
+
 const PepperoniImageContainer = styled("img", {
   name: "PepperoniImageContainer",
   slot: "Wrapper",
@@ -25,12 +28,99 @@ const CustomPepperoniLayout = () => {
   const [activeDragId, setActiveDragId] = useState("");
   const [currentPageX, setCurrentPageX] = useState(0);
   const [currentPageY, setCurrentPageY] = useState(0);
+
   const copyOfPepperoniLayoutDataBase = JSON.parse(
     JSON.stringify(pepperoniLayoutDatabase)
   );
   // we have to make copy sicne the orignal stor version cannoy be manipulated directly
+  const buildAPizzaUserSelectedObject = useSelector(
+    (state) => state.buildAPizzaUserSelectedObject
+  );
+
   let renderReadyPepperoni;
   const dispatch = useDispatch();
+  const deletePepperoniWarning = useSelector(
+    (state) => state.deletePepperoniWarning
+  );
+  const deletePepperoniByDefault = useSelector(
+    (state) => state.deletePepperoniByDefault
+  );
+  const deletePepperoniHandler = () => {
+    let indexOfPepperoniToRemove = 0;
+    for (let [index, entry] of copyOfPepperoniLayoutDataBase.entries()) {
+      index = index - 1;
+      // index starts at 1 and not zero so we have to subtract one
+      if (entry.pepperoniId === activeDragId) {
+        indexOfPepperoniToRemove = index;
+      }
+    }
+    console.log(copyOfPepperoniLayoutDataBase);
+    let removedEntryLayout = copyOfPepperoniLayoutDataBase.splice(
+      indexOfPepperoniToRemove,
+      1
+    );
+
+    console.log(removedEntryLayout);
+    dispatch(storeActions.setPepperoniLayoutDatabase(removedEntryLayout));
+  };
+
+  const elementBoundaryCheck = (finalXValue, finalYValue) => {
+    // to calculate if the end point being dropped is outside of the boundaries we use the distace formalua for a circle
+    // distance  = squareRoot((x2-x1)^2 + (y2-y1)^2)
+    // then if the distance is greater than the radius of the circle then the user dropped the element outside of pans radius
+    //
+
+    // Step 1. Grab the radius and circle midpoint from the database
+
+    const selectedCrust = buildAPizzaUserSelectedObject.size[0];
+    const panRadius = customPepperoniBoundaryData[selectedCrust].radius;
+
+    // Step 2. Dealing with negative values
+
+    //the finalXValue and finalYValue is set to the origin of the top left
+    // since we are dealing with the absolute positioning of top and left,
+    //
+    // To get around this we need to reset point origin to be set relative to orign of the pan photo
+
+    // whenever the user drags an element outside of the pan that is above the top of the pan or to the left side of the pan.
+    // the converted value will be set to a negative number to get around this we have to add the radius of the pan to it and run the calculation
+
+    let xValToBeChecked = 0;
+    let yValToBeChecked = 0;
+    if (finalXValue < 0) {
+      xValToBeChecked = panRadius - finalXValue;
+      // its negative so it will be added to the radius
+    } else {
+      // since the origin of top and Left starts at the top left corner we need to convert inputed value to fit the midpoint of the pan
+      if (finalXValue <= panRadius) {
+        xValToBeChecked = panRadius - finalXValue;
+      } else {
+        xValToBeChecked = finalXValue - panRadius;
+      }
+    }
+
+    if (finalYValue < 0) {
+      yValToBeChecked = panRadius - finalYValue;
+    } else {
+      if (finalXValue <= panRadius) {
+        yValToBeChecked = panRadius - finalYValue;
+      } else {
+        yValToBeChecked = finalYValue - panRadius;
+      }
+    }
+
+    // Step 3. Calculate the Distance of the users drop point
+
+    const newPointDistance = Math.sqrt(
+      xValToBeChecked ** 2 + yValToBeChecked ** 2
+    );
+    if (newPointDistance > panRadius) {
+      // delete warning popup
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const dragStartHandler = (e) => {
     setActiveDragId(e.target.id);
@@ -59,22 +149,49 @@ const CustomPepperoniLayout = () => {
         // updating the new element
         let changeInX = e.pageX - currentPageX;
         let changeInY = e.pageY - currentPageY;
+        let convertedXToPixels = +currentXCoord + changeInX;
+        let convertedYToPixels = +currentYCoord + changeInY;
 
-        copyOfPepperoniLayoutDataBase[entry.pepperoniId].coordinates.x = `${
-          +currentXCoord + changeInX
-        }px`;
+        // Running validation Check to see if the dropped point is within the pizza pan's radius.
 
-        copyOfPepperoniLayoutDataBase[entry.pepperoniId].coordinates.y = `${
-          +currentYCoord + changeInY
-        }px`;
-
-        // we flip the x and y since the top and left is invereted from what is being calcualted
-
-        dispatch(
-          storeActions.setPepperoniLayoutDatabase(copyOfPepperoniLayoutDataBase)
+        const elementIsOutOfBounds = elementBoundaryCheck(
+          convertedXToPixels,
+          convertedYToPixels
         );
-        // need to setoff a dispatch toggle to cause the elements inside to be rendered
+
+        // if the element is dragged and dropped outside of the container
+        if (elementIsOutOfBounds) {
+          if (!deletePepperoniByDefault) {
+            dispatch(storeActions.setDeletePepperoniWarning(true));
+          } else {
+            deletePepperoniHandler();
+          }
+        } else {
+          copyOfPepperoniLayoutDataBase[
+            entry.pepperoniId
+          ].coordinates.x = `${convertedXToPixels}px`;
+
+          copyOfPepperoniLayoutDataBase[
+            entry.pepperoniId
+          ].coordinates.y = `${convertedYToPixels}px`;
+
+          // we flip the x and y since the top and left is invereted from what is being calcualted
+
+          dispatch(
+            storeActions.setPepperoniLayoutDatabase(
+              copyOfPepperoniLayoutDataBase
+            )
+          );
+        }
       }
+    }
+  };
+
+  /// Handeling result from the warning popup
+
+  const warningPopupHandler = (decision) => {
+    if (decision === "Delete") {
+      deletePepperoniHandler();
     }
   };
 
@@ -119,6 +236,16 @@ const CustomPepperoniLayout = () => {
     });
   }
 
-  return <>{renderReadyPepperoni}</>;
+  return (
+    <>
+      {!deletePepperoniByDefault && (
+        <DeletePepperoniWarning
+          deletePepperoniWarning={deletePepperoniWarning}
+          userInputRetriever={warningPopupHandler}
+        />
+      )}
+      {renderReadyPepperoni}
+    </>
+  );
 };
 export default CustomPepperoniLayout;

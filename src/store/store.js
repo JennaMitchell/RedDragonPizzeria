@@ -14,6 +14,25 @@ const initialState = {
   buildAPizzaObjectToggle: false,
   fiveToppingsWarning: false,
   chooseACrustWarning: false,
+  deletePepperoniWarning: false,
+  deletePepperoniByDefault: false,
+  pepperoniPerCrustObject: {
+    Small: 10,
+    Medium: 15,
+    Large: 20,
+    "X-large": 25,
+    "XX-large": 30,
+  },
+  pepperoniLimitReachedWarning: false,
+  pepperoniPizzaResizeWarning: false,
+  pepperoniPizzaResizeFutureSize: "",
+  pepperoniPizzaSizePixelsDatabase: {
+    Small: 350,
+    Medium: 400,
+    Large: 450,
+    "X-large": 500,
+    "XX-large": 550,
+  },
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -33,6 +52,21 @@ const storeSlice = createSlice({
     },
     setPepperoniLayoutDatabase(state, { payload }) {
       state.pepperoniLayoutDatabase = payload;
+    },
+    setDeletePepperoniWarning(state, { payload }) {
+      state.deletePepperoniWarning = payload;
+    },
+    setDeletePepperoniByDefualt(state, { payload }) {
+      state.deletePepperoniByDefault = payload;
+    },
+    setPepperoniPizzaResizeWarning(state, { payload }) {
+      state.pepperoniPizzaResizeWarning = payload;
+    },
+    setPepperoniLimitReachedWarning(state, { payload }) {
+      state.pepperoniLimitReachedWarning = payload;
+    },
+    setPepperoniPizzaResizeFutureSize(state, { payload }) {
+      state.pepperoniPizzaResizeFutureSize = payload;
     },
   },
 });

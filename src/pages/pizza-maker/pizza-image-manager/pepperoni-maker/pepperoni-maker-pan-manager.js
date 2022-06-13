@@ -18,6 +18,8 @@ const TopImageContainer = styled("div", {
   placeItems: "center",
   position: "relative",
 
+  borderRadius: "50%",
+
   zIndex: 2,
 }));
 

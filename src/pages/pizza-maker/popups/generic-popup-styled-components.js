@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Checkbox, styled } from "@mui/material";
 import { Button } from "@mui/material";
 const PopupButton = styled(Button, {
   name: "BoardImageContainer",
@@ -19,4 +19,32 @@ const PopupButton = styled(Button, {
     backgroundColor: theme.palette.primary.light,
   },
 }));
-export { PopupButton };
+
+const SpaceBetweenContainer = styled("div", {
+  name: "SpaceBetweenContainer",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  width: "max(100%,100%)",
+  height: "max(100%,100%)",
+  backgroundColor: "inherit",
+  display: "grid",
+  gridTemplateColumns: "max-content max-content",
+
+  justifyContent: "space-between",
+  alignItems: "center",
+}));
+
+const StyledCheckBox = styled(Checkbox, {
+  name: "StyledCheckBox",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  color: theme.palette.secondary.light,
+  padding: "5px",
+  width: "max(max-content,max-content)",
+  height: "max(max-content,max-content)",
+
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.main,
+  },
+}));
+export { PopupButton, SpaceBetweenContainer, StyledCheckBox };

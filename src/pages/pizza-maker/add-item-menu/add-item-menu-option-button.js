@@ -44,6 +44,12 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
   const buildAPizzaObjectToggle = useSelector(
     (state) => state.buildAPizzaObjectToggle
   );
+  const pepperoniPerCrustObject = useSelector(
+    (state) => state.pepperoniPerCrustObject
+  );
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
 
   type = type.type;
 
@@ -51,6 +57,19 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
     let copyOfDataObject = JSON.parse(
       JSON.stringify(buildAPizzaUserSelectedObject)
     );
+
+    // handeling resizing peperoni count exceeding error
+
+    if (objectSection === "size") {
+      // type is future size and
+      let futureNumOfPepperoni = pepperoniPerCrustObject[type];
+      let currentNumOfPepperoni = pepperoniLayoutDatabase.length;
+      if (futureNumOfPepperoni < currentNumOfPepperoni) {
+        dispatch(storeActions.setPepperoniPizzaResizeWarning(true));
+        dispatch(storeActions.setPepperoniPizzaResizeFutureSize(type));
+        return;
+      }
+    }
 
     // needed to create a new copy and not a reference of the object in storage
     // if statement is ued for all other sections that aren't toppings
@@ -117,10 +136,13 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       }
     }
   };
+
   return (
-    <SelectorIconContainer onClick={selectorIconContainerHandler}>
-      {active && <SelectorIcon />}
-    </SelectorIconContainer>
+    <>
+      <SelectorIconContainer onClick={selectorIconContainerHandler}>
+        {active && <SelectorIcon />}
+      </SelectorIconContainer>
+    </>
   );
 };
 export default AddItemMenuOptionButton;

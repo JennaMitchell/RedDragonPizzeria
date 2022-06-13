@@ -14,8 +14,20 @@ const PepperoniMakerOrderReviewBoard = () => {
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
+  const pepperoniPerCrustObject = useSelector(
+    (state) => state.pepperoniPerCrustObject
+  );
+  let additionalCostPepperoniLimit = 0;
 
-  const possibleUserSelectedTypes = ["size", "crust", "sauce", "cheese"];
+  if (pepperoniLayoutDatabase.length !== 0) {
+    additionalCostPepperoniLimit =
+      +pepperoniPerCrustObject[buildAPizzaUserSelectedObject.size[0]];
+  }
+
+  let possibleUserSelectedTypes = ["size", "crust", "sauce", "cheese"];
 
   let userSelectedItemWithPrice = [];
 
@@ -25,13 +37,34 @@ const PepperoniMakerOrderReviewBoard = () => {
     // for loop retieves the price for the item the user selected
     for (const item of userSelectedItem) {
       let data = addItemMenuDatabase[type].data;
-      // now we need to find the price fro the user selected item
+      // now we need to find the price fro the user selected itemF
       for (const dataItem of data) {
         if (dataItem.type === item) {
           userSelectedItemWithPrice.push({ item: item, price: dataItem.price });
           break;
         }
       }
+    }
+  }
+  // handeling if the user created a custom peperoni pizza and if they wen over the limit to be charged
+
+  if (additionalCostPepperoniLimit !== 0) {
+    if (pepperoniLayoutDatabase.length > additionalCostPepperoniLimit) {
+      const numberOfTimesToCharge =
+        pepperoniLayoutDatabase.length - additionalCostPepperoniLimit;
+
+      let amountToCharge = `${numberOfTimesToCharge * 0.2}`;
+      if (amountToCharge.includes(".")) {
+        const indexOfDecimal = amountToCharge.indexOf(".");
+        amountToCharge = amountToCharge.slice(0, indexOfDecimal + 3);
+      } else {
+        amountToCharge = amountToCharge + `.00`;
+      }
+
+      userSelectedItemWithPrice.push({
+        item: `Additional Pepperoni (${numberOfTimesToCharge})`,
+        price: `$${amountToCharge}`,
+      });
     }
   }
 

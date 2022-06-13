@@ -1,5 +1,6 @@
 import pizzaPan from "../../../../img/pizza-maker/pan/pizza-pan.png";
 import { styled } from "@mui/material";
+import { useSelector } from "react-redux";
 const PizzaPanContainer = styled("img", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -12,72 +13,21 @@ const PizzaPanContainer = styled("img", {
   transition: "all 2s",
   zIndex: 2,
 }));
+
 const PizzaSizeImageManager = ({ size }) => {
-  let renderReadyPizzaPan = "";
-  switch (size) {
-    case "Small":
-      renderReadyPizzaPan = (
-        <PizzaPanContainer
-          sx={{
-            width: "max(350px,350px)",
-            height: "max(350px,350px)",
-          }}
-          src={pizzaPan}
-          alt="pizza pan"
-        />
-      );
-      break;
-    case "Medium":
-      renderReadyPizzaPan = (
-        <PizzaPanContainer
-          src={pizzaPan}
-          alt="pizza pan"
-          sx={{
-            width: "max(400px,400px)",
-            height: "max(400px,400px)",
-          }}
-        />
-      );
-      break;
-    case "Large":
-      renderReadyPizzaPan = (
-        <PizzaPanContainer
-          src={pizzaPan}
-          sx={{
-            width: "max(450px,450px)",
-            height: "max(450px,450px)",
-          }}
-          alt="pizza pan"
-        />
-      );
-      break;
-    case "X-large":
-      renderReadyPizzaPan = (
-        <PizzaPanContainer
-          src={pizzaPan}
-          sx={{
-            width: "max(500px,500px)",
-            height: "max(500px,500px)",
-          }}
-          alt="pizza pan"
-        />
-      );
-      break;
-    case "XX-large":
-      renderReadyPizzaPan = (
-        <PizzaPanContainer
-          src={pizzaPan}
-          sx={{
-            width: "max(550px,550px)",
-            height: "max(550px,550px)",
-          }}
-          alt="pizza pan"
-        />
-      );
-      break;
-    default:
-      renderReadyPizzaPan = "";
-  }
+  const pepperoniPizzaSizePixelsDatabase = useSelector(
+    (state) => state.pepperoniPizzaSizePixelsDatabase
+  );
+  let renderReadyPizzaPan = (
+    <PizzaPanContainer
+      sx={{
+        width: `max(${pepperoniPizzaSizePixelsDatabase[size]}px,${pepperoniPizzaSizePixelsDatabase[size]}px)`,
+        height: `max(${pepperoniPizzaSizePixelsDatabase[size]}px,${pepperoniPizzaSizePixelsDatabase[size]}px)`,
+      }}
+      src={pizzaPan}
+      alt="pizza pan"
+    />
+  );
 
   return <>{renderReadyPizzaPan}</>;
 };
