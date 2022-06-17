@@ -209,4 +209,5 @@ export {
   renderReadyOtherToppings,
   renderReadyPizzaColumnOne,
   renderReadyPizzaColumnTwo,
+  pizzaMenuDatabase,
 };

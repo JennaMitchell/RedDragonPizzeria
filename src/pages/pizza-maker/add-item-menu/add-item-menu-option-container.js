@@ -12,7 +12,7 @@ import {
 
 import AddItemMenuOptionButton from "./add-item-menu-option-button.js";
 import { useSelector } from "react-redux";
-import AddItemMenuPepperoniSection from "./pepperoni-section/add-item-menu-pepperoni-section.js";
+import AddItemMenuPepperoniSection from "./add-item-menu-pepperoni-section.js";
 
 const AddItemMenuOptionContainer = ({
   data,

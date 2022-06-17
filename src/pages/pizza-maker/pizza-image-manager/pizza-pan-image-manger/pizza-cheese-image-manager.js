@@ -17,7 +17,7 @@ const PizzaCheeseContainer = styled("img", {
 
 const PizzaCheeseImageManager = ({ cheese }) => {
   let renderReadyCheese = "";
-  console.log(cheese);
+
   switch (cheese) {
     case "Cheddar": {
       renderReadyCheese = (

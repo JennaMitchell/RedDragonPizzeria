@@ -52,6 +52,7 @@ const KitchenTableContainer = styled("div", {
   gridTemplateColumns: "max-content max-content",
   alignItems: "center",
   justifyContent: "space-evenly",
+  position: "relative",
 
   boxShadow: "0 0 20px black",
   border: "1px solid black",
@@ -190,7 +191,21 @@ const MainTitleContainer = styled("div", {
   backgroundRepeat: "none",
   borderRadius: "10px",
 }));
-
+const DarkBackground = styled("div", {
+  name: "DarkBackground",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(100vw,100vw)",
+  height: "max(100vh,100vh)",
+  display: "grid",
+  placeItems: "center",
+  position: "absolute",
+  top: "0",
+  left: "0",
+  transition: "all 2s",
+  zIndex: 1,
+  backgroundColor: "rgba(0, 0, 0, 0.65)",
+}));
 export {
   TopContainer,
   NewPizzaButton,
@@ -203,4 +218,5 @@ export {
   CloseMenuIcon,
   MainTitle,
   MainTitleContainer,
+  DarkBackground,
 };

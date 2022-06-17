@@ -18,7 +18,7 @@ const PepperoniImageContainer = styled("img", {
   display: "grid",
   placeItems: "center",
   position: "absolute",
-  zIndex: 10,
+  zIndex: 8,
 }));
 
 const CustomPepperoniLayout = () => {
@@ -37,6 +37,8 @@ const CustomPepperoniLayout = () => {
     (state) => state.buildAPizzaUserSelectedObject
   );
 
+  const selectedCrust = buildAPizzaUserSelectedObject.size[0];
+  const panRadius = customPepperoniBoundaryData[selectedCrust].radius;
   let renderReadyPepperoni;
   const dispatch = useDispatch();
   const deletePepperoniWarning = useSelector(
@@ -47,21 +49,24 @@ const CustomPepperoniLayout = () => {
   );
   const deletePepperoniHandler = () => {
     let indexOfPepperoniToRemove = 0;
+
     for (let [index, entry] of copyOfPepperoniLayoutDataBase.entries()) {
-      index = index - 1;
       // index starts at 1 and not zero so we have to subtract one
       if (entry.pepperoniId === activeDragId) {
         indexOfPepperoniToRemove = index;
       }
     }
-    console.log(copyOfPepperoniLayoutDataBase);
-    let removedEntryLayout = copyOfPepperoniLayoutDataBase.splice(
-      indexOfPepperoniToRemove,
-      1
-    );
 
-    console.log(removedEntryLayout);
+    let removedEntryLayout = copyOfPepperoniLayoutDataBase.filter(
+      (entry) => entry.pepperoniId === indexOfPepperoniToRemove
+    );
+    //The "splice()" function returns not the affected array, but the array of removed elements. If you remove nothing, the result array is empty.
+
     dispatch(storeActions.setPepperoniLayoutDatabase(removedEntryLayout));
+    dispatch(storeActions.setPepperoniDragEventActive(false));
+    setActiveDragId("");
+    setCurrentPageX(0);
+    setCurrentPageY(0);
   };
 
   const elementBoundaryCheck = (finalXValue, finalYValue) => {
@@ -71,9 +76,6 @@ const CustomPepperoniLayout = () => {
     //
 
     // Step 1. Grab the radius and circle midpoint from the database
-
-    const selectedCrust = buildAPizzaUserSelectedObject.size[0];
-    const panRadius = customPepperoniBoundaryData[selectedCrust].radius;
 
     // Step 2. Dealing with negative values
 
@@ -126,6 +128,7 @@ const CustomPepperoniLayout = () => {
     setActiveDragId(e.target.id);
     setCurrentPageX(e.pageX);
     setCurrentPageY(e.pageY);
+    dispatch(storeActions.setPepperoniDragEventActive(true));
   };
 
   const dragEndHandler = (e) => {
@@ -163,6 +166,10 @@ const CustomPepperoniLayout = () => {
         if (elementIsOutOfBounds) {
           if (!deletePepperoniByDefault) {
             dispatch(storeActions.setDeletePepperoniWarning(true));
+            dispatch(storeActions.setPepperoniDragEventActive(false));
+            setActiveDragId("");
+            setCurrentPageX(0);
+            setCurrentPageY(0);
           } else {
             deletePepperoniHandler();
           }
@@ -182,6 +189,10 @@ const CustomPepperoniLayout = () => {
               copyOfPepperoniLayoutDataBase
             )
           );
+          setActiveDragId("");
+          setCurrentPageX(0);
+          setCurrentPageY(0);
+          dispatch(storeActions.setPepperoniDragEventActive(false));
         }
       }
     }

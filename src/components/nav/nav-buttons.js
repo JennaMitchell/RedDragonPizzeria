@@ -32,7 +32,11 @@ const NavButtons = () => {
           Pizza Maker
         </NavLink>
       </StyledButton>
-      <StyledButton variant="contained">Order Online</StyledButton>
+      <StyledButton variant="contained">
+        <NavLink to="/order-online" className={classes.navLink}>
+          Order Online
+        </NavLink>
+      </StyledButton>
       <ShoppingCartContainer>
         <ShoppingCartItemsTracker>0</ShoppingCartItemsTracker>
         <ShoppingCart color="secondary.light" />

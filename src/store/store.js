@@ -33,6 +33,7 @@ const initialState = {
     "X-large": 500,
     "XX-large": 550,
   },
+  pepperoniDragEventActive: false,
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -67,6 +68,9 @@ const storeSlice = createSlice({
     },
     setPepperoniPizzaResizeFutureSize(state, { payload }) {
       state.pepperoniPizzaResizeFutureSize = payload;
+    },
+    setPepperoniDragEventActive(state, { payload }) {
+      state.pepperoniDragEventActive = payload;
     },
   },
 });

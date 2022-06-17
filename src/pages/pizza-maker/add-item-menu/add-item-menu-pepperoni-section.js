@@ -7,11 +7,11 @@ import {
   PepperoniButtonImage,
 } from "./add-item-menu-pepperoni-section-styled-components";
 
-import trianglePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-triangle-slice.png";
-import squarePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
-import circlePepperoni from "../../../../img/pizza-maker/toppings/pepperoni-slice.png";
+import trianglePepperoni from "../../../img/pizza-maker/toppings/pepperoni-triangle-slice.png";
+import squarePepperoni from "../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
+import circlePepperoni from "../../../img/pizza-maker/toppings/pepperoni-slice.png";
 import { useDispatch, useSelector } from "react-redux";
-import { storeActions } from "../../../../store/store";
+import { storeActions } from "../../../store/store";
 
 const AddItemMenuPepperoniSection = ({ crust }) => {
   const pepperoniPerCrustObject = useSelector(

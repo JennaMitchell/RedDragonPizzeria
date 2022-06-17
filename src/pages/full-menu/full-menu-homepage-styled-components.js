@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import cityStreets from "../../img/full-menu/city-streets.jpg";
+import barBackground from "../../img/full-menu/bar-background.jpg";
 
 import woodenBoard from "../../img/full-menu/plank.jpg";
 
@@ -15,7 +15,7 @@ const TopContainer = styled("div", {
   placeItems: "center",
   position: "relative",
   fontFamily: "Fredericka the Great ,cursive",
-  backgroundImage: `url(${cityStreets})`,
+  backgroundImage: `url(${barBackground})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "100%",
   backgroundPosition: "center",

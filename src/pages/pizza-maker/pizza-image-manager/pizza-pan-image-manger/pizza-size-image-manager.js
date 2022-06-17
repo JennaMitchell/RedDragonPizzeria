@@ -18,11 +18,17 @@ const PizzaSizeImageManager = ({ size }) => {
   const pepperoniPizzaSizePixelsDatabase = useSelector(
     (state) => state.pepperoniPizzaSizePixelsDatabase
   );
+  const pepperoniDragEventActive = useSelector(
+    (state) => state.pepperoniDragEventActive
+  );
   let renderReadyPizzaPan = (
     <PizzaPanContainer
       sx={{
         width: `max(${pepperoniPizzaSizePixelsDatabase[size]}px,${pepperoniPizzaSizePixelsDatabase[size]}px)`,
         height: `max(${pepperoniPizzaSizePixelsDatabase[size]}px,${pepperoniPizzaSizePixelsDatabase[size]}px)`,
+        backdropFilter: `${
+          pepperoniDragEventActive && `drop-shadow(4px 4px 10px blue);`
+        }`,
       }}
       src={pizzaPan}
       alt="pizza pan"
