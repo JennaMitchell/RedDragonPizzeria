@@ -9,18 +9,12 @@ import {
 import OrderOnlineNavMenu from "./order-online-nav-menu";
 
 import OrderOnlineMenuBlackboard from "./order-online-menu-blackboard";
+import { useSelector } from "react-redux";
 
 const OrderOnlineHomepage = () => {
-  // const [orderTypePopupActive, setOrderTypePopupActive] = useState(true);
-  // const [orderType, setOrderType] = useState("");
-  // const toggleOpenHandler = (type) => {
-  //   setOrderTypePopupActive(!orderTypePopupActive);
-  //   setOrderType(type);
-  // };
-  // <OrderTypePopup
-  //       toggleOpen={orderTypePopupActive}
-  //       onCloseFunction={toggleOpenHandler}
-  //     ></OrderTypePopup>
+  const onlineOrderClickedSection = useSelector(
+    (state) => state.onlineOrderClickedSection
+  );
 
   return (
     <TopContainer>
@@ -31,7 +25,9 @@ const OrderOnlineHomepage = () => {
           </TitleContainer>
         </BlackboardTitleContainer>
         <OrderOnlineNavMenu />
-        <OrderOnlineMenuBlackboard selectedMenuItem={"Specility Pizza"} />
+        <OrderOnlineMenuBlackboard
+          selectedMenuItem={onlineOrderClickedSection}
+        />
       </GridContainer>
     </TopContainer>
   );

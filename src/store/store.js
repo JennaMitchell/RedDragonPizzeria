@@ -34,6 +34,9 @@ const initialState = {
     "XX-large": 550,
   },
   pepperoniDragEventActive: false,
+  onlineOrderClickedSection: "Specility Pizza",
+  onlineOrderPopupType: "",
+  onlinePopupActiveData: [],
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -71,6 +74,15 @@ const storeSlice = createSlice({
     },
     setPepperoniDragEventActive(state, { payload }) {
       state.pepperoniDragEventActive = payload;
+    },
+    setOnlineOrderClickedSection(state, { payload }) {
+      state.onlineOrderClickedSection = payload;
+    },
+    setOnlineOrderPopupType(state, { payload }) {
+      state.onlineOrderPopupType = payload;
+    },
+    setOnlinePopupActiveData(state, { payload }) {
+      state.onlinePopupActiveData = payload;
     },
   },
 });

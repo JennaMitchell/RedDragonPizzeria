@@ -8,63 +8,80 @@ import {
   MenuButton,
   StyledNavLink,
 } from "./order-online-nav-menu-styled-comp";
+import { useSelector, useDispatch } from "react-redux";
+import { storeActions } from "../../store/store";
 
 const OrderOnlineNavMenu = () => {
-  const [activeSectionTitle, setActiveSectionTitle] = useState("");
+  const [hoveredSectionTitle, setHoveredSectionTitle] = useState("");
+
   const data = orderOnlineHomepageDatabase;
-  const customPizzaMouseHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Custom Pizza");
-    } else {
-      setActiveSectionTitle("");
-    }
+  const dispatch = useDispatch();
+  const onlineOrderClickedSection = useSelector(
+    (state) => state.onlineOrderClickedSection
+  );
+
+  // On Hover Event Handler
+  const customPizzaMouseEnterHandler = () => {
+    setHoveredSectionTitle("Custom Pizza");
   };
-  const buildAPizzaMouseHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Build a Pizza");
-    } else {
-      setActiveSectionTitle("");
-    }
+  const mouseleaveHandler = () => {
+    setHoveredSectionTitle("");
   };
+  const buildAPizzaMouseEnterHandler = () => {
+    setHoveredSectionTitle("Build a Pizza");
+  };
+  const specilityPizzaMouseEnterHandler = () => {
+    setHoveredSectionTitle("Specility Pizza");
+  };
+  const drinksMouseEnterHandler = () => {
+    setHoveredSectionTitle("Drinks");
+  };
+  const saladsMouseEnterHandler = () => {
+    setHoveredSectionTitle("Salads");
+  };
+  const sidesMouseEnterHandler = () => {
+    setHoveredSectionTitle("Sides");
+  };
+
+  ///// On Click Event Handlers
+
   const specilityPizzaHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Specility Pizza");
-    } else {
-      setActiveSectionTitle("");
+    if (onlineOrderClickedSection !== "Specility Pizza") {
+      dispatch(storeActions.setOnlineOrderClickedSection("Specility Pizza"));
     }
   };
-  const drinksMouseHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Drinks");
-    } else {
-      setActiveSectionTitle("");
+  const drinksHandler = () => {
+    if (onlineOrderClickedSection !== "Drinks") {
+      dispatch(storeActions.setOnlineOrderClickedSection("Drinks"));
     }
   };
-  const saladsMouseHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Salads");
-    } else {
-      setActiveSectionTitle("");
+  const saladsHandler = () => {
+    if (onlineOrderClickedSection !== "Salads") {
+      dispatch(storeActions.setOnlineOrderClickedSection("Salads"));
     }
   };
-  const sidesMouseHandler = () => {
-    if (activeSectionTitle === "") {
-      setActiveSectionTitle("Sides");
-    } else {
-      setActiveSectionTitle("");
+  const sidesNSweetsHandler = () => {
+    if (onlineOrderClickedSection !== "Sides") {
+      dispatch(storeActions.setOnlineOrderClickedSection("Sides"));
     }
   };
+
   return (
     <BlackboardContainer>
       <MenuContainer>
         <MenuButton
-          onMouseEnter={specilityPizzaHandler}
-          onMouseLeave={specilityPizzaHandler}
+          onMouseEnter={specilityPizzaMouseEnterHandler}
+          onMouseLeave={mouseleaveHandler}
+          onClick={specilityPizzaHandler}
         >
           {data[0].title}
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Specility Pizza" && "0.2"}`,
+              opacity: `${
+                (hoveredSectionTitle === "Specility Pizza" ||
+                  onlineOrderClickedSection === "Specility Pizza") &&
+                "0.2"
+              }`,
             }}
             src={data[0].image}
             alt={data[0].title}
@@ -72,13 +89,18 @@ const OrderOnlineNavMenu = () => {
         </MenuButton>
 
         <MenuButton
-          onMouseEnter={drinksMouseHandler}
-          onMouseLeave={drinksMouseHandler}
+          onMouseEnter={drinksMouseEnterHandler}
+          onMouseLeave={mouseleaveHandler}
+          onClick={drinksHandler}
         >
           {data[1].title}
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Drinks" && "0.2"}`,
+              opacity: `${
+                (hoveredSectionTitle === "Drinks" ||
+                  onlineOrderClickedSection === "Drinks") &&
+                "0.2"
+              }`,
             }}
             src={data[1].image}
             alt={data[1].title}
@@ -86,13 +108,18 @@ const OrderOnlineNavMenu = () => {
         </MenuButton>
 
         <MenuButton
-          onMouseEnter={saladsMouseHandler}
-          onMouseLeave={saladsMouseHandler}
+          onMouseEnter={saladsMouseEnterHandler}
+          onMouseLeave={mouseleaveHandler}
+          onClick={saladsHandler}
         >
           {data[2].title}
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Salads" && "0.2"}`,
+              opacity: `${
+                (hoveredSectionTitle === "Salads" ||
+                  onlineOrderClickedSection === "Salads") &&
+                "0.2"
+              }`,
             }}
             src={data[2].image}
             alt={data[2].title}
@@ -100,13 +127,18 @@ const OrderOnlineNavMenu = () => {
         </MenuButton>
 
         <MenuButton
-          onMouseEnter={sidesMouseHandler}
-          onMouseLeave={sidesMouseHandler}
+          onMouseEnter={sidesMouseEnterHandler}
+          onMouseLeave={mouseleaveHandler}
+          onClick={sidesNSweetsHandler}
         >
           {data[3].title}
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Sides" && "0.2"}`,
+              opacity: `${
+                (hoveredSectionTitle === "Sides" ||
+                  onlineOrderClickedSection === "Sides") &&
+                "0.2"
+              }`,
             }}
             src={data[3].image}
             alt={data[3].title}
@@ -116,14 +148,14 @@ const OrderOnlineNavMenu = () => {
         <MenuButton>
           <StyledNavLink
             to="/pizza-maker"
-            onMouseEnter={buildAPizzaMouseHandler}
-            onMouseLeave={buildAPizzaMouseHandler}
+            onMouseEnter={buildAPizzaMouseEnterHandler}
+            onMouseLeave={mouseleaveHandler}
           >
             {data[4].title}
           </StyledNavLink>
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Build a Pizza" && "0.2"}`,
+              opacity: `${hoveredSectionTitle === "Build a Pizza" && "0.2"}`,
             }}
             src={data[4].image}
             alt={data[4].title}
@@ -133,14 +165,14 @@ const OrderOnlineNavMenu = () => {
         <MenuButton>
           <StyledNavLink
             to="/pizza-maker"
-            onMouseEnter={customPizzaMouseHandler}
-            onMouseLeave={customPizzaMouseHandler}
+            onMouseEnter={customPizzaMouseEnterHandler}
+            onMouseLeave={mouseleaveHandler}
           >
             {data[5].title}
           </StyledNavLink>
           <MenuButtonImage
             sx={{
-              opacity: `${activeSectionTitle === "Custom Pizza" && "0.2"}`,
+              opacity: `${hoveredSectionTitle === "Custom Pizza" && "0.2"}`,
             }}
             src={data[5].image}
             alt={data[5].title}

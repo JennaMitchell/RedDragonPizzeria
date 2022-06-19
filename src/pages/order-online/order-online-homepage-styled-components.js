@@ -7,7 +7,7 @@ const TopContainer = styled("div", {
 })(({ theme }) => ({
   color: theme.palette.secondary.light,
   width: "max(100%,100%)",
-  height: "max(1200px,1200px)",
+  height: "max(max-content,1200px)",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
   alignItems: "flex-start",
@@ -24,10 +24,10 @@ const GridContainer = styled("div", {
 })(({ theme }) => ({
   color: "inherit",
   width: "max(55%,55%)",
-  height: "max(100%,100%)",
+  height: "max(max-content,1200px)",
   backgroundColor: "transparent",
   display: "grid",
-  gridTemplateRows: "max-content 15.5% 35%",
+  gridTemplateRows: "max-content 15.5% max-content",
   gridTemplateColumns: "100%",
   placeItems: "center",
   gap: "30px",

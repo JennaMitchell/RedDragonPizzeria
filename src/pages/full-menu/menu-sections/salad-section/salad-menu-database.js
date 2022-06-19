@@ -16,114 +16,38 @@ const saladData = [
   {
     title: "Caesar Salad ",
     description:
-      " Romaine lettuce, croutons, and Parmesan tossed with a dressing featuring lemon juice, olive oil, Dijon mustard, Worcestershire sauce, salt, and pepper",
-    price: "Small. $6.99 Med. $8.99 Lg. $10.99",
+      "Romaine lettuce, croutons, and parmesan tossed with a dressing featuring lemon juice, olive oil, dijon mustard, worcestershire sauce, salt, and pepper",
+    price: "sm. $6.99 md. $8.99 lg. $10.99",
   },
   {
     title: "Leafy Green Salad ",
     description: "Iceberg lettuce, arugula, and spinach",
-    price: "Small. $4.99 Med. $6.99 Lg. $8.99",
+    price: "sm. $4.99 md. $6.99 lg. $8.99",
   },
   {
     title: "Greek Salad ",
     description:
-      "Tomatoes, cucumbers, olives, feta, and onions. Lightly dressed with olive oil, salt, pepper, and oregano. ",
-    price: "Small. $4.99 Med. $6.99 Lg. $8.99",
+      "Tomatoes, cucumbers, olives, feta, and onions. Lightly dressed with olive oil, salt, pepper, and oregano.",
+    price: "sm. $4.99 md. $6.99 lg. $8.99",
   },
   {
     title: "Garden Salad ",
-    description: "Lettuce, Tomatoes, Mushrooms, Olives and Onions  ",
-    price: "Small. $5.99 Med. $7.99 Lg. $9.99",
+    description: "Lettuce, tomatoes, mushrooms, olives and onions ",
+    price: "sm. $5.99 md. $7.99 lg. $9.99",
   },
   {
     title: "Antipasta",
     description:
-      "Lettuce, Tomatoes, Pepperoni, Black Olives, Salami, Mortadella, Provolone, and Mozzarella Cheese",
-    price: "Small. $5.99 Med. $7.99 Lg. $9.99",
+      "Lettuce, tomatoes, pepperoni, black olives, salami, mortadella, provolone, and mozzarella cheese",
+    price: "sm. $5.99 md. $7.99 lg. $9.99",
   },
   {
     title: "Chef Salad ",
     description:
-      "Lettuce, Tomatoes, Black Olives, Pepperoni, Turkey, Ham and Provolone Cheese ",
-    price: "Small. $5.99 Med. $7.99 Lg. $9.99",
+      "Lettuce, tomatoes, black olives, pepperoni, turkey, ham and provolone cheese ",
+    price: "sm. $5.99 md. $7.99 lg. $9.99",
   },
 ];
-
-// const renderReadySaladData = saladData.map((salad, index) => {
-//   if (index % 2 === 0) {
-//     return (
-//       <PictureTextContainer key={index}>
-//         <LeftImageContainer alt={salad.title} src={salad.img} />
-//         <ThreeRowsTextContainer>
-//           <StyledTypography
-//             variant="h4"
-//             sx={{ textAlign: "left", width: "max(100%,100%)" }}
-//           >
-//             {salad.title}
-//           </StyledTypography>
-//           <StyledTypography
-//             variant="p"
-//             sx={{
-//               textAlign: "left",
-//               width: "max(100%,100%)",
-//               marginTop: "10px",
-//             }}
-//           >
-//             {salad.description}
-//           </StyledTypography>
-//           <StyledTypography
-//             variant="p"
-//             sx={{
-//               textAlign: "left",
-//               width: "max(100%,100%)",
-//               marginTop: "10px",
-//             }}
-//           >
-//             {salad.price}
-//           </StyledTypography>
-//         </ThreeRowsTextContainer>
-//       </PictureTextContainer>
-//     );
-//   } else {
-//     return (
-//       <PictureTextContainer key={index}>
-//         <ThreeRowsTextContainer>
-//           <StyledTypography
-//             variant="h4"
-//             sx={{
-//               textAlign: "right",
-//               width: "max(100%,100%)",
-//               marginTop: "10px",
-//             }}
-//           >
-//             {salad.title}
-//           </StyledTypography>
-//           <StyledTypography
-//             variant="p"
-//             sx={{
-//               textAlign: "right",
-//               width: "max(100%,100%)",
-//               marginTop: "10px",
-//             }}
-//           >
-//             {salad.description}
-//           </StyledTypography>
-//           <StyledTypography
-//             variant="p"
-//             sx={{
-//               textAlign: "right",
-//               width: "max(100%,100%)",
-//               marginTop: "10px",
-//             }}
-//           >
-//             {salad.price}
-//           </StyledTypography>
-//         </ThreeRowsTextContainer>
-//         <RightImageContainer alt={salad.title} src={salad.img} />
-//       </PictureTextContainer>
-//     );
-//   }
-// });
 
 const renderReadySaladData = saladData.map((salad, index) => {
   return (
@@ -165,4 +89,8 @@ const renderReadySaladData = saladData.map((salad, index) => {
 const renderReadySaladDataColumnOne = renderReadySaladData.slice(0, 3);
 const renderReadySaladDataColumnTwo = renderReadySaladData.slice(3, 6);
 
-export { renderReadySaladDataColumnOne, renderReadySaladDataColumnTwo };
+export {
+  renderReadySaladDataColumnOne,
+  renderReadySaladDataColumnTwo,
+  saladData,
+};

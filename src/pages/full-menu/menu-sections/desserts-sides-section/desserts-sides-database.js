@@ -148,4 +148,4 @@ const pizzaCookieSection = dessertsNSidesData.Cookie.map((data, index) => {
   );
 });
 
-export { renderReadySidesContainer, pizzaCookieSection };
+export { renderReadySidesContainer, pizzaCookieSection, dessertsNSidesData };

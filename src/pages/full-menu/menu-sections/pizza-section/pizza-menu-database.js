@@ -56,7 +56,7 @@ const pizzaMenuDatabase = {
     {
       title: "Neapolitan Pizza",
       description:
-        "Your choice of crust, topped with mozzarella cheese, fresh tomato's, and basil",
+        "Thin crust pizza, topped with mozzarella cheese, fresh tomato's, and basil",
       price: "sm. $14.99, md. $15.99, lg. $16.99, xl. $18.99, xxl. $20.99 ",
     },
     {
@@ -82,7 +82,7 @@ const pizzaMenuDatabase = {
     {
       title: "Greek Pizza",
       description:
-        "Your choice of crust, served with feta ,roasted red peppers, artichokes, olives and basil",
+        "Thin crust pizza, served with feta, roasted red peppers, artichokes, olives and basil",
       price: "sm. $13.99, md. $14.99, lg. $15.99, xl. $17.99, xxl. $19.99 ",
     },
     {

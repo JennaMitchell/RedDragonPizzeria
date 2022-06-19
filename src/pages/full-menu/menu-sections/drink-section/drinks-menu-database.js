@@ -214,4 +214,5 @@ export {
   renderReadyCocktailsDataRowTwo,
   renderReadyShotsData,
   renderReadyCiderData,
+  drinksDatabase,
 };

@@ -7,7 +7,7 @@ const BlackboardContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(100%,100%)",
-  height: "max(100%,100%)",
+  height: "max(200px,200px)",
   display: "grid",
   placeItems: "center",
   position: "relative",

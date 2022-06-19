@@ -42,6 +42,8 @@ const NewPizzaPopup = ({
     onCloseFunction();
   };
   const onCloseHandler = () => {
+    retrievePizzaType("Build a Pizza");
+    dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
     onCloseFunction();
   };
 
