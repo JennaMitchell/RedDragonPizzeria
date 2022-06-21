@@ -9,7 +9,7 @@ import CustomPepperoniLayout from "../pizza-pan-image-manger/custom-pepperoni-la
 import html2canvas from "html2canvas";
 import { useRef } from "react";
 import { storeActions } from "../../../store/store";
-
+import customPepperoniPriceCalculator from "../../../components/custom-hooks/custom-pepperoni-price-calculator";
 const TopImageContainer = styled("div", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -32,6 +32,12 @@ const PepperoniMakerDisplayImage = () => {
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
+  const pepperoniPerCrustObject = useSelector(
+    (state) => state.pepperoniPerCrustObject
+  );
   const addToCartButtonClicked = useSelector(
     (state) => state.addToCartButtonClicked
   );
@@ -41,13 +47,18 @@ const PepperoniMakerDisplayImage = () => {
       const image = canvas;
 
       const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
-      const deepCopyOfBuildAPIzzaUserSelectedObject = JSON.parse(
-        JSON.stringify(buildAPizzaUserSelectedObject)
-      );
+
+      const [userSelectedItemWithPrice, totalPrice] =
+        customPepperoniPriceCalculator(
+          pepperoniLayoutDatabase,
+          buildAPizzaUserSelectedObject,
+          pepperoniPerCrustObject
+        );
       deepCopyOfCartObject.push({
         title: `Custom Pepperoni Pizza`,
-        userSelectedData: deepCopyOfBuildAPIzzaUserSelectedObject,
-        image: image,
+        userSelectedData: userSelectedItemWithPrice,
+        image: JSON.stringify(image),
+        totalPrice: totalPrice,
       });
 
       dispatch(storeActions.setCartObject(deepCopyOfCartObject));

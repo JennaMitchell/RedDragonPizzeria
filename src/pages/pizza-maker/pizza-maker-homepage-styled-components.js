@@ -64,6 +64,24 @@ const PurchaseButton = styled(AddShoppingCartIcon, {
   },
 }));
 
+const PurchaseButtonDisabled = styled(AddShoppingCartIcon, {
+  name: "PurchaseButtonDisabled",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  width: "max(54px,54px)",
+  height: "max(54px,54px)",
+  display: "grid",
+  placeItems: "center",
+  position: "absolute",
+  top: "200px",
+  right: "104px",
+  color: theme.palette.secondary.dark,
+  padding: "11.5px 7.5px 7.5px 8.5px",
+
+  backgroundColor: theme.palette.secondary.main,
+  borderRadius: "50%",
+}));
+
 const KitchenTableContainer = styled("div", {
   name: "KitchenTableContainer",
   slot: "Wrapper",
@@ -234,6 +252,7 @@ export {
   TopContainer,
   NewPizzaButton,
   PurchaseButton,
+  PurchaseButtonDisabled,
   KitchenTableContainer,
   PizzaPanContainer,
   PizzaPeelWithPan,

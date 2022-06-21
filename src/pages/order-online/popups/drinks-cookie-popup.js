@@ -42,8 +42,16 @@ const DrinksNCookiePopup = ({ toggleOpen }) => {
     dispatch(storeActions.setOnlinePopupActiveData([]));
   };
   const orderHandler = () => {
-    deepCopyOfCartObject.push(clickedData);
+    const finalPrice = clickedData.price.slice(1);
+
+    deepCopyOfCartObject.push({
+      title: `${clickedData.title}`,
+      totalPrice: `${finalPrice}`,
+      userSelectedData: clickedData,
+    });
+
     dispatch(storeActions.setCartObject(deepCopyOfCartObject));
+    dispatch(storeActions.setAddToCartButtonClicked(false));
     onCloseHandler();
   };
   const cancelHandler = () => {

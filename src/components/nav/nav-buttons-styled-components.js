@@ -46,6 +46,9 @@ const ShoppingCartContainer = styled("div", {
   height: "max(max-content,max-content)",
   display: "grid",
   position: "relative",
+  padding: "10px",
+  borderRadius: "50%",
+  transition: "all 0.5s",
 });
 
 const ShoppingCartItemsTracker = styled("div", {
@@ -56,8 +59,8 @@ const ShoppingCartItemsTracker = styled("div", {
   height: "max(max-content,max-content)",
   padding: "4px 6px 4px 6px",
   position: "absolute",
-  top: "-6px",
-  right: "-8px",
+  top: "0px",
+  right: "0px",
   backgroundColor: theme.palette.secondary.dark,
   color: theme.palette.secondary.light,
   borderRadius: "50%",
@@ -65,6 +68,7 @@ const ShoppingCartItemsTracker = styled("div", {
   lineHeight: "12px",
   fontSize: "12px",
   fontWeight: "700",
+  transition: "all 0.5s",
 }));
 const PhoneContainer = styled("div", {
   name: "PhoneContainer",

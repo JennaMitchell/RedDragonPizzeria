@@ -2,6 +2,7 @@ import {
   TopContainer,
   NewPizzaButton,
   PurchaseButton,
+  PurchaseButtonDisabled,
   KitchenTableContainer,
   PizzaPeelWithPan,
   PizzaPeelWithoutPan,
@@ -33,6 +34,9 @@ const PizzaMakerHomepage = () => {
   const [pizzaCreationType, setPizzaCreationType] = useState("");
   const [pizzaMenuActive, setPizzaMenuActive] = useState(false);
   const [panDropedOff, setPanDroppedOff] = useState(false);
+  const buildAPizzaUserSelectedObject = useSelector(
+    (state) => state.buildAPizzaUserSelectedObject
+  );
   const dispatch = useDispatch();
   const exportRef = useRef(null);
   const newPizzaHandler = () => {
@@ -41,6 +45,7 @@ const PizzaMakerHomepage = () => {
 
   const addToCartHandler = () => {
     dispatch(storeActions.setAddToCartButtonClicked(true));
+    setNewPizzaPopup(!newPizzaPopup);
   };
   const pizzaCreationTypeHandler = (type) => {
     setPizzaCreationType(type);
@@ -48,6 +53,25 @@ const PizzaMakerHomepage = () => {
   const pizzaMenuHandler = () => {
     setPizzaMenuActive(!pizzaMenuActive);
   };
+
+  // Handeling add To Cart Enablers
+
+  let shoppingCartEnabled = false;
+  let userMissingData = false;
+
+  let possibleUserSelectedTypes = ["size", "crust", "sauce", "cheese"];
+  for (let type of possibleUserSelectedTypes) {
+    if (buildAPizzaUserSelectedObject[type].length === 0) {
+      userMissingData = true;
+      break;
+    }
+  }
+  if (!userMissingData) {
+    shoppingCartEnabled = true;
+  } else {
+    shoppingCartEnabled = false;
+  }
+
   const pepperoniDragEventActive = useSelector(
     (state) => state.pepperoniDragEventActive
   );
@@ -133,7 +157,10 @@ const PizzaMakerHomepage = () => {
       {pepperoniDragEventActive && <DarkBackground />}
       {/* Close Button Icon */}
       <NewPizzaButton onClick={newPizzaHandler} />
-      <PurchaseButton onClick={addToCartHandler} />
+      {shoppingCartEnabled && <PurchaseButton onClick={addToCartHandler} />}
+      {!shoppingCartEnabled && (
+        <PurchaseButtonDisabled onClick={addToCartHandler} />
+      )}
     </TopContainer>
   );
 };

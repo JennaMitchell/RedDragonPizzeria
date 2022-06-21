@@ -78,6 +78,20 @@ const StyledButton = styled(Button, {
   },
   fontSize: "16px",
 }));
+const DisabledStyledButton = styled(Button, {
+  name: "DisabledStyledButton",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  color: theme.palette.secondary.dark,
+  backgroundColor: theme.palette.secondary.main,
+  width: "max(125px,125px)",
+  height: "max(max-content,max-content)",
+  padding: "10px 20px 10px 20px",
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.main,
+  },
+  fontSize: "16px",
+}));
 
 const SaladsPopup = ({ toggleOpen }) => {
   const dispatch = useDispatch();
@@ -96,8 +110,56 @@ const SaladsPopup = ({ toggleOpen }) => {
     dispatch(storeActions.setOnlinePopupActiveData([]));
   };
   const orderHandler = () => {
-    deepCopyOfCartObject.push(clickedData);
+    // Step One. Extracting the price of the clicked data based on the selected size
+    // coverting the full size name to its abrievation to extracted
+    let abbreviatedSize = "";
+    switch (selectedSize) {
+      case "Small":
+        abbreviatedSize = "sm.";
+        break;
+      case "Large":
+        abbreviatedSize = "lg.";
+        break;
+      default:
+        break;
+    }
+    // extracting the price
+
+    const indexOfAbbreviatedSize = clickedData.price.indexOf(abbreviatedSize);
+    let slicedPrice = clickedData.price.slice(indexOfAbbreviatedSize);
+
+    /// Salad doesn't have commas so we have to get the next abbreviatedSize
+    let nextSize = "";
+    switch (abbreviatedSize) {
+      case "sm.":
+        nextSize = "lg.";
+        break;
+      case "Large":
+        nextSize = "";
+        break;
+      default:
+        break;
+    }
+
+    let indexOfNextSize = "";
+    if (nextSize !== "") {
+      indexOfNextSize = slicedPrice.indexOf(nextSize);
+    } else {
+      indexOfNextSize = slicedPrice.length;
+    }
+    let extractedPrice = slicedPrice.slice(3, indexOfNextSize);
+    extractedPrice = extractedPrice.trim();
+    // removing the $
+    extractedPrice = extractedPrice.slice(1);
+
+    deepCopyOfCartObject.push({
+      title: `${selectedSize} ${clickedData.title}`,
+      totalPrice: extractedPrice,
+      userSelectedData: clickedData,
+    });
+
     dispatch(storeActions.setCartObject(deepCopyOfCartObject));
+    dispatch(storeActions.setAddToCartButtonClicked(false));
     onCloseHandler();
   };
   const cancelHandler = () => {
@@ -255,7 +317,12 @@ const SaladsPopup = ({ toggleOpen }) => {
           padding: "0px 20px 20px 20px",
         }}
       >
-        <StyledButton onClick={orderHandler}>Order</StyledButton>
+        {selectedSize !== "" && (
+          <StyledButton onClick={orderHandler}>Order</StyledButton>
+        )}
+        {selectedSize === "" && (
+          <DisabledStyledButton>Order</DisabledStyledButton>
+        )}
         <StyledButton onClick={cancelHandler}>Cancel</StyledButton>
       </DialogActions>
     </Dialog>

@@ -77,6 +77,20 @@ const StyledButton = styled(Button, {
   },
   fontSize: "16px",
 }));
+const DisabledStyledButton = styled(Button, {
+  name: "DisabledStyledButton",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  color: theme.palette.secondary.dark,
+  backgroundColor: theme.palette.secondary.main,
+  width: "max(125px,125px)",
+  height: "max(max-content,max-content)",
+  padding: "10px 20px 10px 20px",
+  "&:hover": {
+    backgroundColor: theme.palette.secondary.main,
+  },
+  fontSize: "16px",
+}));
 
 const SpecilityPizzaPopup = ({ toggleOpen }) => {
   const dispatch = useDispatch();
@@ -95,8 +109,56 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
     dispatch(storeActions.setOnlinePopupActiveData([]));
   };
   const orderHandler = () => {
-    deepCopyOfCartObject.push(clickedData);
+    // Step One. Extracting the price of the clicked data based on the selected size
+    // coverting the full size name to its abrievation to extracted
+    let abbreviatedSize = "";
+    switch (selectedSize) {
+      case "Small":
+        abbreviatedSize = "sm.";
+        break;
+      case "Medium":
+        abbreviatedSize = "md.";
+        break;
+      case "Large":
+        abbreviatedSize = "lg.";
+        break;
+      case "XLarge":
+        abbreviatedSize = "xl.";
+        break;
+      case "XXlarge":
+        abbreviatedSize = "xxl.";
+        break;
+      default:
+        break;
+    }
+    // extracting the price
+
+    const indexOfAbbreviatedSize = clickedData.price.indexOf(abbreviatedSize);
+    let slicedPrice = clickedData.price.slice(indexOfAbbreviatedSize);
+    const indexOfSeperatingComma = slicedPrice.indexOf(",");
+    let extractedPrice = "";
+
+    if (abbreviatedSize !== "xxl.") {
+      extractedPrice = slicedPrice.slice(3, indexOfSeperatingComma);
+      extractedPrice = extractedPrice.trim();
+      // removing the $
+      extractedPrice = extractedPrice.slice(1);
+    } else {
+      extractedPrice = slicedPrice.slice(4, indexOfSeperatingComma);
+      // 4 since there is xxl. abbreviation
+      extractedPrice = extractedPrice.trim();
+      // removing the $
+      extractedPrice = extractedPrice.slice(1);
+    }
+
+    deepCopyOfCartObject.push({
+      title: `${selectedSize} ${clickedData.title}`,
+      totalPrice: extractedPrice,
+      userSelectedData: clickedData,
+    });
+
     dispatch(storeActions.setCartObject(deepCopyOfCartObject));
+    dispatch(storeActions.setAddToCartButtonClicked(false));
     onCloseHandler();
   };
   const cancelHandler = () => {
@@ -359,7 +421,12 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
           padding: "0px 20px 20px 20px",
         }}
       >
-        <StyledButton onClick={orderHandler}>Order</StyledButton>
+        {selectedSize !== "" && (
+          <StyledButton onClick={orderHandler}>Order</StyledButton>
+        )}
+        {selectedSize === "" && (
+          <DisabledStyledButton>Order</DisabledStyledButton>
+        )}
         <StyledButton onClick={cancelHandler}>Cancel</StyledButton>
       </DialogActions>
     </Dialog>

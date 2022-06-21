@@ -16,17 +16,7 @@ const BuildAPizzaOrderReviewBoard = () => {
     (state) => state.buildAPizzaUserSelectedObject
   );
 
-  const possibleUserSelectedTypes = [
-    "size",
-    "crust",
-    "sauce",
-    "cheese",
-    "veggies",
-    "meats",
-    "other",
-  ];
   const [userSelectedItemWithPrice, totalPrice] = customPizzaPriceCalculator(
-    possibleUserSelectedTypes,
     buildAPizzaUserSelectedObject
   );
 

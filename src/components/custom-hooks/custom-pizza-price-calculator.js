@@ -1,10 +1,16 @@
 import addItemMenuDatabase from "../../pages/pizza-maker/add-item-menu/add-item-menu-database";
 
-const customPizzaPriceCalculator = (
-  possibleUserSelectedTypes,
-  buildAPizzaUserSelectedObject
-) => {
+const customPizzaPriceCalculator = (buildAPizzaUserSelectedObject) => {
   let userSelectedItemWithPrice = [];
+  let possibleUserSelectedTypes = [
+    "size",
+    "crust",
+    "sauce",
+    "cheese",
+    "veggies",
+    "meats",
+    "other",
+  ];
 
   for (const type of possibleUserSelectedTypes) {
     // selecting the user data

@@ -83,7 +83,8 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       if (copyOfDataObject[objectSection][0] === type) {
         if (objectSection !== "size") {
           // so that the size image will always be rendered
-          copyOfDataObject[objectSection][0] = [];
+          copyOfDataObject[objectSection].splice(0, 1);
+
           dispatch(
             storeActions.setBuildAPizzaUserSelectedObject(copyOfDataObject)
           );

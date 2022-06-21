@@ -9,6 +9,7 @@ import html2canvas from "html2canvas";
 import { useRef } from "react";
 
 import { storeActions } from "../../../store/store";
+import customPizzaPriceCalculator from "../../../components/custom-hooks/custom-pizza-price-calculator";
 const TopImageContainer = styled("div", {
   name: "TopImageContainer",
   slot: "Wrapper",
@@ -38,13 +39,15 @@ const BuildAPizzaDisplayImage = () => {
       const image = canvas;
 
       const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
-      const deepCopyOfBuildAPIzzaUserSelectedObject = JSON.parse(
-        JSON.stringify(buildAPizzaUserSelectedObject)
-      );
+
+      const [userSelectedItemWithPrice, totalPrice] =
+        customPizzaPriceCalculator(buildAPizzaUserSelectedObject);
+
       deepCopyOfCartObject.push({
         title: `Build a Pizza`,
-        userSelectedData: deepCopyOfBuildAPIzzaUserSelectedObject,
-        image: image,
+        userSelectedData: userSelectedItemWithPrice,
+        image: JSON.stringify(image),
+        totalPrice: totalPrice,
       });
 
       dispatch(storeActions.setCartObject(deepCopyOfCartObject));

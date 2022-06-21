@@ -8,7 +8,7 @@ import {
 } from "./pepperoni-maker-order-review-board-styled-components";
 import { useSelector } from "react-redux";
 import chalkUnderline from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
-import customPizzaPriceCalculator from "../../../../components/custom-hooks/custom-pizza-price-calculator";
+import customPepperoniPriceCalculator from "../../../../components/custom-hooks/custom-pepperoni-price-calculator";
 
 const PepperoniMakerOrderReviewBoard = () => {
   const buildAPizzaUserSelectedObject = useSelector(
@@ -20,41 +20,13 @@ const PepperoniMakerOrderReviewBoard = () => {
   const pepperoniPerCrustObject = useSelector(
     (state) => state.pepperoniPerCrustObject
   );
-  let additionalCostPepperoniLimit = 0;
 
-  if (pepperoniLayoutDatabase.length !== 0) {
-    additionalCostPepperoniLimit =
-      +pepperoniPerCrustObject[buildAPizzaUserSelectedObject.size[0]];
-  }
-
-  let possibleUserSelectedTypes = ["size", "crust", "sauce", "cheese"];
-
-  const [userSelectedItemWithPrice, totalPriceBeforePep] =
-    customPizzaPriceCalculator(
-      possibleUserSelectedTypes,
-      buildAPizzaUserSelectedObject
+  const [userSelectedItemWithPrice, totalPrice] =
+    customPepperoniPriceCalculator(
+      pepperoniLayoutDatabase,
+      buildAPizzaUserSelectedObject,
+      pepperoniPerCrustObject
     );
-  // handeling if the user created a custom peperoni pizza and if they wen over the limit to be charged
-
-  if (additionalCostPepperoniLimit !== 0) {
-    if (pepperoniLayoutDatabase.length > additionalCostPepperoniLimit) {
-      const numberOfTimesToCharge =
-        pepperoniLayoutDatabase.length - additionalCostPepperoniLimit;
-
-      let amountToCharge = `${numberOfTimesToCharge * 0.2}`;
-      if (amountToCharge.includes(".")) {
-        const indexOfDecimal = amountToCharge.indexOf(".");
-        amountToCharge = amountToCharge.slice(0, indexOfDecimal + 3);
-      } else {
-        amountToCharge = amountToCharge + `.00`;
-      }
-
-      userSelectedItemWithPrice.push({
-        item: `Additional Pepperoni (${numberOfTimesToCharge})`,
-        price: `$${amountToCharge}`,
-      });
-    }
-  }
 
   // getting the data render ready
   const renderReadyListData = userSelectedItemWithPrice.map((item, index) => {
@@ -67,26 +39,6 @@ const PepperoniMakerOrderReviewBoard = () => {
       </ListItemContainer>
     );
   });
-  // calculating the total price
-
-  let totalPrice = totalPriceBeforePep;
-  totalPrice = 0;
-
-  for (let item of userSelectedItemWithPrice) {
-    const trimmedPrice = item.price.trim();
-    const indexOfPriceSign = trimmedPrice.indexOf("$");
-
-    let itemPrice = +trimmedPrice.slice(indexOfPriceSign + 1);
-
-    if (trimmedPrice[0] === "+" || trimmedPrice[0] === "$") {
-      totalPrice = totalPrice + itemPrice;
-    } else {
-      totalPrice = totalPrice - itemPrice;
-    }
-  }
-  totalPrice = `${totalPrice}`;
-  const indexOfDecimal = totalPrice.indexOf(".");
-  totalPrice = totalPrice.slice(0, indexOfDecimal + 3);
 
   return (
     <TopContainer>
