@@ -1,8 +1,8 @@
 import { styled } from "@mui/material";
 /// Crust Only Images
-import handTossedDough from "../../../../img/pizza-maker/dough/hand-tossed.png";
-import thinCrustDough from "../../../../img/pizza-maker/dough/thin-crust.png";
-import deepDish from "../../../../img/pizza-maker/dough/deep-dish.png";
+import handTossedDough from "../../../img/pizza-maker/dough/hand-tossed.png";
+import thinCrustDough from "../../../img/pizza-maker/dough/thin-crust.png";
+import deepDish from "../../../img/pizza-maker/dough/deep-dish.png";
 
 const PizzaDoughContainer = styled("img", {
   name: "PizzaDoughContainer",

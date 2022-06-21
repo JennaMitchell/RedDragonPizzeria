@@ -34,20 +34,24 @@ const DrinksNCookiePopup = ({ toggleOpen }) => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const clickedData = useSelector((state) => state.onlinePopupActiveData);
 
-  // pulling out the size prices from the array
-  let prices = clickedData.price;
-
+  /// Handling Order Button Clicked
+  const cartObject = useSelector((state) => state.cartObject);
+  const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
   const onCloseHandler = () => {
     dispatch(storeActions.setOnlineOrderPopupType(""));
     dispatch(storeActions.setOnlinePopupActiveData([]));
   };
-
   const orderHandler = () => {
+    deepCopyOfCartObject.push(clickedData);
+    dispatch(storeActions.setCartObject(deepCopyOfCartObject));
     onCloseHandler();
   };
   const cancelHandler = () => {
     onCloseHandler();
   };
+
+  // pulling out the size prices from the array
+  let prices = clickedData.price;
 
   return (
     <Dialog

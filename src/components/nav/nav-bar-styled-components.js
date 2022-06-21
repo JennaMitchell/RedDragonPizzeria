@@ -64,7 +64,7 @@ const RoofSvgContainer = styled("div", {
   backgroundPosition: "center",
 
   backgroundSize: "101%",
-  zIndex: "2",
+  zIndex: "1",
 });
 
 export {

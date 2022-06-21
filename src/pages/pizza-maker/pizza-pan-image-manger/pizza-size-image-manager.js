@@ -1,4 +1,4 @@
-import pizzaPan from "../../../../img/pizza-maker/pan/pizza-pan.png";
+import pizzaPan from "../../../img/pizza-maker/pan/pizza-pan.png";
 import { styled } from "@mui/material";
 import { useSelector } from "react-redux";
 const PizzaPanContainer = styled("img", {

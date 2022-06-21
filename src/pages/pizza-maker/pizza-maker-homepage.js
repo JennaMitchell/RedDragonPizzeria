@@ -1,6 +1,7 @@
 import {
   TopContainer,
   NewPizzaButton,
+  PurchaseButton,
   KitchenTableContainer,
   PizzaPeelWithPan,
   PizzaPeelWithoutPan,
@@ -17,22 +18,29 @@ import NewPizzaPopup from "./popups/new-pizza-popup";
 
 import pizzaPeel from "../../img/pizza-maker/peel/pizza-peel.png";
 import pizzaPeelWithPan from "../../img/pizza-maker/peel/pizza-peel-with-pan.png";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import AddItemMenu from "./add-item-menu/add-item-menu";
-import BuildAPizzaDisplayImage from "./pizza-image-manager/build-a-pizza/build-a-pizza-top-image-container";
-import PepperoniMakerDisplayImage from "./pizza-image-manager/pepperoni-maker/pepperoni-maker-pan-manager";
-import BuildAPizzaOrderReviewBoard from "./pizza-image-manager/build-a-pizza/order-review-board/build-a-pizza-order-review-board";
-import PepperoniMakerOrderReviewBoard from "./pizza-image-manager/pepperoni-maker/order-review-board/pepperoni-maker-order-review-board";
+import BuildAPizzaDisplayImage from "./build-a-pizza/build-a-pizza-top-image-container";
+import PepperoniMakerDisplayImage from "./pepperoni-maker/pepperoni-maker-pan-manager";
+import BuildAPizzaOrderReviewBoard from "./build-a-pizza/order-review-board/build-a-pizza-order-review-board";
+import PepperoniMakerOrderReviewBoard from "./pepperoni-maker/order-review-board/pepperoni-maker-order-review-board";
+import { storeActions } from "../../store/store";
 
 const PizzaMakerHomepage = () => {
   const [newPizzaPopup, setNewPizzaPopup] = useState(true);
   const [pizzaCreationType, setPizzaCreationType] = useState("");
   const [pizzaMenuActive, setPizzaMenuActive] = useState(false);
   const [panDropedOff, setPanDroppedOff] = useState(false);
+  const dispatch = useDispatch();
+  const exportRef = useRef(null);
   const newPizzaHandler = () => {
     setNewPizzaPopup(!newPizzaPopup);
+  };
+
+  const addToCartHandler = () => {
+    dispatch(storeActions.setAddToCartButtonClicked(true));
   };
   const pizzaCreationTypeHandler = (type) => {
     setPizzaCreationType(type);
@@ -68,6 +76,7 @@ const PizzaMakerHomepage = () => {
       >
         <MainTitle variant="h2">{pizzaCreationType}</MainTitle>
       </MainTitleContainer>
+      {/* Add Item Menu */}
       <AddItemMenu
         pizzaMenuActive={pizzaMenuActive}
         pizzaCreationType={pizzaCreationType}
@@ -79,6 +88,7 @@ const PizzaMakerHomepage = () => {
           <OpenMenuIcon onClick={pizzaMenuHandler} />
         )}
       </MenuButton>
+      {/* Pizza Peel Animation */}
       <PizzaPeelWithPan
         src={pizzaPeelWithPan}
         alt="Pizza Peel"
@@ -99,26 +109,31 @@ const PizzaMakerHomepage = () => {
           visibility: `${!panDropedOff ? "hidden" : "visible"}`,
         }}
       />
+
       <NewPizzaPopup
         newPizzaPopup={newPizzaPopup}
         onClose={newPizzaPopup}
         onCloseFunction={newPizzaHandler}
         retrievePizzaType={pizzaCreationTypeHandler}
       />
+      {/* Display Image Handler */}
       {pizzaCreationType !== "Custom Pepperoni Layout" && (
-        <KitchenTableContainer>
+        <KitchenTableContainer ref={exportRef}>
           {panDropedOff && <BuildAPizzaDisplayImage />}
           {panDropedOff && <BuildAPizzaOrderReviewBoard />}
         </KitchenTableContainer>
       )}
       {pizzaCreationType === "Custom Pepperoni Layout" && (
-        <KitchenTableContainer>
+        <KitchenTableContainer ref={exportRef}>
           {panDropedOff && <PepperoniMakerDisplayImage />}
           {panDropedOff && <PepperoniMakerOrderReviewBoard />}
         </KitchenTableContainer>
-      )}{" "}
+      )}
+      {/* Used to handle the user moving peperoni around */}
       {pepperoniDragEventActive && <DarkBackground />}
+      {/* Close Button Icon */}
       <NewPizzaButton onClick={newPizzaHandler} />
+      <PurchaseButton onClick={addToCartHandler} />
     </TopContainer>
   );
 };

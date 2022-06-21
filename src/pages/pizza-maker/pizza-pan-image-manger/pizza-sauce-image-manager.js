@@ -1,21 +1,21 @@
 import { styled } from "@mui/material";
-import deepDishMarinaraSauce from "../../../../img/pizza-maker/sauces/deep-dish/deep-dish-mar.png";
-import deepDishRobustTomatoSauce from "../../../../img/pizza-maker/sauces/deep-dish/deep-dish-robust-tomato.png";
-import deepDishGarlicParmSauce from "../../../../img/pizza-maker/sauces/deep-dish/deep-dish-garlic-sauce.png";
-import deepDishBbqSauce from "../../../../img/pizza-maker/sauces/deep-dish/deep-dish-bbq.png";
-import deepDishAlfredoSauce from "../../../../img/pizza-maker/sauces/deep-dish/deep-dish-alfredo.png";
+import deepDishMarinaraSauce from "../../../img/pizza-maker/sauces/deep-dish/deep-dish-mar.png";
+import deepDishRobustTomatoSauce from "../../../img/pizza-maker/sauces/deep-dish/deep-dish-robust-tomato.png";
+import deepDishGarlicParmSauce from "../../../img/pizza-maker/sauces/deep-dish/deep-dish-garlic-sauce.png";
+import deepDishBbqSauce from "../../../img/pizza-maker/sauces/deep-dish/deep-dish-bbq.png";
+import deepDishAlfredoSauce from "../../../img/pizza-maker/sauces/deep-dish/deep-dish-alfredo.png";
 
-import thinCrustMarinaraSauce from "../../../../img/pizza-maker/sauces/thin-crust/thin-crust-mar.png";
-import thinCrustRobustTomatoSauce from "../../../../img/pizza-maker/sauces/thin-crust/thin-crust-robust-sauce.png";
-import thinCrustGarlicParmSauce from "../../../../img/pizza-maker/sauces/thin-crust/thin-crust-garlic.png";
-import thinCrustBbqSauce from "../../../../img/pizza-maker/sauces/thin-crust/thin-crust-bbq.png";
-import thinCrustAlfredoSauce from "../../../../img/pizza-maker/sauces/thin-crust/thin-crust-alfredo.png";
+import thinCrustMarinaraSauce from "../../../img/pizza-maker/sauces/thin-crust/thin-crust-mar.png";
+import thinCrustRobustTomatoSauce from "../../../img/pizza-maker/sauces/thin-crust/thin-crust-robust-sauce.png";
+import thinCrustGarlicParmSauce from "../../../img/pizza-maker/sauces/thin-crust/thin-crust-garlic.png";
+import thinCrustBbqSauce from "../../../img/pizza-maker/sauces/thin-crust/thin-crust-bbq.png";
+import thinCrustAlfredoSauce from "../../../img/pizza-maker/sauces/thin-crust/thin-crust-alfredo.png";
 
-import handTossedMarinaraSauce from "../../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-mar.png";
-import handTossedRobustTomatoSauce from "../../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-robust-tomato.png";
-import handTossedGarlicParmSauce from "../../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-garlic-sauce.png";
-import handTossedBbqSauce from "../../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-bbq.png";
-import handTossedAlfredoSauce from "../../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-alfredo.png";
+import handTossedMarinaraSauce from "../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-mar.png";
+import handTossedRobustTomatoSauce from "../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-robust-tomato.png";
+import handTossedGarlicParmSauce from "../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-garlic-sauce.png";
+import handTossedBbqSauce from "../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-bbq.png";
+import handTossedAlfredoSauce from "../../../img/pizza-maker/sauces/hand-tossed/hand-tossed-alfredo.png";
 
 const PizzaSauceContainer = styled("img", {
   name: "PizzaSauceContainer",

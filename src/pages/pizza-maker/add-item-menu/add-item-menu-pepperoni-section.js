@@ -51,8 +51,11 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
     }
 
     // Step 3. Checking for deletion
+    console.log(arrayOfIdsInUse);
 
     if (arrayOfIdsInUse.length !== 0) {
+      console.log(+arrayOfIdsInUse[arrayOfIdsInUse.length - 1]);
+      console.log(arrayOfIdsInUse.length - 1);
       if (
         +arrayOfIdsInUse[arrayOfIdsInUse.length - 1] !==
         arrayOfIdsInUse.length - 1
@@ -60,14 +63,11 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
         // deletion occured
         // find the first deleted index
         for (let [index, entry] of copyOfPepperoniLayoutDatabase.entries()) {
-          index = index - 1;
-          // index starts at 1 and not zero so we have to subtract one
           if (+entry.pepperoniId > +index) {
             //create a copy of the data with the higher value
-            copyOfPepperoniLayoutDatabase[+entry.pepperoniId] = entry;
 
-            copyOfPepperoniLayoutDatabase[+index + 1] = {
-              pepperoniId: `${+index + 1}`,
+            copyOfPepperoniLayoutDatabase.splice(index, 0, {
+              pepperoniId: `${+index}`,
               coordinates: {
                 x: `${copyOfPepperoniLayoutDatabase.length * 10 + 50}px`,
                 y: `${
@@ -77,7 +77,8 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
                 }px`,
               },
               shape: `${shape}`,
-            };
+            });
+
             break;
           }
         }

@@ -37,6 +37,8 @@ const initialState = {
   onlineOrderClickedSection: "Specility Pizza",
   onlineOrderPopupType: "",
   onlinePopupActiveData: [],
+  cartObject: [],
+  addToCartButtonClicked: false,
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -83,6 +85,12 @@ const storeSlice = createSlice({
     },
     setOnlinePopupActiveData(state, { payload }) {
       state.onlinePopupActiveData = payload;
+    },
+    setCartObject(state, { payload }) {
+      state.cartObject = payload;
+    },
+    setAddToCartButtonClicked(state, { payload }) {
+      state.addToCartButtonClicked = payload;
     },
   },
 });

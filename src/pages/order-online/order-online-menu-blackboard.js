@@ -14,7 +14,7 @@ import horizontalChalkUnderline from "../../img/line-art/underlines/chalk_underl
 import { saladData } from "../full-menu/menu-sections/salad-section/salad-menu-database";
 import { useSelector } from "react-redux";
 import SpecilityPizzaPopup from "./popups/specility-pizza-popup";
-import DrinksNCookiePopup from "./popups/no-sizes-popup";
+import DrinksNCookiePopup from "./popups/drinks-cookie-popup";
 import SaladsPopup from "./popups/salads-popup";
 import SidesPopup from "./popups/sides-popup";
 

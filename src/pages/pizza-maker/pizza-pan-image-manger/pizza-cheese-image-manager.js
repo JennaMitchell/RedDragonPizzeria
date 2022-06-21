@@ -1,7 +1,7 @@
 import { styled } from "@mui/material";
-import mozzarellaCheese from "../../../../img/pizza-maker/cheese/yellow-small-bubble-cheese.png";
-import provoloneCheese from "../../../../img/pizza-maker/cheese/light-yellow-cheese.png";
-import cheddarCheese from "../../../../img/pizza-maker/cheese/cheddar-cheese.png";
+import mozzarellaCheese from "../../../img/pizza-maker/cheese/yellow-small-bubble-cheese.png";
+import provoloneCheese from "../../../img/pizza-maker/cheese/light-yellow-cheese.png";
+import cheddarCheese from "../../../img/pizza-maker/cheese/cheddar-cheese.png";
 const PizzaCheeseContainer = styled("img", {
   name: "TopImageContainer",
   slot: "Wrapper",

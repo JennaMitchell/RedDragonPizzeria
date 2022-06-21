@@ -2,6 +2,7 @@ import { styled } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CancelIcon from "@mui/icons-material/Cancel";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import plankImage from "../../img/full-menu/plank.jpg";
 
 import { Typography } from "@mui/material";
@@ -37,7 +38,29 @@ const NewPizzaButton = styled(CancelIcon, {
   color: theme.palette.secondary.light,
   transition: "all 0.5s ease-in",
   "&:hover": {
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.light,
+  },
+}));
+
+const PurchaseButton = styled(AddShoppingCartIcon, {
+  name: "PurchaseButton",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  width: "max(54px,54px)",
+  height: "max(54px,54px)",
+  display: "grid",
+  placeItems: "center",
+  position: "absolute",
+  top: "200px",
+  right: "104px",
+  color: theme.palette.secondary.dark,
+  padding: "11.5px 7.5px 7.5px 8.5px",
+
+  backgroundColor: theme.palette.secondary.light,
+  borderRadius: "50%",
+  transition: "all 0.5s ease-in",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.light,
   },
 }));
 
@@ -195,20 +218,22 @@ const DarkBackground = styled("div", {
   name: "DarkBackground",
   slot: "Wrapper",
 })(() => ({
-  width: "max(100vw,100vw)",
-  height: "max(100vh,100vh)",
+  width: "max(100%,100%)",
+  height: "max(100%,100%)",
   display: "grid",
   placeItems: "center",
-  position: "absolute",
+  position: "fixed",
   top: "0",
   left: "0",
   transition: "all 2s",
   zIndex: 1,
   backgroundColor: "rgba(0, 0, 0, 0.65)",
 }));
+
 export {
   TopContainer,
   NewPizzaButton,
+  PurchaseButton,
   KitchenTableContainer,
   PizzaPanContainer,
   PizzaPeelWithPan,

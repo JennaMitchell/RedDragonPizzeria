@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { styled } from "@mui/material";
 import { useState } from "react";
-import trianglePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepperoni-triangle-slice.png";
-import squarePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
-import circlePepperoniSlice from "../../../../../img/pizza-maker/toppings/pepperoni-slice.png";
-import { storeActions } from "../../../../../store/store";
+import trianglePepperoniSlice from "../../../../img/pizza-maker/toppings/pepperoni-triangle-slice.png";
+import squarePepperoniSlice from "../../../../img/pizza-maker/toppings/pepperoni-square-slice.png";
+import circlePepperoniSlice from "../../../../img/pizza-maker/toppings/pepperoni-slice.png";
+import { storeActions } from "../../../../store/store";
 import customPepperoniBoundaryData from "./custom-pepperoni-boundary-data";
-import DeletePepperoniWarning from "../../../popups/delete-pepperoni-warning";
+import DeletePepperoniWarning from "../../popups/delete-pepperoni-warning";
 
 const PepperoniImageContainer = styled("img", {
   name: "PepperoniImageContainer",
@@ -51,15 +51,15 @@ const CustomPepperoniLayout = () => {
     let indexOfPepperoniToRemove = 0;
 
     for (let [index, entry] of copyOfPepperoniLayoutDataBase.entries()) {
-      // index starts at 1 and not zero so we have to subtract one
-      if (entry.pepperoniId === activeDragId) {
+      if (+entry.pepperoniId === +activeDragId) {
         indexOfPepperoniToRemove = index;
       }
     }
-
+    console.log(indexOfPepperoniToRemove);
     let removedEntryLayout = copyOfPepperoniLayoutDataBase.filter(
-      (entry) => entry.pepperoniId === indexOfPepperoniToRemove
+      (entry) => +entry.pepperoniId !== +indexOfPepperoniToRemove
     );
+    console.log(removedEntryLayout);
     //The "splice()" function returns not the affected array, but the array of removed elements. If you remove nothing, the result array is empty.
 
     dispatch(storeActions.setPepperoniLayoutDatabase(removedEntryLayout));
@@ -139,6 +139,7 @@ const CustomPepperoniLayout = () => {
 
     for (let entry of copyOfPepperoniLayoutDataBase) {
       if (entry.pepperoniId === activeDragId) {
+        console.log(copyOfPepperoniLayoutDataBase);
         let currentXCoord =
           copyOfPepperoniLayoutDataBase[entry.pepperoniId].coordinates.x;
         let indexOfPInXCoord = currentXCoord.indexOf("p");
@@ -164,10 +165,11 @@ const CustomPepperoniLayout = () => {
 
         // if the element is dragged and dropped outside of the container
         if (elementIsOutOfBounds) {
+          console.log(deletePepperoniByDefault);
           if (!deletePepperoniByDefault) {
             dispatch(storeActions.setDeletePepperoniWarning(true));
             dispatch(storeActions.setPepperoniDragEventActive(false));
-            setActiveDragId("");
+
             setCurrentPageX(0);
             setCurrentPageY(0);
           } else {

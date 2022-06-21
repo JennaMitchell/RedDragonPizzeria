@@ -8,9 +8,9 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Typography, Button } from "@mui/material";
 import { styled } from "@mui/material";
-import pizzaIcon from "../../../../img/online-order-menu/pizza-icon.png";
+import pizzaIcon from "../../../img/online-order-menu/pizza-icon.png";
 import { useSelector, useDispatch } from "react-redux";
-import { storeActions } from "../../../../store/store";
+import { storeActions } from "../../../store/store";
 import { useState } from "react";
 
 const SizeSelectionContainer = styled("div", {
@@ -84,7 +84,24 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
 
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const clickedData = useSelector((state) => state.onlinePopupActiveData);
+  const cartObject = useSelector((state) => state.cartObject);
+  const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
   const [selectedSize, setSelectedSize] = useState("");
+
+  /// Handling Order Button Clicked
+
+  const onCloseHandler = () => {
+    dispatch(storeActions.setOnlineOrderPopupType(""));
+    dispatch(storeActions.setOnlinePopupActiveData([]));
+  };
+  const orderHandler = () => {
+    deepCopyOfCartObject.push(clickedData);
+    dispatch(storeActions.setCartObject(deepCopyOfCartObject));
+    onCloseHandler();
+  };
+  const cancelHandler = () => {
+    onCloseHandler();
+  };
 
   // pulling out the size prices from the array
   let prices = clickedData.price;
@@ -122,11 +139,6 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
   [price, priceArray] = priceExtractor(priceArray);
   priceObject["XXLarge"] = price;
 
-  const onCloseHandler = () => {
-    dispatch(storeActions.setOnlineOrderPopupType(""));
-    dispatch(storeActions.setOnlinePopupActiveData([]));
-  };
-
   const smallSizeButtonHandler = () => {
     if (selectedSize === "Small") {
       setSelectedSize("");
@@ -163,12 +175,6 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
     }
   };
 
-  const orderHandler = () => {
-    onCloseHandler();
-  };
-  const cancelHandler = () => {
-    onCloseHandler();
-  };
   let displayPrice = "0.00";
   switch (selectedSize) {
     case "Small":

@@ -1,6 +1,6 @@
 import { styled, Typography, Grid } from "@mui/material";
 
-import plankImage from "../../../../../img/full-menu/plank.jpg";
+import plankImage from "../../../../img/full-menu/plank.jpg";
 
 const TopContainer = styled("div", {
   name: "TopContainer",

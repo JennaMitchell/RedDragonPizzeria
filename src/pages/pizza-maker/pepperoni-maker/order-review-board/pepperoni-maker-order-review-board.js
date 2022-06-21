@@ -5,41 +5,54 @@ import {
   HorizontalChalkUnderline,
   StyledTypography,
   ListItemContainer,
-} from "./build-a-pizza-order-review-board-styled-components";
+} from "./pepperoni-maker-order-review-board-styled-components";
 import { useSelector } from "react-redux";
-import chalkUnderline from "../../../../../img/line-art/underlines/chalk_underline_horizontal.png";
-import addItemMenuDatabase from "../../../add-item-menu/add-item-menu-database";
+import chalkUnderline from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import customPizzaPriceCalculator from "../../../../components/custom-hooks/custom-pizza-price-calculator";
 
-const BuildAPizzaOrderReviewBoard = () => {
+const PepperoniMakerOrderReviewBoard = () => {
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
+  const pepperoniPerCrustObject = useSelector(
+    (state) => state.pepperoniPerCrustObject
+  );
+  let additionalCostPepperoniLimit = 0;
 
-  const possibleUserSelectedTypes = [
-    "size",
-    "crust",
-    "sauce",
-    "cheese",
-    "veggies",
-    "meats",
-    "other",
-  ];
+  if (pepperoniLayoutDatabase.length !== 0) {
+    additionalCostPepperoniLimit =
+      +pepperoniPerCrustObject[buildAPizzaUserSelectedObject.size[0]];
+  }
 
-  let userSelectedItemWithPrice = [];
+  let possibleUserSelectedTypes = ["size", "crust", "sauce", "cheese"];
 
-  for (const type of possibleUserSelectedTypes) {
-    // selecting the user data
-    let userSelectedItem = buildAPizzaUserSelectedObject[type];
-    // for loop retieves the price for the item the user selected
-    for (const item of userSelectedItem) {
-      let data = addItemMenuDatabase[type].data;
-      // now we need to find the price fro the user selected item
-      for (const dataItem of data) {
-        if (dataItem.type === item) {
-          userSelectedItemWithPrice.push({ item: item, price: dataItem.price });
-          break;
-        }
+  const [userSelectedItemWithPrice, totalPriceBeforePep] =
+    customPizzaPriceCalculator(
+      possibleUserSelectedTypes,
+      buildAPizzaUserSelectedObject
+    );
+  // handeling if the user created a custom peperoni pizza and if they wen over the limit to be charged
+
+  if (additionalCostPepperoniLimit !== 0) {
+    if (pepperoniLayoutDatabase.length > additionalCostPepperoniLimit) {
+      const numberOfTimesToCharge =
+        pepperoniLayoutDatabase.length - additionalCostPepperoniLimit;
+
+      let amountToCharge = `${numberOfTimesToCharge * 0.2}`;
+      if (amountToCharge.includes(".")) {
+        const indexOfDecimal = amountToCharge.indexOf(".");
+        amountToCharge = amountToCharge.slice(0, indexOfDecimal + 3);
+      } else {
+        amountToCharge = amountToCharge + `.00`;
       }
+
+      userSelectedItemWithPrice.push({
+        item: `Additional Pepperoni (${numberOfTimesToCharge})`,
+        price: `$${amountToCharge}`,
+      });
     }
   }
 
@@ -56,7 +69,8 @@ const BuildAPizzaOrderReviewBoard = () => {
   });
   // calculating the total price
 
-  let totalPrice = 0;
+  let totalPrice = totalPriceBeforePep;
+  totalPrice = 0;
 
   for (let item of userSelectedItemWithPrice) {
     const trimmedPrice = item.price.trim();
@@ -91,4 +105,4 @@ const BuildAPizzaOrderReviewBoard = () => {
     </TopContainer>
   );
 };
-export default BuildAPizzaOrderReviewBoard;
+export default PepperoniMakerOrderReviewBoard;
