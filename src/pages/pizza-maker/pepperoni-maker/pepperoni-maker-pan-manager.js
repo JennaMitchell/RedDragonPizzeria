@@ -42,9 +42,13 @@ const PepperoniMakerDisplayImage = () => {
     (state) => state.addToCartButtonClicked
   );
   const cartObject = useSelector((state) => state.cartObject);
+  const buildAPizzaObjectToggle = useSelector(
+    (state) => state.buildAPizzaObjectToggle
+  );
   if (addToCartButtonClicked) {
     html2canvas(exportRef.current).then(function (canvas) {
-      const image = canvas;
+      const image = canvas.toDataURL("image/png", 1.0);
+      //.outerHTML
 
       const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
 
@@ -54,15 +58,39 @@ const PepperoniMakerDisplayImage = () => {
           buildAPizzaUserSelectedObject,
           pepperoniPerCrustObject
         );
+      let pepperoniAdded = "";
+      console.log(pepperoniLayoutDatabase.length);
+      if (pepperoniLayoutDatabase.length === 0) {
+        pepperoniAdded = false;
+      } else {
+        pepperoniAdded = true;
+      }
       deepCopyOfCartObject.push({
         title: `Custom Pepperoni Pizza`,
         userSelectedData: userSelectedItemWithPrice,
-        image: JSON.stringify(image),
+        image: image,
         totalPrice: totalPrice,
+        pepperoniAdded: pepperoniAdded,
       });
+      dispatch(
+        storeActions.setBuildAPizzaUserSelectedObject({
+          size: ["Medium"],
+          sauce: [],
+          crust: [],
+          cheese: [],
+          veggies: [],
+          meats: [],
+          other: [],
+          pepperoni: [],
+        })
+      );
+      dispatch(
+        storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
+      );
 
       dispatch(storeActions.setCartObject(deepCopyOfCartObject));
       dispatch(storeActions.setAddToCartButtonClicked(false));
+      dispatch(storeActions.setPepperoniLayoutDatabase([]));
     });
   }
 

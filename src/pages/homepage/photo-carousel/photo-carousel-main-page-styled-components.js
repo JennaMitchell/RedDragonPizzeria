@@ -5,12 +5,13 @@ const PhotoGalleryContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(800px,800px)",
+  height: "max(810px,810px)",
   backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.light,
   display: "grid",
   placeItems: "center",
   position: "relative",
+  paddingTop: "10px",
   backgroundImage: `url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)`,
 }));
 

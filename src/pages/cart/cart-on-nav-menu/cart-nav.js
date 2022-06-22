@@ -8,6 +8,8 @@ import {
 import { Typography } from "@mui/material";
 import { useState } from "react";
 import { storeActions } from "../../../store/store";
+import { NavLink } from "react-router-dom";
+import classes from "../../../generic-styled-components/navlink.module.css";
 
 const CartOnNavMenu = () => {
   const cartObject = useSelector((state) => state.cartObject);
@@ -97,7 +99,11 @@ const CartOnNavMenu = () => {
           {`$${totalCartPrice}`}
         </Typography>
       </LatestItemContainer>
-      <ViewCartButton>View Cart</ViewCartButton>
+      <ViewCartButton>
+        <NavLink to="/cart" className={classes.navLink}>
+          Order
+        </NavLink>
+      </ViewCartButton>
     </TopContainer>
   );
 };

@@ -45,7 +45,6 @@ const PizzaMakerHomepage = () => {
 
   const addToCartHandler = () => {
     dispatch(storeActions.setAddToCartButtonClicked(true));
-    setNewPizzaPopup(!newPizzaPopup);
   };
   const pizzaCreationTypeHandler = (type) => {
     setPizzaCreationType(type);

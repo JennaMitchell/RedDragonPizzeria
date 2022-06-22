@@ -33,10 +33,14 @@ const BuildAPizzaDisplayImage = () => {
   const addToCartButtonClicked = useSelector(
     (state) => state.addToCartButtonClicked
   );
+  const buildAPizzaObjectToggle = useSelector(
+    (state) => state.buildAPizzaObjectToggle
+  );
   const cartObject = useSelector((state) => state.cartObject);
   if (addToCartButtonClicked) {
-    html2canvas(exportRef.current).then(function (canvas) {
-      const image = canvas;
+    html2canvas(exportRef.current).then((canvas) => {
+      const image = canvas.toDataURL("image/png", 1.0);
+      //.outerHTML
 
       const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
 
@@ -46,9 +50,24 @@ const BuildAPizzaDisplayImage = () => {
       deepCopyOfCartObject.push({
         title: `Build a Pizza`,
         userSelectedData: userSelectedItemWithPrice,
-        image: JSON.stringify(image),
+        image: image,
         totalPrice: totalPrice,
       });
+      dispatch(
+        storeActions.setBuildAPizzaUserSelectedObject({
+          size: ["Medium"],
+          sauce: [],
+          crust: [],
+          cheese: [],
+          veggies: [],
+          meats: [],
+          other: [],
+          pepperoni: [],
+        })
+      );
+      dispatch(
+        storeActions.setBuildAPizzaObjectToggle(!buildAPizzaObjectToggle)
+      );
 
       dispatch(storeActions.setCartObject(deepCopyOfCartObject));
       dispatch(storeActions.setAddToCartButtonClicked(false));
