@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   TopContainer,
   MenuPlankContainer,
@@ -12,20 +12,20 @@ import {
 } from "./cart-homepage-styled-components";
 
 import horizontalChalkUnderline from "../../../img/line-art/underlines/chalk_underline_horizontal.png";
+import { storeActions } from "../../../store/store";
 
 const CartHomepage = () => {
-  ///Your Order Title
-  // underline
-  // items
-  //(pic if custom made ) title description price
-  // underline
-  // tax
-  // total
-  // Order Now Button
   const cartObject = useSelector((state) => state.cartObject);
+  const dispatch = useDispatch();
   let totalPrice = 0;
 
+  const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
+
   const renderReadyItems = cartObject.map((item, index) => {
+    const deleteIconHandler = () => {
+      deepCopyOfCartObject.splice(index, 1);
+      dispatch(storeActions.setCartObject(deepCopyOfCartObject));
+    };
     if (
       item.title === "Build a Pizza" ||
       item.title === "Custom Pepperoni Pizza"
@@ -85,7 +85,10 @@ const CartHomepage = () => {
             {`$${item.totalPrice}`}
           </StyledTypography>
 
-          <TrashIcon sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }} />
+          <TrashIcon
+            onClick={deleteIconHandler}
+            sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }}
+          />
         </CustomItemContainer>
       );
     } else {
@@ -136,7 +139,10 @@ const CartHomepage = () => {
             {`$${item.totalPrice}`}
           </StyledTypography>
 
-          <TrashIcon sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }} />
+          <TrashIcon
+            onClick={deleteIconHandler}
+            sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }}
+          />
         </CustomItemContainer>
       );
     }

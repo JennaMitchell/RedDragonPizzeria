@@ -13,6 +13,12 @@ const SelectorButton = styled("button", {
   display: "grid",
   placeItems: "center",
   fontSize: "20px",
+  "@media (max-width:870px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:730px)": {
+    fontSize: "12px",
+  },
 }));
 
 const ActiveSelectorButton = styled("button", {
@@ -28,6 +34,12 @@ const ActiveSelectorButton = styled("button", {
   display: "grid",
   placeItems: "center",
   fontSize: "20px",
+  "@media (max-width:870px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:730px)": {
+    fontSize: "12px",
+  },
 }));
 
 const MenuSelectorButton = ({ id, activeId, title, onClickHandler }) => {

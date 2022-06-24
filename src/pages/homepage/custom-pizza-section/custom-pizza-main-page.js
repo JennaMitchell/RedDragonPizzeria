@@ -18,21 +18,68 @@ const CustomPizzaSectionMainPage = () => {
           width: "max(78%,78%)",
           height: "max(max-content,max-content)",
           position: "relative",
+          marginTop: "10px",
+          marginBottom: "10px",
         }}
       >
         <Grid item xs={1}>
-          <Typography variant={"h3"} color="secondary.light">
+          <Typography
+            variant={"h3"}
+            sx={{
+              "@media (max-width:1050px)": {
+                fontSize: "30px",
+              },
+
+              "@media(max-width:760px)": {
+                fontSize: "28px",
+              },
+              "@media(max-width:670px)": {
+                fontSize: "20px",
+              },
+            }}
+            color="secondary.light"
+          >
             Create a Custom Peperonni Pizza
           </Typography>
         </Grid>
         <Grid item xs={1} sx={{ postion: "relative" }}>
-          <Typography variant={"h5"} color="secondary.light">
+          <Typography
+            variant={"h5"}
+            color="secondary.light"
+            sx={{
+              "@media (max-width:880px)": {
+                fontSize: "24px",
+              },
+              "@media(max-width:760px)": {
+                fontSize: "18px",
+              },
+              "@media(max-width:670px)": {
+                fontSize: "12px",
+              },
+            }}
+          >
             Create a peperonni pizza with custom peperonni configuration, or
             choose from the most popular designs
           </Typography>
         </Grid>
         <Grid item xs={1}>
-          <StyledButton variant={"contained"} size={"large"} color="secondary">
+          <StyledButton
+            variant={"contained"}
+            size={"large"}
+            color="secondary"
+            sx={{
+              "@media (max-width:880px)": {
+                fontSize: "16px",
+              },
+              "@media(max-width:760px)": {
+                fontSize: "14px",
+              },
+              "@media(max-width:670px)": {
+                fontSize: "10px",
+                padding: "10px",
+              },
+            }}
+          >
             Peperonni Pizza Maker
           </StyledButton>
         </Grid>
@@ -41,10 +88,7 @@ const CustomPizzaSectionMainPage = () => {
         variant="outlined"
         sx={{ width: "max(80%,80%)", height: "max(80%,80%)" }}
       >
-        <ImageContainer
-          src={peperoniPhoto}
-          alt="peperoni Pizza"
-        ></ImageContainer>
+        <ImageContainer src={peperoniPhoto} alt="peperoni Pizza" />
       </Card>
     </TopContainer>
   );

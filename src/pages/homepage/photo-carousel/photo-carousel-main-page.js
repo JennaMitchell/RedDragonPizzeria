@@ -68,7 +68,9 @@ const PhotoCarouselMainPage = () => {
           }}
           onClick={nextButtonHandler}
         >
-          <ArrowForwardIosIcon />
+          <ArrowForwardIosIcon
+            sx={{ width: "max(60%,60%)", height: "max(60%,60%)" }}
+          />
         </RightSliderButton>
         <LeftSliderButton
           sx={{
@@ -80,7 +82,9 @@ const PhotoCarouselMainPage = () => {
           }}
           onClick={previousButtonHandler}
         >
-          <ArrowBackIosNewIcon />
+          <ArrowBackIosNewIcon
+            sx={{ width: "max(60%,60%)", height: "max(60%,60%)" }}
+          />
         </LeftSliderButton>
 
         <PhotoGalleySlide

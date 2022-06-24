@@ -5,14 +5,18 @@ const PhotoGalleryContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(810px,810px)",
+
   backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.light,
   display: "grid",
   placeItems: "center",
   position: "relative",
-  paddingTop: "10px",
+  paddingTop: "15px",
+  paddingBottom: "10px",
   backgroundImage: `url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)`,
+  "@media (max-width:1250px)": {
+    paddingBottom: "0px",
+  },
 }));
 
 const LeftSliderButton = styled("button", {
@@ -37,6 +41,20 @@ const LeftSliderButton = styled("button", {
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
+  "@media (max-width:1000px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+  },
+  "@media (max-width:800px)": {
+    width: "max(40px,40px)",
+    height: "max(40px,40px)",
+    left: "30px",
+  },
+  "@media (max-width:700px)": {
+    width: "max(30px,30px)",
+    height: "max(30px,30px)",
+    left: "20px",
+  },
 }));
 const RightSliderButton = styled("button", {
   name: "SliderButton",
@@ -59,12 +77,27 @@ const RightSliderButton = styled("button", {
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
+  "@media (max-width:1000px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+    right: "50px",
+  },
+  "@media (max-width:800px)": {
+    width: "max(40px,40px)",
+    height: "max(40px,40px)",
+    right: "40px",
+  },
+  "@media (max-width:700px)": {
+    width: "max(30px,30px)",
+    height: "max(30px,30px)",
+    right: "30px",
+  },
 }));
 const ImageContainer = styled("div", {
   name: "ImageContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
-  width: "min(1200px,1200px)",
+})(() => ({
+  width: "min(80%,1200px)",
   height: "min(92.5%,92.5%)",
   position: "relative",
   display: "grid",

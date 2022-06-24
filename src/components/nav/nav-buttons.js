@@ -10,11 +10,10 @@ import {
 import { StyledButton } from "../../generic-styled-components/generic-styled-components";
 import { NavLink } from "react-router-dom";
 import classes from "../../generic-styled-components/navlink.module.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { keyframes } from "@emotion/react";
 
-import { storeActions } from "../../store/store";
 const NavButtons = () => {
   const cartObject = useSelector((state) => state.cartObject);
   const addToCartButtonClicked = useSelector(
@@ -23,11 +22,9 @@ const NavButtons = () => {
   const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
   // to enable the use of the cart pbject we have to create a copy of it first
   const lengthOfCartObject = deepCopyOfCartObject.length;
-  const dispatch = useDispatch();
 
   // hover effect handler
   const [cartHoverActive, setCartHoverActive] = useState(false);
-  const cartButtonClicked = useSelector((state) => state.cartButtonClicked);
 
   const cartMouseEnterHandler = () => {
     if (lengthOfCartObject > 0) {
@@ -49,38 +46,126 @@ const NavButtons = () => {
   });
 
   // Cart Click Handler
-  const cartButtonHandler = () => {
-    if (lengthOfCartObject > 0) {
-      if (!cartButtonClicked) {
-        dispatch(storeActions.setCartButtonClicked(true));
-      } else {
-        dispatch(storeActions.setCartButtonClosingAction(true));
-      }
-    }
-  };
 
   return (
     <ButtonContainer>
       <PhoneContainer>
-        <LocalPhone color="primary.light" />
-        <Typography varaint="h3">+1 (555) 555-5555</Typography>
+        <LocalPhone
+          color="primary.light"
+          sx={{
+            "@media (max-width:1200px)": {
+              fontSize: "10px",
+            },
+            "@media (max-width:880px)": {
+              fontSize: "8px",
+            },
+          }}
+        />
+        <Typography
+          varaint="h3"
+          sx={{
+            "@media (max-width:1200px)": {
+              fontSize: "10px",
+            },
+            "@media (max-width:880px)": {
+              fontSize: "8px",
+            },
+          }}
+        >
+          +1 (555) 555-5555
+        </Typography>
       </PhoneContainer>
-      <StyledHomeButton variant="text">
+      <StyledHomeButton
+        variant="text"
+        sx={{
+          "@media (max-width:1200px)": {
+            fontSize: "10px",
+          },
+          "@media (max-width:880px)": {
+            fontSize: "8px",
+            padding: "7.5px",
+          },
+          "@media(max-width:760px)": {
+            padding: "5px",
+          },
+          "@media(max-width:670px)": {
+            padding: "2.5px",
+            minWidth: "40px",
+            borderRadius: "2px",
+          },
+        }}
+      >
         <NavLink to="/home" className={classes.navLink}>
           Home
         </NavLink>
       </StyledHomeButton>
-      <StyledButton variant="contained">
+      <StyledButton
+        variant="contained"
+        sx={{
+          "@media (max-width:1200px)": {
+            fontSize: "10px",
+          },
+          "@media (max-width:880px)": {
+            fontSize: "8px",
+            padding: "7.5px",
+          },
+          "@media(max-width:760px)": {
+            padding: "5px",
+          },
+          "@media(max-width:670px)": {
+            padding: "2.5px",
+            minWidth: "40px",
+            borderRadius: "2px",
+          },
+        }}
+      >
         <NavLink to="/menu" className={classes.navLink}>
           Menu
         </NavLink>
       </StyledButton>
-      <StyledButton variant="contained">
+      <StyledButton
+        variant="contained"
+        sx={{
+          "@media (max-width:1200px)": {
+            fontSize: "10px",
+          },
+          "@media (max-width:880px)": {
+            fontSize: "8px",
+            padding: "7.5px",
+          },
+          "@media(max-width:760px)": {
+            padding: "5px",
+          },
+          "@media(max-width:670px)": {
+            padding: "2.5px",
+            borderRadius: "2px",
+          },
+        }}
+      >
         <NavLink to="/pizza-maker" className={classes.navLink}>
           Pizza Maker
         </NavLink>
       </StyledButton>
-      <StyledButton variant="contained">
+      <StyledButton
+        variant="contained"
+        sx={{
+          "@media (max-width:1200px)": {
+            fontSize: "10px",
+          },
+
+          "@media (max-width:880px)": {
+            fontSize: "8px",
+            padding: "7.5px",
+          },
+          "@media(max-width:760px)": {
+            padding: "5px",
+          },
+          "@media(max-width:670px)": {
+            padding: "2.5px",
+            borderRadius: "2px",
+          },
+        }}
+      >
         <NavLink to="/order-online" className={classes.navLink}>
           Order Online
         </NavLink>
@@ -88,7 +173,6 @@ const NavButtons = () => {
       <ShoppingCartContainer
         onMouseEnter={cartMouseEnterHandler}
         onMouseLeave={cartMouseLeaveHandler}
-        onClick={cartButtonHandler}
         sx={{
           "&:hover": {
             backgroundColor: `${cartHoverActive && "secondary.dark"}`,
@@ -98,15 +182,29 @@ const NavButtons = () => {
           }`,
         }}
       >
-        <ShoppingCartItemsTracker
-          sx={{
-            backgroundColor: `${cartHoverActive && "secondary.light"}`,
-            color: `${cartHoverActive && "secondary.dark"}`,
-          }}
-        >
-          {lengthOfCartObject}
-        </ShoppingCartItemsTracker>
-        <ShoppingCart color="secondary.light" />
+        <NavLink to="/cart" className={classes.navLink}>
+          <ShoppingCartItemsTracker
+            sx={{
+              backgroundColor: `${cartHoverActive && "secondary.light"}`,
+              color: `${cartHoverActive && "secondary.dark"}`,
+            }}
+          >
+            {lengthOfCartObject}
+          </ShoppingCartItemsTracker>
+          <ShoppingCart
+            color="secondary.light"
+            sx={{
+              "@media (max-width:895px)": {
+                width: "max(20px,20px)",
+                height: "max(20px,20px)",
+              },
+              "@media (max-width:770px)": {
+                width: "max(16px,16px)",
+                height: "max(16px,16px)",
+              },
+            }}
+          />
+        </NavLink>
       </ShoppingCartContainer>
     </ButtonContainer>
   );

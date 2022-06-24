@@ -4,6 +4,9 @@ import {
   ColumnTwo,
   SocialIcons,
   ContactInfoContainer,
+  StyledButton,
+  StyledContactText,
+  StyledFooterHeading,
 } from "./footer-styled-components";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -13,7 +16,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
-import { Typography, Grid, Button } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -24,6 +27,15 @@ const Footer = () => {
             color: "secondary.light",
             fontSize: "22px",
             marginBottom: "15px",
+            "@media (max-width:1050px)": {
+              fontSize: "16px",
+            },
+            "@media (max-width:880px)": {
+              fontSize: "14px",
+            },
+            "@media (max-width:740px)": {
+              fontSize: "12px",
+            },
           }}
         >
           Red Dragon Pizzeria
@@ -33,184 +45,160 @@ const Footer = () => {
             color: "secondary.light",
             fontSize: "18px",
             marginBottom: "15px",
+            "@media (max-width:1050px)": {
+              fontSize: "16px",
+            },
+            "@media (max-width:880px)": {
+              fontSize: "14px",
+            },
+            "@media (max-width:740px)": {
+              fontSize: "12px",
+            },
+            "@media (max-width:680px)": {
+              fontSize: "10px",
+            },
           }}
         >
           Making hot and ready fantasy inspired dishes since 2022.
         </Typography>
-        <Grid container columns={4} sx={{ width: "175px" }}>
+        <Grid
+          container
+          columns={4}
+          sx={{
+            width: "175px",
+            "@media (max-width:740px)": {
+              width: "100px",
+            },
+          }}
+        >
           <Grid item xs={1}>
             <SocialIcons>
-              <FacebookIcon color="secondary.light" />
+              <FacebookIcon
+                sx={{
+                  "@media (max-width:1050px)": {
+                    width: "max(20px,20px)",
+                    height: "max(20px,20px)",
+                  },
+                  "@media (max-width:880px)": {
+                    width: "max(15px,15px)",
+                    height: "max(15px,15px)",
+                  },
+                }}
+                color="secondary.light"
+              />
             </SocialIcons>
           </Grid>
           <Grid item xs={1}>
             <SocialIcons>
-              <TwitterIcon color="secondary.light" />
+              <TwitterIcon
+                sx={{
+                  "@media (max-width:1050px)": {
+                    width: "max(20px,20px)",
+                    height: "max(20px,20px)",
+                  },
+                  "@media (max-width:880px)": {
+                    width: "max(15px,15px)",
+                    height: "max(15px,15px)",
+                  },
+                }}
+                color="secondary.light"
+              />
             </SocialIcons>
           </Grid>
           <Grid item xs={1}>
             <SocialIcons>
-              <LinkedInIcon color="secondary.light" />
+              <LinkedInIcon
+                sx={{
+                  "@media (max-width:1050px)": {
+                    width: "max(20px,20px)",
+                    height: "max(20px,20px)",
+                  },
+                  "@media (max-width:880px)": {
+                    width: "max(15px,15px)",
+                    height: "max(15px,15px)",
+                  },
+                }}
+                color="secondary.light"
+              />
             </SocialIcons>
           </Grid>
           <Grid item xs={1}>
             <SocialIcons>
-              <InstagramIcon color="secondary.light" />
+              <InstagramIcon
+                sx={{
+                  "@media (max-width:1050px)": {
+                    width: "max(20px,20px)",
+                    height: "max(20px,20px)",
+                  },
+                  "@media (max-width:880px)": {
+                    width: "max(15px,15px)",
+                    height: "max(15px,15px)",
+                  },
+                }}
+                color="secondary.light"
+              />
             </SocialIcons>
           </Grid>
         </Grid>
       </ColumnOne>
       <ColumnTwo>
-        <Typography
-          sx={{
-            color: "secondary.light",
-            fontSize: "22px",
-            marginBottom: "15px",
-            textAlign: "center",
-          }}
-        >
-          Explore
-        </Typography>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          Home
-        </Button>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          Menu
-        </Button>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          Custom Pizza
-        </Button>
+        <StyledFooterHeading>Explore</StyledFooterHeading>
+        <StyledButton variant={"text"}>Home</StyledButton>
+        <StyledButton variant={"text"}>Menu</StyledButton>
+        <StyledButton variant={"text"}>Custom Pizza</StyledButton>
       </ColumnTwo>
       <ColumnTwo>
-        <Typography
-          sx={{
-            color: "secondary.light",
-            fontSize: "22px",
-            marginBottom: "15px",
-            textAlign: "center",
-          }}
-        >
-          Resources
-        </Typography>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          Dough Recipe
-        </Button>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          How to Throw Dough
-        </Button>
-        <Button
-          sx={{
-            color: "secondary.light",
-            fontSize: "18px",
-            marginBottom: "15px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "primary.main",
-            },
-          }}
-          variant={"text"}
-        >
-          Pizza Sauce Recipe
-        </Button>
+        <StyledFooterHeading>Resources</StyledFooterHeading>
+        <StyledButton variant={"text"}>Dough Recipe</StyledButton>
+        <StyledButton variant={"text"}>How to Throw Dough</StyledButton>
+        <StyledButton variant={"text"}>Pizza Sauce Recipe</StyledButton>
       </ColumnTwo>
       <ColumnTwo>
-        <Typography
-          sx={{
-            color: "secondary.light",
-            fontSize: "22px",
-            marginBottom: "20px",
-            textAlign: "center",
-          }}
-        >
-          Contact
-        </Typography>
+        <StyledFooterHeading>Contact</StyledFooterHeading>
         <ContactInfoContainer>
-          <LocalPhoneIcon />
-          <Typography
+          <LocalPhoneIcon
             sx={{
-              color: "secondary.light",
-              fontSize: "18px",
+              "@media (max-width:1050px)": {
+                width: "max(20px,20px)",
+                height: "max(20px,20px)",
+              },
+              "@media (max-width:880px)": {
+                width: "max(15px,15px)",
+                height: "max(15px,15px)",
+              },
             }}
-          >
-            +1 (555) 555-5555
-          </Typography>
+          />
+          <StyledContactText>(555) 555-5555</StyledContactText>
         </ContactInfoContainer>
         <ContactInfoContainer>
-          <LocationOnIcon />
-          <Typography
+          <LocationOnIcon
             sx={{
-              color: "secondary.light",
-              fontSize: "18px",
+              "@media (max-width:1050px)": {
+                width: "max(20px,20px)",
+                height: "max(20px,20px)",
+              },
+              "@media (max-width:880px)": {
+                width: "max(15px,15px)",
+                height: "max(15px,15px)",
+              },
             }}
-          >
-            Address TBD
-          </Typography>
+          />
+          <StyledContactText>Address TBD</StyledContactText>
         </ContactInfoContainer>
         <ContactInfoContainer>
-          <EmailIcon />
-          <Typography
+          <EmailIcon
             sx={{
-              color: "secondary.light",
-              fontSize: "18px",
+              "@media (max-width:1050px)": {
+                width: "max(20px,20px)",
+                height: "max(20px,20px)",
+              },
+              "@media (max-width:880px)": {
+                width: "max(15px,15px)",
+                height: "max(15px,15px)",
+              },
             }}
-          >
-            Email TBD
-          </Typography>
+          />
+          <StyledContactText>Email TBD</StyledContactText>
         </ContactInfoContainer>
       </ColumnTwo>
     </TopContainer>

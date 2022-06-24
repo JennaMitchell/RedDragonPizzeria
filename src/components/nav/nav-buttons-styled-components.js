@@ -12,6 +12,12 @@ const ButtonContainer = styled("div", {
   alignItems: "center",
   justifyContent: "space-evenly",
   gap: "20px",
+  "@media (max-width:1050px)": {
+    gap: "10px",
+  },
+  "@media (max-width:880px)": {
+    gap: "5px",
+  },
 });
 
 const StyledButton = styled(Button, {
@@ -20,6 +26,10 @@ const StyledButton = styled(Button, {
 })(({ theme }) => ({
   backgroundColor: theme.palette.secondary.dark,
   color: theme.palette.secondary.light,
+  width: "max(max-content,max-content)",
+  "@media (max-width:1300px)": {
+    fontSize: "10px",
+  },
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.secondary.dark,
@@ -32,6 +42,9 @@ const StyledHomeButton = styled(Button, {
 })(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.secondary.light,
+  "@media (max-width:1300px)": {
+    fontSize: "10px",
+  },
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.secondary.dark,
@@ -49,6 +62,10 @@ const ShoppingCartContainer = styled("div", {
   padding: "10px",
   borderRadius: "50%",
   transition: "all 0.5s",
+
+  "@media (max-width:760px)": {
+    padding: "5px",
+  },
 });
 
 const ShoppingCartItemsTracker = styled("div", {
@@ -69,6 +86,10 @@ const ShoppingCartItemsTracker = styled("div", {
   fontSize: "12px",
   fontWeight: "700",
   transition: "all 0.5s",
+  "@media(max-width:747px)": {
+    padding: "2px 2px 2px 2px",
+    fontSize: "10px",
+  },
 }));
 const PhoneContainer = styled("div", {
   name: "PhoneContainer",
@@ -81,6 +102,9 @@ const PhoneContainer = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   gap: "10px",
+  "@media(max-width:880px)": {
+    gap: "5px",
+  },
 });
 export {
   PhoneContainer,

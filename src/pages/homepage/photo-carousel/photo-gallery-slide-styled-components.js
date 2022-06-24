@@ -5,50 +5,77 @@ const PhotoGalleryImg = styled("img", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(100%,100%)",
+  height: "min(100%,100%)",
   backgroundColor: theme.palette.secondary.main,
   color: theme.palette.secondary.light,
-  objectFit: "cover",
+  objectFit: "fill",
   position: "relative",
   opacity: 0,
   visibility: "hidden",
   borderRadius: "15px",
+  fontSize: "10px",
 }));
 
 const LeftBanner = styled("div", { name: "LeftBanner", slot: "Wrapper" })(
   ({ theme }) => ({
-    width: "max(200px,200px)",
+    width: "min(200px,200px)",
     height: "max(max-content,max-content)",
     backgroundColor: theme.palette.secondary.dark,
     borderEndStartRadius: "20px",
     borderEndEndRadius: "20px",
     position: "absolute",
     top: "0px",
-    left: "100px",
+    left: "8%",
     zIndex: 2,
     padding: "10px 20px 10px 20px",
     boxShadow: "0 1px 2px white",
     textAlign: "left",
     opacity: 0,
     visibility: "hidden",
+
+    "@media (max-width:1000px)": {
+      fontSize: "14px",
+    },
+    "@media (max-width:800px)": {
+      fontSize: "12px",
+      width: "min(150px,150px)",
+    },
+    "@media (max-width:700px)": {
+      fontSize: "10px",
+      width: "min(125px,125px)",
+      padding: "10px 10px 10px 10px",
+    },
   })
 );
-const RightBanner = styled("div", { name: "LeftBanner", slot: "Wrapper" })(
+const RightBanner = styled("div", { name: "RightBanner", slot: "Wrapper" })(
   ({ theme }) => ({
-    width: "max(200px,200px)",
+    width: "min(200px,200px)",
     height: "max(max-content,max-content)",
     backgroundColor: theme.palette.secondary.dark,
     borderEndStartRadius: "20px",
     borderEndEndRadius: "20px",
     position: "absolute",
     top: "0px",
-    right: "100px",
+    right: "8%",
     zIndex: 2,
     padding: "10px 20px 10px 20px",
     boxShadow: "0 1px 2px white",
     textAlign: "left",
     opacity: 0,
     visibility: "hidden",
+
+    "@media (max-width:1000px)": {
+      fontSize: "14px",
+    },
+    "@media (max-width:800px)": {
+      fontSize: "12px",
+      width: "min(150px,150px)",
+    },
+    "@media (max-width:700px)": {
+      fontSize: "10px",
+      width: "min(125px,125px)",
+      padding: "10px 10px 10px 10px",
+    },
   })
 );
 

@@ -25,9 +25,20 @@ const PhotoGalleySlide = ({ id, image, title, description }) => {
             opacity: currentId === id && "1",
           }}
         >
-          <Typography>{title}</Typography>
-          <Typography>----------------------</Typography>
-          <Typography>{description}</Typography>
+          <Typography
+            sx={{
+              fontSize: "inherit",
+              borderBottom: "3px solid white",
+              borderBottomStyle: "dashed",
+              paddingBottom: "5px",
+            }}
+          >
+            {title}
+          </Typography>
+
+          <Typography sx={{ fontSize: "inherit", paddingTop: "5px" }}>
+            {description}
+          </Typography>
         </RightBanner>
       )}
       {id % 2 === 1 && (
@@ -38,9 +49,20 @@ const PhotoGalleySlide = ({ id, image, title, description }) => {
             opacity: currentId === id && "1",
           }}
         >
-          <Typography>{title}</Typography>
-          <Typography>----------------------</Typography>
-          <Typography>{description}</Typography>
+          <Typography
+            sx={{
+              fontSize: "inherit",
+              borderBottom: "3px solid white",
+              borderBottomStyle: "dashed",
+              paddingBottom: "5px",
+            }}
+          >
+            {title}
+          </Typography>
+
+          <Typography sx={{ fontSize: "inherit", paddingTop: "5px" }}>
+            {description}
+          </Typography>
         </LeftBanner>
       )}
 

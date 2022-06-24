@@ -5,7 +5,7 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(800px,800px)",
+  height: "min(60%,800px)",
   backgroundColor: theme.palette.primary.main,
   border: "none",
   display: "grid",
@@ -43,7 +43,7 @@ const PhotoSide = styled("div", {
 const ImageContainer = styled("img", {
   name: "ImageContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "min(100%,100%)",
   height: "min(100%,100%)",
   objectFit: "cover",

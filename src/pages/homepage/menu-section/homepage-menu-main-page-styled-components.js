@@ -17,7 +17,7 @@ const MenuContainer = styled("div", {
   name: "MenuContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(1000px,1000px)",
+  width: "min(1000px,80%)",
   height: "max(max-content,max-content)",
   backgroundColor: theme.palette.primary.light,
   border: "none",

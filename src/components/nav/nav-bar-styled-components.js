@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Toolbar } from "@mui/material";
-import roof from "../../img/homepage/roof.png";
 
 const LogoContainer = styled("div", {
   name: "LogoContainer",
@@ -15,9 +14,16 @@ const LogoContainer = styled("div", {
   justifyItems: "center",
   marginLeft: "15px",
   borderRadius: "50%",
-  position: "relative",
 
   backgroundColor: theme.palette.secondary.dark,
+  "@media (max-width:895px)": {
+    width: "max(60px,60px)",
+    height: "max(60px,60px)",
+  },
+  "@media (max-width:700px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+  },
 }));
 const LogoImage = styled("img", {
   name: "LogoImage",
@@ -33,10 +39,11 @@ const LogoTitleContainer = styled("div", {
 })({
   display: "grid",
   width: "max(max-content,max-content)",
-  gridTemplateColumns: "1fr 3fr",
+  gridTemplateColumns: "max-content max-content",
   alignItems: "center",
   justifyContent: "space-between",
   position: "relative",
+  gap: "5px",
 });
 
 const StyledToolBar = styled(Toolbar, {
@@ -49,9 +56,21 @@ const StyledToolBar = styled(Toolbar, {
   alignItems: "center",
   justifyContent: "space-between",
   position: "relative",
+  "@media (max-width:940px)": {
+    paddingLeft: "10px",
+    paddingRight: "10px",
+  },
+  "@media (max-width:880px)": {
+    paddingLeft: "10px",
+    paddingRight: "10px",
+  },
+  "@media (max-width:760px)": {
+    paddingLeft: "5px",
+    paddingRight: "5px",
+  },
 });
 
-const RoofSvgContainer = styled("div", {
+const RoofSvgContainer = styled("img", {
   name: "RoofSvgContainer",
   slot: "Wrapper",
 })({
@@ -60,11 +79,17 @@ const RoofSvgContainer = styled("div", {
   position: "absolute",
   top: "90px",
   left: "0px",
-  backgroundImage: `url(${roof})`,
-  backgroundPosition: "center",
-
-  backgroundSize: "101%",
   zIndex: "1",
+  "@media(max-width:895px)": {
+    top: "70px",
+  },
+  "@media(max-width:700px)": {
+    top: "60px",
+    height: "max(40px,40px)",
+  },
+  "@media(max-width:620px)": {
+    height: "max(30px,30px)",
+  },
 });
 
 export {
