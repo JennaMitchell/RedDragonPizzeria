@@ -1,11 +1,11 @@
-import { styled } from "@mui/material/styles";
+import { styled, Typography } from "@mui/material";
 
 const TopContainer = styled("div", {
   name: "TopContainer",
   slot: "Wrapper",
 })(() => ({
   width: "max(100%,100%)",
-  height: "max(max-content,max-content)",
+  height: "max(100%,100%)",
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
@@ -24,6 +24,65 @@ const CookieContainer = styled("img", {
   backgroundColor: "transparent",
   display: "grid",
   placeItems: "center",
-  position: "relative",
+  position: "absolute",
+  bottom: "0",
+  left: "50%",
+  transform: "translateX(-50%)",
 }));
-export { TopContainer, CookieContainer };
+const SectionTitle = styled(Typography, {
+  name: "SectionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "52px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+  "@media (max-width:900px)": {
+    fontSize: "48px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "36px",
+  },
+}));
+
+const DescriptionTitle = styled(Typography, {
+  name: "DescriptionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "32px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "left",
+  width: "max(100%,100%)",
+  "@media (max-width:900px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "18px",
+  },
+  "@media (max-width:670px)": {
+    fontSize: "16px",
+  },
+}));
+const DescriptionText = styled(Typography, {
+  name: "DescriptionText",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "16px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "left",
+  "@media (max-width:900px)": {
+    fontSize: "14px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "12px",
+  },
+}));
+export {
+  TopContainer,
+  CookieContainer,
+  SectionTitle,
+  DescriptionTitle,
+  DescriptionText,
+};

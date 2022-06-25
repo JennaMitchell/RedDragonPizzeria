@@ -6,8 +6,9 @@ import {
   ShoppingCartContainer,
   ButtonContainer,
   StyledHomeButton,
+  StyledButton,
 } from "./nav-buttons-styled-components";
-import { StyledButton } from "../../generic-styled-components/generic-styled-components";
+
 import { NavLink } from "react-router-dom";
 import classes from "../../generic-styled-components/navlink.module.css";
 import { useSelector } from "react-redux";
@@ -75,26 +76,7 @@ const NavButtons = () => {
           +1 (555) 555-5555
         </Typography>
       </PhoneContainer>
-      <StyledHomeButton
-        variant="text"
-        sx={{
-          "@media (max-width:1200px)": {
-            fontSize: "10px",
-          },
-          "@media (max-width:880px)": {
-            fontSize: "8px",
-            padding: "7.5px",
-          },
-          "@media(max-width:760px)": {
-            padding: "5px",
-          },
-          "@media(max-width:670px)": {
-            padding: "2.5px",
-            minWidth: "40px",
-            borderRadius: "2px",
-          },
-        }}
-      >
+      <StyledHomeButton variant="text">
         <NavLink to="/home" className={classes.navLink}>
           Home
         </NavLink>
@@ -102,20 +84,10 @@ const NavButtons = () => {
       <StyledButton
         variant="contained"
         sx={{
-          "@media (max-width:1200px)": {
-            fontSize: "10px",
-          },
-          "@media (max-width:880px)": {
-            fontSize: "8px",
-            padding: "7.5px",
-          },
-          "@media(max-width:760px)": {
-            padding: "5px",
-          },
           "@media(max-width:670px)": {
             padding: "2.5px",
-            minWidth: "40px",
             borderRadius: "2px",
+            minWidth: "max-content",
           },
         }}
       >
@@ -123,49 +95,12 @@ const NavButtons = () => {
           Menu
         </NavLink>
       </StyledButton>
-      <StyledButton
-        variant="contained"
-        sx={{
-          "@media (max-width:1200px)": {
-            fontSize: "10px",
-          },
-          "@media (max-width:880px)": {
-            fontSize: "8px",
-            padding: "7.5px",
-          },
-          "@media(max-width:760px)": {
-            padding: "5px",
-          },
-          "@media(max-width:670px)": {
-            padding: "2.5px",
-            borderRadius: "2px",
-          },
-        }}
-      >
+      <StyledButton variant="contained">
         <NavLink to="/pizza-maker" className={classes.navLink}>
           Pizza Maker
         </NavLink>
       </StyledButton>
-      <StyledButton
-        variant="contained"
-        sx={{
-          "@media (max-width:1200px)": {
-            fontSize: "10px",
-          },
-
-          "@media (max-width:880px)": {
-            fontSize: "8px",
-            padding: "7.5px",
-          },
-          "@media(max-width:760px)": {
-            padding: "5px",
-          },
-          "@media(max-width:670px)": {
-            padding: "2.5px",
-            borderRadius: "2px",
-          },
-        }}
-      >
+      <StyledButton variant="contained">
         <NavLink to="/order-online" className={classes.navLink}>
           Order Online
         </NavLink>

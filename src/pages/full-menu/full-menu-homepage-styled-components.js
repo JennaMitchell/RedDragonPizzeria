@@ -17,15 +17,14 @@ const TopContainer = styled("div", {
   fontFamily: "Fredericka the Great ,cursive",
   backgroundImage: `url(${barBackground})`,
   backgroundRepeat: "no-repeat",
-  backgroundSize: "100%",
-  backgroundPosition: "center",
-  objectFit: "contain",
+  backgroundSize: "cover",
+  backgroundPosition: "center center",
 }));
 const MenuContainer = styled("div", {
   name: "MenuContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(1000px,1000px)",
+  width: "min(100%,1000px)",
   height: "min(1000px,1000px)",
   overflowY: "scroll",
   overflowX: "hidden",
@@ -44,7 +43,7 @@ const BoardImageContainer = styled("div", {
   name: "BoardImageContainer",
   slot: "Wrapper",
 })(() => ({
-  width: "max(max-content,max-content)",
+  width: "min(85%,1000px)",
   height: "min(max-content,1000px)",
 
   padding: "10px 25px 10px 25px",

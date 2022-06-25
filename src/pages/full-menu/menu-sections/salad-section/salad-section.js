@@ -2,11 +2,11 @@ import {
   TopContainer,
   SaladColumn,
   BellPepperLineArtContainer,
+  SectionTitle,
 } from "./salad-section-styled-components";
 import {
   SectionTitleContainer,
   UnderlineContainer,
-  StyledTypography,
   TwoColumnContainer,
   SectionBreaker,
 } from "../general-styled-components/general-styled-components";
@@ -22,17 +22,11 @@ const SaladSection = () => {
   return (
     <TopContainer>
       <SectionTitleContainer>
-        <StyledTypography variant={"h2"}>Salads</StyledTypography>
+        <SectionTitle>Salads</SectionTitle>
         <UnderlineContainer src={horizontalUnderLine} />
         <BellPepperLineArtContainer src={bellpepperLineArt} alt={"Bellpeper"} />
       </SectionTitleContainer>
-      <TwoColumnContainer
-        container
-        alignItems="center"
-        justifyContent="center"
-        columns={3}
-        sx={{ position: "relative" }}
-      >
+      <TwoColumnContainer columns={3} sx={{ position: "relative" }}>
         <SaladColumn>{renderReadySaladDataColumnOne}</SaladColumn>
         <SectionBreaker src={verticalUnderline} />
         <SaladColumn>{renderReadySaladDataColumnTwo}</SaladColumn>

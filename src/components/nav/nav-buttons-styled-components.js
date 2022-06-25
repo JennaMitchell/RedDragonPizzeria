@@ -27,12 +27,27 @@ const StyledButton = styled(Button, {
   backgroundColor: theme.palette.secondary.dark,
   color: theme.palette.secondary.light,
   width: "max(max-content,max-content)",
-  "@media (max-width:1300px)": {
-    fontSize: "10px",
-  },
+
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
     color: theme.palette.secondary.dark,
+  },
+  "@media (max-width:1200px)": {
+    fontSize: "12px",
+  },
+  "@media (max-width:950px)": {
+    fontSize: "10px",
+  },
+  "@media (max-width:880px)": {
+    fontSize: "8px",
+    padding: "7.5px",
+  },
+  "@media(max-width:760px)": {
+    padding: "5px",
+  },
+  "@media(max-width:670px)": {
+    padding: "2.5px",
+    borderRadius: "2px",
   },
 }));
 
@@ -42,8 +57,23 @@ const StyledHomeButton = styled(Button, {
 })(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.secondary.light,
-  "@media (max-width:1300px)": {
+  "@media (max-width:1200px)": {
+    fontSize: "12px",
+  },
+  "@media (max-width:950px)": {
     fontSize: "10px",
+  },
+  "@media (max-width:880px)": {
+    fontSize: "8px",
+    padding: "7.5px",
+  },
+  "@media(max-width:760px)": {
+    padding: "5px",
+  },
+  "@media(max-width:670px)": {
+    padding: "2.5px",
+    borderRadius: "2px",
+    minWidth: "max-content",
   },
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,

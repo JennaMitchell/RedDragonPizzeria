@@ -109,7 +109,7 @@ const pizzaMenuDatabase = {
 //// Pizza Sizes
 const pizzaSizes = pizzaMenuDatabase.createYourOwnPizza.pizzaSizes;
 const renderReadyPizzaSizes = pizzaSizes.map((size, index) => (
-  <PizzaSizesContainer>
+  <PizzaSizesContainer key={index}>
     <PizzaSizesSizes variant="h6">{`${size.size}`}</PizzaSizesSizes>
     <PizzaSizesPrice variant="h6">{`${size.price}`}</PizzaSizesPrice>
   </PizzaSizesContainer>
@@ -121,6 +121,7 @@ const renderReadyPizzaCrusts = pizzaCrusts.map((crust, index) => (
   <PizzaSizesSizes
     variant="h6"
     sx={{ textAlign: "center" }}
+    key={index}
   >{`${crust.crust}`}</PizzaSizesSizes>
 ));
 // Pizza Sauces
@@ -129,6 +130,7 @@ const renderReadyPizzaSauces = pizzaSauce.map((sauce, index) => (
   <PizzaSizesSizes
     variant="h6"
     sx={{ textAlign: "center" }}
+    key={index}
   >{`${sauce}`}</PizzaSizesSizes>
 ));
 
@@ -138,6 +140,7 @@ const renderReadyVegetablesToppings = vegetables.map((veggie, index) => (
   <PizzaSizesSizes
     variant="h6"
     sx={{ textAlign: "center" }}
+    key={index}
   >{`${veggie}`}</PizzaSizesSizes>
 ));
 
@@ -147,6 +150,7 @@ const renderReadyMeatsToppings = meats.map((item, index) => (
   <PizzaSizesSizes
     variant="h6"
     sx={{ textAlign: "center" }}
+    key={index}
   >{`${item}`}</PizzaSizesSizes>
 ));
 
@@ -156,40 +160,46 @@ const renderReadyOtherToppings = other.map((item, index) => (
   <PizzaSizesSizes
     variant="h6"
     sx={{ textAlign: "center" }}
+    key={index}
   >{`${item}`}</PizzaSizesSizes>
 ));
 
 /// Pizzas
 const pizzas = pizzaMenuDatabase.pizza;
-const renderReadyPizzas = pizzas.map((pizza) => {
+const renderReadyPizzas = pizzas.map((pizza, index) => {
   return (
-    <PizzaItemContainer>
+    <PizzaItemContainer key={index}>
       <Typography
         variant="h5"
-        sx={{ fontFamily: "inherit", color: "secondary.light" }}
+        sx={{
+          fontFamily: "inherit",
+          color: "secondary.light",
+          "@media (max-width:655px)": {
+            fontSize: "16px",
+          },
+        }}
       >
         {pizza.title}
       </Typography>
-      <Typography
-        variant="p"
+      <PizzaSizesSizes
         sx={{
-          fontFamily: "inherit",
-          color: "secondary.light",
-          marginTop: "5px",
+          "@media (max-width:705px)": {
+            marginTop: "5px",
+          },
         }}
       >
         {pizza.description}
-      </Typography>
-      <Typography
-        variant="p"
+      </PizzaSizesSizes>
+      <PizzaSizesSizes
         sx={{
-          fontFamily: "inherit",
-          color: "secondary.light",
-          marginTop: "5px",
+          "@media (max-width:705px)": {
+            marginTop: "5px",
+            paddingLeft: "5px",
+          },
         }}
       >
         {pizza.price}
-      </Typography>
+      </PizzaSizesSizes>
     </PizzaItemContainer>
   );
 });

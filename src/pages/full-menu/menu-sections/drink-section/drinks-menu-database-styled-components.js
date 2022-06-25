@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const DrinksContainer = styled("div", {
   name: "DrinksContainer",
@@ -16,4 +17,37 @@ const DrinksContainer = styled("div", {
   marginBottom: "15px",
 }));
 
-export { DrinksContainer };
+const DescriptionTitle = styled(Typography, {
+  name: "DescriptionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "26px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+  "@media (max-width:900px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "18px",
+  },
+  "@media (max-width:670px)": {
+    fontSize: "16px",
+  },
+}));
+const DescriptionText = styled(Typography, {
+  name: "DescriptionText",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "16px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+  "@media (max-width:900px)": {
+    fontSize: "14px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "12px",
+  },
+}));
+export { DrinksContainer, DescriptionTitle, DescriptionText };

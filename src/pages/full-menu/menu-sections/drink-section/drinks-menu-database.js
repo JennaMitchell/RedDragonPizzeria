@@ -3,7 +3,11 @@ import {
   SmallUnderlineContainer,
   StyledTypography,
 } from "../general-styled-components/general-styled-components";
-import { DrinksContainer } from "./drinks-menu-database-styled-components";
+import {
+  DrinksContainer,
+  DescriptionTitle,
+  DescriptionText,
+} from "./drinks-menu-database-styled-components";
 const drinksDatabase = {
   Beer: [
     {
@@ -132,77 +136,51 @@ const drinksDatabase = {
   ],
 };
 
-const renderReadyBeerData = drinksDatabase.Beer.map((drinks) => {
+const renderReadyBeerData = drinksDatabase.Beer.map((drinks, index) => {
   return (
-    <DrinksContainer>
-      <StyledTypography variant={"h6"} sx={{ textAlign: "center" }}>
-        {drinks.title}
-      </StyledTypography>
+    <DrinksContainer key={index}>
+      <DescriptionTitle>{drinks.title}</DescriptionTitle>
       <SmallUnderlineContainer src={horizonalUnderline} />
-      <StyledTypography
-        variant={"p"}
-        sx={{ textAlign: "center", marginTop: "5px" }}
-      >
-        {drinks.description}
-      </StyledTypography>
+      <DescriptionText>{drinks.description}</DescriptionText>
       <StyledTypography variant={"p"}>{drinks.price}</StyledTypography>
     </DrinksContainer>
   );
 });
 
-const renderReadyCocktailsData = drinksDatabase.Cocktails.map((drinks) => {
-  return (
-    <DrinksContainer>
-      <StyledTypography variant={"h6"} sx={{ textAlign: "center" }}>
-        {drinks.title}
-      </StyledTypography>
-      <SmallUnderlineContainer src={horizonalUnderline} />
-      <StyledTypography
-        variant={"p"}
-        sx={{ textAlign: "center", marginTop: "5px" }}
-      >
-        {drinks.description}
-      </StyledTypography>
-      <StyledTypography variant={"p"}>{drinks.price}</StyledTypography>
-    </DrinksContainer>
-  );
-});
+const renderReadyCocktailsData = drinksDatabase.Cocktails.map(
+  (drinks, index) => {
+    return (
+      <DrinksContainer key={index}>
+        <DescriptionTitle>{drinks.title}</DescriptionTitle>
+        <SmallUnderlineContainer src={horizonalUnderline} />
+        <DescriptionText>{drinks.description}</DescriptionText>
+        <StyledTypography variant={"p"}>{drinks.price}</StyledTypography>
+      </DrinksContainer>
+    );
+  }
+);
 const renderReadyCocktailsDataRowOne = renderReadyCocktailsData.slice(0, 3);
 const renderReadyCocktailsDataRowTwo = renderReadyCocktailsData.slice(3, 5);
 
 ///Shots n' Cider
 
-const renderReadyShotsData = drinksDatabase.Shots.map((drinks) => {
+const renderReadyShotsData = drinksDatabase.Shots.map((drinks, index) => {
   return (
-    <DrinksContainer>
-      <StyledTypography variant={"h6"} sx={{ textAlign: "center" }}>
-        {drinks.title}
-      </StyledTypography>
+    <DrinksContainer key={index}>
+      <DescriptionTitle>{drinks.title}</DescriptionTitle>
       <SmallUnderlineContainer src={horizonalUnderline} />
-      <StyledTypography
-        variant={"p"}
-        sx={{ textAlign: "center", marginTop: "5px" }}
-      >
-        {drinks.description}
-      </StyledTypography>
+      <DescriptionText>{drinks.description}</DescriptionText>
       <StyledTypography variant={"p"}>{drinks.price}</StyledTypography>
     </DrinksContainer>
   );
 });
 
-const renderReadyCiderData = drinksDatabase.Ciders.map((drinks) => {
+const renderReadyCiderData = drinksDatabase.Ciders.map((drinks, index) => {
   return (
-    <DrinksContainer>
-      <StyledTypography variant={"h6"} sx={{ textAlign: "center" }}>
-        {drinks.title}
-      </StyledTypography>
+    <DrinksContainer key={index}>
+      <DescriptionTitle>{drinks.title}</DescriptionTitle>
       <SmallUnderlineContainer src={horizonalUnderline} />
-      <StyledTypography
-        variant={"p"}
-        sx={{ textAlign: "center", marginTop: "5px" }}
-      >
-        {drinks.description}
-      </StyledTypography>
+      <DescriptionText>{drinks.description}</DescriptionText>
       <StyledTypography variant={"p"}>{drinks.price}</StyledTypography>
     </DrinksContainer>
   );

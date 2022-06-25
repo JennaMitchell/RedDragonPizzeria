@@ -1,4 +1,4 @@
-import { Typography, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import {
   TwoColumnContainer,
   SectionTitleContainer,
@@ -14,6 +14,8 @@ import {
   PizzaSliceLineArtOne,
   PizzaSliceLineArtTwo,
   TomatoLineArt,
+  SectionTitle,
+  MainSectionTitle,
 } from "./pizza-section-styled-components";
 import pizzaUnderline from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
 import verticalUnderline from "../../../../img/line-art/underlines/chalk_underline_vertical.png";
@@ -38,12 +40,7 @@ const PizzaSection = () => {
       <PizzaSliceLineArtTwo src={pizzaSliceLineArtTwo} />
 
       <SectionTitleContainer>
-        <Typography
-          variant="h3"
-          sx={{ fontFamily: "inherit", color: "secondary.light" }}
-        >
-          Build Your Own Pizza
-        </Typography>
+        <MainSectionTitle>Build Your Own Pizza</MainSectionTitle>
         <UnderlineContainer src={pizzaUnderline} />
       </SectionTitleContainer>
       <ThreeColumnContainer>
@@ -64,16 +61,7 @@ const PizzaSection = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              1. Pick a Size
-            </Typography>
+            <SectionTitle>1. Pick a Size</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyPizzaSizes}
@@ -96,16 +84,7 @@ const PizzaSection = () => {
             alignContent="flex-start"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              2. Pick a Crust
-            </Typography>
+            <SectionTitle>2. Pick a Crust</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyPizzaCrusts}
@@ -128,16 +107,7 @@ const PizzaSection = () => {
             alignContent="flex-start"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              3. Pick a Sauce
-            </Typography>
+            <SectionTitle>3. Pick a Sauce</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyPizzaSauces}
@@ -145,12 +115,7 @@ const PizzaSection = () => {
       </ThreeColumnContainer>
 
       <ToppingsTitleContainer>
-        <Typography
-          variant="h3"
-          sx={{ fontFamily: "inherit", color: "secondary.light" }}
-        >
-          4. Choose your Toppings
-        </Typography>
+        <MainSectionTitle>4. Choose your Toppings</MainSectionTitle>
         <UnderlineContainer src={pizzaUnderline} />
       </ToppingsTitleContainer>
 
@@ -172,16 +137,7 @@ const PizzaSection = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              Vegetables
-            </Typography>
+            <SectionTitle>Vegetables</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyVegetablesToppings}
@@ -204,16 +160,7 @@ const PizzaSection = () => {
             alignContent="flex-start"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              Meat
-            </Typography>
+            <SectionTitle>Meat</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyMeatsToppings}
@@ -236,38 +183,21 @@ const PizzaSection = () => {
             alignContent="flex-start"
             justifyContent="center"
           >
-            <Typography
-              variant="h4"
-              sx={{
-                fontFamily: "inherit",
-                color: "secondary.light",
-                textAlign: "center",
-              }}
-            >
-              Other
-            </Typography>
+            <SectionTitle>Other</SectionTitle>
             <SmallUnderlineContainer src={pizzaUnderline} />
           </Grid>
           {renderReadyOtherToppings}
         </Grid>
       </ThreeColumnContainer>
-      <Typography
-        variant="h6"
-        sx={{ color: "secondary.light", marginTop: "10px" }}
-      >
+      <SectionTitle>
         ($1.00 per Topping. Max of 5 Toppings per pizza)
-      </Typography>
+      </SectionTitle>
       <SectionTitleContainer>
-        <Typography
-          variant="h3"
-          sx={{ fontFamily: "inherit", color: "secondary.light" }}
-        >
-          Speciality Pizza
-        </Typography>
+        <MainSectionTitle>Speciality Pizza</MainSectionTitle>
         <UnderlineContainer src={pizzaUnderline} />
       </SectionTitleContainer>
       <TwoColumnContainer>
-        <TomatoLineArt src={tomatoLineArt}></TomatoLineArt>
+        <TomatoLineArt src={tomatoLineArt} />
         <Grid container columns={1} sx={{ flexDirection: "column" }}>
           {renderReadyPizzaColumnOne}
         </Grid>

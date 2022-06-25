@@ -5,6 +5,10 @@ import {
   PictureTextContainer,
   StyledTypography,
 } from "../general-styled-components/general-styled-components";
+import {
+  DescriptionTitle,
+  DescriptionText,
+} from "./desserts-sides-section-styled-components";
 import breadLineArt from "../../../../img/line-art/bread/bread-line-art.png";
 import garlicKnotLineArt from "../../../../img/line-art/bread/garlic-knot-line-art.png";
 const dessertsNSidesData = {
@@ -37,66 +41,47 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
   (sides, index) => {
     if (index % 2 === 0) {
       return (
-        <PictureTextContainer key={index}>
-          <LeftImageContainer alt={sides.title} src={sides.image} />
+        <PictureTextContainer
+          key={index}
+          sx={{
+            "@media(max-width:875px)": { marginTop: "20px" },
+            "@media(max-width:700px)": { marginTop: "40px" },
+          }}
+        >
+          <LeftImageContainer
+            alt={sides.title}
+            src={sides.image}
+            sx={{
+              justifySelf: "right",
+              marginRight: "10px",
+              "@media(max-width: 850px)": {
+                width: "max(150px,150px)",
+                height: "max(100px,100px)",
+              },
+            }}
+          />
           <ThreeRowsTextContainer>
-            <StyledTypography
-              variant="h4"
-              sx={{ textAlign: "left", width: "max(100%,100%)" }}
-            >
-              {sides.title}
-            </StyledTypography>
-            <StyledTypography
-              variant="p"
-              sx={{
-                textAlign: "left",
-                width: "max(100%,100%)",
-                marginTop: "10px",
-              }}
-            >
-              {sides.description}
-            </StyledTypography>
-            <StyledTypography
-              variant="p"
-              sx={{
-                textAlign: "left",
-                width: "max(100%,100%)",
-                marginTop: "10px",
-              }}
-            >
-              {sides.price}
-            </StyledTypography>
+            <DescriptionTitle>{sides.title}</DescriptionTitle>
+            <DescriptionText>{sides.description}</DescriptionText>
+            <DescriptionText>{sides.price}</DescriptionText>
           </ThreeRowsTextContainer>
         </PictureTextContainer>
       );
     } else {
       return (
         <PictureTextContainer key={index}>
-          <ThreeRowsTextContainer>
-            <StyledTypography
-              variant="h4"
-              sx={{
-                textAlign: "right",
-                width: "max(100%,100%)",
-                marginTop: "10px",
-              }}
-            >
-              {sides.title}
-            </StyledTypography>
+          <ThreeRowsTextContainer
+            sx={{
+              "@media(max-width:875px)": { marginTop: "20px" },
+              "@media(max-width:700px)": { marginTop: "40px" },
+            }}
+          >
+            <DescriptionTitle>{sides.title}</DescriptionTitle>
+            <DescriptionText>{sides.description}</DescriptionText>
             <StyledTypography
               variant="p"
               sx={{
-                textAlign: "right",
-                width: "max(100%,100%)",
-                marginTop: "10px",
-              }}
-            >
-              {sides.description}
-            </StyledTypography>
-            <StyledTypography
-              variant="p"
-              sx={{
-                textAlign: "right",
+                textAlign: "left",
                 width: "max(100%,100%)",
                 marginTop: "10px",
               }}
@@ -104,7 +89,18 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
               {sides.price}
             </StyledTypography>
           </ThreeRowsTextContainer>
-          <RightImageContainer alt={sides.title} src={sides.image} />
+          <RightImageContainer
+            alt={sides.title}
+            src={sides.image}
+            sx={{
+              justifySelf: "left",
+              marginLeft: "10px",
+              "@media(max-width: 850px)": {
+                width: "max(150px,150px)",
+                height: "max(100px,100px)",
+              },
+            }}
+          />
         </PictureTextContainer>
       );
     }
@@ -113,37 +109,18 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
 
 const pizzaCookieSection = dessertsNSidesData.Cookie.map((data, index) => {
   return (
-    <ThreeRowsTextContainer key={index}>
-      <StyledTypography
-        variant="h4"
-        sx={{
-          textAlign: "center",
-          width: "max(100%,100%)",
-          marginTop: "10px",
-        }}
-      >
+    <ThreeRowsTextContainer
+      key={index}
+      sx={{
+        "@media(max-width:875px)": { marginTop: "40px" },
+        "@media(max-width:700px)": { marginTop: "30px" },
+      }}
+    >
+      <DescriptionTitle sx={{ textAlign: "center" }}>
         {data.title}
-      </StyledTypography>
-      <StyledTypography
-        variant="p"
-        sx={{
-          textAlign: "center",
-          width: "max(100%,100%)",
-          marginTop: "10px",
-        }}
-      >
-        {data.description}
-      </StyledTypography>
-      <StyledTypography
-        variant="p"
-        sx={{
-          textAlign: "center",
-          width: "max(100%,100%)",
-          marginTop: "10px",
-        }}
-      >
-        {data.price}
-      </StyledTypography>
+      </DescriptionTitle>
+      <DescriptionText>{data.description}</DescriptionText>
+      <DescriptionText>{data.price}</DescriptionText>
     </ThreeRowsTextContainer>
   );
 });

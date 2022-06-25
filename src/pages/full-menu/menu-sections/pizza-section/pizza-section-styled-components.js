@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const TopContainer = styled("div", {
@@ -41,6 +42,20 @@ const PizzaSliceLineArtOne = styled("img", {
   right: "10px",
   display: "grid",
   placeItems: "center",
+  "@media (max-width:1450px)": {
+    width: "max(100px,100px)",
+    height: "max(80px,80px)",
+  },
+  "@media (max-width:900px)": {
+    width: "max(80px,80px)",
+    height: "max(60px,60px)",
+    top: "-5px",
+  },
+  "@media (max-width:670px)": {
+    width: "max(60px,60px)",
+    height: "max(40px,40px)",
+    top: "-15px",
+  },
 }));
 const PizzaSliceLineArtTwo = styled("img", {
   name: "PizzaSliceLineArtTwo ",
@@ -53,6 +68,20 @@ const PizzaSliceLineArtTwo = styled("img", {
   left: "10px",
   display: "grid",
   placeItems: "center",
+  "@media (max-width:1450px)": {
+    width: "max(100px,100px)",
+    height: "max(80px,80px)",
+  },
+  "@media (max-width:900px)": {
+    width: "max(80px,80px)",
+    height: "max(60px,60px)",
+    top: "315px",
+  },
+  "@media (max-width:670px)": {
+    width: "max(60px,60px)",
+    height: "max(40px,40px)",
+    top: "280px",
+  },
 }));
 
 const TomatoLineArt = styled("img", {
@@ -63,10 +92,67 @@ const TomatoLineArt = styled("img", {
   height: "max(100px,100px)",
   position: "absolute",
   top: "-160px",
-  right: "50px",
+  right: "2.5%",
   display: "grid",
 
   placeItems: "center",
+  "@media (max-width:1450px)": {
+    width: "max(100px,100px)",
+    height: "max(100px,100px)",
+    right: "5.5%",
+  },
+  "@media (max-width:1075px)": {
+    width: "max(80px,80px)",
+    height: "max(80px,80px)",
+    right: "5.5%",
+    top: "-130px",
+  },
+  "@media (max-width:900px)": {
+    width: "max(80px,80px)",
+    height: "max(60px,60px)",
+    right: "4.5%",
+    top: "-90px",
+  },
+  "@media (max-width:655px)": {
+    width: "max(60px,60px)",
+    height: "max(40px,40px)",
+    top: "-75px",
+  },
+}));
+
+const SectionTitle = styled(Typography, {
+  name: "SectionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "28px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+
+  "@media (max-width:900px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "20px",
+  },
+  "@media (max-width:670px)": {
+    fontSize: "16px",
+  },
+}));
+const MainSectionTitle = styled(Typography, {
+  name: "MainSectionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "38px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+  "@media (max-width:900px)": {
+    fontSize: "32px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "28px",
+  },
 }));
 
 export {
@@ -75,4 +161,6 @@ export {
   PizzaSliceLineArtOne,
   PizzaSliceLineArtTwo,
   TomatoLineArt,
+  SectionTitle,
+  MainSectionTitle,
 };

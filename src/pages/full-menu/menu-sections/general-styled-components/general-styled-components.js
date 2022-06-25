@@ -75,7 +75,7 @@ const SmallUnderlineContainer = styled("img", {
   name: "UnderlineContainer",
   slot: "Wrapper",
 })(() => ({
-  width: "max(80%,0%)",
+  width: "max(80%,80%)",
   height: "max(10px,10px)",
   backgroundColor: "transparent",
   border: "none",

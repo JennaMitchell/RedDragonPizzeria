@@ -1,11 +1,11 @@
 import {
   TopContainer,
   CookieContainer,
+  SectionTitle,
 } from "./desserts-sides-section-styled-components";
 import {
   SectionTitleContainer,
   UnderlineContainer,
-  StyledTypography,
 } from "../general-styled-components/general-styled-components";
 import { Grid } from "@mui/material";
 
@@ -18,18 +18,20 @@ import {
 
 const DessertsSidesSection = () => {
   return (
-    <TopContainer>
-      {/* Heading */}
-      <SectionTitleContainer>
-        <StyledTypography variant={"h2"}>Sides n' Sweets</StyledTypography>
-        <UnderlineContainer src={horizontalUnderLine} />
-      </SectionTitleContainer>
-      <Grid container columns={1} alignItem="center" justifyContent="center">
-        {renderReadySidesContainer}
-      </Grid>
-      {pizzaCookieSection}
+    <>
+      <TopContainer>
+        {/* Heading */}
+        <SectionTitleContainer>
+          <SectionTitle>Sides n' Sweets</SectionTitle>
+          <UnderlineContainer src={horizontalUnderLine} />
+        </SectionTitleContainer>
+        <Grid container columns={1} alignItems="center" justifyContent="center">
+          {renderReadySidesContainer}
+        </Grid>
+        {pizzaCookieSection}
+      </TopContainer>
       <CookieContainer src={cookieLineArt} />
-    </TopContainer>
+    </>
   );
 };
 

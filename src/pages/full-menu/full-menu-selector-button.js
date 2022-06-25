@@ -15,6 +15,18 @@ const SelectorButton = styled("button", {
   placeItems: "center",
   fontSize: "32px",
   fontFamily: "Fredericka the Great ,cursive",
+  "@media (max-width:1000px)": {
+    fontSize: "28px",
+  },
+  "@media (max-width:880px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:780px)": {
+    fontSize: "20px",
+  },
+  "@media (max-width:700px)": {
+    fontSize: "16px",
+  },
 }));
 
 const ActiveSelectorButton = styled("button", {
@@ -30,11 +42,22 @@ const ActiveSelectorButton = styled("button", {
   display: "grid",
   placeItems: "center",
   fontSize: "32px",
-
   backgroundRepeat: "no-repeat",
-  backgroundSize: "75%",
+  backgroundSize: "contain",
   backgroundPosition: "center",
   fontFamily: "Fredericka the Great ,cursive",
+  "@media (max-width:1000px)": {
+    fontSize: "28px",
+  },
+  "@media (max-width:880px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:780px)": {
+    fontSize: "20px",
+  },
+  "@media (max-width:700px)": {
+    fontSize: "16px",
+  },
 }));
 
 const FullMenuSelectorButton = ({ id, activeId, title, onClickHandler }) => {

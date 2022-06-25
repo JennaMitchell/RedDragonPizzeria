@@ -5,6 +5,7 @@ import {
   BeerLineArtContainer,
   CocktailLineArtContainer,
   ThreeRowColumn,
+  SectionTitle,
 } from "./drinks-section-styled-components";
 import {
   TwoColumnContainer,
@@ -12,7 +13,6 @@ import {
   UnderlineContainer,
   SectionBreaker,
   FourColumnContainer,
-  StyledTypography,
 } from "../general-styled-components/general-styled-components";
 
 import horizontalUnderLine from "../../../../img/line-art/underlines/chalk_underline_horizontal.png";
@@ -35,12 +35,12 @@ const DrinksSection = () => {
 
       <SectionTitleContainer>
         <BeerLineArtContainer src={beerLineArt} />
-        <StyledTypography variant={"h2"}>Beer n' Mead</StyledTypography>
+        <SectionTitle>Beer n' Mead</SectionTitle>
         <UnderlineContainer src={horizontalUnderLine} />
       </SectionTitleContainer>
       <FourColumnContainer>{renderReadyBeerData}</FourColumnContainer>
       <SectionTitleContainer>
-        <StyledTypography variant={"h2"}>Cocktails</StyledTypography>
+        <SectionTitle>Cocktails</SectionTitle>
         <UnderlineContainer src={horizontalUnderLine} />
         <CocktailLineArtContainer src={cocktailLineArt} />
       </SectionTitleContainer>
@@ -52,7 +52,7 @@ const DrinksSection = () => {
       </CocktailsRowTwoContainer>
       <SectionTitleContainer>
         <BeerLineArtContainer src={shotGlassLineArt} />
-        <StyledTypography variant={"h2"}>Shots n' Cider</StyledTypography>
+        <SectionTitle>Shots n' Cider</SectionTitle>
         <UnderlineContainer src={horizontalUnderLine} />
       </SectionTitleContainer>
       <TwoColumnContainer>

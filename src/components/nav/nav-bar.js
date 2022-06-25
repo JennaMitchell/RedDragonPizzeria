@@ -48,7 +48,7 @@ const NavBar = () => {
                   fontSize: "28px",
                 },
                 "@media (max-width:1050px)": {
-                  fontSize: "22px",
+                  fontSize: "20px",
                 },
                 "@media (max-width:880px)": {
                   fontSize: "18px",

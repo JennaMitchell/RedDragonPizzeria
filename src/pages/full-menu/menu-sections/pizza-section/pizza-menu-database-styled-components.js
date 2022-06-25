@@ -9,11 +9,18 @@ const PizzaSizesSizes = styled(Typography, {
   textAlign: "left",
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
+  "@media (max-width:900px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "12px",
+  },
 }));
+// 14px
 const PizzaSizesContainer = styled("div", {
   name: "PizzaSizesContainer ",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   display: "grid",
   justifyContent: "space-between",
   gridTemplateColumns: "repeat(2,max-content)",
@@ -31,6 +38,12 @@ const PizzaSizesPrice = styled(Typography, {
 
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
+  "@media (max-width:900px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "12px",
+  },
 }));
 
 const PizzaItemContainer = styled("div", {

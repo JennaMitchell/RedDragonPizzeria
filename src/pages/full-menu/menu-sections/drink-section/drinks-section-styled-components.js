@@ -1,4 +1,5 @@
 import { styled } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 
 const TopContainer = styled("div", {
   name: "TopContainer",
@@ -45,7 +46,7 @@ const CocktailsRowTwoContainer = styled("div", {
   justifyContent: "space-evenly",
   position: "relative",
   fontFamily: "inherit",
-  marginLeft: "350px",
+  marginLeft: "40%",
 }));
 
 const BeerLineArtContainer = styled("img", {
@@ -60,6 +61,26 @@ const BeerLineArtContainer = styled("img", {
   border: "none",
   display: "grid",
   placeItems: "center",
+  "@media (max-width:1450px)": {
+    width: "max(60px,60px)",
+    height: "max(100px,100px)",
+  },
+  "@media (max-width:1075px)": {
+    width: "max(40px,40px)",
+    height: "max(80px,80px)",
+    left: "30px",
+    top: "0px",
+  },
+  "@media (max-width:900px)": {
+    width: "max(40px,40px)",
+    height: "max(60px,60px)",
+    left: "20px",
+  },
+  "@media (max-width:655px)": {
+    width: "max(30px,30px)",
+    height: "max(50px,50px)",
+    left: "20px",
+  },
 }));
 
 const CocktailLineArtContainer = styled("img", {
@@ -74,6 +95,24 @@ const CocktailLineArtContainer = styled("img", {
   border: "none",
   display: "grid",
   placeItems: "center",
+  "@media (max-width:1450px)": {
+    width: "max(60px,60px)",
+    height: "max(100px,100px)",
+  },
+  "@media (max-width:1075px)": {
+    width: "max(40px,40px)",
+    height: "max(80px,80px)",
+    top: "0px",
+    right: "30px",
+  },
+  "@media (max-width:900px)": {
+    width: "max(40px,40px)",
+    height: "max(60px,60px)",
+  },
+  "@media (max-width:655px)": {
+    width: "max(30px,30px)",
+    height: "max(50px,50px)",
+  },
 }));
 
 const ThreeRowColumn = styled("div", {
@@ -91,6 +130,21 @@ const ThreeRowColumn = styled("div", {
   position: "relative",
   fontFamily: "inherit",
 }));
+const SectionTitle = styled(Typography, {
+  name: "SectionTitle",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  fontSize: "48px",
+  fontFamily: "inherit",
+  color: theme.palette.secondary.light,
+  textAlign: "center",
+  "@media (max-width:900px)": {
+    fontSize: "36px",
+  },
+  "@media (max-width:745px)": {
+    fontSize: "28px",
+  },
+}));
 
 export {
   TopContainer,
@@ -99,4 +153,5 @@ export {
   BeerLineArtContainer,
   CocktailLineArtContainer,
   ThreeRowColumn,
+  SectionTitle,
 };
