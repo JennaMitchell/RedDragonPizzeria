@@ -28,15 +28,20 @@ import PepperoniMakerDisplayImage from "./pepperoni-maker/pepperoni-maker-pan-ma
 import BuildAPizzaOrderReviewBoard from "./build-a-pizza/order-review-board/build-a-pizza-order-review-board";
 import PepperoniMakerOrderReviewBoard from "./pepperoni-maker/order-review-board/pepperoni-maker-order-review-board";
 import { storeActions } from "../../store/store";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const PizzaMakerHomepage = () => {
   const [newPizzaPopup, setNewPizzaPopup] = useState(true);
   const [pizzaCreationType, setPizzaCreationType] = useState("");
-  const [pizzaMenuActive, setPizzaMenuActive] = useState(false);
+
   const [panDropedOff, setPanDroppedOff] = useState(false);
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
+  const pizzaToppingsMenuActive = useSelector(
+    (state) => state.pizzaToppingsMenuActive
+  );
+  const yourOrderContainerMoved = useMediaQuery("(max-width:1200px)");
   const dispatch = useDispatch();
   const exportRef = useRef(null);
   const newPizzaHandler = () => {
@@ -50,7 +55,7 @@ const PizzaMakerHomepage = () => {
     setPizzaCreationType(type);
   };
   const pizzaMenuHandler = () => {
-    setPizzaMenuActive(!pizzaMenuActive);
+    dispatch(storeActions.setPizzaToppingsMenuActive(!pizzaToppingsMenuActive));
   };
 
   // Handeling add To Cart Enablers
@@ -78,6 +83,12 @@ const PizzaMakerHomepage = () => {
     "0%": { right: "-1200px" },
     "100%": { right: "300px", display: "none" },
   });
+  let seperatedReviewOrderActive = false;
+  if (panDropedOff) {
+    if (yourOrderContainerMoved) {
+      seperatedReviewOrderActive = true;
+    }
+  }
 
   const pizzaPeelSlideOut = keyframes({
     "0%": { right: "300px" },
@@ -86,11 +97,13 @@ const PizzaMakerHomepage = () => {
 
   useEffect(() => {
     if (!newPizzaPopup) {
-      setTimeout(() => {
-        setPanDroppedOff(true);
-      }, 1000);
+      if (!yourOrderContainerMoved) {
+        setTimeout(() => {
+          setPanDroppedOff(true);
+        }, 1000);
+      }
     }
-  }, [newPizzaPopup]);
+  }, [newPizzaPopup, yourOrderContainerMoved]);
 
   return (
     <TopContainer>
@@ -101,37 +114,41 @@ const PizzaMakerHomepage = () => {
       </MainTitleContainer>
       {/* Add Item Menu */}
       <AddItemMenu
-        pizzaMenuActive={pizzaMenuActive}
+        pizzaMenuActive={pizzaToppingsMenuActive}
         pizzaCreationType={pizzaCreationType}
       />
-      <MenuButton sx={{ left: `${pizzaMenuActive && `550px`}` }}>
-        {pizzaMenuActive ? (
+      <MenuButton sx={{ left: `${pizzaToppingsMenuActive && `550px`}` }}>
+        {pizzaToppingsMenuActive ? (
           <CloseMenuIcon onClick={pizzaMenuHandler} />
         ) : (
           <OpenMenuIcon onClick={pizzaMenuHandler} />
         )}
       </MenuButton>
       {/* Pizza Peel Animation */}
-      <PizzaPeelWithPan
-        src={pizzaPeelWithPan}
-        alt="Pizza Peel"
-        sx={{
-          animation: `${
-            !newPizzaPopup && `${pizzaPeelSlideIn} 1000ms ease-out`
-          }`,
-          visibility: `${panDropedOff ? "hidden" : "visible"}`,
-        }}
-      />
-      <PizzaPeelWithoutPan
-        src={pizzaPeel}
-        alt="Pizza Peel"
-        sx={{
-          animation: `${
-            panDropedOff && `${pizzaPeelSlideOut} 1000ms ease-out`
-          }`,
-          visibility: `${!panDropedOff ? "hidden" : "visible"}`,
-        }}
-      />
+      {!yourOrderContainerMoved && (
+        <>
+          <PizzaPeelWithPan
+            src={pizzaPeelWithPan}
+            alt="Pizza Peel"
+            sx={{
+              animation: `${
+                !newPizzaPopup && `${pizzaPeelSlideIn} 1000ms ease-out`
+              }`,
+              visibility: `${panDropedOff ? "hidden" : "visible"}`,
+            }}
+          />
+          <PizzaPeelWithoutPan
+            src={pizzaPeel}
+            alt="Pizza Peel"
+            sx={{
+              animation: `${
+                panDropedOff && `${pizzaPeelSlideOut} 1000ms ease-out`
+              }`,
+              visibility: `${!panDropedOff ? "hidden" : "visible"}`,
+            }}
+          />
+        </>
+      )}
 
       <NewPizzaPopup
         newPizzaPopup={newPizzaPopup}
@@ -149,9 +166,10 @@ const PizzaMakerHomepage = () => {
       {pizzaCreationType === "Custom Pepperoni Layout" && (
         <KitchenTableContainer ref={exportRef}>
           {panDropedOff && <PepperoniMakerDisplayImage />}
-          {panDropedOff && <PepperoniMakerOrderReviewBoard />}
+          {!seperatedReviewOrderActive && <PepperoniMakerOrderReviewBoard />}
         </KitchenTableContainer>
       )}
+      {seperatedReviewOrderActive && <PepperoniMakerOrderReviewBoard />}
       {/* Used to handle the user moving peperoni around */}
       {pepperoniDragEventActive && <DarkBackground />}
       {/* Close Button Icon */}

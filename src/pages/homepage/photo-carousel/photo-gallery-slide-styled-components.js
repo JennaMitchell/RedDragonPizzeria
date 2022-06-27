@@ -44,6 +44,7 @@ const LeftBanner = styled("div", { name: "LeftBanner", slot: "Wrapper" })(
       fontSize: "10px",
       width: "min(125px,125px)",
       padding: "10px 10px 10px 10px",
+      left: "20%",
     },
   })
 );
@@ -75,6 +76,7 @@ const RightBanner = styled("div", { name: "RightBanner", slot: "Wrapper" })(
       fontSize: "10px",
       width: "min(125px,125px)",
       padding: "10px 10px 10px 10px",
+      right: "20%",
     },
   })
 );

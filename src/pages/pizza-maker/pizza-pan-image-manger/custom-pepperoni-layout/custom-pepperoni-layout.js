@@ -240,6 +240,7 @@ const CustomPepperoniLayout = () => {
             top: `${data.coordinates.y}`,
             left: `${data.coordinates.x}`,
             backgroundColor: `${activeDragId === data.pepperoniId && `green`}`,
+            cursor: `${activeDragId === data.pepperoniId && `grab`}`,
           }}
           onDragStart={dragStartHandler}
           onDragEnd={dragEndHandler}

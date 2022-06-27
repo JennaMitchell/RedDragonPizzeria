@@ -11,13 +11,16 @@ const TopContainer = styled("div", {
   display: "grid",
   placeItems: "center",
   position: "relative",
-
   backgroundImage: `url(${plankImage})`,
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "100%",
   boxShadow: "0 0 30px black",
   borderRadius: "10px",
+  "@media(max-width:1220px)": {
+    height: "max(600px,600px)",
+    marginBottom: "40px",
+  },
 }));
 
 const BlackboardContainer = styled("div", {

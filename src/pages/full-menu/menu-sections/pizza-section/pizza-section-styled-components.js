@@ -91,7 +91,7 @@ const TomatoLineArt = styled("img", {
   width: "max(140px,140px)",
   height: "max(100px,100px)",
   position: "absolute",
-  top: "-160px",
+  top: "-130px",
   right: "2.5%",
   display: "grid",
 
@@ -105,7 +105,7 @@ const TomatoLineArt = styled("img", {
     width: "max(80px,80px)",
     height: "max(80px,80px)",
     right: "5.5%",
-    top: "-130px",
+    top: "-110px",
   },
   "@media (max-width:900px)": {
     width: "max(80px,80px)",

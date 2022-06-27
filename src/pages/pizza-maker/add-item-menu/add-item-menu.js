@@ -1,20 +1,25 @@
 import {
   AddItemMenuContainer,
   InterfaceContainer,
+  ClosingIcon,
 } from "./add-item-menu-styled-components";
 
 import addItemMenuDatabase from "./add-item-menu-database";
 import AddItemMenuOptionContainer from "./add-item-menu-option-container";
 import { useState } from "react";
 import FiveToppingsWarning from "../popups/five-toppings-warning";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import PepperoniPizzaResizeWarning from "../popups/pepperoni-pizza-resize-warning";
 import PepperoniLimitReachedWarning from "../popups/pepperoni-limit-reached-warning";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { storeActions } from "../../../store/store";
 
 const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   // Sizes, Crust, Cheese, Veggies, Meats, Other,
   const [addItemMenuData, setAddItemMenuData] = useState(addItemMenuDatabase);
+  const dispatch = useDispatch();
   let renderReadyData = "";
+  const closeMenuButton = useMediaQuery("(max-width:710px)");
   const fiveToppingsWarningActive = useSelector(
     (state) => state.fiveToppingsWarning
   );
@@ -100,12 +105,18 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
   } else {
     renderReadyData = renderReadyBuildAPizzaMenu;
   }
+  const closingIconHandler = () => {
+    dispatch(storeActions.setPizzaToppingsMenuActive(false));
+  };
 
   return (
     <AddItemMenuContainer
       sx={{
         left: `${pizzaMenuActive && `0px`}`,
-        boxShadow: `${pizzaMenuActive && `0 0 10px white`} `,
+        borderRight: `${pizzaMenuActive && `1px solid white`} `,
+        "@media(max-width:710px)": {
+          left: `${pizzaMenuActive && `0px`}`,
+        },
       }}
     >
       {fiveToppingsWarningActive && (
@@ -123,7 +134,7 @@ const AddItemMenu = ({ pizzaMenuActive, pizzaCreationType }) => {
           togglePopup={pepperoniLimitReachedWarning}
         />
       )}
-
+      {closeMenuButton && <ClosingIcon onClick={closingIconHandler} />}
       <InterfaceContainer>{renderReadyData}</InterfaceContainer>
     </AddItemMenuContainer>
   );

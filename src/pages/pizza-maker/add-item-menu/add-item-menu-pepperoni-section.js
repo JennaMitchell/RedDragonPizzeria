@@ -51,7 +51,6 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
     }
 
     // Step 3. Checking for deletion
-    console.log(arrayOfIdsInUse);
 
     if (arrayOfIdsInUse.length !== 0) {
       console.log(+arrayOfIdsInUse[arrayOfIdsInUse.length - 1]);

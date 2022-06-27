@@ -5,6 +5,7 @@ import {
   LogoContainer,
   StyledToolBar,
   RoofSvgContainer,
+  MenuButtonsContainer,
 } from "./nav-bar-styled-components";
 import logo from "../../img/logo/logo.png";
 import { Typography } from "@mui/material";
@@ -12,15 +13,54 @@ import NavButtons from "./nav-buttons";
 import { useSelector } from "react-redux";
 import roof from "../../img/homepage/roof.png";
 
+import {
+  StyledInActiveNavLink,
+  StyledActiveNavLink,
+} from "../../generic-styled-components/generic-styled-components";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const NavBar = () => {
-  const cartButtonClicked = useSelector((state) => state.cartButtonClicked);
+  const navMenuButtonClicked = useSelector(
+    (state) => state.navMenuButtonClicked
+  );
+  const pepperoniDragEventActive = useSelector(
+    (state) => state.pepperoniDragEventActive
+  );
+  const pizzaToppingsMenuActive = useSelector(
+    (state) => state.pizzaToppingsMenuActive
+  );
+  const buttonLimitReached = useMediaQuery("(max-width:1200px)");
+  let dropMenu = false;
+  let roofZIndexChanged = false;
+  if (navMenuButtonClicked) {
+    if (buttonLimitReached) {
+      dropMenu = true;
+    } else {
+      dropMenu = false;
+    }
+  }
+  if (pepperoniDragEventActive) {
+    dropMenu = false;
+  }
+  // handeling roof SVG zindex based on the pizaz toppings menu having been moved out or not
+
+  if (pizzaToppingsMenuActive) {
+    if (!pepperoniDragEventActive) {
+      roofZIndexChanged = true;
+    }
+  }
+  if (buttonLimitReached) {
+    roofZIndexChanged = true;
+  }
+
   return (
     <>
       <AppBar
         color="primary"
         sx={{
           position: "relative",
-          zIndex: 3,
+          zIndex: `${pepperoniDragEventActive ? "1" : "3"}`,
+          boxShadow: "0",
+
           "@media (max-width:1050px)": {
             minHeight: "80px",
           },
@@ -28,12 +68,12 @@ const NavBar = () => {
             minHeight: "60px",
           },
         }}
-        position="relative"
       >
-        <StyledToolBar sx={{ zIndex: 3 }}>
+        <StyledToolBar>
           <LogoTitleContainer>
             <LogoContainer
               sx={{
+                position: "relative",
                 "@media (max-width:1300px)": {
                   marginLeft: "0px",
                 },
@@ -53,12 +93,6 @@ const NavBar = () => {
                 "@media (max-width:880px)": {
                   fontSize: "18px",
                 },
-                "@media (max-width:780px)": {
-                  fontSize: "14px",
-                },
-                "@media (max-width:650px)": {
-                  fontSize: "12px",
-                },
               }}
             >
               Red Dragon Pizzeria
@@ -66,14 +100,33 @@ const NavBar = () => {
           </LogoTitleContainer>
           <NavButtons />
         </StyledToolBar>
-        <RoofSvgContainer
-          src={roof}
-          alt="roof"
-          sx={{
-            zIndex: `${cartButtonClicked && `3`}`,
-          }}
-        />
       </AppBar>
+      <RoofSvgContainer
+        src={roof}
+        alt="roof"
+        sx={{
+          zIndex: `${roofZIndexChanged ? "5" : "1"}`,
+        }}
+      />
+      <MenuButtonsContainer
+        sx={{
+          top: `${dropMenu && "90px"}`,
+
+          "@media(max-width:850px)": {
+            top: `${dropMenu && "60px"}`,
+            right: "0",
+          },
+        }}
+      >
+        <StyledActiveNavLink to="/home">Home</StyledActiveNavLink>
+        <StyledInActiveNavLink to="/menu">Menu</StyledInActiveNavLink>
+        <StyledInActiveNavLink to="/pizza-maker">
+          Pizza Maker
+        </StyledInActiveNavLink>
+        <StyledInActiveNavLink to="/order-online">
+          Order Online
+        </StyledInActiveNavLink>
+      </MenuButtonsContainer>
     </>
   );
 };

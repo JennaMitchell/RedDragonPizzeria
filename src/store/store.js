@@ -38,7 +38,8 @@ const initialState = {
   onlineOrderPopupType: "",
   onlinePopupActiveData: [],
   cartObject: [],
-  addToCartButtonClicked: false,
+  navMenuButtonClicked: false,
+  pizzaToppingsMenuActive: false,
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -89,8 +90,11 @@ const storeSlice = createSlice({
     setCartObject(state, { payload }) {
       state.cartObject = payload;
     },
-    setAddToCartButtonClicked(state, { payload }) {
-      state.addToCartButtonClicked = payload;
+    setNavMenuButtonClicked(state, { payload }) {
+      state.navMenuButtonClicked = payload;
+    },
+    setPizzaToppingsMenuActive(state, { payload }) {
+      state.pizzaToppingsMenuActive = payload;
     },
   },
 });

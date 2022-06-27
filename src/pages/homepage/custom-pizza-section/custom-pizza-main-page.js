@@ -6,6 +6,7 @@ import peperoniPhoto from "../../../img/homepage/pep-pizza-1.jpg";
 
 import { Grid, Typography, Card } from "@mui/material";
 import { StyledButton } from "../../../generic-styled-components/generic-styled-components";
+import { StyledInActiveNavLink } from "../../../generic-styled-components/generic-styled-components";
 
 const CustomPizzaSectionMainPage = () => {
   return (
@@ -62,27 +63,17 @@ const CustomPizzaSectionMainPage = () => {
             choose from the most popular designs
           </Typography>
         </Grid>
-        <Grid item xs={1}>
-          <StyledButton
-            variant={"contained"}
-            size={"large"}
-            color="secondary"
-            sx={{
-              "@media (max-width:880px)": {
-                fontSize: "16px",
-              },
-              "@media(max-width:760px)": {
-                fontSize: "14px",
-              },
-              "@media(max-width:670px)": {
-                fontSize: "10px",
-                padding: "10px",
-              },
-            }}
-          >
-            Peperonni Pizza Maker
-          </StyledButton>
-        </Grid>
+        <StyledInActiveNavLink
+          sx={{
+            marginTop: "20px",
+            width: "max(160px,160px)",
+
+            textAlign: "center",
+          }}
+          to="/pizza-maker"
+        >
+          Pizza Maker
+        </StyledInActiveNavLink>
       </Grid>
       <Card
         variant="outlined"

@@ -80,7 +80,7 @@ const HomepageMenuTopFile = () => {
             margin: "20px 0 20px 0",
           }}
         >
-          &nbsp;Specility Menu&nbsp;
+          &nbsp;Our Specials&nbsp;
         </Typography>
         <MenuSelectorContainer>{menuButtons}</MenuSelectorContainer>
         <Grid

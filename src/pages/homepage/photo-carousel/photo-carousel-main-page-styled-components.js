@@ -68,7 +68,7 @@ const RightSliderButton = styled("button", {
   placeItems: "center",
   position: "absolute",
   top: "50%",
-  right: "50px",
+  right: "40px",
   transform: "translateY(-50%)",
   borderRadius: "50%",
   zIndex: 2,

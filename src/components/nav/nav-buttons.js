@@ -5,17 +5,38 @@ import {
   ShoppingCartItemsTracker,
   ShoppingCartContainer,
   ButtonContainer,
-  StyledHomeButton,
-  StyledButton,
+  MenuIconContainer,
 } from "./nav-buttons-styled-components";
+import {
+  StyledInActiveNavLink,
+  StyledActiveNavLink,
+} from "../../generic-styled-components/generic-styled-components";
 
 import { NavLink } from "react-router-dom";
-import classes from "../../generic-styled-components/navlink.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { keyframes } from "@emotion/react";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import MenuIcon from "@mui/icons-material/Menu";
+import { storeActions } from "../../store/store";
 
 const NavButtons = () => {
+  const buttonLimitReached = useMediaQuery("(max-width:1220px)");
+  const navMenuButtonClicked = useSelector(
+    (state) => state.navMenuButtonClicked
+  );
+  const pizzaToppingsMenuActive = useSelector(
+    (state) => state.pizzaToppingsMenuActive
+  );
+
+  const dispatch = useDispatch();
+  const navMenuHandler = () => {
+    if (pizzaToppingsMenuActive) {
+      dispatch(storeActions.setPizzaToppingsMenuActive(false));
+    }
+    dispatch(storeActions.setNavMenuButtonClicked(!navMenuButtonClicked));
+  };
+
   const cartObject = useSelector((state) => state.cartObject);
   const addToCartButtonClicked = useSelector(
     (state) => state.addToCartButtonClicked
@@ -49,85 +70,16 @@ const NavButtons = () => {
   // Cart Click Handler
 
   return (
-    <ButtonContainer>
-      <PhoneContainer>
-        <LocalPhone
-          color="primary.light"
+    <>
+      <ButtonContainer>
+        <PhoneContainer
           sx={{
             "@media (max-width:1200px)": {
-              fontSize: "10px",
-            },
-            "@media (max-width:880px)": {
-              fontSize: "8px",
-            },
-          }}
-        />
-        <Typography
-          varaint="h3"
-          sx={{
-            "@media (max-width:1200px)": {
-              fontSize: "10px",
-            },
-            "@media (max-width:880px)": {
-              fontSize: "8px",
+              marginRight: "20px",
             },
           }}
         >
-          +1 (555) 555-5555
-        </Typography>
-      </PhoneContainer>
-      <StyledHomeButton variant="text">
-        <NavLink to="/home" className={classes.navLink}>
-          Home
-        </NavLink>
-      </StyledHomeButton>
-      <StyledButton
-        variant="contained"
-        sx={{
-          "@media(max-width:670px)": {
-            padding: "2.5px",
-            borderRadius: "2px",
-            minWidth: "max-content",
-          },
-        }}
-      >
-        <NavLink to="/menu" className={classes.navLink}>
-          Menu
-        </NavLink>
-      </StyledButton>
-      <StyledButton variant="contained">
-        <NavLink to="/pizza-maker" className={classes.navLink}>
-          Pizza Maker
-        </NavLink>
-      </StyledButton>
-      <StyledButton variant="contained">
-        <NavLink to="/order-online" className={classes.navLink}>
-          Order Online
-        </NavLink>
-      </StyledButton>
-      <ShoppingCartContainer
-        onMouseEnter={cartMouseEnterHandler}
-        onMouseLeave={cartMouseLeaveHandler}
-        sx={{
-          "&:hover": {
-            backgroundColor: `${cartHoverActive && "secondary.dark"}`,
-          },
-          animation: `${
-            addToCartButtonClicked && `${cartRippleEffect} 3000ms ease-in`
-          }`,
-        }}
-      >
-        <NavLink to="/cart" className={classes.navLink}>
-          <ShoppingCartItemsTracker
-            sx={{
-              backgroundColor: `${cartHoverActive && "secondary.light"}`,
-              color: `${cartHoverActive && "secondary.dark"}`,
-            }}
-          >
-            {lengthOfCartObject}
-          </ShoppingCartItemsTracker>
-          <ShoppingCart
-            color="secondary.light"
+          <LocalPhone
             sx={{
               "@media (max-width:895px)": {
                 width: "max(20px,20px)",
@@ -138,10 +90,108 @@ const NavButtons = () => {
                 height: "max(16px,16px)",
               },
             }}
+            color="primary.light"
           />
-        </NavLink>
-      </ShoppingCartContainer>
-    </ButtonContainer>
+          <Typography
+            sx={{
+              "@media(max-width:1255px)": {
+                fontSize: "18px",
+              },
+              "@media(max-width:780px)": {
+                fontSize: "14px",
+              },
+            }}
+            varaint="h3"
+          >
+            +1 (555) 555-5555
+          </Typography>
+        </PhoneContainer>
+        {!buttonLimitReached && (
+          <>
+            <StyledActiveNavLink to="/home">Home</StyledActiveNavLink>
+            <StyledInActiveNavLink to="/menu">Menu</StyledInActiveNavLink>
+            <StyledInActiveNavLink to="/pizza-maker">
+              Pizza Maker
+            </StyledInActiveNavLink>
+
+            <StyledInActiveNavLink to="/order-online">
+              Order Online
+            </StyledInActiveNavLink>
+          </>
+        )}
+        {buttonLimitReached && (
+          <MenuIconContainer>
+            <MenuIcon
+              onClick={navMenuHandler}
+              sx={{
+                backgroundColor: `${
+                  navMenuButtonClicked ? "secondary.light" : "secondary.dark"
+                }`,
+                color: `${
+                  navMenuButtonClicked ? "secondary.dark" : "secondary.light"
+                }`,
+                transition: "all 1s",
+                height: "max(30px,30px)",
+                width: "max(30px,30px)",
+                padding: "7.5px",
+                boxSizing: "content-box",
+                borderRadius: "50%",
+                "@media (max-width:895px)": {
+                  width: "max(24px,24px)",
+                  height: "max(24px,24px)",
+                },
+                "@media (max-width:770px)": {
+                  width: "max(20px,20px)",
+                  height: "max(20px,20px)",
+                },
+
+                "&:hover": {
+                  backgroundColor: "secondary.light",
+                  color: "secondary.dark",
+                },
+              }}
+            />
+          </MenuIconContainer>
+        )}
+
+        <ShoppingCartContainer
+          onMouseEnter={cartMouseEnterHandler}
+          onMouseLeave={cartMouseLeaveHandler}
+          sx={{
+            "&:hover": {
+              backgroundColor: `${cartHoverActive && "secondary.dark"}`,
+            },
+            animation: `${
+              addToCartButtonClicked && `${cartRippleEffect} 3000ms ease-in`
+            }`,
+          }}
+        >
+          <NavLink to="/cart">
+            <ShoppingCartItemsTracker
+              sx={{
+                backgroundColor: `${cartHoverActive && "secondary.light"}`,
+                color: `${cartHoverActive && "secondary.dark"}`,
+              }}
+            >
+              {lengthOfCartObject}
+            </ShoppingCartItemsTracker>
+            <ShoppingCart
+              sx={{
+                color: "secondary.light",
+                "@media (max-width:895px)": {
+                  width: "max(20px,20px)",
+                  height: "max(20px,20px)",
+                },
+                "@media (max-width:770px)": {
+                  width: "max(16px,16px)",
+                  height: "max(16px,16px)",
+                },
+              }}
+            />
+          </NavLink>
+        </ShoppingCartContainer>
+      </ButtonContainer>
+    </>
   );
 };
 export default NavButtons;

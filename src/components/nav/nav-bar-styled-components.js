@@ -43,7 +43,7 @@ const LogoTitleContainer = styled("div", {
   alignItems: "center",
   justifyContent: "space-between",
   position: "relative",
-  gap: "5px",
+  gap: "15px",
 });
 
 const StyledToolBar = styled(Toolbar, {
@@ -56,6 +56,7 @@ const StyledToolBar = styled(Toolbar, {
   alignItems: "center",
   justifyContent: "space-between",
   position: "relative",
+
   "@media (max-width:940px)": {
     paddingLeft: "10px",
     paddingRight: "10px",
@@ -84,18 +85,41 @@ const RoofSvgContainer = styled("img", {
     top: "70px",
   },
   "@media(max-width:700px)": {
-    top: "60px",
+    top: "59px",
     height: "max(40px,40px)",
   },
   "@media(max-width:620px)": {
     height: "max(30px,30px)",
   },
 });
+const MenuButtonsContainer = styled("div", {
+  name: "MenuButtonsContainer",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  width: "max(max-content,max-content)",
+  height: "max(max-content,max-content)",
+  backgroundColor: theme.palette.primary.main,
+  color: theme.palette.secondary.light,
+  boxShadow: "0 0 15px black",
+  borderEndStartRadius: "15px",
+  borderEndEndRadius: "15px",
+  display: "grid",
+  gridTemplateRows: "repeat(4,max-content)",
+  gap: "10px",
+  placeItems: "center",
+  position: "absolute",
+  top: "-300px",
+  right: "2.75%",
+  zIndex: "1",
 
+  padding: "30px 10px 10px 10px",
+  transition: "all 0.5s",
+}));
 export {
   LogoContainer,
   LogoImage,
   LogoTitleContainer,
   StyledToolBar,
   RoofSvgContainer,
+  MenuButtonsContainer,
 };

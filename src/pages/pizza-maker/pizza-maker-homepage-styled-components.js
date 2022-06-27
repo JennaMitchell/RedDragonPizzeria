@@ -13,7 +13,9 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(1200px,1200px)",
+  height: "max(calc(100vh - 360px), max-content)",
+  gridTemplateRows: "max-content max-content",
+  gap: "30px",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
   placeItems: "center",
@@ -21,7 +23,8 @@ const TopContainer = styled("div", {
   borderBottom: "1px solid white",
   backgroundImage:
     "url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)",
-  overflowX: "hidden",
+
+  overflow: "hidden,",
 }));
 
 const NewPizzaButton = styled(CancelIcon, {
@@ -34,9 +37,19 @@ const NewPizzaButton = styled(CancelIcon, {
   placeItems: "center",
   position: "absolute",
   top: "100px",
-  right: "100px",
+  right: "2.5%",
   color: theme.palette.secondary.light,
   transition: "all 0.5s ease-in",
+  "@media(max-width:820px) ": {
+    top: "34px",
+    right: "2.5%",
+  },
+  "@media(max-width:580px) ": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+    right: "0%",
+  },
+
   "&:hover": {
     color: theme.palette.primary.light,
   },
@@ -51,14 +64,26 @@ const PurchaseButton = styled(AddShoppingCartIcon, {
   display: "grid",
   placeItems: "center",
   position: "absolute",
-  top: "200px",
-  right: "104px",
+  top: "104px",
+  right: "7.5%",
   color: theme.palette.secondary.dark,
   padding: "11.5px 7.5px 7.5px 8.5px",
 
   backgroundColor: theme.palette.secondary.light,
   borderRadius: "50%",
   transition: "all 0.5s ease-in",
+  "@media(max-width:1450px)": {
+    right: "10.5%",
+  },
+  "@media(max-width:820px) ": {
+    top: "54px",
+  },
+  "@media(max-width:580px) ": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+    right: "0.75%",
+  },
+
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
@@ -73,21 +98,33 @@ const PurchaseButtonDisabled = styled(AddShoppingCartIcon, {
   display: "grid",
   placeItems: "center",
   position: "absolute",
-  top: "200px",
-  right: "104px",
+  top: "104px",
+  right: "7.5%",
   color: theme.palette.secondary.dark,
   padding: "11.5px 7.5px 7.5px 8.5px",
 
   backgroundColor: theme.palette.secondary.main,
   borderRadius: "50%",
+  "@media(max-width:1450px)": {
+    right: "10.5%",
+  },
+  "@media(max-width:820px) ": {
+    top: "100px",
+    right: "2.75%",
+  },
+  "@media(max-width:580px) ": {
+    width: "max(44px,44px)",
+    height: "max(44px,44px)",
+    right: "0.75%",
+  },
 }));
 
 const KitchenTableContainer = styled("div", {
   name: "KitchenTableContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(1000px,1000px)",
-  height: "max(600px,600px)",
+  width: "min(90%,1000px)",
+  height: "min(600px,600px)",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
   gridTemplateColumns: "max-content max-content",
@@ -99,14 +136,25 @@ const KitchenTableContainer = styled("div", {
   border: "1px solid black",
   backgroundImage: `url(${tableImage})`,
   backgroundRepeat: "no-repeat",
-  backgroundSize: "100%",
+  backgroundSize: "cover",
   backgroundPosition: "center",
+  marginBottom: "40px",
+  overflow: "visible",
+  "@media(max-width:1220px)": {
+    gridTemplateColumns: "max-content",
+    alignItems: "center",
+    justifyItems: "center",
+    marginBottom: "0px",
+  },
+  "@media(max-width:660px)": {
+    width: "min(100%,100%)",
+  },
 }));
 
 const PizzaPanContainer = styled("img", {
   name: "PizzaPanContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(400px,400px)",
   height: "max(400px,400px)",
   backgroundColor: "transparent",
@@ -123,7 +171,7 @@ const PizzaPanContainer = styled("img", {
 const PizzaPeelWithPan = styled("img", {
   name: "PizzaPeelWithPan",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(1200px,1200px)",
   height: "max(400px,400px)",
 
@@ -139,7 +187,7 @@ const PizzaPeelWithPan = styled("img", {
 const PizzaPeelWithoutPan = styled("img", {
   name: "PizzeaPeelWithoutPan ",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(1200px,1200px)",
   height: "max(400px,400px)",
 
@@ -170,6 +218,10 @@ const MenuButton = styled("div", {
   backgroundColor: theme.palette.secondary.light,
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
+  },
+  "@media(max-width: 600px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
   },
 }));
 const OpenMenuIcon = styled(ArrowForwardIosIcon, {
@@ -211,6 +263,19 @@ const MainTitle = styled(Typography, {
   padding: "15px 30px 15px 30px",
   borderRadius: "10px",
   fontFamily: "Fredericka the Great ,cursive",
+  textAlign: "center",
+  "@media(max-width:1650px) ": {
+    fontSize: "48px",
+  },
+  "@media(max-width:1350px) ": {
+    fontSize: "42px",
+  },
+  "@media(max-width:1200px) ": {
+    fontSize: "36px",
+  },
+  "@media(max-width:820px) ": {
+    fontSize: "28px",
+  },
 }));
 const MainTitleContainer = styled("div", {
   name: "MainTitleContainer",
@@ -220,10 +285,8 @@ const MainTitleContainer = styled("div", {
   height: "max(max-content,max-content)",
   display: "grid",
   placeItems: "center",
-  position: "absolute",
-  top: "12.5%",
-  left: "50%",
-  transform: "translate(-50%,-50%)",
+  position: "relative",
+
   boxShadow: "0 0 10px black",
   padding: "12.5px",
   border: "2px solid black",
@@ -231,6 +294,7 @@ const MainTitleContainer = styled("div", {
   backgroundPosition: "center",
   backgroundRepeat: "none",
   borderRadius: "10px",
+  marginTop: "50px",
 }));
 const DarkBackground = styled("div", {
   name: "DarkBackground",

@@ -193,7 +193,7 @@ const PizzaSection = () => {
         ($1.00 per Topping. Max of 5 Toppings per pizza)
       </SectionTitle>
       <SectionTitleContainer>
-        <MainSectionTitle>Speciality Pizza</MainSectionTitle>
+        <MainSectionTitle>Signature Pizza's</MainSectionTitle>
         <UnderlineContainer src={pizzaUnderline} />
       </SectionTitleContainer>
       <TwoColumnContainer>

@@ -87,7 +87,7 @@ const DeletePepperoniWarning = ({
           }}
         >
           <Typography variant="h5" sx={{ marginBottom: "10px" }}>
-            Pepperoni Out of Bounds
+            Pepperoni Off Pizza
           </Typography>
           <Typography variant="p" sx={{ marginBottom: "10px" }}>
             Either delete it or undo the move
