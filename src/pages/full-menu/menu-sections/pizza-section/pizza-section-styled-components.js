@@ -56,6 +56,9 @@ const PizzaSliceLineArtOne = styled("img", {
     height: "max(40px,40px)",
     top: "-15px",
   },
+  "@media (max-width:580px)": {
+    top: "-25px",
+  },
 }));
 const PizzaSliceLineArtTwo = styled("img", {
   name: "PizzaSliceLineArtTwo ",
@@ -117,6 +120,14 @@ const TomatoLineArt = styled("img", {
     width: "max(60px,60px)",
     height: "max(40px,40px)",
     top: "-75px",
+  },
+  "@media (max-width:510px)": {
+    width: "max(50px,50px)",
+    height: "max(30px,30px)",
+    top: "-65px",
+  },
+  "@media (max-width:470px)": {
+    top: "-95px",
   },
 }));
 

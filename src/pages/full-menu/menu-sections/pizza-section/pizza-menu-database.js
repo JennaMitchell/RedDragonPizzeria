@@ -186,6 +186,9 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
           "@media (max-width:705px)": {
             marginTop: "5px",
           },
+          "@media (max-width:520px)": {
+            paddingRight: "15px",
+          },
         }}
       >
         {pizza.description}
@@ -195,6 +198,12 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
           "@media (max-width:705px)": {
             marginTop: "5px",
             paddingLeft: "5px",
+          },
+          "@media (max-width:520px)": {
+            marginTop: "5px",
+            paddingLeft: "0px",
+            paddingRight: "15px",
+            fontSize: "10px",
           },
         }}
       >

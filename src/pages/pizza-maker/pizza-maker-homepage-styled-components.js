@@ -283,6 +283,9 @@ const MainTitle = styled(Typography, {
   "@media(max-width:680px) ": {
     fontSize: "26px",
   },
+  "@media(max-width:560px) ": {
+    fontSize: "22px",
+  },
 }));
 const MainTitleContainer = styled("div", {
   name: "MainTitleContainer",

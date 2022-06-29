@@ -148,6 +148,9 @@ const StyledContactText = styled(Typography, {
   "@media (max-width:780px)": {
     fontSize: "10px",
   },
+  "@media (max-width:560px)": {
+    fontSize: "8px",
+  },
 }));
 
 const StyledFooterHeading = styled(Typography, {

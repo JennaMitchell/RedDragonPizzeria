@@ -69,14 +69,20 @@ const NewPizzaPopup = ({
         >
           <Typography
             variant="h4"
-            sx={{ "@media(max-width:580px)": { fontSize: "32px" } }}
+            sx={{
+              "@media(max-width:580px)": { fontSize: "32px" },
+              "@media(max-width:520px)": { fontSize: "28px" },
+            }}
           >
             Custom Pepperoni Layout
           </Typography>
           <Typography variant="h6">or</Typography>
           <Typography
             variant="h4"
-            sx={{ "@media(max-width:580px)": { fontSize: "32px" } }}
+            sx={{
+              "@media(max-width:580px)": { fontSize: "32px" },
+              "@media(max-width:520px)": { fontSize: "28px" },
+            }}
           >
             Build a Pizza
           </Typography>
@@ -96,11 +102,20 @@ const NewPizzaPopup = ({
       >
         <PopupButton
           onClick={onClosePepperoniHandler}
-          sx={{ borderRadius: "5px" }}
+          sx={{
+            borderRadius: "5px",
+            "@media(max-width:520px)": { fontSize: "10px" },
+          }}
         >
           Custom Pepperoni Layout
         </PopupButton>
-        <PopupButton onClick={onCloseBuildHandler} sx={{ borderRadius: "5px" }}>
+        <PopupButton
+          onClick={onCloseBuildHandler}
+          sx={{
+            borderRadius: "5px",
+            "@media(max-width:520px)": { fontSize: "10px" },
+          }}
+        >
           Build a Pizza
         </PopupButton>
       </DialogActions>

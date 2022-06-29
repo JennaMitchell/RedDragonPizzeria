@@ -29,6 +29,9 @@ const HomepageMenuItem = ({ title, description, cost }) => {
           "@media (max-width:730px)": {
             fontSize: "10px",
           },
+          "@media (max-width:630px)": {
+            fontSize: "8px",
+          },
         }}
       >
         {description}

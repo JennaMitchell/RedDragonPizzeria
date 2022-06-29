@@ -10,16 +10,18 @@ import {
 import logo from "../../img/logo/logo.png";
 import { Typography } from "@mui/material";
 import NavButtons from "./nav-buttons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import roof from "../../img/homepage/roof.png";
-import { useDispatch } from "react-redux";
 
+import { useBeforeunload } from "react-beforeunload";
+
+import { storeActions } from "../../store/store";
 import {
   StyledInActiveNavLink,
   StyledActiveNavLink,
 } from "../../generic-styled-components/generic-styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { storeActions } from "../../store/store";
+
 const NavBar = () => {
   const dispatch = useDispatch();
   const navMenuButtonClicked = useSelector(
@@ -31,6 +33,59 @@ const NavBar = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+
+  // Handeling On Refresh Events
+  const buildAPizzaUserSelectedObject = useSelector(
+    (state) => state.buildAPizzaUserSelectedObject
+  );
+  const pepperoniLayoutDatabase = useSelector(
+    (state) => state.pepperoniLayoutDatabase
+  );
+  const cartObject = useSelector((state) => state.cartObject);
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+
+  useBeforeunload(() => {
+    localStorage.setItem("refreshed", "true");
+    localStorage.setItem(
+      "buildAPizzaUserSelectedObject",
+      JSON.stringify(buildAPizzaUserSelectedObject)
+    );
+    localStorage.setItem(
+      "pepperoniLayoutDatabase",
+      JSON.stringify(pepperoniLayoutDatabase)
+    );
+    localStorage.setItem("cartObject", JSON.stringify(cartObject));
+    localStorage.setItem("activeNavButton", JSON.stringify(activeNavButton));
+  });
+  let refreshed = JSON.parse(localStorage.getItem("refreshed"));
+  // buildAPizzaUserSelectedObject , pepperoniLayoutDatabase, cartObject,  activeNavButton
+  if (refreshed) {
+    dispatch(
+      storeActions.setBuildAPizzaUserSelectedObject(
+        JSON.parse(localStorage.getItem("buildAPizzaUserSelectedObject"))
+      )
+    );
+    dispatch(
+      storeActions.setPepperoniLayoutDatabase(
+        JSON.parse(localStorage.getItem("pepperoniLayoutDatabase"))
+      )
+    );
+    dispatch(
+      storeActions.setCartObject(JSON.parse(localStorage.getItem("cartObject")))
+    );
+    dispatch(
+      storeActions.setActiveNavButton(
+        JSON.parse(localStorage.getItem("activeNavButton"))
+      )
+    );
+
+    localStorage.removeItem("buildAPizzaUserSelectedObject");
+    localStorage.removeItem("pepperoniLayoutDatabase");
+    localStorage.removeItem("cartObject");
+    localStorage.removeItem("activeNavButton");
+    localStorage.setItem("refreshed", "false");
+  }
+
   const homeButtonHandler = () => {
     dispatch(storeActions.setNavMenuButtonClicked(false));
     dispatch(storeActions.setActiveNavButton("Home"));
@@ -48,7 +103,6 @@ const NavBar = () => {
     dispatch(storeActions.setActiveNavButton("Order Online"));
   };
 
-  const activeNavButton = useSelector((state) => state.activeNavButton);
   const buttonTitles = [
     { title: "Home", function: homeButtonHandler, navLink: "/home" },
     { title: "Menu", function: menuButtonHandler, navLink: "/menu" },
@@ -152,6 +206,9 @@ const NavBar = () => {
                 },
                 "@media (max-width:880px)": {
                   fontSize: "18px",
+                },
+                "@media(max-width:465px)": {
+                  fontSize: "14px",
                 },
               }}
             >

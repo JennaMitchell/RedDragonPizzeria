@@ -144,6 +144,14 @@ const NavButtons = () => {
                 width: "max(16px,16px)",
                 height: "max(16px,16px)",
               },
+              "@media(max-width:630px)": {
+                width: "max(14px,14px)",
+                height: "max(14px,14px)",
+              },
+              "@media(max-width:465px)": {
+                width: "max(12px,12px)",
+                height: "max(12px,12px)",
+              },
             }}
             color="primary.light"
           />
@@ -154,6 +162,12 @@ const NavButtons = () => {
               },
               "@media(max-width:780px)": {
                 fontSize: "14px",
+              },
+              "@media(max-width:630px)": {
+                fontSize: "12px",
+              },
+              "@media(max-width:465px)": {
+                fontSize: "10px",
               },
             }}
             varaint="h3"
@@ -186,6 +200,10 @@ const NavButtons = () => {
                 "@media (max-width:770px)": {
                   width: "max(20px,20px)",
                   height: "max(20px,20px)",
+                },
+                "@media(max-width:630px)": {
+                  width: "max(16px,16px)",
+                  height: "max(16px,16px)",
                 },
 
                 "&:hover": {
@@ -227,6 +245,10 @@ const NavButtons = () => {
                 },
                 "@media (max-width:770px)": {
                   marginTop: "5px",
+                },
+                "@media(max-width:630px)": {
+                  width: "max(16px,16px)",
+                  height: "max(16px,16px)",
                 },
               }}
             />

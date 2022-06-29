@@ -33,6 +33,13 @@ const initialState = {
     "X-large": 500,
     "XX-large": 550,
   },
+  pepperoniPizzaMobileSizePixelsDatabase: {
+    Small: 250,
+    Medium: 300,
+    Large: 350,
+    "X-large": 400,
+    "XX-large": 450,
+  },
   pepperoniDragEventActive: false,
   onlineOrderClickedSection: "Specility Pizza",
   onlineOrderPopupType: "",
