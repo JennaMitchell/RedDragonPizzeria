@@ -13,7 +13,8 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "max(calc(100vh - 360px), max-content)",
+  minHeight: "calc(100vh - 260px)",
+  height: "max-content",
   gridTemplateRows: "max-content max-content",
   gap: "30px",
   backgroundColor: theme.palette.secondary.dark,
@@ -76,12 +77,14 @@ const PurchaseButton = styled(AddShoppingCartIcon, {
     right: "10.5%",
   },
   "@media(max-width:820px) ": {
-    top: "54px",
+    top: "100px",
+    right: "2.75%",
   },
   "@media(max-width:580px) ": {
-    width: "max(50px,50px)",
-    height: "max(50px,50px)",
+    width: "max(44px,44px)",
+    height: "max(44px,44px)",
     right: "0.75%",
+    top: "104px",
   },
 
   "&:hover": {
@@ -110,12 +113,13 @@ const PurchaseButtonDisabled = styled(AddShoppingCartIcon, {
   },
   "@media(max-width:820px) ": {
     top: "100px",
-    right: "2.75%",
+    right: "3%",
   },
   "@media(max-width:580px) ": {
     width: "max(44px,44px)",
     height: "max(44px,44px)",
-    right: "0.75%",
+    right: "1%",
+    top: "104px",
   },
 }));
 
@@ -274,7 +278,10 @@ const MainTitle = styled(Typography, {
     fontSize: "36px",
   },
   "@media(max-width:820px) ": {
-    fontSize: "28px",
+    fontSize: "32px",
+  },
+  "@media(max-width:680px) ": {
+    fontSize: "26px",
   },
 }));
 const MainTitleContainer = styled("div", {

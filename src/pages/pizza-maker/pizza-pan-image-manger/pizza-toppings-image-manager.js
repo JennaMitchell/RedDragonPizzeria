@@ -10,7 +10,6 @@ const PizzaToppingsImageManager = ({ veggies, meats, other, cheese }) => {
 
   const photoArray = [];
   for (let topping of combinedToppingsArray) {
-    console.log(topping);
     if (topping !== "Extra Cheese") {
       photoArray.push({
         img: pizzaToppingsPhotoDatabase[topping],

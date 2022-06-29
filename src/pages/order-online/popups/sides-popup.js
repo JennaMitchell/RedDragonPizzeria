@@ -1,11 +1,7 @@
 import * as React from "react";
-
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import { Typography, Button } from "@mui/material";
 import { styled } from "@mui/material";
 import breadIcon from "../../../img/online-order-menu/bread-icon.png";
@@ -95,9 +91,7 @@ const DisabledStyledButton = styled(Button, {
 
 const SaladsPopup = ({ toggleOpen }) => {
   const dispatch = useDispatch();
-  const theme = useTheme();
 
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const clickedData = useSelector((state) => state.onlinePopupActiveData);
   const [selectedSize, setSelectedSize] = useState("");
 
@@ -227,7 +221,6 @@ const SaladsPopup = ({ toggleOpen }) => {
 
   return (
     <Dialog
-      fullScreen={fullScreen}
       open={toggleOpen}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"

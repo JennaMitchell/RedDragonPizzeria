@@ -5,8 +5,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
 
 import { PopupButton } from "./generic-popup-styled-components";
@@ -14,9 +12,6 @@ import { useDispatch } from "react-redux";
 import { storeActions } from "../../../store/store";
 
 const FiveToppingsWarning = ({ fiveToppingsWarningPopup }) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   const dispatch = useDispatch();
 
   const onCloseHandler = () => {
@@ -25,7 +20,6 @@ const FiveToppingsWarning = ({ fiveToppingsWarningPopup }) => {
 
   return (
     <Dialog
-      fullScreen={fullScreen}
       open={fiveToppingsWarningPopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
@@ -58,7 +52,13 @@ const FiveToppingsWarning = ({ fiveToppingsWarningPopup }) => {
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
           <Typography variant="h6">Five toppings limited reached!</Typography>
-          <Typography variant="h6">
+          <Typography
+            variant="h6"
+            sx={{
+              marginTop: "10px",
+              "@media(max-width:580px)": { fontSize: "16px" },
+            }}
+          >
             Please deselect a topping option to add another
           </Typography>
         </Grid>

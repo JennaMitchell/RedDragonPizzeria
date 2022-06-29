@@ -16,7 +16,7 @@ const BlackboardContainer = styled("div", {
   border: "2px solid black",
   borderRadius: "20px",
   backgroundImage: `url(${plank})`,
-  marginBottom: "30px",
+  marginBottom: "200px",
 }));
 
 const MenuContainer = styled("div", {

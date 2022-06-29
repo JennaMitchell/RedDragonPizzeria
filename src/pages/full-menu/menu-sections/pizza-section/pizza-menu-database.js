@@ -56,13 +56,13 @@ const pizzaMenuDatabase = {
     {
       title: "Neapolitan Pizza",
       description:
-        "Thin crust pizza, topped with mozzarella cheese, fresh tomato's, and basil",
+        "Thin crust pizza, topped with mozzarella cheese, fresh tomatoes, and basil",
       price: "sm. $14.99, md. $15.99, lg. $16.99, xl. $18.99, xxl. $20.99 ",
     },
     {
       title: "Chicago Pizza",
       description:
-        "Deep dish pizza, served with mozarallea,spicy peperonni and covered with marinara sauce",
+        "Deep dish pizza, served with mozarallea, spicy peperonni and covered with marinara sauce",
       price: "sm. $12.99, md. $13.99, lg. $14.99, xl. $16.99, xxl. $18.99 ",
     },
 
@@ -76,7 +76,7 @@ const pizzaMenuDatabase = {
     {
       title: "Sicilian Pizza",
       description:
-        "Deep dish pizza, served with onions, tomatos and toma Cheese",
+        "Deep dish pizza, served with onions, tomatoes and toma cheese",
       price: "sm. $12.99, md. $13.99, lg. $14.99, xl. $16.99, xxl. $18.99 ",
     },
     {

@@ -7,10 +7,11 @@ const TopContainer = styled("div", {
 })(({ theme }) => ({
   color: theme.palette.secondary.light,
   width: "max(100%,100%)",
-  height: "max(max-content,1200px)",
+  minHeight: "calc(100vh - 260px)",
+  height: "max-content",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
-  alignItems: "flex-start",
+  alignItems: "center",
   justifyItems: "center",
   position: "relative",
   borderBottom: "1px solid white",
@@ -23,7 +24,7 @@ const GridContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   color: "inherit",
-  width: "max(55%,55%)",
+  width: "max(100%,100%)",
   height: "max(max-content,1200px)",
   backgroundColor: "transparent",
   display: "grid",
@@ -46,7 +47,7 @@ const BlackboardTitleContainer = styled("div", {
   boxShadow: "0 0 10px black",
   border: "2px solid black",
   borderRadius: "10px",
-  marginTop: "40px",
+  marginTop: "150px",
   backgroundImage: `url(${horizontalPlank})`,
 }));
 

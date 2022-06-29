@@ -38,6 +38,9 @@ const ShoppingCartContainer = styled("div", {
   "@media (max-width:760px)": {
     padding: "5px",
   },
+  "@media (max-width:660px)": {
+    padding: "2.5px 5px 2.5px 5px",
+  },
 });
 
 const ShoppingCartItemsTracker = styled("div", {
@@ -63,6 +66,10 @@ const ShoppingCartItemsTracker = styled("div", {
     padding: "2px 4px 2px 4px",
     fontSize: "10px",
     top: "-3px",
+    right: "-2.5px",
+  },
+  "@media (max-width:770px)": {
+    top: "1px",
     right: "-2.5px",
   },
 }));

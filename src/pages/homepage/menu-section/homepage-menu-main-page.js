@@ -77,7 +77,6 @@ const HomepageMenuTopFile = () => {
           sx={{
             textDecoration: "underline",
             fontSize: "38px",
-            margin: "20px 0 20px 0",
           }}
         >
           &nbsp;Our Specials&nbsp;

@@ -3,9 +3,6 @@ import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
 
 import { PopupButton } from "./generic-popup-styled-components";
@@ -17,7 +14,6 @@ const NewPizzaPopup = ({
   onCloseFunction,
   retrievePizzaType,
 }) => {
-  const theme = useTheme();
   const defaultUserData = {
     size: ["Medium"],
     sauce: [],
@@ -30,7 +26,7 @@ const NewPizzaPopup = ({
   };
 
   const dispatch = useDispatch();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   const onClosePepperoniHandler = () => {
     retrievePizzaType("Custom Pepperoni Layout");
     dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
@@ -49,7 +45,6 @@ const NewPizzaPopup = ({
 
   return (
     <Dialog
-      fullScreen={fullScreen}
       open={newPizzaPopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
@@ -57,6 +52,7 @@ const NewPizzaPopup = ({
         style: {
           borderRadius: "10px",
           border: "none",
+          margin: "0",
         },
       }}
     >
@@ -71,9 +67,19 @@ const NewPizzaPopup = ({
           columns={1}
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
-          <Typography variant="h4">Custom Pepperoni Layout </Typography>
+          <Typography
+            variant="h4"
+            sx={{ "@media(max-width:580px)": { fontSize: "32px" } }}
+          >
+            Custom Pepperoni Layout
+          </Typography>
           <Typography variant="h6">or</Typography>
-          <Typography variant="h4">Build a Pizza</Typography>
+          <Typography
+            variant="h4"
+            sx={{ "@media(max-width:580px)": { fontSize: "32px" } }}
+          >
+            Build a Pizza
+          </Typography>
         </Grid>
       </DialogContent>
       <DialogActions

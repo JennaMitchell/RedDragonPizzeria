@@ -6,6 +6,7 @@ import {
   OrderedItemsContainer,
   StyledTypography,
   CustomItemContainer,
+  NonCustomItemContainer,
   TrashIcon,
   HorizontalChalkUnderline,
   PizzaImage,
@@ -59,16 +60,28 @@ const CartHomepage = () => {
               gridRow: "1/span 1",
               textAlign: "left",
               position: "relative",
+              width: "max(80%,80%)",
+
+              "@media(max-width:1970px)": {
+                marginLeft: "20px",
+              },
+              "@media(max-width:640px)": {
+                fontSize: "20px",
+              },
             }}
             variant="h5"
           >
             {title}
             <StyledTypography
               sx={{
-                position: "absolute",
+                position: "relative",
                 top: "100%",
                 left: "10px",
                 fontSize: "16px",
+
+                "@media(max-width:640px)": {
+                  fontSize: "12px",
+                },
               }}
             >
               {` ${fullDescription} `}
@@ -79,23 +92,21 @@ const CartHomepage = () => {
             sx={{
               gridColumn: "3/span 1",
               gridRow: "1/span 1",
+              marginRight: "30px",
+              position: "relative",
             }}
             variant="h5"
           >
             {`$${item.totalPrice}`}
+            <TrashIcon onClick={deleteIconHandler} />
           </StyledTypography>
-
-          <TrashIcon
-            onClick={deleteIconHandler}
-            sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }}
-          />
         </CustomItemContainer>
       );
     } else {
       totalPrice = totalPrice + +item.totalPrice;
 
       return (
-        <CustomItemContainer
+        <NonCustomItemContainer
           key={index}
           sx={{
             height: "max-content",
@@ -104,12 +115,11 @@ const CartHomepage = () => {
         >
           <StyledTypography
             sx={{
-              gridColumn: "1/span 2",
+              gridColumn: "1/span 1",
               gridRow: "1/span 1",
               textAlign: "left",
               marginLeft: "30px",
               height: "max-content",
-              marginBottom: "40px",
               position: "relative",
             }}
             variant="h5"
@@ -117,12 +127,12 @@ const CartHomepage = () => {
             {item.title}
             <StyledTypography
               sx={{
-                position: "absolute",
+                position: "relative",
+                width: "max(80%,80%)",
                 top: "100%",
                 left: "10px",
                 fontSize: "16px",
                 textAlign: "left",
-                width: "max(90%,90%)",
               }}
             >
               {` ${item.userSelectedData.description} `}
@@ -131,19 +141,17 @@ const CartHomepage = () => {
           {/* need to add size here */}
           <StyledTypography
             sx={{
-              gridColumn: "3/span 1",
+              gridColumn: "2/span 1",
               gridRow: "1/span 1",
+              marginRight: "30px",
+              position: "relative",
             }}
             variant="h5"
           >
             {`$${item.totalPrice}`}
+            <TrashIcon onClick={deleteIconHandler} />
           </StyledTypography>
-
-          <TrashIcon
-            onClick={deleteIconHandler}
-            sx={{ gridColumn: "4/span 1", gridRow: "1/span 1" }}
-          />
-        </CustomItemContainer>
+        </NonCustomItemContainer>
       );
     }
   });
@@ -180,8 +188,12 @@ const CartHomepage = () => {
             <CustomItemContainer
               sx={{
                 gridTemplateColumns: "max-content max-content",
-
+                justifyContent: "space-between",
+                alignItems: "center",
                 marginTop: "20px",
+                "@media(max-width:690px)": {
+                  gridTemplateColumns: "max-content max-content",
+                },
               }}
             >
               <StyledTypography
@@ -191,7 +203,7 @@ const CartHomepage = () => {
 
                   gridColumn: "1/span 1",
                   gridRow: "1/span 1",
-                  marginLeft: "20px",
+                  marginLeft: "30px",
                 }}
               >
                 Total :
@@ -203,7 +215,7 @@ const CartHomepage = () => {
 
                   gridColumn: "2/span 1",
                   gridRow: "1/span 1",
-                  marginRight: "20px",
+                  marginRight: "30px",
                 }}
               >
                 {`$${totalPrice}`}

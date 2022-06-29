@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
-import { Button, Typography } from "@mui/material";
+import { Typography, Link } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 const TopContainer = styled("div", {
   name: "TopContainer",
@@ -90,17 +91,26 @@ const ContactInfoContainer = styled("div", {
   },
 }));
 
-const StyledButton = styled(Button, {
-  name: "StyledButton",
+const StyledFooterNavLink = styled(NavLink, {
+  name: "StyledFooterNavLink",
   slot: "Wrapper",
 })(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.dark,
+
+  width: "max(max-content,max-content)",
+  padding: "10px 15px 10px 15px",
+  borderRadius: "5px",
+  textDecoration: "none",
+  textTransform: "uppercase",
+  boxSizing: "content-box",
   color: theme.palette.secondary.light,
-  fontSize: "18px",
+  fontSize: "21px",
   marginBottom: "15px",
   textAlign: "center",
   "&:hover": {
     backgroundColor: theme.palette.primary.main,
   },
+
   "@media (max-width:1150px)": {
     fontSize: "16px",
   },
@@ -159,13 +169,49 @@ const StyledFooterHeading = styled(Typography, {
   },
 }));
 
+const StyledLink = styled(Link, {
+  name: "StyledLink",
+  slot: "Wrapper",
+})(({ theme }) => ({
+  color: theme.palette.secondary.light,
+  fontSize: "21px",
+  marginBottom: "15px",
+  textAlign: "center",
+  textDecoration: "none",
+  textTransform: "uppercase",
+  borderRadius: "5px",
+  padding: "10px",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.main,
+  },
+  "@media (max-width:1150px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:980px)": {
+    fontSize: "14px",
+  },
+  "@media (max-width:880px)": {
+    fontSize: "12px",
+    padding: "5px",
+  },
+  "@media (max-width:740px)": {
+    fontSize: "10px",
+    padding: "5px",
+  },
+  "@media (max-width:680px)": {
+    fontSize: "8px",
+    padding: "5px",
+  },
+}));
+
 export {
   TopContainer,
   ColumnOne,
   ColumnTwo,
   SocialIcons,
   ContactInfoContainer,
-  StyledButton,
   StyledContactText,
   StyledFooterHeading,
+  StyledLink,
+  StyledFooterNavLink,
 };

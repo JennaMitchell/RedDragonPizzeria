@@ -7,7 +7,7 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  minHeight: "calc(100vh - 370px)",
+  minHeight: "calc(100vh - 270px)",
   maxHeight: "max-content",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
@@ -39,6 +39,19 @@ const MenuPlankContainer = styled("div", {
   padding: "20px",
   marginTop: "60px",
   marginBottom: "80px",
+  "@media(max-width:1800px)": {
+    width: "max(60%,60%)",
+  },
+
+  "@media(max-width:1100px)": {
+    width: "max(80%,80%)",
+  },
+  "@media(max-width:850px)": {
+    width: "max(90%,90%)",
+  },
+  "@media(max-width:690px)": {
+    width: "max(90%,90%)",
+  },
 }));
 const MenuBlackboardContainer = styled("div", {
   name: "MenuBlackboardContainer",
@@ -88,11 +101,10 @@ const NonCustomItemContainer = styled("div", {
   display: "grid",
   alignItems: "center",
   justifyContent: "space-between",
-  gridTemplateColumns: "60% max-content max-content",
+  gridTemplateColumns: "75% max-content",
 
   position: "relative",
   marginTop: "10px",
-  marginBottom: "10px",
 }));
 const CustomItemContainer = styled("div", {
   name: "CustomItemContainer",
@@ -105,26 +117,34 @@ const CustomItemContainer = styled("div", {
 
   alignItems: "center",
   justifyContent: "space-between",
-  gridTemplateColumns: "100px 60% max-content max-content",
+  gridTemplateColumns: "100px 60% max-content ",
+  gridTemplateRows: "max-content",
   gap: "10px",
   position: "relative",
   marginTop: "10px",
   marginBottom: "10px",
+  "@media(max-width:690px)": {
+    gridTemplateColumns: "100px max-content max-content ",
+  },
 }));
 
 const TrashIcon = styled(DeleteIcon, {
   name: "TrashIcon",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(40px,40px)",
-  height: "max(40px,40px)",
+  width: "max(30px,30px)",
+  height: "max(30px,30px)",
   marginRight: "10px",
   backgroundColor: "transparent",
   color: theme.palette.secondary.light,
   display: "grid",
   alignItems: "center",
   justifyContent: "center",
-  position: "relative",
+  position: "absolute",
+  top: "0%",
+  right: "-108%",
+  transform: "translate(-100%,-30%)",
+
   padding: "5px",
   borderRadius: "50%",
   marginTop: "10px",
@@ -150,7 +170,7 @@ const HorizontalChalkUnderline = styled("img", {
 const PizzaImage = styled("img", {
   name: "PizzaImage",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(100px,100px)",
   height: "max(100px,100px)",
   backgroundColor: "inherit",

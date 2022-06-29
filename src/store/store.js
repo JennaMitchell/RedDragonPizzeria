@@ -40,6 +40,8 @@ const initialState = {
   cartObject: [],
   navMenuButtonClicked: false,
   pizzaToppingsMenuActive: false,
+  addToCartButtonClicked: false,
+  activeNavButton: "Home",
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -95,6 +97,12 @@ const storeSlice = createSlice({
     },
     setPizzaToppingsMenuActive(state, { payload }) {
       state.pizzaToppingsMenuActive = payload;
+    },
+    setAddToCartButtonClicked(state, { payload }) {
+      state.addToCartButtonClicked = payload;
+    },
+    setActiveNavButton(state, { payload }) {
+      state.activeNavButton = payload;
     },
   },
 });

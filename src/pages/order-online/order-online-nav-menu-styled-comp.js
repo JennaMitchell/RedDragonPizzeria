@@ -6,7 +6,7 @@ const BlackboardContainer = styled("div", {
   name: "BlackboardContainer",
   slot: "Wrapper",
 })(() => ({
-  width: "max(100%,100%)",
+  width: "max(1075px,1075px)",
   height: "max(200px,200px)",
   display: "grid",
   placeItems: "center",
@@ -15,6 +15,9 @@ const BlackboardContainer = styled("div", {
   border: "2px solid black",
   borderRadius: "20px",
   backgroundImage: `url(${horizontalPlank})`,
+  "@media (max-width:1125px)": {
+    width: "max(80%,80%)",
+  },
 }));
 
 const MenuContainer = styled("div", {
@@ -60,7 +63,7 @@ const MenuButton = styled("div", {
   width: "max(100%,100%)",
   height: "max(100%,100%)",
   zIndex: "2",
-  fontSize: "32px",
+  fontSize: "28px",
   borderRadius: "20px",
 }));
 const MenuButtonImage = styled("img", {
@@ -87,7 +90,7 @@ const StyledNavLink = styled(NavLink, {
   slot: "Wrapper",
 })(({ theme }) => ({
   color: theme.palette.secondary.light,
-  fontSize: "32px",
+  fontSize: "28px",
   zIndex: 1,
   position: "relative",
   textDecoration: "none",

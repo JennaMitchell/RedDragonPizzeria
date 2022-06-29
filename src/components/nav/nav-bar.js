@@ -12,13 +12,16 @@ import { Typography } from "@mui/material";
 import NavButtons from "./nav-buttons";
 import { useSelector } from "react-redux";
 import roof from "../../img/homepage/roof.png";
+import { useDispatch } from "react-redux";
 
 import {
   StyledInActiveNavLink,
   StyledActiveNavLink,
 } from "../../generic-styled-components/generic-styled-components";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { storeActions } from "../../store/store";
 const NavBar = () => {
+  const dispatch = useDispatch();
   const navMenuButtonClicked = useSelector(
     (state) => state.navMenuButtonClicked
   );
@@ -28,6 +31,63 @@ const NavBar = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+  const homeButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Home"));
+  };
+  const menuButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Menu"));
+  };
+  const pizzaMakerButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Pizza Maker"));
+  };
+  const orderOnlineButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Order Online"));
+  };
+
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+  const buttonTitles = [
+    { title: "Home", function: homeButtonHandler, navLink: "/home" },
+    { title: "Menu", function: menuButtonHandler, navLink: "/menu" },
+    {
+      title: "Pizza Maker",
+      function: pizzaMakerButtonHandler,
+      navLink: "/pizza-maker",
+    },
+    {
+      title: "Order Online",
+      function: orderOnlineButtonHandler,
+      navLink: "/order-online",
+    },
+  ];
+
+  const renderReadyNavButtons = buttonTitles.map((object, index) => {
+    if (activeNavButton === object.title) {
+      return (
+        <StyledActiveNavLink
+          key={index}
+          onClick={object.function}
+          to={object.navLink}
+        >
+          {object.title}
+        </StyledActiveNavLink>
+      );
+    } else {
+      return (
+        <StyledInActiveNavLink
+          key={index}
+          onClick={object.function}
+          to={object.navLink}
+        >
+          {object.title}
+        </StyledInActiveNavLink>
+      );
+    }
+  });
+
   const buttonLimitReached = useMediaQuery("(max-width:1200px)");
   let dropMenu = false;
   let roofZIndexChanged = false;
@@ -118,14 +178,7 @@ const NavBar = () => {
           },
         }}
       >
-        <StyledActiveNavLink to="/home">Home</StyledActiveNavLink>
-        <StyledInActiveNavLink to="/menu">Menu</StyledInActiveNavLink>
-        <StyledInActiveNavLink to="/pizza-maker">
-          Pizza Maker
-        </StyledInActiveNavLink>
-        <StyledInActiveNavLink to="/order-online">
-          Order Online
-        </StyledInActiveNavLink>
+        {renderReadyNavButtons}
       </MenuButtonsContainer>
     </>
   );

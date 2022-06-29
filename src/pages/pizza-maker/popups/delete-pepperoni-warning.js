@@ -5,8 +5,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import { Grid, Typography } from "@mui/material";
 
 import { PopupButton, StyledCheckBox } from "./generic-popup-styled-components";
@@ -19,9 +17,6 @@ const DeletePepperoniWarning = ({
   deletePepperoniWarning,
   userInputRetriever,
 }) => {
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   const dispatch = useDispatch();
   const [deleteByDefault, setDeleteByDefault] = useState(false);
 
@@ -49,7 +44,6 @@ const DeletePepperoniWarning = ({
 
   return (
     <Dialog
-      fullScreen={fullScreen}
       open={deletePepperoniWarning}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"

@@ -28,6 +28,37 @@ const NavButtons = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+  const homeButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Home"));
+  };
+  const menuButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Menu"));
+  };
+  const pizzaMakerButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Pizza Maker"));
+  };
+  const orderOnlineButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Order Online"));
+  };
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+  const buttonTitles = [
+    { title: "Home", function: homeButtonHandler, navLink: "/home" },
+    { title: "Menu", function: menuButtonHandler, navLink: "/menu" },
+    {
+      title: "Pizza Maker",
+      function: pizzaMakerButtonHandler,
+      navLink: "/pizza-maker",
+    },
+    {
+      title: "Order Online",
+      function: orderOnlineButtonHandler,
+      navLink: "/order-online",
+    },
+  ];
 
   const dispatch = useDispatch();
   const navMenuHandler = () => {
@@ -67,7 +98,31 @@ const NavButtons = () => {
     "100%": { backgroundColor: "inherit", zIndex: "10" },
   });
 
-  // Cart Click Handler
+  // Active Nav Buttons
+
+  const renderReadyNavButtons = buttonTitles.map((object, index) => {
+    if (activeNavButton === object.title) {
+      return (
+        <StyledActiveNavLink
+          key={index}
+          onClick={object.function}
+          to={object.navLink}
+        >
+          {object.title}
+        </StyledActiveNavLink>
+      );
+    } else {
+      return (
+        <StyledInActiveNavLink
+          key={index}
+          onClick={object.function}
+          to={object.navLink}
+        >
+          {object.title}
+        </StyledInActiveNavLink>
+      );
+    }
+  });
 
   return (
     <>
@@ -106,19 +161,7 @@ const NavButtons = () => {
             +1 (555) 555-5555
           </Typography>
         </PhoneContainer>
-        {!buttonLimitReached && (
-          <>
-            <StyledActiveNavLink to="/home">Home</StyledActiveNavLink>
-            <StyledInActiveNavLink to="/menu">Menu</StyledInActiveNavLink>
-            <StyledInActiveNavLink to="/pizza-maker">
-              Pizza Maker
-            </StyledInActiveNavLink>
-
-            <StyledInActiveNavLink to="/order-online">
-              Order Online
-            </StyledInActiveNavLink>
-          </>
-        )}
+        {!buttonLimitReached && <>{renderReadyNavButtons}</>}
         {buttonLimitReached && (
           <MenuIconContainer>
             <MenuIcon
@@ -183,8 +226,7 @@ const NavButtons = () => {
                   height: "max(20px,20px)",
                 },
                 "@media (max-width:770px)": {
-                  width: "max(16px,16px)",
-                  height: "max(16px,16px)",
+                  marginTop: "5px",
                 },
               }}
             />

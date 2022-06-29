@@ -4,9 +4,10 @@ import {
   ColumnTwo,
   SocialIcons,
   ContactInfoContainer,
-  StyledButton,
   StyledContactText,
   StyledFooterHeading,
+  StyledFooterNavLink,
+  StyledLink,
 } from "./footer-styled-components";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -143,15 +144,23 @@ const Footer = () => {
       </ColumnOne>
       <ColumnTwo>
         <StyledFooterHeading>Explore</StyledFooterHeading>
-        <StyledButton variant={"text"}>Home</StyledButton>
-        <StyledButton variant={"text"}>Menu</StyledButton>
-        <StyledButton variant={"text"}>Custom Pizza</StyledButton>
+        <StyledFooterNavLink to="/home">Home</StyledFooterNavLink>
+        <StyledFooterNavLink to="/menu">Menu</StyledFooterNavLink>
+        <StyledFooterNavLink to="/pizza-maker">
+          Custom Pizza
+        </StyledFooterNavLink>
       </ColumnTwo>
       <ColumnTwo>
         <StyledFooterHeading>Resources</StyledFooterHeading>
-        <StyledButton variant={"text"}>Dough Recipe</StyledButton>
-        <StyledButton variant={"text"}>How to Throw Dough</StyledButton>
-        <StyledButton variant={"text"}>Pizza Sauce Recipe</StyledButton>
+        <StyledLink href="https://www.kingarthurbaking.com/recipes/the-easiest-pizza-youll-ever-make-recipe">
+          Dough Recipe
+        </StyledLink>
+        <StyledLink href="https://www.wikihow.com/Toss-Pizza-Dough">
+          How to Throw Dough
+        </StyledLink>
+        <StyledLink href="https://www.allrecipes.com/recipe/17319/exquisite-pizza-sauce/">
+          Pizza Sauce Recipe
+        </StyledLink>
       </ColumnTwo>
       <ColumnTwo>
         <StyledFooterHeading>Contact</StyledFooterHeading>
@@ -183,7 +192,7 @@ const Footer = () => {
               },
             }}
           />
-          <StyledContactText>Address TBD</StyledContactText>
+          <StyledContactText>Middle Earth</StyledContactText>
         </ContactInfoContainer>
         <ContactInfoContainer>
           <EmailIcon

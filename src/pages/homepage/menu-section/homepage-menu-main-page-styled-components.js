@@ -39,6 +39,7 @@ const LogoContainer = styled("div", {
   alignItems: "center",
   justifyItems: "center",
   borderRadius: "50%",
+
   backgroundColor: theme.palette.secondary.dark,
 }));
 const LogoImage = styled("img", {
