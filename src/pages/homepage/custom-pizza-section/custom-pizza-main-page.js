@@ -5,7 +5,6 @@ import {
 import peperoniPhoto from "../../../img/homepage/pep-pizza-1.jpg";
 
 import { Grid, Typography, Card } from "@mui/material";
-import { StyledButton } from "../../../generic-styled-components/generic-styled-components";
 import { StyledInActiveNavLink } from "../../../generic-styled-components/generic-styled-components";
 
 const CustomPizzaSectionMainPage = () => {

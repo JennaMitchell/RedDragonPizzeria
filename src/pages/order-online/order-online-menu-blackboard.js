@@ -1,7 +1,6 @@
 import {
   BlackboardContainer,
   MenuContainer,
-  ThreeColumnContainer,
   HorizonalUnderline,
 } from "./order-online-menu-blackboard-styled-components";
 import { pizzaMenuDatabase } from "../full-menu/menu-sections/pizza-section/pizza-menu-database";
