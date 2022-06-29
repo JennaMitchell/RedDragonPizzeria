@@ -5,8 +5,10 @@ const BlackboardContainer = styled("div", {
   name: "BlackboardContainer",
   slot: "Wrapper",
 })(() => ({
-  width: "max(max-content,max-content)",
-  height: "max(max-content,max-content)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
+  width: "max(1075px,1075px)",
 
   display: "grid",
   placeItems: "center",
@@ -17,22 +19,31 @@ const BlackboardContainer = styled("div", {
   borderRadius: "20px",
   backgroundImage: `url(${plank})`,
   marginBottom: "200px",
+  "@media (max-width:1200px)": {
+    width: "max(80%,80%)",
+  },
+  "@media (max-width:780px)": {
+    width: "max(95%,95%)",
+  },
 }));
 
 const MenuContainer = styled("div", {
   name: "MenuContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(max-content,max-content)",
-  height: "max(max-content,max-content)",
+  width: "max(100%,100%)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
-  alignItems: "center",
-  justifyContent: "center",
+  placeItems: "center",
   position: "relative",
   border: "2px solid black",
   borderRadius: "20px",
-  padding: "20px 50px 20px 50px",
+  gridTemplateRows: "max-content max-content",
+  gridTemplateColumns: "100%",
+
   fontFamily: "Fredericka the Great ,cursive",
 }));
 
@@ -41,11 +52,13 @@ const FourColumnContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(95%,95%)",
-  height: "max(max-content, max-content)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
   backgroundColor: "inherit",
   display: "grid",
   gridTemplateColumns: "repeat(4,1fr)",
-  gridTemplateRows: "max-content max-content",
+
   gap: "30px",
   alignContent: "space-between",
 
@@ -60,7 +73,9 @@ const ThreeColumnContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(95%,95%)",
-  height: "max(max-content, max-content)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
   backgroundColor: "inherit",
   display: "grid",
   gridTemplateColumns: "repeat(3,1fr)",
@@ -72,6 +87,61 @@ const ThreeColumnContainer = styled("div", {
   gap: "30px",
   marginTop: "30px",
   marginBottom: "30px",
+}));
+
+const TwoColumnContainer = styled("div", {
+  name: "TwoColumnContainer",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(95%,95%)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
+  backgroundColor: "inherit",
+  display: "grid",
+  gridTemplateColumns: "repeat(2,max-content)",
+  gridTemplateRows: "max-content",
+
+  justifyContent: "space-evenly",
+  position: "relative",
+  gap: "12.5%",
+  marginTop: "30px",
+  marginBottom: "30px",
+  "@media(max-width:1000px)": {
+    gap: "20px",
+  },
+}));
+const OneColumnContainer = styled("div", {
+  name: "OneColumnContainer",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(95%,95%)",
+  minHeight: "max-content",
+  height: "max-content",
+  maxHeight: "max-content",
+  backgroundColor: "inherit",
+  display: "grid",
+  gridTemplateColumns: "max-content",
+  gridTemplateRows: "max-content",
+
+  justifyContent: "center",
+  gap: "20px",
+  position: "relative",
+  marginTop: "30px",
+  marginBottom: "30px",
+}));
+
+const RemainderContainer = styled("div", {
+  name: "RemainderContainer",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(100%,100%)",
+
+  backgroundColor: "inherit",
+  display: "grid",
+  gridTemplateColumns: "max-content",
+  gridTemplateRows: "max-content",
+  justifyContent: "center",
 }));
 
 const HorizonalUnderline = styled("img", {
@@ -91,5 +161,8 @@ export {
   MenuContainer,
   FourColumnContainer,
   ThreeColumnContainer,
+  TwoColumnContainer,
   HorizonalUnderline,
+  OneColumnContainer,
+  RemainderContainer,
 };

@@ -9,6 +9,7 @@ const TopContainer = styled("div", {
   width: "max(100%,100%)",
   minHeight: "calc(100vh - 260px)",
   height: "max-content",
+  maxHeight: "max-content",
   backgroundColor: theme.palette.secondary.dark,
   display: "grid",
   alignItems: "center",
@@ -18,6 +19,7 @@ const TopContainer = styled("div", {
   backgroundImage:
     "url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)",
   overflowX: "hidden",
+  overflowY: "hidden",
 }));
 const GridContainer = styled("div", {
   name: "GridContainer",

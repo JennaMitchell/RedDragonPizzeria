@@ -18,6 +18,10 @@ const BlackboardContainer = styled("div", {
   "@media (max-width:1125px)": {
     width: "max(80%,80%)",
   },
+  "@media (max-width:780px)": {
+    width: "max(95%,95%)",
+    height: "max(150px,150px)",
+  },
 }));
 
 const MenuContainer = styled("div", {
@@ -65,6 +69,21 @@ const MenuButton = styled("div", {
   zIndex: "2",
   fontSize: "28px",
   borderRadius: "20px",
+  "@media (max-width:1050px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:940px)": {
+    fontSize: "20px",
+  },
+  "@media (max-width:780px)": {
+    fontSize: "18px",
+  },
+  "@media (max-width:640px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:540px)": {
+    fontSize: "14px",
+  },
 }));
 const MenuButtonImage = styled("img", {
   name: "MenuButtonImage",
@@ -99,6 +118,21 @@ const StyledNavLink = styled(NavLink, {
   display: "grid",
   placeItems: "center",
   textAlign: "center",
+  "@media (max-width:1050px)": {
+    fontSize: "24px",
+  },
+  "@media (max-width:940px)": {
+    fontSize: "20px",
+  },
+  "@media (max-width:780px)": {
+    fontSize: "18px",
+  },
+  "@media (max-width:640px)": {
+    fontSize: "16px",
+  },
+  "@media (max-width:540px)": {
+    fontSize: "14px",
+  },
 }));
 export {
   BlackboardContainer,

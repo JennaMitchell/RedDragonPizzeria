@@ -14,7 +14,7 @@ const MenuCard = ({ data, section }) => {
   // Title
   const title = data.title.trim();
 
-  const description = data.description;
+  // const description = data.description;
   let priceRange = "";
 
   // PriceRange
@@ -78,10 +78,10 @@ const MenuCard = ({ data, section }) => {
   };
 
   // BackSide
-  const [backSideActive, setBackSideActive] = useState(false);
-  const backSideHandler = () => {
-    setBackSideActive(!backSideActive);
-  };
+  // const [backSideActive, setBackSideActive] = useState(false);
+  // const backSideHandler = () => {
+  //   setBackSideActive(!backSideActive);
+  // };
 
   // Onclick Button To Order
   const orderButtonHandler = () => {
@@ -89,7 +89,6 @@ const MenuCard = ({ data, section }) => {
       dispatch(storeActions.setOnlineOrderPopupType("cookie"));
       dispatch(storeActions.setOnlinePopupActiveData(data));
     } else {
-      console.log(section);
       dispatch(storeActions.setOnlineOrderPopupType(section));
       dispatch(storeActions.setOnlinePopupActiveData(data));
     }
@@ -101,10 +100,10 @@ const MenuCard = ({ data, section }) => {
       onMouseLeave={mouseLeaveHandler}
       sx={{ boxShadow: `${onHoverActive && `0 0 20px white`}` }}
     >
-      {!backSideActive && (
+      {
         <>
           <StyledTypography
-            onClick={backSideHandler}
+            // onClick={backSideHandler}
             sx={{
               textAlign: "center",
               marginTop: "10px",
@@ -112,12 +111,13 @@ const MenuCard = ({ data, section }) => {
               fontSize: "26px",
               lineHeight: "34px",
             }}
+            onClick={orderButtonHandler}
           >
             {title}
           </StyledTypography>
           <StyledTypography
             varaint="p"
-            onClick={backSideHandler}
+            // onClick={backSideHandler}
             sx={{
               textAlign: "center",
               width: "max(90%,90%)",
@@ -127,8 +127,8 @@ const MenuCard = ({ data, section }) => {
           </StyledTypography>
           <OrderButton onClick={orderButtonHandler}>Order</OrderButton>
         </>
-      )}
-      {backSideActive && (
+      }
+      {/* {backSideActive && (
         <>
           <StyledTypography
             onClick={backSideHandler}
@@ -164,7 +164,7 @@ const MenuCard = ({ data, section }) => {
             Order
           </OrderButton>
         </>
-      )}
+      )} */}
     </FrontFacingCard>
   );
 };

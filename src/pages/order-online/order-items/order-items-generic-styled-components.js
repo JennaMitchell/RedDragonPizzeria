@@ -6,7 +6,7 @@ const FrontFacingCard = styled("div", {
 })(({ theme }) => ({
   color: theme.palette.secondary.light,
   width: "max(210px,210px)",
-  height: "max(max-content,max-content)",
+  height: "max(210px,210px)",
   backgroundColor: "transparent",
   gap: "10px",
   display: "grid",
