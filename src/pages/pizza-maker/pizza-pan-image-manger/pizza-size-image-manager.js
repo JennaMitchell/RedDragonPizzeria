@@ -13,6 +13,9 @@ const PizzaPanContainer = styled("img", {
   position: "relative",
   transition: "all 2s",
   zIndex: 2,
+  "@media(max-width: 490px)": {
+    marginLeft: "7px",
+  },
 }));
 
 const PizzaSizeImageManager = ({ size }) => {

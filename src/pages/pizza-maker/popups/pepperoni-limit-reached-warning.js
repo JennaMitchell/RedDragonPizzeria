@@ -14,6 +14,7 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
 
   const onCloseHandler = () => {
     dispatch(storeActions.setPepperoniLimitReachedWarning(false));
+    dispatch(storeActions.setPopupActive(false));
   };
 
   return (
@@ -25,6 +26,10 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
         style: {
           borderRadius: "10px",
           border: "none",
+          margin: "0",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         },
       }}
     >
@@ -34,6 +39,9 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
           color: "error.main",
           textAlign: "center",
           fontSize: "26px",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         Warning !
@@ -42,6 +50,9 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
         sx={{
           backgroundColor: "secondary.dark",
           color: "secondary.light",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         <Grid
@@ -49,8 +60,25 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
           columns={1}
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
-          <Typography variant="h6">Pepperoni Limit Reached</Typography>
-          <Typography variant="p" sx={{ marginTop: "5px" }}>
+          <Typography
+            variant="h6"
+            sx={{
+              "@media(max-width:475px)": {
+                fontSize: "18px",
+              },
+            }}
+          >
+            Pepperoni Limit Reached
+          </Typography>
+          <Typography
+            variant="p"
+            sx={{
+              marginTop: "5px",
+              "@media(max-width:475px)": {
+                fontSize: "12px",
+              },
+            }}
+          >
             Please delete a pepperoni to add another
           </Typography>
         </Grid>
@@ -64,6 +92,9 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
           justifyContent: "flex-end",
           backgroundColor: "secondary.dark",
           padding: "0px 20px 20px 20px",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         <PopupButton onClick={onCloseHandler} sx={{ borderRadius: "5px" }}>

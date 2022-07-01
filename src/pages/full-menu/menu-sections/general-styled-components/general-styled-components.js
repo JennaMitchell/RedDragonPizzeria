@@ -70,6 +70,9 @@ const UnderlineContainer = styled("img", {
   display: "grid",
   placeItems: "center",
   position: "relative",
+  "@media (max-width:600px)": {
+    height: "max(10px,10px)",
+  },
 }));
 const SmallUnderlineContainer = styled("img", {
   name: "UnderlineContainer",
@@ -123,6 +126,9 @@ const SectionBreaker = styled("img", {
   height: "max(100%,100%)",
   display: "grid",
   placeItems: "center",
+  "@media (max-width:600px)": {
+    width: "max(5px,5px)",
+  },
 }));
 const StyledTypography = styled(Typography, {
   name: "StyledTypography",
@@ -141,9 +147,11 @@ const PictureTextContainer = styled("div", {
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
-  gridTemplateRows: "max-content max-content max-content",
-  gridTemplateColumns: "1fr 1fr",
-  placeItems: "center",
+  gridTemplateRows: "max-content",
+  gridTemplateColumns: "max-content max-content",
+  overflowX: "hidden",
+  justifyContent: "space-between",
+  alignItems: "center",
   position: "relative",
   fontFamily: "inherit",
   marginBottom: "15px",
@@ -159,8 +167,7 @@ const RightImageContainer = styled("img", {
   display: "grid",
   placeItems: "center",
   position: "relative",
-  gridRow: "1/span 3",
-  gridColumn: "1/span 1",
+
   color: theme.palette.secondary.light,
 }));
 
@@ -173,8 +180,6 @@ const LeftImageContainer = styled("img", {
   display: "grid",
   placeItems: "center",
   position: "relative",
-  gridRow: "1/span 3",
-  gridColumn: "2/span 1",
   color: theme.palette.secondary.light,
 }));
 
@@ -182,14 +187,40 @@ const ThreeRowsTextContainer = styled("div", {
   name: "ThreeRowsTextContainer",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(90%,90%)",
+  width: "max(250px,250px)",
   height: "max(max-content,max-content)",
   display: "grid",
   gridTemplateRows: "max-content max-content max-content",
+  gridTemplateColumns: "100%",
   placeItems: "center",
   position: "relative",
   fontFamily: "inherit",
   marginBottom: "15px",
+  overflowX: "hidden",
+  "@media(max-width:600px)": {
+    width: "max(200px,200px)",
+  },
+
+
+}));
+
+const OneColumnContainer = styled("div", {
+  name: "OneColumnContainer",
+  slot: "Wrapper",
+})(() => ({
+  width: "max(100%,100%)",
+  height: "max(max-content,max-content)",
+  backgroundColor: "transparent",
+  border: "none",
+  display: "grid",
+  gridTemplateColumns: "90%",
+  justifyContent: "center",
+  alignItems: "flex-start",
+  position: "relative",
+  fontFamily: "inherit",
+  "@media(max-width: 600px)": {
+    marginBottom: "20px",
+  },
 }));
 
 export {
@@ -207,4 +238,5 @@ export {
   RightImageContainer,
   LeftImageContainer,
   ThreeRowsTextContainer,
+  OneColumnContainer,
 };

@@ -3,7 +3,6 @@ import {
   RightImageContainer,
   ThreeRowsTextContainer,
   PictureTextContainer,
-  StyledTypography,
 } from "../general-styled-components/general-styled-components";
 import {
   DescriptionTitle,
@@ -11,6 +10,7 @@ import {
 } from "./desserts-sides-section-styled-components";
 import breadLineArt from "../../../../img/line-art/bread/bread-line-art.png";
 import garlicKnotLineArt from "../../../../img/line-art/bread/garlic-knot-line-art.png";
+
 const dessertsNSidesData = {
   Cookie: [
     {
@@ -48,6 +48,11 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
             "@media(max-width:700px)": { marginTop: "40px" },
           }}
         >
+          <ThreeRowsTextContainer>
+            <DescriptionTitle>{sides.title}</DescriptionTitle>
+            <DescriptionText>{sides.description}</DescriptionText>
+            <DescriptionText>{sides.price}</DescriptionText>
+          </ThreeRowsTextContainer>
           <LeftImageContainer
             alt={sides.title}
             src={sides.image}
@@ -58,37 +63,17 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
                 width: "max(150px,150px)",
                 height: "max(100px,100px)",
               },
+              "@media(max-width: 560px)": {
+                width: "max(100px,100px)",
+                height: "max(50px,50px)",
+              },
             }}
           />
-          <ThreeRowsTextContainer>
-            <DescriptionTitle>{sides.title}</DescriptionTitle>
-            <DescriptionText>{sides.description}</DescriptionText>
-            <DescriptionText>{sides.price}</DescriptionText>
-          </ThreeRowsTextContainer>
         </PictureTextContainer>
       );
     } else {
       return (
         <PictureTextContainer key={index}>
-          <ThreeRowsTextContainer
-            sx={{
-              "@media(max-width:875px)": { marginTop: "20px" },
-              "@media(max-width:700px)": { marginTop: "40px" },
-            }}
-          >
-            <DescriptionTitle>{sides.title}</DescriptionTitle>
-            <DescriptionText>{sides.description}</DescriptionText>
-            <StyledTypography
-              variant="p"
-              sx={{
-                textAlign: "left",
-                width: "max(100%,100%)",
-                marginTop: "10px",
-              }}
-            >
-              {sides.price}
-            </StyledTypography>
-          </ThreeRowsTextContainer>
           <RightImageContainer
             alt={sides.title}
             src={sides.image}
@@ -99,8 +84,28 @@ const renderReadySidesContainer = dessertsNSidesData.Sides.map(
                 width: "max(150px,150px)",
                 height: "max(100px,100px)",
               },
+              "@media(max-width: 560px)": {
+                width: "max(100px,100px)",
+                height: "max(50px,50px)",
+              },
             }}
           />
+          <ThreeRowsTextContainer
+            sx={{
+              "@media(max-width:875px)": { marginTop: "20px" },
+              "@media(max-width:700px)": { marginTop: "40px" },
+            }}
+          >
+            <DescriptionTitle sx={{ textAlign: "right" }}>
+              {sides.title}
+            </DescriptionTitle>
+            <DescriptionText sx={{ textAlign: "right" }}>
+              {sides.description}
+            </DescriptionText>
+            <DescriptionText sx={{ textAlign: "right" }}>
+              {sides.price}
+            </DescriptionText>
+          </ThreeRowsTextContainer>
         </PictureTextContainer>
       );
     }
@@ -114,15 +119,48 @@ const pizzaCookieSection = dessertsNSidesData.Cookie.map((data, index) => {
       sx={{
         "@media(max-width:875px)": { marginTop: "40px" },
         "@media(max-width:700px)": { marginTop: "30px" },
+        "@media(max-width:600px)": { marginTop: "10px" },
       }}
     >
       <DescriptionTitle sx={{ textAlign: "center" }}>
         {data.title}
       </DescriptionTitle>
-      <DescriptionText>{data.description}</DescriptionText>
-      <DescriptionText>{data.price}</DescriptionText>
+      <DescriptionText sx={{ textAlign: "center" }}>
+        {data.description}
+      </DescriptionText>
+      <DescriptionText sx={{ textAlign: "center" }}>
+        {data.price}
+      </DescriptionText>
     </ThreeRowsTextContainer>
   );
 });
 
-export { renderReadySidesContainer, pizzaCookieSection, dessertsNSidesData };
+const singleColumnSection = dessertsNSidesData.Sides.map((sides, index) => {
+  return (
+    <ThreeRowsTextContainer
+      sx={{
+        "@media(max-width:875px)": { marginTop: "20px" },
+        "@media(max-width:700px)": { marginTop: "40px" },
+        "@media(max-width:600px)": { marginTop: "10px" },
+      }}
+      key={index}
+    >
+      <DescriptionTitle sx={{ textAlign: "center" }}>
+        {sides.title}
+      </DescriptionTitle>
+      <DescriptionText sx={{ textAlign: "center" }}>
+        {sides.description}
+      </DescriptionText>
+      <DescriptionText sx={{ textAlign: "center" }}>
+        {sides.price}
+      </DescriptionText>
+    </ThreeRowsTextContainer>
+  );
+});
+
+export {
+  renderReadySidesContainer,
+  pizzaCookieSection,
+  dessertsNSidesData,
+  singleColumnSection,
+};

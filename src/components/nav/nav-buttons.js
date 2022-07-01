@@ -130,7 +130,7 @@ const NavButtons = () => {
         <PhoneContainer
           sx={{
             "@media (max-width:1200px)": {
-              marginRight: "20px",
+              marginRight: "5px",
             },
           }}
         >
@@ -169,6 +169,9 @@ const NavButtons = () => {
               "@media(max-width:465px)": {
                 fontSize: "10px",
               },
+              "@media(max-width:405px)": {
+                fontSize: "9px",
+              },
             }}
             varaint="h3"
           >
@@ -204,6 +207,11 @@ const NavButtons = () => {
                 "@media(max-width:630px)": {
                   width: "max(16px,16px)",
                   height: "max(16px,16px)",
+                },
+                "@media(max-width:405px)": {
+                  width: "max(12px,12px)",
+                  height: "max(12px,12px)",
+                  padding: "5px",
                 },
 
                 "&:hover": {
@@ -249,6 +257,10 @@ const NavButtons = () => {
                 "@media(max-width:630px)": {
                   width: "max(16px,16px)",
                   height: "max(16px,16px)",
+                },
+                "@media(max-width:405px)": {
+                  width: "max(12px,12px)",
+                  height: "max(12px,12px)",
                 },
               }}
             />

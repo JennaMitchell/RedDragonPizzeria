@@ -9,11 +9,7 @@ import { PopupButton } from "./generic-popup-styled-components";
 import { useDispatch } from "react-redux";
 import { storeActions } from "../../../store/store";
 
-const NewPizzaPopup = ({
-  newPizzaPopup,
-  onCloseFunction,
-  retrievePizzaType,
-}) => {
+const NewPizzaPopup = ({ newPizzaPopup }) => {
   const defaultUserData = {
     size: ["Medium"],
     sauce: [],
@@ -28,19 +24,24 @@ const NewPizzaPopup = ({
   const dispatch = useDispatch();
 
   const onClosePepperoniHandler = () => {
-    retrievePizzaType("Custom Pepperoni Layout");
+    dispatch(storeActions.setPizzaCreationType("Custom Pepperoni Layout"));
     dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
-    onCloseFunction();
+    dispatch(storeActions.setPepperoniLayoutDatabase([]));
+    dispatch(storeActions.setPopupActive(false));
+    dispatch(storeActions.setNewPizzaPopup(!newPizzaPopup));
   };
   const onCloseBuildHandler = () => {
-    retrievePizzaType("Build a Pizza");
+    dispatch(storeActions.setPizzaCreationType("Build a Pizza"));
     dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
-    onCloseFunction();
+    dispatch(storeActions.setNewPizzaPopup(!newPizzaPopup));
+    dispatch(storeActions.setPopupActive(false));
   };
   const onCloseHandler = () => {
-    retrievePizzaType("Build a Pizza");
+    dispatch(storeActions.setPizzaCreationType("Build a Pizza"));
     dispatch(storeActions.setBuildAPizzaUserSelectedObject(defaultUserData));
-    onCloseFunction();
+    dispatch(storeActions.setPopupActive(false));
+
+    dispatch(storeActions.setNewPizzaPopup(!newPizzaPopup));
   };
 
   return (
@@ -53,6 +54,9 @@ const NewPizzaPopup = ({
           borderRadius: "10px",
           border: "none",
           margin: "0",
+          "@media(maxWidth:475px)": {
+            width: "max(325px,325px)",
+          },
         },
       }}
     >
@@ -60,6 +64,10 @@ const NewPizzaPopup = ({
         sx={{
           backgroundColor: "secondary.dark",
           color: "secondary.light",
+          overflowX: "hidden",
+          "@media(maxWidth:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         <Grid
@@ -72,16 +80,32 @@ const NewPizzaPopup = ({
             sx={{
               "@media(max-width:580px)": { fontSize: "32px" },
               "@media(max-width:520px)": { fontSize: "28px" },
+              "@media(max-width:475px)": {
+                fontSize: "24px",
+                textAlign: "center",
+              },
             }}
           >
             Custom Pepperoni Layout
           </Typography>
-          <Typography variant="h6">or</Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              "@media(max-width:475px)": {
+                fontSize: "12px",
+                marginTop: "5px",
+                marginBottom: "5px",
+              },
+            }}
+          >
+            or
+          </Typography>
           <Typography
             variant="h4"
             sx={{
               "@media(max-width:580px)": { fontSize: "32px" },
               "@media(max-width:520px)": { fontSize: "28px" },
+              "@media(max-width:475px)": { fontSize: "24px" },
             }}
           >
             Build a Pizza
@@ -98,6 +122,7 @@ const NewPizzaPopup = ({
           justifyContent: "space-between",
           backgroundColor: "secondary.dark",
           padding: "0px 20px 20px 20px",
+          "@media(max-width:475px)": {},
         }}
       >
         <PopupButton
@@ -105,6 +130,10 @@ const NewPizzaPopup = ({
           sx={{
             borderRadius: "5px",
             "@media(max-width:520px)": { fontSize: "10px" },
+            "@media(max-width:475px)": {
+              width: "max(150px,150px)",
+              padding: "10px",
+            },
           }}
         >
           Custom Pepperoni Layout
@@ -114,6 +143,10 @@ const NewPizzaPopup = ({
           sx={{
             borderRadius: "5px",
             "@media(max-width:520px)": { fontSize: "10px" },
+            "@media(max-width:475px)": {
+              width: "max(100px,100px)",
+              padding: "10px",
+            },
           }}
         >
           Build a Pizza

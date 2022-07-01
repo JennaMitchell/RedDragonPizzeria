@@ -15,13 +15,23 @@ const OrderOnlineHomepage = () => {
   const onlineOrderClickedSection = useSelector(
     (state) => state.onlineOrderClickedSection
   );
+  const popupActive = useSelector((state) => state.popupActive);
 
   return (
-    <TopContainer>
+    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <GridContainer>
         <BlackboardTitleContainer>
           <TitleContainer>
-            <StyledTypography variant="h2">Online Order</StyledTypography>
+            <StyledTypography
+              variant="h2"
+              sx={{
+                "@media(max-width:470px)": {
+                  fontSize: "42px",
+                },
+              }}
+            >
+              Online Order
+            </StyledTypography>
           </TitleContainer>
         </BlackboardTitleContainer>
         <OrderOnlineNavMenu />

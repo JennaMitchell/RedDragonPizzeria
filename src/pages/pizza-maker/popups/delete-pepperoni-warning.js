@@ -23,10 +23,12 @@ const DeletePepperoniWarning = ({
   const onCloseHandler = () => {
     userInputRetriever("Undo");
     dispatch(storeActions.setDeletePepperoniWarning(false));
+    dispatch(storeActions.setPopupActive(false));
   };
   const returnButtonHandler = () => {
     userInputRetriever("Undo");
     dispatch(storeActions.setDeletePepperoniWarning(false));
+    dispatch(storeActions.setPopupActive(false));
     if (deleteByDefault) {
       dispatch(storeActions.setDeletePepperoniByDefualt(true));
     }
@@ -34,6 +36,7 @@ const DeletePepperoniWarning = ({
   const deleteButtonHandler = () => {
     userInputRetriever("Delete");
     dispatch(storeActions.setDeletePepperoniWarning(false));
+    dispatch(storeActions.setPopupActive(false));
     if (deleteByDefault) {
       dispatch(storeActions.setDeletePepperoniByDefualt(true));
     }
@@ -80,10 +83,26 @@ const DeletePepperoniWarning = ({
             placeItems: "center",
           }}
         >
-          <Typography variant="h5" sx={{ marginBottom: "10px" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              marginBottom: "10px",
+              "@media(max-width:475px)": {
+                fontSize: "20px",
+              },
+            }}
+          >
             Pepperoni Off Pizza
           </Typography>
-          <Typography variant="p" sx={{ marginBottom: "10px" }}>
+          <Typography
+            variant="p"
+            sx={{
+              marginBottom: "10px",
+              "@media(max-width:475px)": {
+                fontSize: "14px",
+              },
+            }}
+          >
             Either delete it or undo the move
           </Typography>
         </Grid>
@@ -98,7 +117,15 @@ const DeletePepperoniWarning = ({
             justifyContent: "space-evenly",
           }}
         >
-          <Typography variant="p" sx={{ fontSize: "14px" }}>
+          <Typography
+            variant="p"
+            sx={{
+              fontSize: "14px",
+              "@media(max-width:475px)": {
+                fontSize: "10px",
+              },
+            }}
+          >
             Delete by default and don't ask me again:
           </Typography>
           <StyledCheckBox

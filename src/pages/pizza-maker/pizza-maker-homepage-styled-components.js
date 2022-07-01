@@ -25,7 +25,7 @@ const TopContainer = styled("div", {
   backgroundImage:
     "url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)",
 
-  overflow: "hidden,",
+  overflowX: "hidden",
 }));
 
 const NewPizzaButton = styled(CancelIcon, {
@@ -48,7 +48,17 @@ const NewPizzaButton = styled(CancelIcon, {
   "@media(max-width:580px) ": {
     width: "max(50px,50px)",
     height: "max(50px,50px)",
-    right: "0%",
+    right: "0.3%",
+  },
+  "@media(max-width:490px) ": {
+    width: "max(40px,40px)",
+    height: "max(40px,40px)",
+    top: "54px",
+    right: "0.3%",
+  },
+  "@media(max-width:410px)": {
+    top: "13px",
+    right: "5px",
   },
 
   "&:hover": {
@@ -86,7 +96,17 @@ const PurchaseButton = styled(AddShoppingCartIcon, {
     right: "0.75%",
     top: "104px",
   },
-
+  "@media(max-width:490px) ": {
+    width: "max(34px,34px)",
+    height: "max(34px,34px)",
+    padding: "6.5px 7.5px 7.5px 6.5px",
+    right: "1%",
+    top: "104px",
+  },
+  "@media(max-width:410px) ": {
+    right: "55px",
+    top: "15px",
+  },
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
@@ -121,6 +141,17 @@ const PurchaseButtonDisabled = styled(AddShoppingCartIcon, {
     right: "1%",
     top: "104px",
   },
+  "@media(max-width:490px) ": {
+    width: "max(34px,34px)",
+    height: "max(34px,34px)",
+    padding: "6.5px 4.5px 6.5px 4.5px",
+    right: "1%",
+    top: "104px",
+  },
+  "@media(max-width:410px) ": {
+    right: "55px",
+    top: "15px",
+  },
 }));
 
 const KitchenTableContainer = styled("div", {
@@ -153,6 +184,12 @@ const KitchenTableContainer = styled("div", {
   "@media(max-width:660px)": {
     width: "min(100%,100%)",
   },
+  "@media(max-width:570px)": {
+    height: "min(400px,400px)",
+  },
+  "@media(max-width:460px)": {
+    width: "max(330px,330px)",
+  },
 }));
 
 const PizzaPanContainer = styled("img", {
@@ -170,6 +207,9 @@ const PizzaPanContainer = styled("img", {
   left: "50%",
   transform: "translate(-50%,-50%)",
   zIndex: 2,
+  "@media(max-width:460px)": {
+    width: "max(350px,350px)",
+  },
 }));
 
 const PizzaPeelWithPan = styled("img", {
@@ -226,6 +266,13 @@ const MenuButton = styled("div", {
   "@media(max-width: 600px)": {
     width: "max(50px,50px)",
     height: "max(50px,50px)",
+  },
+
+  "@media(max-width: 450px)": {
+    width: "max(30px,30px)",
+    height: "max(30px,30px)",
+    top: "20px",
+    transition: "all 0s",
   },
 }));
 const OpenMenuIcon = styled(ArrowForwardIosIcon, {
@@ -285,6 +332,12 @@ const MainTitle = styled(Typography, {
   },
   "@media(max-width:560px) ": {
     fontSize: "22px",
+  },
+  "@media(max-width:490px) ": {
+    padding: "15px 15px 15px 15px",
+  },
+  "@media(max-width:420px) ": {
+    fontSize: "18px",
   },
 }));
 const MainTitleContainer = styled("div", {

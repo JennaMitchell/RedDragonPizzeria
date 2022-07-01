@@ -49,38 +49,32 @@ const AddItemMenuOptionContainer = ({
 
     renderReadyThreeColumnRows[i] = (
       <ThreeColumnRow key={` ${objectSection} ${i}`}>
-        <MaxContentContainer>
-          <SelectorContainer>
-            <AddItemMenuOptionButton
-              type={data[numberSpanStart]}
-              objectSection={objectSection}
-              active={activeButtonArray[numberSpanStart]}
-            />
-            <SelectorTitle>{data[numberSpanStart].type}</SelectorTitle>
-          </SelectorContainer>
-        </MaxContentContainer>
+        <SelectorContainer>
+          <AddItemMenuOptionButton
+            type={data[numberSpanStart]}
+            objectSection={objectSection}
+            active={activeButtonArray[numberSpanStart]}
+          />
+          <SelectorTitle>{data[numberSpanStart].type}</SelectorTitle>
+        </SelectorContainer>
 
-        <MaxContentContainer>
-          <SelectorContainer>
-            <AddItemMenuOptionButton
-              type={data[numberSpanStart + 1]}
-              objectSection={objectSection}
-              active={activeButtonArray[numberSpanStart + 1]}
-            />
-            <SelectorTitle>{data[numberSpanStart + 1].type}</SelectorTitle>
-          </SelectorContainer>
-        </MaxContentContainer>
+        <SelectorContainer>
+          <AddItemMenuOptionButton
+            type={data[numberSpanStart + 1]}
+            objectSection={objectSection}
+            active={activeButtonArray[numberSpanStart + 1]}
+          />
+          <SelectorTitle>{data[numberSpanStart + 1].type}</SelectorTitle>
+        </SelectorContainer>
 
-        <MaxContentContainer>
-          <SelectorContainer>
-            <AddItemMenuOptionButton
-              type={data[numberSpanStart + 2]}
-              objectSection={objectSection}
-              active={activeButtonArray[numberSpanStart + 2]}
-            />
-            <SelectorTitle>{data[numberSpanStart + 2].type}</SelectorTitle>
-          </SelectorContainer>
-        </MaxContentContainer>
+        <SelectorContainer>
+          <AddItemMenuOptionButton
+            type={data[numberSpanStart + 2]}
+            objectSection={objectSection}
+            active={activeButtonArray[numberSpanStart + 2]}
+          />
+          <SelectorTitle>{data[numberSpanStart + 2].type}</SelectorTitle>
+        </SelectorContainer>
       </ThreeColumnRow>
     );
   }

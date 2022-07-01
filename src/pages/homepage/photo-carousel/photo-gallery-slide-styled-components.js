@@ -49,6 +49,7 @@ const LeftBanner = styled("div", { name: "LeftBanner", slot: "Wrapper" })(
     "@media (max-width:580px)": {
       fontSize: "8px",
       left: "10%",
+      width: "min(120px,120px)",
     },
   })
 );
@@ -85,6 +86,7 @@ const RightBanner = styled("div", { name: "RightBanner", slot: "Wrapper" })(
     "@media (max-width:580px)": {
       fontSize: "8px",
       left: "10%",
+      width: "min(120px,120px)",
     },
   })
 );

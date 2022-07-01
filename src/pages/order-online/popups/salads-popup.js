@@ -28,8 +28,8 @@ const SizeButtonContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   backgroundColor: "inherit",
-  width: "max(70px,70px)",
-  height: "max(80px,80px)",
+  width: "max(max-content,max-content)",
+  height: "max(max-content,max-content)",
   display: "grid",
   gridTemplateRows: "60px max-content",
   alignContent: "center",
@@ -50,6 +50,10 @@ const SizeButton = styled("div", {
   border: "2px solid black",
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
+  },
+  "@media(max-width:360px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
   },
 }));
 
@@ -73,6 +77,9 @@ const StyledButton = styled(Button, {
     backgroundColor: theme.palette.primary.light,
   },
   fontSize: "16px",
+  "@media(max-width:360px)": {
+    width: "max(100px,100px)",
+  },
 }));
 const DisabledStyledButton = styled(Button, {
   name: "DisabledStyledButton",
@@ -87,6 +94,9 @@ const DisabledStyledButton = styled(Button, {
     backgroundColor: theme.palette.secondary.main,
   },
   fontSize: "16px",
+  "@media(max-width:360px)": {
+    width: "max(100px,100px)",
+  },
 }));
 
 const SaladsPopup = ({ toggleOpen }) => {

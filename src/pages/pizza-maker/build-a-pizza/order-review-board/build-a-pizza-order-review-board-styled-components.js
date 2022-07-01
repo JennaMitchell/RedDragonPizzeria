@@ -15,12 +15,15 @@ const TopContainer = styled("div", {
   backgroundImage: `url(${plankImage})`,
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  backgroundSize: "100%",
+  backgroundSize: "fill",
   boxShadow: "0 0 30px black",
   borderRadius: "10px",
   "@media(max-width:1220px)": {
     height: "max(600px,600px)",
     marginBottom: "40px",
+  },
+  "@media(max-width:490px)": {
+    width: "max(330px,330px)",
   },
 }));
 

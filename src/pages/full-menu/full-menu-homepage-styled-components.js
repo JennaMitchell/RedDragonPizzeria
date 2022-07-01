@@ -53,6 +53,7 @@ const BoardImageContainer = styled("div", {
   backgroundImage: `url(${woodenBoard})`,
   borderRadius: "10px",
   boxShadow: "0 0 10px black",
+  "@media (max-width: 540px)": {},
 }));
 
 const MenuSelectorContainer = styled("div", {
@@ -60,15 +61,25 @@ const MenuSelectorContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(100%,100%)",
-  height: "max(100px,100px)",
+  height: "min(max-content,100px)",
   backgroundColor: "transparent",
   border: "none",
+  marginTop: "10px",
 
   display: "grid",
   placeItems: "center",
   gridTemplateColumns: "repeat(5,1fr)",
   position: "relative",
   fontFamily: "Fredericka the Great ,cursive",
+  // "@media(max-width:900px)": {
+  //   height: "min(80px,80px)",
+  // },
+  // "@media(max-width:700px)": {
+  //   height: "min(70px,70px)",
+  // },
+  // "@media(max-width:600px)": {
+  //   height: "min(60px,60px)",
+  // },
 }));
 
 export {

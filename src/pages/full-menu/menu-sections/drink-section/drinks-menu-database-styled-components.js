@@ -50,4 +50,5 @@ const DescriptionText = styled(Typography, {
     fontSize: "12px",
   },
 }));
+
 export { DrinksContainer, DescriptionTitle, DescriptionText };

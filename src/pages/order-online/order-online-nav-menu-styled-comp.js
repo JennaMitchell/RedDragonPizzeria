@@ -22,6 +22,9 @@ const BlackboardContainer = styled("div", {
     width: "max(95%,95%)",
     height: "max(150px,150px)",
   },
+  "@media(max-width:470px)": {
+    height: "max(120px,120px)",
+  },
 }));
 
 const MenuContainer = styled("div", {
@@ -39,6 +42,10 @@ const MenuContainer = styled("div", {
   border: "2px solid black",
   borderRadius: "20px",
   fontFamily: "Fredericka the Great ,cursive",
+  "@media(max-width:470px)": {
+    width: "max(calc(100% - 20px),calc(100% - 20px))",
+    height: "max(calc(100% - 20px),calc(100% - 20px))",
+  },
 }));
 
 const StyledTypography = styled(Typography, {
@@ -83,6 +90,10 @@ const MenuButton = styled("div", {
   },
   "@media (max-width:540px)": {
     fontSize: "14px",
+  },
+
+  "@media(max-width:470px)": {
+    fontSize: "10px",
   },
 }));
 const MenuButtonImage = styled("img", {
@@ -132,6 +143,9 @@ const StyledNavLink = styled(NavLink, {
   },
   "@media (max-width:540px)": {
     fontSize: "14px",
+  },
+  "@media(max-width:470px)": {
+    fontSize: "10px",
   },
 }));
 export {

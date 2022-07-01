@@ -34,11 +34,11 @@ const initialState = {
     "XX-large": 550,
   },
   pepperoniPizzaMobileSizePixelsDatabase: {
-    Small: 250,
-    Medium: 300,
-    Large: 350,
-    "X-large": 400,
-    "XX-large": 450,
+    Small: 150,
+    Medium: 200,
+    Large: 250,
+    "X-large": 300,
+    "XX-large": 350,
   },
   pepperoniDragEventActive: false,
   onlineOrderClickedSection: "Specility Pizza",
@@ -49,6 +49,9 @@ const initialState = {
   pizzaToppingsMenuActive: false,
   addToCartButtonClicked: false,
   activeNavButton: "Home",
+  popupActive: false,
+  newPizzaPopup: true,
+  pizzaCreationType: "",
 };
 const storeSlice = createSlice({
   name: "Red Dragon Pizzeria Store",
@@ -110,6 +113,15 @@ const storeSlice = createSlice({
     },
     setActiveNavButton(state, { payload }) {
       state.activeNavButton = payload;
+    },
+    setPopupActive(state, { payload }) {
+      state.popupActive = payload;
+    },
+    setNewPizzaPopup(state, { payload }) {
+      state.newPizzaPopup = payload;
+    },
+    setPizzaCreationType(state, { payload }) {
+      state.pizzaCreationType = payload;
     },
   },
 });

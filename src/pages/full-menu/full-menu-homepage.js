@@ -12,6 +12,7 @@ import PizzaSection from "./menu-sections/pizza-section/pizza-section";
 import DrinksSection from "./menu-sections/drink-section/drinks-section";
 import SaladSection from "./menu-sections/salad-section/salad-section";
 import DessertsSidesSection from "./menu-sections/desserts-sides-section/desserts-sides-section";
+import { useSelector } from "react-redux";
 
 const FullMenuHomepage = () => {
   const menuButtonTitles = [
@@ -23,6 +24,7 @@ const FullMenuHomepage = () => {
   ];
   const [activeMenuButton, setActiveMenuButton] = useState(1);
   const [selectedMenuButton, setSelectedMenuButton] = useState("Pizza");
+  const popupActive = useSelector((state) => state.popupActive);
   const menuSelectorButtonHandler = (title, id) => {
     setSelectedMenuButton(title);
     setActiveMenuButton(id);
@@ -74,7 +76,7 @@ const FullMenuHomepage = () => {
   }
 
   return (
-    <TopContainer>
+    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <BoardImageContainer>
         <MenuContainer>
           <MenuSelectorContainer>{menuButtons}</MenuSelectorContainer>

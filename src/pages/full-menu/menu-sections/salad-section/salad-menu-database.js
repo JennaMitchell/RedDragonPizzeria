@@ -56,17 +56,12 @@ const renderReadySaladData = saladData.map((salad, index) => {
   return (
     <ThreeRowsTextContainer key={index}>
       <DescriptionTitle>{salad.title}</DescriptionTitle>
-      <DescriptionText>{salad.description}</DescriptionText>
-      <DescriptionText>{salad.price}</DescriptionText>
+      <DescriptionText sx={{ marginTop: "5px" }}>
+        {salad.description}
+      </DescriptionText>
+      <DescriptionText sx={{ marginTop: "5px" }}>{salad.price}</DescriptionText>
     </ThreeRowsTextContainer>
   );
 });
 
-const renderReadySaladDataColumnOne = renderReadySaladData.slice(0, 3);
-const renderReadySaladDataColumnTwo = renderReadySaladData.slice(3, 6);
-
-export {
-  renderReadySaladDataColumnOne,
-  renderReadySaladDataColumnTwo,
-  saladData,
-};
+export { renderReadySaladData, saladData };

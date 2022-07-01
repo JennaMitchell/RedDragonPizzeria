@@ -24,6 +24,10 @@ const LogoContainer = styled("div", {
     width: "max(50px,50px)",
     height: "max(50px,50px)",
   },
+  "@media(max-width:405px)": {
+    width: "max(45px,45px)",
+    height: "max(45px,45px)",
+  },
 }));
 const LogoImage = styled("img", {
   name: "LogoImage",
@@ -44,6 +48,9 @@ const LogoTitleContainer = styled("div", {
   justifyContent: "space-between",
   position: "relative",
   gap: "15px",
+  "@media(max-width:650px)": {
+    gap: "5px",
+  },
 });
 
 const StyledToolBar = styled(Toolbar, {

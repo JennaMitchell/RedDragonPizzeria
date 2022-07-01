@@ -5,7 +5,7 @@ const SelectorButton = styled("button", {
   name: "MenuSelectorButton",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(100%,100%)",
+  width: "min(100%,100%)",
   height: "max(100%,100%)",
   backgroundColor: "transparent",
   color: theme.palette.secondary.light,
@@ -27,6 +27,15 @@ const SelectorButton = styled("button", {
   "@media (max-width:700px)": {
     fontSize: "16px",
   },
+  "@media (max-width:520px)": {
+    fontSize: "12px",
+  },
+  "@media (max-width:415px)": {
+    fontSize: "10px",
+  },
+  "@media (max-width:375px)": {
+    fontSize: "8px",
+  },
 }));
 
 const ActiveSelectorButton = styled("button", {
@@ -46,6 +55,7 @@ const ActiveSelectorButton = styled("button", {
   backgroundSize: "contain",
   backgroundPosition: "center",
   fontFamily: "Fredericka the Great ,cursive",
+  padding: "10px",
   "@media (max-width:1000px)": {
     fontSize: "28px",
   },
@@ -57,6 +67,15 @@ const ActiveSelectorButton = styled("button", {
   },
   "@media (max-width:700px)": {
     fontSize: "16px",
+  },
+  "@media (max-width:520px)": {
+    fontSize: "12px",
+  },
+  "@media (max-width:415px)": {
+    fontSize: "10px",
+  },
+  "@media (max-width:375px)": {
+    fontSize: "8px",
   },
 }));
 

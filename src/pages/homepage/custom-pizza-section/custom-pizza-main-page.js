@@ -6,20 +6,25 @@ import peperoniPhoto from "../../../img/homepage/pep-pizza-1.jpg";
 
 import { Grid, Typography, Card } from "@mui/material";
 import { StyledInActiveNavLink } from "../../../generic-styled-components/generic-styled-components";
+import { useSelector } from "react-redux";
 
 const CustomPizzaSectionMainPage = () => {
+  const popupActive = useSelector((state) => state.popupActive);
   return (
-    <TopContainer>
+    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <Grid
         container
         columns={1}
-        rowSpacing={"30px"}
+        rowSpacing={"10px"}
         sx={{
-          width: "max(78%,78%)",
-          height: "max(max-content,max-content)",
+          width: "max(65%,150px)",
+          height: "max(max-content,max-content",
           position: "relative",
           marginTop: "10px",
           marginBottom: "10px",
+          "@media (max-width:700px)": {
+            width: "max(80%,80%)",
+          },
         }}
       >
         <Grid item xs={1}>
@@ -29,12 +34,21 @@ const CustomPizzaSectionMainPage = () => {
               "@media (max-width:1050px)": {
                 fontSize: "30px",
               },
-
-              "@media(max-width:760px)": {
-                fontSize: "28px",
+              "@media (max-width:970px)": {
+                fontSize: "26px",
               },
+
               "@media(max-width:670px)": {
                 fontSize: "20px",
+              },
+              "@media(max-width:520px)": {
+                fontSize: "18px",
+              },
+              "@media(max-width:465px)": {
+                fontSize: "16px",
+              },
+              "@media(max-width:410px)": {
+                fontSize: "14px",
               },
             }}
             color="secondary.light"
@@ -42,32 +56,41 @@ const CustomPizzaSectionMainPage = () => {
             Create a Custom Peperonni Pizza
           </Typography>
         </Grid>
-        <Grid item xs={1} sx={{ postion: "relative" }}>
+        <Grid item xs={1} sx={{ postion: "relative", paddingTop: "0" }}>
           <Typography
             variant={"h5"}
             color="secondary.light"
             sx={{
+              fontSize: "14px",
               "@media (max-width:880px)": {
-                fontSize: "24px",
-              },
-              "@media(max-width:760px)": {
-                fontSize: "18px",
-              },
-              "@media(max-width:670px)": {
                 fontSize: "12px",
+              },
+              "@media(max-width:410px)": {
+                fontSize: "10px",
               },
             }}
           >
-            Create a peperonni pizza with custom peperonni configuration, or
-            choose from the most popular designs
+            Create a peperonni pizza with custom pepperonni configuration
           </Typography>
         </Grid>
         <StyledInActiveNavLink
           sx={{
             marginTop: "20px",
-            width: "max(160px,160px)",
+            width: "max(100%,100%)",
 
             textAlign: "center",
+            "@media(max-width:1200px)": {
+              fontSize: "16px",
+            },
+            "@media(max-width:600px)": {
+              fontSize: "10px",
+            },
+            "@media(max-width:410px)": {
+              fontSize: "14px",
+            },
+            "@media(max-width:370px)": {
+              fontSize: "10px",
+            },
           }}
           to="/pizza-maker"
         >

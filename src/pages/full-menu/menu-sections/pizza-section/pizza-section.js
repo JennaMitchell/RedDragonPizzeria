@@ -6,6 +6,7 @@ import {
   ThreeColumnContainer,
   SmallUnderlineContainer,
   SectionBreaker,
+  OneColumnContainer,
 } from "../general-styled-components/general-styled-components";
 
 import {
@@ -33,7 +34,9 @@ import {
   renderReadyPizzaColumnOne,
   renderReadyPizzaColumnTwo,
 } from "./pizza-menu-database";
+import useMediaQuery from "@mui/material/useMediaQuery";
 const PizzaSection = () => {
+  const specilityPizzaSingleColumnActive = useMediaQuery("(max-width:600px)");
   return (
     <TopContainer>
       <PizzaSliceLineArtOne src={pizzaSliceLineArtOne} />
@@ -189,23 +192,32 @@ const PizzaSection = () => {
           {renderReadyOtherToppings}
         </Grid>
       </ThreeColumnContainer>
-      <SectionTitle>
+      <SectionTitle sx={{ marginTop: "10px" }}>
         ($1.00 per Topping. Max of 5 Toppings per pizza)
       </SectionTitle>
       <SectionTitleContainer>
         <MainSectionTitle>Signature Pizza's</MainSectionTitle>
         <UnderlineContainer src={pizzaUnderline} />
       </SectionTitleContainer>
-      <TwoColumnContainer>
-        <TomatoLineArt src={tomatoLineArt} />
-        <Grid container columns={1} sx={{ flexDirection: "column" }}>
+      {!specilityPizzaSingleColumnActive && (
+        <TwoColumnContainer>
+          <TomatoLineArt src={tomatoLineArt} />
+          <Grid container columns={1} sx={{ flexDirection: "column" }}>
+            {renderReadyPizzaColumnOne}
+          </Grid>
+          <SectionBreaker src={verticalUnderline} />
+          <Grid container columns={1} sx={{ flexDirection: "column" }}>
+            {renderReadyPizzaColumnTwo}
+          </Grid>
+        </TwoColumnContainer>
+      )}
+      {specilityPizzaSingleColumnActive && (
+        <OneColumnContainer sx={{ textAlign: "center" }}>
           {renderReadyPizzaColumnOne}
-        </Grid>
-        <SectionBreaker src={verticalUnderline} />
-        <Grid container columns={1} sx={{ flexDirection: "column" }}>
+
           {renderReadyPizzaColumnTwo}
-        </Grid>
-      </TwoColumnContainer>
+        </OneColumnContainer>
+      )}
     </TopContainer>
   );
 };

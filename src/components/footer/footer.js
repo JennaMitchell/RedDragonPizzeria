@@ -58,6 +58,9 @@ const Footer = () => {
             "@media (max-width:680px)": {
               fontSize: "10px",
             },
+            "@media(max-width:510px)": {
+              fontSize: "8px",
+            },
           }}
         >
           Making hot and ready fantasy inspired dishes since 2022.

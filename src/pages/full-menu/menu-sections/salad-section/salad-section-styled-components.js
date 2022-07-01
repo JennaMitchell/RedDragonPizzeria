@@ -89,10 +89,7 @@ const DescriptionTitle = styled(Typography, {
     fontSize: "24px",
   },
   "@media (max-width:745px)": {
-    fontSize: "18px",
-  },
-  "@media (max-width:670px)": {
-    fontSize: "16px",
+    fontSize: "20px",
   },
 }));
 const DescriptionText = styled(Typography, {

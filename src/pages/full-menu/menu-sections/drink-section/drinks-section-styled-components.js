@@ -10,10 +10,13 @@ const TopContainer = styled("div", {
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
-  gridTemplateRows: "repeat(7,max-content)",
-  placeItems: "center",
+  gridTemplateRows: "max-content",
+  gridTemplateColumns: "100%",
+  alignItems: "center",
+  justifyItems: "center",
   position: "relative",
   fontFamily: "inherit",
+  overflowX: "hidden",
 }));
 
 const CocktailsRowOneContainer = styled("div", {
@@ -138,6 +141,8 @@ const SectionTitle = styled(Typography, {
   fontFamily: "inherit",
   color: theme.palette.secondary.light,
   textAlign: "center",
+  width: "max(100%,100%)",
+  height: "max(max-content,max-content)",
   "@media (max-width:900px)": {
     fontSize: "36px",
   },

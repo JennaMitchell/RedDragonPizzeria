@@ -29,6 +29,7 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
 
   const onCloseHandler = () => {
     dispatch(storeActions.setPepperoniPizzaResizeWarning(false));
+    dispatch(storeActions.setPopupActive(false));
   };
 
   return (
@@ -40,6 +41,9 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
         style: {
           borderRadius: "10px",
           border: "none",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         },
       }}
     >
@@ -49,6 +53,9 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
           color: "error.main",
           textAlign: "center",
           fontSize: "26px",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         Warning !
@@ -57,6 +64,9 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
         sx={{
           backgroundColor: "secondary.dark",
           color: "secondary.light",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         <Grid
@@ -64,10 +74,26 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
           columns={1}
           sx={{ flexDirection: "column", placeItems: "center" }}
         >
-          <Typography variant="h6">
+          <Typography
+            variant="h6"
+            sx={{
+              "@media(max-width:475px)": {
+                fontSize: "18px",
+                textAlign: "center",
+              },
+            }}
+          >
             Maximum Number of Pepperoni Exceeded
           </Typography>
-          <Typography variant="p" sx={{ marginTop: "5px" }}>
+          <Typography
+            variant="p"
+            sx={{
+              marginTop: "5px",
+              "@media(max-width:475px)": {
+                fontSize: "12px",
+              },
+            }}
+          >
             {`Please delete ${
               pepperoniLayoutDatabase.length - futureSizeMax
             } pepperoni before decreasing the size`}
@@ -83,6 +109,9 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
           justifyContent: "flex-end",
           backgroundColor: "secondary.dark",
           padding: "0px 20px 20px 20px",
+          "@media(max-width:475px)": {
+            width: "max(325px,325px)",
+          },
         }}
       >
         <PopupButton onClick={onCloseHandler} sx={{ borderRadius: "5px" }}>

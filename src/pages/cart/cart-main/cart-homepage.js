@@ -17,6 +17,7 @@ import { storeActions } from "../../../store/store";
 
 const CartHomepage = () => {
   const cartObject = useSelector((state) => state.cartObject);
+  const popupActive = useSelector((state) => state.popupActive);
   const dispatch = useDispatch();
   let totalPrice = 0;
 
@@ -48,7 +49,10 @@ const CartHomepage = () => {
       totalPrice = totalPrice + +item.totalPrice;
 
       return (
-        <CustomItemContainer key={index}>
+        <CustomItemContainer
+          key={index}
+          sx={{ width: `${popupActive && "100vw"}` }}
+        >
           <PizzaImage
             src={item.image}
             alt={item.title}

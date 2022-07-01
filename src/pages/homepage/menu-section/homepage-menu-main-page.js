@@ -3,14 +3,16 @@ import {
   MenuContainer,
   LogoContainer,
   LogoImage,
+  MenuGrid,
 } from "./homepage-menu-main-page-styled-components";
-import { Typography, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useState } from "react";
 import MenuSelectorButton from "./hompage-menu-selector-button";
 import logo from "../../../img/logo/logo.png";
 import homepageMenuData from "./homepage-menu-data";
 import HomepageMenuItem from "./homepage-menu-item";
 import { MenuSelectorContainer } from "../../../generic-styled-components/generic-styled-components";
+import { useSelector } from "react-redux";
 
 const HomepageMenuTopFile = () => {
   const menuButtonTitles = [
@@ -22,6 +24,7 @@ const HomepageMenuTopFile = () => {
   ];
   const [activeMenuButton, setActiveMenuButton] = useState(1);
   const [selectedMenuButton, setSelectedMenuButton] = useState("Pizza");
+  const popupActive = useSelector((state) => state.popupActive);
   let menuData = [];
   // setting up the menu data
   if (selectedMenuButton === "All") {
@@ -66,7 +69,7 @@ const HomepageMenuTopFile = () => {
   });
 
   return (
-    <TopContainer>
+    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <MenuContainer>
         <LogoContainer>
           <LogoImage src={logo} />
@@ -77,19 +80,15 @@ const HomepageMenuTopFile = () => {
           sx={{
             textDecoration: "underline",
             fontSize: "38px",
+            "@media(max-width: 800px)": {
+              fontSize: "24px",
+            },
           }}
         >
           &nbsp;Our Specials&nbsp;
         </Typography>
         <MenuSelectorContainer>{menuButtons}</MenuSelectorContainer>
-        <Grid
-          columns={4}
-          container
-          spacing={3}
-          sx={{ marginTop: "20px", marginBottom: "20px" }}
-        >
-          {renderReadyMenuData}
-        </Grid>
+        <MenuGrid>{renderReadyMenuData}</MenuGrid>
       </MenuContainer>
     </TopContainer>
   );

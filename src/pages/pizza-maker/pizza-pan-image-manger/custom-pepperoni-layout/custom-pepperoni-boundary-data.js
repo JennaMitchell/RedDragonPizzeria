@@ -30,4 +30,15 @@ const customPepperoniBoundaryData = {
     radius: 245,
   },
 };
+// Small: 150,
+// Medium: 200,
+// Large: 250,
+// "X-large": 300,
+// "XX-large": 350,
 export default customPepperoniBoundaryData;
+
+// Small: 350,
+// Medium: 400,
+// Large: 450,
+// "X-large": 500,
+// "XX-large": 550,

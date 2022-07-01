@@ -12,8 +12,8 @@ const HomepageMenuItem = ({ title, description, cost }) => {
           "@media (max-width:870px)": {
             fontSize: "16px",
           },
-          "@media (max-width:730px)": {
-            fontSize: "12px",
+          "@media (max-width:600px)": {
+            fontSize: "14px",
           },
         }}
       >
@@ -27,10 +27,10 @@ const HomepageMenuItem = ({ title, description, cost }) => {
             fontSize: "14px",
           },
           "@media (max-width:730px)": {
-            fontSize: "10px",
+            fontSize: "12px",
           },
-          "@media (max-width:630px)": {
-            fontSize: "8px",
+          "@media (max-width:600px)": {
+            fontSize: "10px",
           },
         }}
       >
@@ -43,6 +43,9 @@ const HomepageMenuItem = ({ title, description, cost }) => {
             fontSize: "14px",
           },
           "@media (max-width:730px)": {
+            fontSize: "12px",
+          },
+          "@media (max-width:600px)": {
             fontSize: "10px",
           },
         }}

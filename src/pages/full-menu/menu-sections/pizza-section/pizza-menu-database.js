@@ -175,7 +175,7 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
           fontFamily: "inherit",
           color: "secondary.light",
           "@media (max-width:655px)": {
-            fontSize: "16px",
+            fontSize: "18px",
           },
         }}
       >
@@ -189,26 +189,36 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
           "@media (max-width:520px)": {
             paddingRight: "15px",
           },
+          "@media (max-width:600px)": {
+            fontSize: "12px",
+            textAlign: "center",
+          },
         }}
       >
         {pizza.description}
       </PizzaSizesSizes>
-      <PizzaSizesSizes
+      <PizzaSizesPrice
         sx={{
-          "@media (max-width:705px)": {
-            marginTop: "5px",
-            paddingLeft: "5px",
+          "@media (max-width:970px)": {
+            width: "max(180px,180px)",
+            fontSize: "12px",
           },
-          "@media (max-width:520px)": {
-            marginTop: "5px",
-            paddingLeft: "0px",
-            paddingRight: "15px",
+          "@media (max-width:800px)": {
+            width: "max(180px,180px)",
+          },
+          "@media (max-width:600px)": {
+            width: "max(100%,100%)",
             fontSize: "10px",
+            marginTop: "5px",
+          },
+          "@media (max-width:500px)": {
+            width: "max(160px,160px)",
+            marginTop: "5px",
           },
         }}
       >
         {pizza.price}
-      </PizzaSizesSizes>
+      </PizzaSizesPrice>
     </PizzaItemContainer>
   );
 });

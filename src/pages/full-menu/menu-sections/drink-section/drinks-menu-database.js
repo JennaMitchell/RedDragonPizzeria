@@ -159,8 +159,7 @@ const renderReadyCocktailsData = drinksDatabase.Cocktails.map(
     );
   }
 );
-const renderReadyCocktailsDataRowOne = renderReadyCocktailsData.slice(0, 3);
-const renderReadyCocktailsDataRowTwo = renderReadyCocktailsData.slice(3, 5);
+
 
 ///Shots n' Cider
 
@@ -188,8 +187,8 @@ const renderReadyCiderData = drinksDatabase.Ciders.map((drinks, index) => {
 
 export {
   renderReadyBeerData,
-  renderReadyCocktailsDataRowOne,
-  renderReadyCocktailsDataRowTwo,
+  renderReadyCocktailsData,
+
   renderReadyShotsData,
   renderReadyCiderData,
   drinksDatabase,

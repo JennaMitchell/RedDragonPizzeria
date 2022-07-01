@@ -15,6 +15,12 @@ const PizzaSizesSizes = styled(Typography, {
   "@media (max-width:745px)": {
     fontSize: "12px",
   },
+  "@media (max-width:540px)": {
+    fontSize: "10px",
+  },
+  "@media (max-width:400px)": {
+    fontSize: "px",
+  },
 }));
 // 14px
 const PizzaSizesContainer = styled("div", {
@@ -43,6 +49,9 @@ const PizzaSizesPrice = styled(Typography, {
   },
   "@media (max-width:745px)": {
     fontSize: "12px",
+  },
+  "@media (max-width:540px)": {
+    fontSize: "10px",
   },
 }));
 

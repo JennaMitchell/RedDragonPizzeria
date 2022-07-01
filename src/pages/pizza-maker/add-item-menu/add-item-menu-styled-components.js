@@ -24,6 +24,14 @@ const AddItemMenuContainer = styled(Container, {
     justifyContent: "center",
     alignItems: "flex-start",
     paddingLeft: "0px",
+    paddingRight: "0px",
+  },
+  "@media(max-width:490px)": {
+    width: "max(100%,100%)",
+    left: "-1000px",
+    placeItems: "center",
+    right: "0",
+    border: "none",
   },
 }));
 
@@ -35,12 +43,17 @@ const InterfaceContainer = styled("div", {
   height: "max(calc(100% - 40px),calc(100% - 40px))",
   backgroundColor: "inherit",
   display: "grid",
-  gridTemplateRows: "repeat(6,max-content)",
+  gridTemplateRows: "repeat(7,max-content)",
   justifyItems: "center",
   alignItems: "flex-start",
   position: "relative",
   transition: "all 0.5s",
   marginTop: "40px",
+  "@media(max-width:490px)": {
+    width: "max(325px,325px)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const ClosingIcon = styled(ArrowBackIosNewIcon, {
@@ -51,7 +64,7 @@ const ClosingIcon = styled(ArrowBackIosNewIcon, {
   height: "max(24px,24px)",
   position: "absolute",
   top: "20px",
-  right: "30px",
+  right: "10px",
   borderRadius: "50%",
   padding: "5px",
   backgroundColor: theme.palette.secondary.light,

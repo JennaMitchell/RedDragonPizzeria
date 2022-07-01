@@ -22,6 +22,9 @@ const StyledButton = styled(Button, {
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
+  "@media(max-width:360px)": {
+    width: "max(100px,100px)",
+  },
   fontSize: "16px",
 }));
 
@@ -78,7 +81,15 @@ const DrinksNCookiePopup = ({ toggleOpen }) => {
           flexDirection: "column",
         }}
       >
-        <Typography variant="h3" sx={{ textAlign: "center" }}>
+        <Typography
+          variant="h3"
+          sx={{
+            textAlign: "center",
+            "@media(max-width:380px)": {
+              fontSize: "32px",
+            },
+          }}
+        >
           {clickedData.title}
         </Typography>
         <Typography variant="p" sx={{ marginTop: "10px", textAlign: "center" }}>

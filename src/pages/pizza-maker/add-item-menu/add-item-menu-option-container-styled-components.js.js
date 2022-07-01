@@ -36,6 +36,12 @@ const CategoryButton = styled(Button, {
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.secondary.dark,
   },
+  "@media(max-width:520px)": {
+    width: "max(350px,350px)",
+  },
+  "@media(max-width:380px)": {
+    width: "max(320px,320px)",
+  },
 }));
 const InfoContainer = styled("div", {
   name: "InfoContainer",
@@ -59,6 +65,13 @@ const InfoContainer = styled("div", {
   borderEndEndRadius: "5px",
   borderEndStartRadius: "7px",
   padding: "15px 10px 10px 10px",
+
+  "@media(max-width:520px)": {
+    width: "max(350px,350px)",
+  },
+  "@media(max-width:380px)": {
+    width: "max(320px,320px)",
+  },
 }));
 
 const ThreeColumnRow = styled("div", {
@@ -69,8 +82,9 @@ const ThreeColumnRow = styled("div", {
   height: "max(max-content,max-content)",
   backgroundColor: "transparent",
   display: "grid",
-  gridTemplateColumns: "repeat(3,1fr)",
+  gridTemplateColumns: "repeat(3,max-content)",
   alignItems: "center",
+  gap: "10px",
 
   marginBottom: "10px",
 }));
@@ -87,6 +101,11 @@ const TwoColumnRow = styled("div", {
   transition: "all 0.5s",
   gridTemplateColumns: "repeat(2,1fr)",
   marginBottom: "10px",
+  "@media(max-width:590px)": {
+    width: "max-content",
+    gridTemplateColumns: "repeat(2,max-content)",
+    gap: "15px",
+  },
 }));
 
 const OneColumnRow = styled("div", {
@@ -115,13 +134,19 @@ const SelectorContainer = styled("div", {
 
   color: theme.palette.secondary.light,
   gridTemplateColumns: "35px 125px",
+  "@media(max-width:590px)": {
+    gridTemplateColumns: "35px 55px",
+    gridTemplateRows: "max-content",
+
+    width: "max(100%,100%)",
+  },
 }));
 
 const SelectorTitle = styled(Typography, {
   name: "SelectorTitle",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(max-content,max-content)",
+  width: "max(100%,100%)",
   height: "max(max-content,max-content)",
 
   display: "grid",
@@ -131,6 +156,10 @@ const SelectorTitle = styled(Typography, {
   fontSize: "12px",
   textAlign: "center",
   marginLeft: "10px",
+  "@media(max-width:590px)": {
+    fontSize: "10px",
+    marginLeft: "5px",
+  },
 }));
 
 const MaxContentContainer = styled("div", {

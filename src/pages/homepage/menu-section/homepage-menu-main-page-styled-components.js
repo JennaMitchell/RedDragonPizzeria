@@ -27,6 +27,12 @@ const MenuContainer = styled("div", {
   gridTemplateRows: "repeat(4, max-content)",
   marginTop: "20px",
   marginBottom: "20px",
+  "@media(max-width:800px)": {
+    width: "max(90%,90%)",
+  },
+  "@media(max-width:600px)": {
+    width: "max(95%,95%)",
+  },
 }));
 
 const LogoContainer = styled("div", {
@@ -41,6 +47,10 @@ const LogoContainer = styled("div", {
   borderRadius: "50%",
 
   backgroundColor: theme.palette.secondary.dark,
+  "@media(max-width:1000px)": {
+    width: "max(80px,80px)",
+    height: "max(80px,80px)",
+  },
 }));
 const LogoImage = styled("img", {
   name: "LogoImage",
@@ -50,4 +60,33 @@ const LogoImage = styled("img", {
   height: "max(70%,70%)",
 });
 
-export { TopContainer, MenuContainer, LogoContainer, LogoImage };
+const MenuGrid = styled("div", {
+  name: "MenuGrid",
+  slot: "Wrapper",
+})(() => ({
+  width: "min(1000px,90%)",
+  height: "max(max-content,max-content)",
+  display: "grid",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  marginTop: "10px",
+  gap: "40px",
+
+  gridTemplateColumns: "repeat(4,1fr)",
+
+  "@media(max-width: 1000px)": {
+    gridTemplateColumns: "repeat(3,1fr)",
+  },
+
+  "@media(max-width:800px)": {
+    gridTemplateColumns: "repeat(2,1fr)",
+  },
+
+  "@media(max-width: 750px)": {
+    gridTemplateColumns: "repeat(1,1fr)",
+
+    gap: "10px",
+  },
+}));
+
+export { TopContainer, MenuContainer, LogoContainer, LogoImage, MenuGrid };

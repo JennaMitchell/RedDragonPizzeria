@@ -15,11 +15,15 @@ const SelectorIconContainer = styled("div", {
   backgroundColor: theme.palette.secondary.light,
   display: "grid",
   placeItems: "center",
-  gridTemplateColumns: "repeat(2,max-content)",
+  gridTemplateColumns: "max-content",
   borderRadius: "50%",
   border: "2px solid black",
   "&:hover": {
     backgroundColor: theme.palette.primary.dark,
+  },
+  "@media(max-width:490px)": {
+    width: "max(30px,30px)",
+    height: "max(30px,30px)",
   },
 }));
 
@@ -32,6 +36,9 @@ const SelectorIcon = styled(CheckIcon, {
   display: "grid",
   placeItems: "center",
   color: theme.palette.secondary.dark,
+  "@media(max-width:490px)": {
+    marginLeft: "2px",
+  },
 }));
 
 const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
@@ -66,6 +73,7 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
       let currentNumOfPepperoni = pepperoniLayoutDatabase.length;
       if (futureNumOfPepperoni < currentNumOfPepperoni) {
         dispatch(storeActions.setPepperoniPizzaResizeWarning(true));
+        dispatch(storeActions.setPopupActive(true));
         dispatch(storeActions.setPepperoniPizzaResizeFutureSize(type));
         return;
       }
@@ -123,6 +131,7 @@ const AddItemMenuOptionButton = ({ type, active, objectSection }) => {
         if (fiveToppingsReached) {
           // if the user has selected vive toopings already we send the warning popup
           dispatch(storeActions.setFiveToppingsWarning(true));
+          dispatch(storeActions.setPopupActive(true));
         } else {
           let tempArray = copyOfDataObject[objectSection].slice();
           tempArray.push(type);

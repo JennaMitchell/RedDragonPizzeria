@@ -29,6 +29,9 @@ const ToppingsTitleContainer = styled("div", {
   fontFamily: "Fredericka the Great, cursive",
   marginTop: "30px",
   marginBottom: "10px",
+  "@media (max-width:620px)": {
+    marginTop: "10px",
+  },
 }));
 
 const PizzaSliceLineArtOne = styled("img", {
@@ -49,15 +52,15 @@ const PizzaSliceLineArtOne = styled("img", {
   "@media (max-width:900px)": {
     width: "max(80px,80px)",
     height: "max(60px,60px)",
-    top: "-5px",
+    top: "-0px",
   },
   "@media (max-width:670px)": {
     width: "max(60px,60px)",
     height: "max(40px,40px)",
-    top: "-15px",
+    top: "10px",
   },
-  "@media (max-width:580px)": {
-    top: "-25px",
+  "@media (max-width:620px)": {
+    display: "none",
   },
 }));
 const PizzaSliceLineArtTwo = styled("img", {
@@ -84,6 +87,9 @@ const PizzaSliceLineArtTwo = styled("img", {
     width: "max(60px,60px)",
     height: "max(40px,40px)",
     top: "280px",
+  },
+  "@media (max-width:620px)": {
+    display: "none",
   },
 }));
 
@@ -121,13 +127,9 @@ const TomatoLineArt = styled("img", {
     height: "max(40px,40px)",
     top: "-75px",
   },
-  "@media (max-width:510px)": {
-    width: "max(50px,50px)",
-    height: "max(30px,30px)",
-    top: "-65px",
-  },
-  "@media (max-width:470px)": {
-    top: "-95px",
+
+  "@media (max-width:620px)": {
+    display: "none",
   },
 }));
 
@@ -149,6 +151,12 @@ const SectionTitle = styled(Typography, {
   "@media (max-width:670px)": {
     fontSize: "16px",
   },
+  "@media (max-width:540px)": {
+    fontSize: "12px",
+  },
+  "@media (max-width:480px)": {
+    fontSize: "10px",
+  },
 }));
 const MainSectionTitle = styled(Typography, {
   name: "MainSectionTitle",
@@ -163,6 +171,9 @@ const MainSectionTitle = styled(Typography, {
   },
   "@media (max-width:745px)": {
     fontSize: "28px",
+  },
+  "@media (max-width:540px)": {
+    fontSize: "20px",
   },
 }));
 

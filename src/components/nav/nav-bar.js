@@ -43,6 +43,7 @@ const NavBar = () => {
   );
   const cartObject = useSelector((state) => state.cartObject);
   const activeNavButton = useSelector((state) => state.activeNavButton);
+  const popupActive = useSelector((state) => state.popupActive);
 
   useBeforeunload(() => {
     localStorage.setItem("refreshed", "true");
@@ -174,7 +175,7 @@ const NavBar = () => {
           position: "relative",
           zIndex: `${pepperoniDragEventActive ? "1" : "3"}`,
           boxShadow: "0",
-
+          width: `${popupActive && "100vw"}`,
           "@media (max-width:1050px)": {
             minHeight: "80px",
           },
@@ -209,6 +210,9 @@ const NavBar = () => {
                 },
                 "@media(max-width:465px)": {
                   fontSize: "14px",
+                },
+                "@media(max-width:405px)": {
+                  fontSize: "12px",
                 },
               }}
             >

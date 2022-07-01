@@ -10,6 +10,8 @@ const TopContainer = styled("div", {
   border: "none",
   display: "grid",
   gridTemplateRows: "repeat(3,max-content)",
+  gridTemplateColumns: "100%",
+  overflowX: "hidden",
   placeItems: "center",
   position: "relative",
   fontFamily: "inherit",
@@ -43,6 +45,9 @@ const SectionTitle = styled(Typography, {
   "@media (max-width:745px)": {
     fontSize: "36px",
   },
+  "@media(max-width: 560px)": {
+    fontSize: "28px",
+  },
 }));
 
 const DescriptionTitle = styled(Typography, {
@@ -71,7 +76,8 @@ const DescriptionText = styled(Typography, {
   fontSize: "16px",
   fontFamily: "inherit",
   color: theme.palette.secondary.light,
-  textAlign: "left",
+  width: "100%",
+  marginTop: "5px",
   "@media (max-width:900px)": {
     fontSize: "14px",
   },

@@ -3,10 +3,9 @@ import {
   ThreeColumnContainer,
   TwoColumnContainer,
   OneColumnContainer,
-  RemainderContainer,
-} from "./online-order-columns-sorter-styled-components";
+} from "./full-menu-column-sorter-styled-components";
 
-const onlineOrderColumnsSorter = (data, maxNumberOfColumns) => {
+const fullMenuColumnsSorter = (data, maxNumberOfColumns) => {
   // Step 1. calculating the number of elements
   const numberOfDataEntries = data.length;
 
@@ -21,37 +20,35 @@ const onlineOrderColumnsSorter = (data, maxNumberOfColumns) => {
     switch (remainingNumberOfItems) {
       case 1:
         remainingRenderReadyItem = (
-          <RemainderContainer>
-            <OneColumnContainer
-              sx={{
-                marginTop: "0px",
-                marginBottom: "30px",
-                gridTemplateColumns: "33.33%",
-              }}
-            >
-              {remainingDataToRender}
-            </OneColumnContainer>
-          </RemainderContainer>
+          <OneColumnContainer
+            sx={{
+              marginTop: "0px",
+              marginBottom: "30px",
+              width: "max(33.33%,33.33%)",
+            }}
+          >
+            {remainingDataToRender}
+          </OneColumnContainer>
         );
         break;
       case 2:
         remainingRenderReadyItem = (
-          <RemainderContainer>
-            <TwoColumnContainer sx={{ marginTop: "0px", marginBottom: "30px" }}>
-              {remainingDataToRender}
-            </TwoColumnContainer>
-          </RemainderContainer>
+          <TwoColumnContainer
+            sx={{
+              marginTop: "0px",
+              marginBottom: "30px",
+              width: "max(66.66%,66.66%)",
+            }}
+          >
+            {remainingDataToRender}
+          </TwoColumnContainer>
         );
         break;
       case 3:
         remainingRenderReadyItem = (
-          <RemainderContainer>
-            <ThreeColumnContainer
-              sx={{ marginTop: "0px", marginBottom: "30px" }}
-            >
-              {remainingDataToRender}
-            </ThreeColumnContainer>
-          </RemainderContainer>
+          <ThreeColumnContainer sx={{ marginTop: "0px", marginBottom: "30px" }}>
+            {remainingDataToRender}
+          </ThreeColumnContainer>
         );
         break;
       default:
@@ -96,4 +93,4 @@ const onlineOrderColumnsSorter = (data, maxNumberOfColumns) => {
     </>
   );
 };
-export default onlineOrderColumnsSorter;
+export default fullMenuColumnsSorter;

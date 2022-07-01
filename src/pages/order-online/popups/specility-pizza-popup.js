@@ -21,6 +21,11 @@ const SizeSelectionContainer = styled("div", {
   gap: "20px",
   marginTop: "20px",
   marginBottom: "20px",
+  alignItems: "center",
+  justifyContent: "space-evenly",
+  "@media(max-width:440px)": {
+    gap: "10px",
+  },
 }));
 
 const SizeButtonContainer = styled("div", {
@@ -28,12 +33,14 @@ const SizeButtonContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   backgroundColor: "inherit",
-  width: "max(70px,70px)",
-  height: "max(80px,80px)",
+  width: "max(max-content,max-content)",
+  height: "max(max-content,max-content)",
   display: "grid",
-  gridTemplateRows: "60px max-content",
-  alignContent: "center",
-  justifyContent: "center",
+  gridTemplateRows: "max-content max-content",
+  gridTemplateColumns: "max-content",
+  gap: "5px",
+  placeItems: "center",
+  position: "relative",
 }));
 
 const SizeButton = styled("div", {
@@ -51,6 +58,14 @@ const SizeButton = styled("div", {
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
   },
+  "@media(max-width: 550px)": {
+    width: "max(50px,50px)",
+    height: "max(50px,50px)",
+  },
+  "@media(max-width: 440px)": {
+    width: "max(40px,40px)",
+    height: "max(40px,40px)",
+  },
 }));
 
 const SizeImage = styled("img", {
@@ -58,6 +73,12 @@ const SizeImage = styled("img", {
   slot: "Wrapper",
 })(() => ({
   padding: "5px",
+  "@media(max-width: 550px)": {
+    padding: "10px",
+  },
+  "@media(max-width: 440px)": {
+    padding: "12.5px",
+  },
 }));
 
 const StyledButton = styled(Button, {
@@ -73,6 +94,9 @@ const StyledButton = styled(Button, {
     backgroundColor: theme.palette.primary.light,
   },
   fontSize: "16px",
+  "@media(max-width:360px)": {
+    width: "max(100px,100px)",
+  },
 }));
 const DisabledStyledButton = styled(Button, {
   name: "DisabledStyledButton",
@@ -87,6 +111,9 @@ const DisabledStyledButton = styled(Button, {
     backgroundColor: theme.palette.secondary.main,
   },
   fontSize: "16px",
+  "@media(max-width:360px)": {
+    width: "max(100px,100px)",
+  },
 }));
 
 const SpecilityPizzaPopup = ({ toggleOpen }) => {
@@ -262,7 +289,6 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
         style: {
           borderRadius: "20px",
           border: "none",
-          width: "max(500px,500px)",
         },
       }}
     >
@@ -274,7 +300,15 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
           flexDirection: "column",
         }}
       >
-        <Typography variant="h3" sx={{ textAlign: "center" }}>
+        <Typography
+          variant="h3"
+          sx={{
+            textAlign: "center",
+            "@media(max-width:380px)": {
+              fontSize: "32px",
+            },
+          }}
+        >
           {clickedData.title}
         </Typography>
         <Typography variant="p" sx={{ marginTop: "5px", textAlign: "center" }}>
@@ -296,7 +330,14 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
             </SizeButton>
             <Typography
               variant="p"
-              sx={{ textAlign: "center", marginTop: "5px" }}
+              sx={{
+                textAlign: "center",
+                marginTop: "5px",
+                "@media(max-width: 550px)": {
+                  fontSize: "12px",
+                  marginTop: "0px",
+                },
+              }}
             >
               Small
             </Typography>
@@ -320,7 +361,14 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
             </SizeButton>
             <Typography
               variant="p"
-              sx={{ textAlign: "center", marginTop: "5px" }}
+              sx={{
+                textAlign: "center",
+                marginTop: "5px",
+                "@media(max-width: 550px)": {
+                  fontSize: "12px",
+                  marginTop: "0px",
+                },
+              }}
             >
               Medium
             </Typography>
@@ -341,7 +389,14 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
             </SizeButton>
             <Typography
               variant="p"
-              sx={{ textAlign: "center", marginTop: "5px" }}
+              sx={{
+                textAlign: "center",
+                marginTop: "5px",
+                "@media(max-width: 550px)": {
+                  fontSize: "12px",
+                  marginTop: "0px",
+                },
+              }}
             >
               Large
             </Typography>
@@ -366,7 +421,14 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
             </SizeButton>
             <Typography
               variant="p"
-              sx={{ textAlign: "center", marginTop: "5px" }}
+              sx={{
+                textAlign: "center",
+                marginTop: "5px",
+                "@media(max-width: 550px)": {
+                  fontSize: "12px",
+                  marginTop: "0px",
+                },
+              }}
             >
               X-Large
             </Typography>
@@ -386,12 +448,20 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
                   width: "max(50px,50px)",
                   height: "max(50px,50px)",
                   marginLeft: "5px",
+                  marginTop: "0px",
                 }}
               />
             </SizeButton>
             <Typography
               variant="p"
-              sx={{ textAlign: "center", marginTop: "5px" }}
+              sx={{
+                textAlign: "center",
+                marginTop: "5px",
+                "@media(max-width: 550px)": {
+                  fontSize: "12px",
+                  marginTop: "0px",
+                },
+              }}
             >
               XX-Large
             </Typography>

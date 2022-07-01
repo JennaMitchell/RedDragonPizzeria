@@ -5,7 +5,7 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "max(100%,100%)",
-  height: "min(60%,800px)",
+  height: "min(max-content,800px)",
   backgroundColor: theme.palette.primary.main,
   border: "none",
   display: "grid",

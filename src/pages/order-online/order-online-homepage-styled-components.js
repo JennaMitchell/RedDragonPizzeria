@@ -20,6 +20,11 @@ const TopContainer = styled("div", {
     "url(https://www.toptal.com/designers/subtlepatterns/uploads/diagonal-squares.png)",
   overflowX: "hidden",
   overflowY: "hidden",
+  "@media(max-width:540px)": {
+    minHeight: "max-content",
+    height: "max-content",
+    maxHeight: "max-content",
+  },
 }));
 const GridContainer = styled("div", {
   name: "GridContainer",
@@ -30,7 +35,7 @@ const GridContainer = styled("div", {
   height: "max(max-content,1200px)",
   backgroundColor: "transparent",
   display: "grid",
-  gridTemplateRows: "max-content 15.5% max-content",
+  gridTemplateRows: "max-content max-content max-content",
   gridTemplateColumns: "100%",
   placeItems: "center",
   gap: "30px",
@@ -49,8 +54,14 @@ const BlackboardTitleContainer = styled("div", {
   boxShadow: "0 0 10px black",
   border: "2px solid black",
   borderRadius: "10px",
-  marginTop: "150px",
+  marginTop: "40px",
   backgroundImage: `url(${horizontalPlank})`,
+  "@media(max-width:540px)": {
+    marginTop: "30px",
+  },
+  "@media(max-width:470px)": {
+    width: "max(325px,325px)",
+  },
 }));
 
 const TitleContainer = styled("div", {

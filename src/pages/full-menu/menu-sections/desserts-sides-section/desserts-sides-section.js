@@ -14,9 +14,15 @@ import cookieLineArt from "../../../../img/line-art/dessert/cookie-lineart-1-hal
 import {
   renderReadySidesContainer,
   pizzaCookieSection,
+  singleColumnSection,
 } from "./desserts-sides-database";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
+// "@media(max-width:480px)": {
+//   width: "max(150px,150px)",
+// },
 const DessertsSidesSection = () => {
+  const singleColumnActive = useMediaQuery("(max-width:600px)");
   return (
     <>
       <TopContainer>
@@ -26,7 +32,8 @@ const DessertsSidesSection = () => {
           <UnderlineContainer src={horizontalUnderLine} />
         </SectionTitleContainer>
         <Grid container columns={1} alignItems="center" justifyContent="center">
-          {renderReadySidesContainer}
+          {!singleColumnActive && renderReadySidesContainer}
+          {singleColumnActive && singleColumnSection}
         </Grid>
         {pizzaCookieSection}
       </TopContainer>

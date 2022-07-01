@@ -11,11 +11,10 @@ import {
   MainTitleContainer,
   DarkBackground,
 } from "./pizza-maker-homepage-styled-components";
-import { useState } from "react";
 
 import NewPizzaPopup from "./popups/new-pizza-popup";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import AddItemMenu from "./add-item-menu/add-item-menu";
@@ -27,8 +26,8 @@ import { storeActions } from "../../store/store";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const PizzaMakerHomepage = () => {
-  const [newPizzaPopup, setNewPizzaPopup] = useState(true);
-  const [pizzaCreationType, setPizzaCreationType] = useState("");
+  const newPizzaPopup = useSelector((state) => state.newPizzaPopup);
+  const pizzaCreationType = useSelector((state) => state.pizzaCreationType);
 
   // const [panDropedOff, setPanDroppedOff] = useState(false);
   const buildAPizzaUserSelectedObject = useSelector(
@@ -37,22 +36,26 @@ const PizzaMakerHomepage = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+  const popupActive = useSelector((state) => state.popupActive);
   const yourOrderContainerMoved = useMediaQuery("(max-width:1200px)");
   const dispatch = useDispatch();
   const exportRef = useRef(null);
   const newPizzaHandler = () => {
-    setNewPizzaPopup(!newPizzaPopup);
+    dispatch(storeActions.setNewPizzaPopup(!newPizzaPopup));
   };
 
   const addToCartHandler = () => {
     dispatch(storeActions.setAddToCartButtonClicked(true));
   };
-  const pizzaCreationTypeHandler = (type) => {
-    setPizzaCreationType(type);
-  };
+
   const pizzaMenuHandler = () => {
     dispatch(storeActions.setPizzaToppingsMenuActive(!pizzaToppingsMenuActive));
   };
+  useEffect(() => {
+    if (newPizzaPopup) {
+      dispatch(storeActions.setPopupActive(true));
+    }
+  });
 
   // Handeling add To Cart Enablers
 
@@ -111,11 +114,29 @@ const PizzaMakerHomepage = () => {
   // }, [newPizzaPopup, yourOrderContainerMoved]);
 
   return (
-    <TopContainer>
+    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <MainTitleContainer
         sx={{ visibility: `${newPizzaPopup ? "hidden" : "visible"}` }}
       >
-        <MainTitle variant="h2">{pizzaCreationType}</MainTitle>
+        {pizzaCreationType === "Custom Pepperoni Layout" && (
+          <MainTitle variant="h2">{pizzaCreationType}</MainTitle>
+        )}
+        {pizzaCreationType !== "Custom Pepperoni Layout" && (
+          <MainTitle
+            variant="h2"
+            sx={{
+              "@media(max-width:490px) ": {
+                padding: "15px 30px 15px 30px",
+                fontSize: "28px",
+              },
+              "@media(max-width:420px) ": {
+                fontSize: "28px",
+              },
+            }}
+          >
+            {pizzaCreationType}
+          </MainTitle>
+        )}
       </MainTitleContainer>
       {/* Add Item Menu */}
       <AddItemMenu
@@ -131,12 +152,7 @@ const PizzaMakerHomepage = () => {
       </MenuButton>
       {/* Pizza Peel Animation */}
 
-      <NewPizzaPopup
-        newPizzaPopup={newPizzaPopup}
-        onClose={newPizzaPopup}
-        onCloseFunction={newPizzaHandler}
-        retrievePizzaType={pizzaCreationTypeHandler}
-      />
+      <NewPizzaPopup newPizzaPopup={newPizzaPopup} onClose={newPizzaPopup} />
       {/* Display Image Handler */}
       {pizzaCreationType !== "Custom Pepperoni Layout" && (
         <KitchenTableContainer ref={exportRef}>

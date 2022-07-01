@@ -9,10 +9,12 @@ import carouselData from "./home-page-carousel-data";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const PhotoCarouselMainPage = () => {
   const [imgContainerEntered, setImgContainerEntered] = useState(false);
   const [currentCarouselId, setCurrentCarouselId] = useState(0);
+  const popupActive = useSelector((state) => state.popupActive);
 
   const cursorEntersImageHandler = () => {
     setImgContainerEntered(true);
@@ -53,7 +55,7 @@ const PhotoCarouselMainPage = () => {
   const activeData = carouselData[currentCarouselId];
 
   return (
-    <PhotoGalleryContainer>
+    <PhotoGalleryContainer sx={{ width: `${popupActive && "100vw"}` }}>
       <ImageContainer
         onMouseEnter={cursorEntersImageHandler}
         onMouseLeave={cursorExitsImageHandler}

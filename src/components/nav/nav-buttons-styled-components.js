@@ -76,7 +76,7 @@ const ShoppingCartItemsTracker = styled("div", {
 const PhoneContainer = styled("div", {
   name: "PhoneContainer",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
   display: "grid",

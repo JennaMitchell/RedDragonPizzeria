@@ -103,6 +103,12 @@ const ImageContainer = styled("div", {
   display: "grid",
   placeItems: "center",
   borderRadius: "15px",
+  overflowY: "hidden",
+  "@media (max-width:550px)": {
+    height: "min(200px,200px)",
+    marginBottom: "20px",
+    marginTop: "10px",
+  },
 }));
 
 export {
