@@ -252,13 +252,12 @@ const NavButtons = () => {
             <ShoppingCart
               sx={{
                 color: "secondary.light",
+                marginTop: "5px",
                 "@media (max-width:895px)": {
                   width: "max(20px,20px)",
                   height: "max(20px,20px)",
                 },
-                "@media (max-width:770px)": {
-                  marginTop: "5px",
-                },
+
                 "@media(max-width:630px)": {
                   width: "max(16px,16px)",
                   height: "max(16px,16px)",

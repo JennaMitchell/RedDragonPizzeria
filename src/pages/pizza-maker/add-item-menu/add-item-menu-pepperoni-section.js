@@ -30,6 +30,7 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
     (state) => state.pepperoniPizzaMobileSizePixelsDatabase
   );
   const smallKitchenTableActive = useMediaQuery("(max-width:460px)");
+
   const buildAPizzaUserSelectedObject = useSelector(
     (state) => state.buildAPizzaUserSelectedObject
   );
@@ -60,7 +61,7 @@ const AddItemMenuPepperoniSection = ({ crust }) => {
     let yOffset = 0;
     let xOffset = 0;
     if (smallKitchenTableActive) {
-      xOffset = copyOfPepperoniLayoutDatabase.length * 5 + 20;
+      xOffset = copyOfPepperoniLayoutDatabase.length * 5 + 10;
       yOffset =
         pepperoniPizzaMobileSizePixelsDatabase[
           buildAPizzaUserSelectedObject.size
