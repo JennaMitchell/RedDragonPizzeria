@@ -56,22 +56,39 @@ const CartHomepage = () => {
           <PizzaImage
             src={item.image}
             alt={item.title}
-            sx={{ gridColumn: "1/span 1", gridRow: "1/span 1" }}
+            sx={{
+              "@media(max-width:680px)": {
+                width: "max(80px,80px)",
+                height: "max(80px,80px)",
+              },
+              "@media(max-width:470px)": {
+                width: "max(60px,60px)",
+                height: "max(60px,60px)",
+              },
+              "@media(max-width:420px)": {
+                width: "max(50px,50px)",
+                height: "max(50px,50px)",
+              },
+            }}
           />
           <StyledTypography
             sx={{
-              gridColumn: "2/span 1",
-              gridRow: "1/span 1",
               textAlign: "left",
               position: "relative",
-              width: "max(80%,80%)",
+              width: "max(100%,100%)",
 
               "@media(max-width:1970px)": {
                 marginLeft: "20px",
               },
+
               "@media(max-width:640px)": {
                 fontSize: "20px",
+                marginLeft: "0px",
               },
+              "@media(max-width:600px)": {
+                fontSize: "16px",
+              },
+              "@media(max-width:420px)": { fontSize: "12px" },
             }}
             variant="h5"
           >
@@ -82,9 +99,17 @@ const CartHomepage = () => {
                 top: "100%",
                 left: "10px",
                 fontSize: "16px",
+                "@media(max-width:670px)": {
+                  width: "max(80%,80%)",
+                },
 
                 "@media(max-width:640px)": {
                   fontSize: "12px",
+                },
+                "@media(max-width:420px)": {
+                  fontSize: "10px",
+                  left: "5px",
+                  marginRight: "0",
                 },
               }}
             >
@@ -94,15 +119,34 @@ const CartHomepage = () => {
           {/* need to add size here */}
           <StyledTypography
             sx={{
-              gridColumn: "3/span 1",
-              gridRow: "1/span 1",
               marginRight: "30px",
               position: "relative",
+
+              "@media(max-width:500px)": {
+                fontSize: "16px",
+              },
             }}
             variant="h5"
           >
             {`$${item.totalPrice}`}
-            <TrashIcon onClick={deleteIconHandler} />
+            <TrashIcon
+              onClick={deleteIconHandler}
+              sx={{
+                top: "0%",
+                right: "-10px",
+                transform: "translate(100%,-30%)",
+                "@media(max-width:640px)": {
+                  transform: "translate(100%,-30%)",
+                },
+
+                "@media(max-width:540px)": {
+                  width: "max(20px,20px)",
+                  height: "max(20px,20px)",
+                  padding: "2.5px",
+                  transform: "translate(120%,-50%)",
+                },
+              }}
+            />
           </StyledTypography>
         </CustomItemContainer>
       );
@@ -125,6 +169,11 @@ const CartHomepage = () => {
               marginLeft: "30px",
               height: "max-content",
               position: "relative",
+              "@media(max-width:600px)": {
+                fontSize: "20px",
+              },
+              "@media(max-width:420px)": { fontSize: "16px" },
+              "@media(max-width:400px)": { fontSize: "14px" },
             }}
             variant="h5"
           >
@@ -137,6 +186,10 @@ const CartHomepage = () => {
                 left: "10px",
                 fontSize: "16px",
                 textAlign: "left",
+                "@media(max-width:600px)": {
+                  fontSize: "12px",
+                },
+                "@media(max-width:420px)": { fontSize: "10px" },
               }}
             >
               {` ${item.userSelectedData.description} `}
@@ -149,11 +202,27 @@ const CartHomepage = () => {
               gridRow: "1/span 1",
               marginRight: "30px",
               position: "relative",
+              "@media(max-width:500px)": {
+                fontSize: "16px",
+              },
             }}
             variant="h5"
           >
             {`$${item.totalPrice}`}
-            <TrashIcon onClick={deleteIconHandler} />
+            <TrashIcon
+              onClick={deleteIconHandler}
+              sx={{
+                top: "0%",
+                right: "-10px",
+                transform: "translate(100%,-30%)",
+                "@media(max-width:540px)": {
+                  width: "max(20px,20px)",
+                  height: "max(20px,20px)",
+                  padding: "2.5px",
+                  transform: "translate(120%,-50%)",
+                },
+              }}
+            />
           </StyledTypography>
         </NonCustomItemContainer>
       );
@@ -174,7 +243,15 @@ const CartHomepage = () => {
       <MenuPlankContainer>
         <MenuBlackboardContainer>
           <OrderedItemsContainer>
-            <StyledTypography variant="h3" sx={{ marginLeft: "10px" }}>
+            <StyledTypography
+              variant="h3"
+              sx={{
+                marginLeft: "10px",
+                "@media(max-width:540px)": {
+                  fontSize: "36px",
+                },
+              }}
+            >
               Your Order
             </StyledTypography>
 
@@ -208,6 +285,9 @@ const CartHomepage = () => {
                   gridColumn: "1/span 1",
                   gridRow: "1/span 1",
                   marginLeft: "30px",
+                  "@media(max-width:540px)": {
+                    fontSize: "28px",
+                  },
                 }}
               >
                 Total :
@@ -220,6 +300,9 @@ const CartHomepage = () => {
                   gridColumn: "2/span 1",
                   gridRow: "1/span 1",
                   marginRight: "30px",
+                  "@media(max-width:540px)": {
+                    fontSize: "28px",
+                  },
                 }}
               >
                 {`$${totalPrice}`}

@@ -172,12 +172,25 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
       // removing the $
       extractedPrice = extractedPrice.slice(1);
     }
-
-    deepCopyOfCartObject.push({
-      title: `${selectedSize} ${clickedData.title}`,
-      totalPrice: extractedPrice,
-      userSelectedData: clickedData,
-    });
+    if (selectedSize === "XLarge") {
+      deepCopyOfCartObject.push({
+        title: `X-Large ${clickedData.title}`,
+        totalPrice: extractedPrice,
+        userSelectedData: clickedData,
+      });
+    } else if (selectedSize === "XXLarge") {
+      deepCopyOfCartObject.push({
+        title: `XX-Large ${clickedData.title}`,
+        totalPrice: extractedPrice,
+        userSelectedData: clickedData,
+      });
+    } else {
+      deepCopyOfCartObject.push({
+        title: `${selectedSize} ${clickedData.title}`,
+        totalPrice: extractedPrice,
+        userSelectedData: clickedData,
+      });
+    }
 
     dispatch(storeActions.setCartObject(deepCopyOfCartObject));
     dispatch(storeActions.setAddToCartButtonClicked(false));

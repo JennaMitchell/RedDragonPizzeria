@@ -31,16 +31,9 @@ const ShoppingCartContainer = styled("div", {
   zIndex: "inherit",
 
   position: "relative",
-  padding: "10px",
+  padding: "2.5px 7.5px 2.5px 7.5px",
   borderRadius: "50%",
   transition: "all 0.5s",
-
-  "@media (max-width:760px)": {
-    padding: "5px",
-  },
-  "@media (max-width:660px)": {
-    padding: "2.5px 5px 2.5px 5px",
-  },
 });
 
 const ShoppingCartItemsTracker = styled("div", {

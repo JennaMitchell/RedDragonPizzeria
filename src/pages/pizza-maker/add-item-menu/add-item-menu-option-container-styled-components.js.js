@@ -84,6 +84,7 @@ const ThreeColumnRow = styled("div", {
   display: "grid",
   gridTemplateColumns: "repeat(3,max-content)",
   alignItems: "center",
+  justifyContent: "center",
   gap: "10px",
 
   marginBottom: "10px",
@@ -119,7 +120,6 @@ const OneColumnRow = styled("div", {
   placeItems: "center",
   transition: "all 0.5s",
   marginBottom: "10px",
-  marginLeft: "25px",
 }));
 
 const SelectorContainer = styled("div", {

@@ -44,6 +44,11 @@ const NavButtons = () => {
     dispatch(storeActions.setNavMenuButtonClicked(false));
     dispatch(storeActions.setActiveNavButton("Order Online"));
   };
+
+  const cartHandler = () => {
+    dispatch(storeActions.setActiveNavButton(""));
+  };
+
   const activeNavButton = useSelector((state) => state.activeNavButton);
   const buttonTitles = [
     { title: "Home", function: homeButtonHandler, navLink: "/home" },
@@ -235,7 +240,7 @@ const NavButtons = () => {
             }`,
           }}
         >
-          <NavLink to="/cart">
+          <NavLink to="/cart" onClick={cartHandler}>
             <ShoppingCartItemsTracker
               sx={{
                 backgroundColor: `${cartHoverActive && "secondary.light"}`,

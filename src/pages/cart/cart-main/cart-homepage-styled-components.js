@@ -117,14 +117,23 @@ const CustomItemContainer = styled("div", {
 
   alignItems: "center",
   justifyContent: "space-between",
-  gridTemplateColumns: "100px 60% max-content ",
+  gridTemplateColumns: "100px 270px max-content",
   gridTemplateRows: "max-content",
   gap: "10px",
   position: "relative",
   marginTop: "10px",
   marginBottom: "10px",
   "@media(max-width:690px)": {
-    gridTemplateColumns: "100px max-content max-content ",
+    gap: "0px",
+  },
+  "@media(max-width:600px)": {
+    gridTemplateColumns: "max-content 200px max-content",
+  },
+  "@media(max-width:450px)": {
+    gridTemplateColumns: "max-content 140px max-content",
+  },
+  "@media(max-width:420px)": {
+    gridTemplateColumns: "max-content 130px max-content",
   },
 }));
 
@@ -180,6 +189,9 @@ const PizzaImage = styled("img", {
   borderRadius: "50%",
   marginLeft: "20px",
   marginRight: "10px",
+  "@media(max-width:690px)": {
+    marginLeft: "10px",
+  },
 }));
 
 export {

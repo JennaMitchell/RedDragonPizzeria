@@ -70,7 +70,7 @@ const PepperoniTypeButton = styled("button", {
 const PepperoniButtonImage = styled("img", {
   name: "PepperoniButtonImage",
   slot: "Wrapper",
-})(({ theme }) => ({
+})(() => ({
   width: "max(90%,90%)",
   height: "max(90%,90%)",
   display: "grid",
