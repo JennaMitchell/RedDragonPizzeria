@@ -1,5 +1,5 @@
 import { styled, Typography, Grid } from "@mui/material";
-import plankImage from "../../../img/full-menu/plank.jpg";
+import plankImage from "../../img/full-menu/plank.jpg";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 const TopContainer = styled("div", {
