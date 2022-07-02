@@ -12,8 +12,8 @@ import PizzaSection from "./menu-sections/pizza-section/pizza-section";
 import DrinksSection from "./menu-sections/drink-section/drinks-section";
 import SaladSection from "./menu-sections/salad-section/salad-section";
 import DessertsSidesSection from "./menu-sections/desserts-sides-section/desserts-sides-section";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { storeActions } from "../../store/store";
 const FullMenuHomepage = () => {
   const menuButtonTitles = [
     "All",
@@ -24,11 +24,18 @@ const FullMenuHomepage = () => {
   ];
   const [activeMenuButton, setActiveMenuButton] = useState(1);
   const [selectedMenuButton, setSelectedMenuButton] = useState("Pizza");
+  const dispatch = useDispatch();
   const popupActive = useSelector((state) => state.popupActive);
   const menuSelectorButtonHandler = (title, id) => {
     setSelectedMenuButton(title);
     setActiveMenuButton(id);
   };
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+
+  /// check to see if user closed  on a different tab  but re-entered on this page. causing the active button to be misaligned
+  if (activeNavButton !== "Menu") {
+    dispatch(storeActions.setActiveNavButton("Menu"));
+  }
   let menuButtons = menuButtonTitles.map((title, index) => {
     return (
       <FullMenuSelectorButton

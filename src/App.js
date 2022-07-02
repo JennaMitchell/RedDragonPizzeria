@@ -6,7 +6,7 @@ import HomePageMain from "./pages/homepage/homepage-main";
 import FullMenuHomepage from "./pages/full-menu/full-menu-homepage";
 import PizzaMakerHomepage from "./pages/pizza-maker/pizza-maker-homepage";
 import OrderOnlineHomepage from "./pages/order-online/order-online-homepage";
-import CartHomepage from "./pages/cart/cart-main/cart-homepage";
+import CartHomepage from "./pages/cart/cart-homepage";
 export const theme = createTheme({
   palette: {
     primary: {

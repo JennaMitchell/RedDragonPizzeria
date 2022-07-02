@@ -43,6 +43,12 @@ const PizzaMakerHomepage = () => {
   const newPizzaHandler = () => {
     dispatch(storeActions.setNewPizzaPopup(!newPizzaPopup));
   };
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+
+  /// check to see if user closed  on a different tab  but re-entered on this page. causing the active button to be misaligned
+  if (activeNavButton !== "Pizza Maker") {
+    dispatch(storeActions.setActiveNavButton("Pizza Maker"));
+  }
 
   const addToCartHandler = () => {
     dispatch(storeActions.setAddToCartButtonClicked(true));

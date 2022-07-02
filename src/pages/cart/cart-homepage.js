@@ -12,14 +12,21 @@ import {
   PizzaImage,
 } from "./cart-homepage-styled-components";
 
-import horizontalChalkUnderline from "../../../img/line-art/underlines/chalk_underline_horizontal.png";
-import { storeActions } from "../../../store/store";
+import horizontalChalkUnderline from "../../img/line-art/underlines/chalk_underline_horizontal.png";
+import { storeActions } from "../../store/store";
 
 const CartHomepage = () => {
   const cartObject = useSelector((state) => state.cartObject);
   const popupActive = useSelector((state) => state.popupActive);
   const dispatch = useDispatch();
   let totalPrice = 0;
+
+  const activeNavButton = useSelector((state) => state.activeNavButton);
+
+  /// check to see if user closed  on a different tab  but re-entered on this page. causing the active button to be misaligned
+  if (activeNavButton !== "") {
+    dispatch(storeActions.setActiveNavButton(""));
+  }
 
   const deepCopyOfCartObject = JSON.parse(JSON.stringify(cartObject));
 
