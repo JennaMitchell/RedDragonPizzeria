@@ -8,7 +8,7 @@ const TopContainer = styled("div", {
   slot: "Wrapper",
 })(() => ({
   width: "max(100%,100%)",
-  height: "max(1200px,1200px)",
+  height: "max(1200px,max-content)",
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
@@ -25,15 +25,15 @@ const MenuContainer = styled("div", {
   slot: "Wrapper",
 })(({ theme }) => ({
   width: "min(100%,1000px)",
-  height: "min(1000px,1000px)",
-  overflowY: "scroll",
+  height: "max(max-content,1000px)",
+
   overflowX: "hidden",
   backgroundColor: theme.palette.secondary.dark,
   border: "none",
   display: "grid",
   placeItems: "center",
   position: "relative",
-  gridTemplateRows: "repeat(2, max-content)",
+
   marginTop: "20px",
   marginBottom: "20px",
   borderRadius: "20px",
@@ -53,7 +53,12 @@ const BoardImageContainer = styled("div", {
   backgroundImage: `url(${woodenBoard})`,
   borderRadius: "10px",
   boxShadow: "0 0 10px black",
-  "@media (max-width: 540px)": {},
+  marginTop: "40px",
+  marginBottom: "20px",
+  "@media(max-width:880px)": {
+    marginTop: "20px",
+    marginBottom: "20px",
+  },
 }));
 
 const MenuSelectorContainer = styled("div", {

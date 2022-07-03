@@ -31,6 +31,9 @@ const PhotoGalleySlide = ({ id, image, title, description }) => {
               borderBottom: "3px solid white",
               borderBottomStyle: "dashed",
               paddingBottom: "5px",
+              "@media(max-width:700px)": {
+                borderBottom: "2px solid white",
+              },
             }}
           >
             {title}

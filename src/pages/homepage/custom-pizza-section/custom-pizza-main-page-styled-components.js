@@ -12,6 +12,8 @@ const TopContainer = styled("div", {
   gridTemplateColumns: "1fr 1fr",
   placeItems: "center",
   position: "relative",
+  paddingBottom: "20px",
+  paddingTop: "20px",
 }));
 const TextSide = styled("div", {
   name: "TextSide",

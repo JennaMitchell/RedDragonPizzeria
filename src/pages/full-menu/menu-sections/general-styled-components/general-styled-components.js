@@ -10,13 +10,13 @@ const TwoColumnContainer = styled("div", {
   backgroundColor: "transparent",
   border: "none",
   display: "grid",
-  gridTemplateColumns: "1fr max-content 1fr ",
-  justifyContents: "center",
+  gridTemplateColumns: "48% max-content 48% ",
+
   alignItems: "flex-start",
+  justifyContent: "center",
   position: "relative",
   fontFamily: "Fredericka the Great ,cursive",
   marginBottom: "20px",
-  marginLeft: "10px",
 }));
 const SectionTitleContainer = styled("div", {
   name: "SectionTitleContainer",
@@ -200,8 +200,6 @@ const ThreeRowsTextContainer = styled("div", {
   "@media(max-width:600px)": {
     width: "max(200px,200px)",
   },
-
-
 }));
 
 const OneColumnContainer = styled("div", {

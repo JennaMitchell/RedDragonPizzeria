@@ -78,6 +78,7 @@ const TitleContainer = styled("div", {
   borderRadius: "10px",
 
   fontFamily: "Fredericka the Great ,cursive",
+  zIndex: "0",
 }));
 
 const StyledTypography = styled(Typography, {

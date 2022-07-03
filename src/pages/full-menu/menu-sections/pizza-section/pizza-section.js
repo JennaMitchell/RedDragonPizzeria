@@ -36,7 +36,7 @@ import {
 } from "./pizza-menu-database";
 import useMediaQuery from "@mui/material/useMediaQuery";
 const PizzaSection = () => {
-  const specilityPizzaSingleColumnActive = useMediaQuery("(max-width:600px)");
+  const specilityPizzaSingleColumnActive = useMediaQuery("(max-width:760px)");
   return (
     <TopContainer>
       <PizzaSliceLineArtOne src={pizzaSliceLineArtOne} />
@@ -69,7 +69,14 @@ const PizzaSection = () => {
           </Grid>
           {renderReadyPizzaSizes}
         </Grid>
-        <SectionBreaker src={verticalUnderline} />
+        <SectionBreaker
+          src={verticalUnderline}
+          sx={{
+            "@media(max-width:905px)": { height: "max(174px,174px)" },
+            "@media(max-width:745px)": { height: "max(135px,135px)" },
+            "@media(max-width:535px)": { height: "max(108px,108px)" },
+          }}
+        />
         <Grid
           container
           columns={1}
@@ -92,7 +99,14 @@ const PizzaSection = () => {
           </Grid>
           {renderReadyPizzaCrusts}
         </Grid>
-        <SectionBreaker src={verticalUnderline} />
+        <SectionBreaker
+          src={verticalUnderline}
+          sx={{
+            "@media(max-width:905px)": { height: "max(174px,174px)" },
+            "@media(max-width:745px)": { height: "max(135px,135px)" },
+            "@media(max-width:535px)": { height: "max(108px,108px)" },
+          }}
+        />
         <Grid
           container
           columns={1}
@@ -145,7 +159,14 @@ const PizzaSection = () => {
           </Grid>
           {renderReadyVegetablesToppings}
         </Grid>
-        <SectionBreaker src={verticalUnderline} />
+        <SectionBreaker
+          src={verticalUnderline}
+          sx={{
+            "@media(max-width:905px)": { height: "max(200px,200px)" },
+            "@media(max-width:745px)": { height: "max(200px,200px)" },
+            "@media(max-width:535px)": { height: "max(200px,200px)" },
+          }}
+        />
         <Grid
           container
           columns={1}
@@ -168,7 +189,14 @@ const PizzaSection = () => {
           </Grid>
           {renderReadyMeatsToppings}
         </Grid>
-        <SectionBreaker src={verticalUnderline} />
+        <SectionBreaker
+          src={verticalUnderline}
+          sx={{
+            "@media(max-width:905px)": { height: "max(200px,200px)" },
+            "@media(max-width:745px)": { height: "max(200px,200px)" },
+            "@media(max-width:535px)": { height: "max(200px,200px)" },
+          }}
+        />
         <Grid
           container
           columns={1}
@@ -202,17 +230,35 @@ const PizzaSection = () => {
       {!specilityPizzaSingleColumnActive && (
         <TwoColumnContainer>
           <TomatoLineArt src={tomatoLineArt} />
-          <Grid container columns={1} sx={{ flexDirection: "column" }}>
+          <Grid
+            container
+            columns={1}
+            sx={{
+              flexDirection: "column",
+              justifyItems: "center",
+              alignItems: "center",
+            }}
+          >
             {renderReadyPizzaColumnOne}
           </Grid>
           <SectionBreaker src={verticalUnderline} />
-          <Grid container columns={1} sx={{ flexDirection: "column" }}>
+          <Grid
+            container
+            columns={1}
+            sx={{
+              flexDirection: "column",
+              justifyItems: "center",
+              alignItems: "center",
+            }}
+          >
             {renderReadyPizzaColumnTwo}
           </Grid>
         </TwoColumnContainer>
       )}
       {specilityPizzaSingleColumnActive && (
-        <OneColumnContainer sx={{ textAlign: "center" }}>
+        <OneColumnContainer
+          sx={{ textAlign: "center", justifyItems: "center" }}
+        >
           {renderReadyPizzaColumnOne}
 
           {renderReadyPizzaColumnTwo}

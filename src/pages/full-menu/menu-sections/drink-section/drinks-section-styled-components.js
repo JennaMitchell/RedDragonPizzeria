@@ -84,6 +84,9 @@ const BeerLineArtContainer = styled("img", {
     height: "max(50px,50px)",
     left: "20px",
   },
+  "@media (max-width:550px)": {
+    left: "10px",
+  },
 }));
 
 const CocktailLineArtContainer = styled("img", {
@@ -115,6 +118,9 @@ const CocktailLineArtContainer = styled("img", {
   "@media (max-width:655px)": {
     width: "max(30px,30px)",
     height: "max(50px,50px)",
+  },
+  "@media (max-width:550px)": {
+    right: "10px",
   },
 }));
 

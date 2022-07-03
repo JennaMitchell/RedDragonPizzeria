@@ -83,10 +83,13 @@ const PizzaSliceLineArtTwo = styled("img", {
     height: "max(60px,60px)",
     top: "315px",
   },
+  "@media (max-width:740px)": {
+    top: "240px",
+  },
   "@media (max-width:670px)": {
     width: "max(60px,60px)",
     height: "max(40px,40px)",
-    top: "280px",
+    top: "250px",
   },
   "@media (max-width:620px)": {
     display: "none",
@@ -114,7 +117,7 @@ const TomatoLineArt = styled("img", {
     width: "max(80px,80px)",
     height: "max(80px,80px)",
     right: "5.5%",
-    top: "-110px",
+    top: "-100px",
   },
   "@media (max-width:900px)": {
     width: "max(80px,80px)",
@@ -157,6 +160,9 @@ const SectionTitle = styled(Typography, {
   "@media (max-width:480px)": {
     fontSize: "10px",
   },
+  "@media (max-width:350px)": {
+    fontSize: "8px",
+  },
 }));
 const MainSectionTitle = styled(Typography, {
   name: "MainSectionTitle",
@@ -174,6 +180,9 @@ const MainSectionTitle = styled(Typography, {
   },
   "@media (max-width:540px)": {
     fontSize: "20px",
+  },
+  "@media (max-width:400px)": {
+    fontSize: "16px",
   },
 }));
 

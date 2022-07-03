@@ -117,6 +117,7 @@ const pizzaCookieSection = dessertsNSidesData.Cookie.map((data, index) => {
     <ThreeRowsTextContainer
       key={index}
       sx={{
+        marginBottom: "300px",
         "@media(max-width:875px)": { marginTop: "40px" },
         "@media(max-width:700px)": { marginTop: "30px" },
         "@media(max-width:600px)": { marginTop: "10px" },

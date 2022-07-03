@@ -67,7 +67,7 @@ const pizzaMenuDatabase = {
     },
 
     {
-      title: "New York-Style Pizza",
+      title: "New York Style Pizza",
       description:
         "Large hand-tossed thin crust pizza, served with mozzarella and spicy peperonni",
       price: "sm. $17.99, md. $18.99, lg. $19.99, xl. $21.99, xxl. $23.99 ",
@@ -168,30 +168,55 @@ const renderReadyOtherToppings = other.map((item, index) => (
 const pizzas = pizzaMenuDatabase.pizza;
 const renderReadyPizzas = pizzas.map((pizza, index) => {
   return (
-    <PizzaItemContainer key={index}>
+    <PizzaItemContainer
+      key={index}
+      sx={{
+        "@media (max-width:655px)": {
+          marginLeft: "0",
+        },
+      }}
+    >
       <Typography
         variant="h5"
         sx={{
           fontFamily: "inherit",
           color: "secondary.light",
-          "@media (max-width:655px)": {
+          borderBottom: "1px solid white",
+          width: "max-content",
+          justifySelf: "center",
+          "@media (max-width:800px)": {
+            fontSize: "28px",
+          },
+          "@media (max-width:540px)": {
+            fontSize: "22px",
+          },
+          "@media (max-width:440px)": {
             fontSize: "18px",
+          },
+          "@media (max-width:350px)": {
+            fontSize: "16px",
           },
         }}
       >
-        {pizza.title}
+        &nbsp; {pizza.title} &nbsp;
       </Typography>
       <PizzaSizesSizes
         sx={{
+          textAlign: "center",
+          "@media (max-width:800px)": {
+            fontSize: "16px",
+            width: "max(80%,80%)",
+            justifySelf: "center",
+          },
+
           "@media (max-width:705px)": {
             marginTop: "5px",
           },
-          "@media (max-width:520px)": {
-            paddingRight: "15px",
+          "@media (max-width:540px)": {
+            width: "max(100%,100%)",
           },
-          "@media (max-width:600px)": {
+          "@media (max-width:440px)": {
             fontSize: "12px",
-            textAlign: "center",
           },
         }}
       >
@@ -199,6 +224,7 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
       </PizzaSizesSizes>
       <PizzaSizesPrice
         sx={{
+          justifySelf: "center",
           "@media (max-width:970px)": {
             width: "max(180px,180px)",
             fontSize: "12px",
@@ -206,14 +232,8 @@ const renderReadyPizzas = pizzas.map((pizza, index) => {
           "@media (max-width:800px)": {
             width: "max(180px,180px)",
           },
-          "@media (max-width:600px)": {
-            width: "max(100%,100%)",
-            fontSize: "10px",
-            marginTop: "5px",
-          },
-          "@media (max-width:500px)": {
-            width: "max(160px,160px)",
-            marginTop: "5px",
+          "@media (max-width:440px)": {
+            fontSize: "12px",
           },
         }}
       >
