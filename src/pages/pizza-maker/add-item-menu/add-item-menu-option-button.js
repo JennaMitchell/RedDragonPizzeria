@@ -18,6 +18,7 @@ const SelectorIconContainer = styled("div", {
   gridTemplateColumns: "max-content",
   borderRadius: "50%",
   border: "2px solid black",
+  position: "relative",
   "&:hover": {
     backgroundColor: theme.palette.primary.dark,
   },
@@ -33,8 +34,7 @@ const SelectorIcon = styled(CheckIcon, {
 })(({ theme }) => ({
   width: "max(90%,90%)",
   height: "max(90%,90%)",
-  display: "grid",
-  placeItems: "center",
+  position: "relative",
   color: theme.palette.secondary.dark,
   "@media(max-width:490px)": {
     marginLeft: "2px",

@@ -32,6 +32,7 @@ const CategoryButton = styled(Button, {
   color: theme.palette.secondary.light,
   marginTop: "10px",
   textTransform: "capitalize",
+  position: "relative",
   "&:hover": {
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.secondary.dark,

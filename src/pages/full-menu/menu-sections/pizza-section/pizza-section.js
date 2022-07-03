@@ -162,9 +162,10 @@ const PizzaSection = () => {
         <SectionBreaker
           src={verticalUnderline}
           sx={{
-            "@media(max-width:905px)": { height: "max(200px,200px)" },
+            height: "max(340px,340px)",
+            "@media(max-width:905px)": { height: "max(270px,270px)" },
             "@media(max-width:745px)": { height: "max(200px,200px)" },
-            "@media(max-width:535px)": { height: "max(200px,200px)" },
+            "@media(max-width:535px)": { height: "max(180px,180px)" },
           }}
         />
         <Grid
@@ -192,9 +193,10 @@ const PizzaSection = () => {
         <SectionBreaker
           src={verticalUnderline}
           sx={{
-            "@media(max-width:905px)": { height: "max(200px,200px)" },
+            height: "max(340px,340px)",
+            "@media(max-width:905px)": { height: "max(270px,270px)" },
             "@media(max-width:745px)": { height: "max(200px,200px)" },
-            "@media(max-width:535px)": { height: "max(200px,200px)" },
+            "@media(max-width:535px)": { height: "max(180px,180px)" },
           }}
         />
         <Grid

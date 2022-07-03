@@ -103,8 +103,8 @@ const CartHomepage = () => {
             <StyledTypography
               sx={{
                 position: "relative",
-                top: "100%",
-                left: "10px",
+                marginLeft: "10px",
+
                 fontSize: "16px",
                 "@media(max-width:670px)": {
                   width: "max(80%,80%)",
@@ -189,8 +189,7 @@ const CartHomepage = () => {
               sx={{
                 position: "relative",
                 width: "max(80%,80%)",
-                top: "100%",
-                left: "10px",
+                marginLeft: "10px",
                 fontSize: "16px",
                 textAlign: "left",
                 "@media(max-width:600px)": {

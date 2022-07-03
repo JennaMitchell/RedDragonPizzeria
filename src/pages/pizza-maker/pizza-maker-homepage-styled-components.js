@@ -266,6 +266,7 @@ const MenuButton = styled("div", {
   "@media(max-width: 600px)": {
     width: "max(50px,50px)",
     height: "max(50px,50px)",
+    transition: "all 0s",
   },
 
   "@media(max-width: 450px)": {

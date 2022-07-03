@@ -19,6 +19,9 @@ const OrderOnlineNavMenu = () => {
   const onlineOrderClickedSection = useSelector(
     (state) => state.onlineOrderClickedSection
   );
+  const navMenuButtonClicked = useSelector(
+    (state) => state.navMenuButtonClicked
+  );
   const pizzaMakerButtonHandler = () => {
     dispatch(storeActions.setNavMenuButtonClicked(false));
     dispatch(storeActions.setActiveNavButton("Pizza Maker"));
@@ -149,7 +152,7 @@ const OrderOnlineNavMenu = () => {
           />
         </MenuButton>
 
-        <MenuButton>
+        <MenuButton sx={{ zIndex: `${navMenuButtonClicked && "0"}` }}>
           <StyledNavLink
             to="/pizza-maker"
             onMouseEnter={buildAPizzaMouseEnterHandler}
@@ -167,7 +170,7 @@ const OrderOnlineNavMenu = () => {
           />
         </MenuButton>
 
-        <MenuButton>
+        <MenuButton sx={{ zIndex: `${navMenuButtonClicked && "0"}` }}>
           <StyledNavLink
             to="/pizza-maker"
             onMouseEnter={customPizzaMouseEnterHandler}
