@@ -39,6 +39,8 @@ const PizzaSizeImageManager = ({ size }) => {
           backdropFilter: `${
             pepperoniDragEventActive && `drop-shadow(4px 4px 10px blue);`
           }`,
+          userSelect: "none",
+          WebkitTouchCallout: "none",
         }}
         src={pizzaPan}
         alt="pizza pan"
@@ -53,6 +55,8 @@ const PizzaSizeImageManager = ({ size }) => {
           backdropFilter: `${
             pepperoniDragEventActive && `drop-shadow(4px 4px 10px blue);`
           }`,
+          userSelect: "none",
+          WebkitTouchCallout: "none",
         }}
         src={pizzaPan}
         alt="pizza pan"
