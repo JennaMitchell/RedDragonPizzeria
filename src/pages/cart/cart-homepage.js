@@ -101,6 +101,7 @@ const CartHomepage = () => {
           >
             {title}
             <StyledTypography
+              variant="p"
               sx={{
                 position: "relative",
                 marginLeft: "10px",
@@ -197,6 +198,7 @@ const CartHomepage = () => {
                 },
                 "@media(max-width:420px)": { fontSize: "10px" },
               }}
+              variant="p"
             >
               {` ${item.userSelectedData.description} `}
             </StyledTypography>

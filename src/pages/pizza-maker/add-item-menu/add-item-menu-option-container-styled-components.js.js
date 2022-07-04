@@ -85,10 +85,13 @@ const ThreeColumnRow = styled("div", {
   display: "grid",
   gridTemplateColumns: "repeat(3,max-content)",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
   gap: "10px",
 
   marginBottom: "10px",
+  "@media(max-width:590px)": {
+    gridTemplateColumns: "repeat(3,1fr)",
+  },
 }));
 
 const TwoColumnRow = styled("div", {
@@ -101,7 +104,8 @@ const TwoColumnRow = styled("div", {
   display: "grid",
   alignItems: "center",
   transition: "all 0.5s",
-  gridTemplateColumns: "repeat(2,1fr)",
+  gridTemplateColumns: "repeat(2,max-content)",
+  justifyContent: "space-between",
   marginBottom: "10px",
   "@media(max-width:590px)": {
     width: "max-content",
@@ -134,9 +138,8 @@ const SelectorContainer = styled("div", {
   alignItems: "center",
 
   color: theme.palette.secondary.light,
-  gridTemplateColumns: "35px 125px",
+  gridTemplateColumns: "35px max-content",
   "@media(max-width:590px)": {
-    gridTemplateColumns: "35px 55px",
     gridTemplateRows: "max-content",
 
     width: "max(100%,100%)",
@@ -147,7 +150,7 @@ const SelectorTitle = styled(Typography, {
   name: "SelectorTitle",
   slot: "Wrapper",
 })(({ theme }) => ({
-  width: "max(100%,100%)",
+  width: "min(max-content,100px)",
   height: "max(max-content,max-content)",
 
   display: "grid",
@@ -160,6 +163,7 @@ const SelectorTitle = styled(Typography, {
   "@media(max-width:590px)": {
     fontSize: "10px",
     marginLeft: "5px",
+    width: "minmax(55px,55px)",
   },
 }));
 

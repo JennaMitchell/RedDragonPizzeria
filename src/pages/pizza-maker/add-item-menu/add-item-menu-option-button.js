@@ -13,7 +13,7 @@ const SelectorIconContainer = styled("div", {
   width: "max(35px,35px)",
   height: "max(35px,35px)",
   backgroundColor: theme.palette.secondary.light,
-  display: "grid",
+  display: "flex",
   placeItems: "center",
   gridTemplateColumns: "max-content",
   borderRadius: "50%",
@@ -22,7 +22,8 @@ const SelectorIconContainer = styled("div", {
   "&:hover": {
     backgroundColor: theme.palette.primary.dark,
   },
-  "@media(max-width:490px)": {
+
+  "@media(max-width:590px)": {
     width: "max(30px,30px)",
     height: "max(30px,30px)",
   },
@@ -36,6 +37,7 @@ const SelectorIcon = styled(CheckIcon, {
   height: "max(90%,90%)",
   position: "relative",
   color: theme.palette.secondary.dark,
+  marginLeft: "2px",
   "@media(max-width:490px)": {
     marginLeft: "2px",
   },

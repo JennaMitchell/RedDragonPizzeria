@@ -23,8 +23,9 @@ const addItemMenuDatabase = {
     active: false,
     data: [
       { type: "Marinara", price: "$0.00" },
-      { type: "Robust Tomato", price: "$0.00" },
       { type: "BBQ", price: "$0.00" },
+      { type: "Robust Tomato", price: "$0.00" },
+
       { type: "Alfredo", price: "$0.00" },
       { type: "Garlic Parmesan White", price: "$0.00" },
     ],

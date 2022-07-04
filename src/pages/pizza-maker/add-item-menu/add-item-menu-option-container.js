@@ -96,11 +96,20 @@ const AddItemMenuOptionContainer = ({
       </MaxContentContainer>
     );
   }
+
   if (data.length % 3 === 2) {
     renderReadyTwoColumnRow[0] = (
       <TwoColumnRow key={` ${objectSection} ${data.length - 2}`}>
         <MaxContentContainer>
-          <SelectorContainer>
+          <SelectorContainer
+            sx={{
+              "@media(max-width:590px)": {
+                marginLeft: `${
+                  data[data.length - 2].type === "Alfredo" && "40px"
+                }`,
+              },
+            }}
+          >
             <AddItemMenuOptionButton
               type={data[data.length - 2]}
               objectSection={objectSection}
@@ -111,7 +120,19 @@ const AddItemMenuOptionContainer = ({
         </MaxContentContainer>
 
         <MaxContentContainer>
-          <SelectorContainer>
+          <SelectorContainer
+            sx={{
+              marginLeft: `${
+                data[data.length - 1].type === "Garlic Parmesan White" && "80px"
+              }`,
+              "@media(max-width:590px)": {
+                marginLeft: `${
+                  data[data.length - 1].type === "Garlic Parmesan White" &&
+                  "40px"
+                }`,
+              },
+            }}
+          >
             <AddItemMenuOptionButton
               type={data[data.length - 1]}
               objectSection={objectSection}
