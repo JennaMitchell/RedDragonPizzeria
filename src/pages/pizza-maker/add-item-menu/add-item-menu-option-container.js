@@ -128,6 +128,10 @@ const AddItemMenuOptionContainer = ({
               "@media(max-width:590px)": {
                 marginLeft: `${
                   data[data.length - 1].type === "Garlic Parmesan White" &&
+                  "10px"
+                }`,
+                marginRight: `${
+                  data[data.length - 1].type === "Garlic Parmesan White" &&
                   "40px"
                 }`,
               },

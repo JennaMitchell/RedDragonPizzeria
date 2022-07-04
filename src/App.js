@@ -7,6 +7,8 @@ import FullMenuHomepage from "./pages/full-menu/full-menu-homepage";
 import PizzaMakerHomepage from "./pages/pizza-maker/pizza-maker-homepage";
 import OrderOnlineHomepage from "./pages/order-online/order-online-homepage";
 import CartHomepage from "./pages/cart/cart-homepage";
+import { useSelector } from "react-redux";
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -28,8 +30,19 @@ export const theme = createTheme({
 });
 
 function App() {
+  const pepperoniDragEventActive = useSelector(
+    (state) => state.pepperoniDragEventActive
+  );
+  const root = document.getElementById("root");
+  if (pepperoniDragEventActive) {
+    root.classList.add("overflowHidden");
+  } else {
+    if (root.classList.contains("overflowHidden")) {
+      root.classList.remove("overflowHidden");
+    }
+  }
   return (
-    <div className="root">
+    <div>
       <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />

@@ -37,6 +37,7 @@ const PepperoniPizzaResizeWarning = ({ togglePopup }) => {
       open={togglePopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
       PaperProps={{
         style: {
           borderRadius: "10px",

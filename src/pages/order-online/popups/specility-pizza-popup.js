@@ -304,6 +304,7 @@ const SpecilityPizzaPopup = ({ toggleOpen }) => {
           border: "none",
         },
       }}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
     >
       <DialogContent
         sx={{

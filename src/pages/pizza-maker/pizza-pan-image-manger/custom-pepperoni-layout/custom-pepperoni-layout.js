@@ -134,7 +134,7 @@ const CustomPepperoniLayout = () => {
   };
 
   const dragStartHandler = (e) => {
-    e.preventDefault();
+
     setActiveDragId(e.target.id);
     setCurrentPageX(e.pageX);
     setCurrentPageY(e.pageY);
@@ -146,7 +146,7 @@ const CustomPepperoniLayout = () => {
     // pepperoniId : {
     // coordinates: { x: "" y: ""}
     // shape : "circle"
-    e.preventDefault();
+
 
     for (let entry of copyOfPepperoniLayoutDataBase) {
       if (entry.pepperoniId === activeDragId) {

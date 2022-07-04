@@ -35,6 +35,7 @@ const FiveToppingsWarning = ({ fiveToppingsWarningPopup }) => {
           },
         },
       }}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
     >
       <DialogTitle
         sx={{

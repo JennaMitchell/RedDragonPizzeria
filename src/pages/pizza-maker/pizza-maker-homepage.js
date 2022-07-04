@@ -36,6 +36,9 @@ const PizzaMakerHomepage = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+  const pepperoniDragEventActive = useSelector(
+    (state) => state.pepperoniDragEventActive
+  );
   const popupActive = useSelector((state) => state.popupActive);
   const yourOrderContainerMoved = useMediaQuery("(max-width:1200px)");
   const dispatch = useDispatch();
@@ -81,10 +84,6 @@ const PizzaMakerHomepage = () => {
     shoppingCartEnabled = false;
   }
 
-  const pepperoniDragEventActive = useSelector(
-    (state) => state.pepperoniDragEventActive
-  );
-
   // Commented code below is just for reference of a pizza peel slide effect idea
   // const pizzaPeelSlideIn = keyframes({
   //   "0%": { right: "-1200px" },
@@ -120,7 +119,12 @@ const PizzaMakerHomepage = () => {
   // }, [newPizzaPopup, yourOrderContainerMoved]);
 
   return (
-    <TopContainer sx={{ width: `${popupActive && "100vw"}` }}>
+    <TopContainer
+      sx={{
+        width: `${popupActive && "100vw"}`,
+        overflow: `${pepperoniDragEventActive && "hidden"}`,
+      }}
+    >
       <MainTitleContainer
         sx={{ visibility: `${newPizzaPopup ? "hidden" : "visible"}` }}
       >

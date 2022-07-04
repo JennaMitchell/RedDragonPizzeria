@@ -255,6 +255,7 @@ const SaladsPopup = ({ toggleOpen }) => {
           width: "max(400px,400px)",
         },
       }}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
     >
       <DialogContent
         sx={{

@@ -153,9 +153,7 @@ const NavBar = () => {
       dropMenu = false;
     }
   }
-  if (pepperoniDragEventActive) {
-    dropMenu = false;
-  }
+
   // handeling roof SVG zindex based on the pizaz toppings menu having been moved out or not
 
   if (pizzaToppingsMenuActive) {
@@ -165,6 +163,10 @@ const NavBar = () => {
   }
   if (buttonLimitReached) {
     roofZIndexChanged = true;
+  }
+  if (pepperoniDragEventActive) {
+    dropMenu = false;
+    roofZIndexChanged = false;
   }
 
   return (
@@ -233,7 +235,7 @@ const NavBar = () => {
         sx={{
           top: `${dropMenu && "90px"}`,
 
-          "@media(max-width:850px)": {
+          "@media(max-width:900px)": {
             top: `${dropMenu && "60px"}`,
             right: "0",
           },

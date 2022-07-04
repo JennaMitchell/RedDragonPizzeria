@@ -141,6 +141,7 @@ const SelectorContainer = styled("div", {
   gridTemplateColumns: "35px max-content",
   "@media(max-width:590px)": {
     gridTemplateRows: "max-content",
+    gridTemplateColumns: "35px 60px",
 
     width: "max(100%,100%)",
   },

@@ -42,6 +42,7 @@ const OrderTypePopup = ({ toggleOpen, onCloseFunction }) => {
           border: "none",
         },
       }}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
     >
       <DialogContent
         sx={{

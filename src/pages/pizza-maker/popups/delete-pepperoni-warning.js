@@ -56,6 +56,7 @@ const DeletePepperoniWarning = ({
           border: "none",
         },
       }}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
     >
       <DialogTitle
         sx={{

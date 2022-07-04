@@ -49,6 +49,7 @@ const NewPizzaPopup = ({ newPizzaPopup }) => {
       open={newPizzaPopup}
       onClose={onCloseHandler}
       aria-labelledby="responsive-dialog-title"
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
       PaperProps={{
         style: {
           borderRadius: "10px",

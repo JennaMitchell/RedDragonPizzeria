@@ -21,6 +21,7 @@ const PepperoniLimitReachedWarning = ({ togglePopup }) => {
     <Dialog
       open={togglePopup}
       onClose={onCloseHandler}
+      sx={{ "& .MuiPaper-root": { backgroundColor: "secondary.dark" } }}
       aria-labelledby="responsive-dialog-title"
       PaperProps={{
         style: {
