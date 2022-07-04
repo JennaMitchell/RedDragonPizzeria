@@ -21,8 +21,6 @@ const PepperoniImageContainer = styled("img", {
   placeItems: "center",
   position: "absolute",
   zIndex: 8,
-  userSelect: "none",
-  WebkitTouchCallout: "none",
 }));
 
 const CustomPepperoniLayout = () => {
