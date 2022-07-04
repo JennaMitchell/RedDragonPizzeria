@@ -135,9 +135,16 @@ const CustomPepperoniLayout = () => {
   };
 
   const dragStartHandler = (e) => {
-    setActiveDragId(e.target.id);
-    setCurrentPageX(e.pageX);
-    setCurrentPageY(e.pageY);
+    if (e.pageX == null) {
+      setActiveDragId(e.target.id);
+      setCurrentPageX(e.touches[0].pageX);
+      setCurrentPageY(e.touches[0].pageY);
+    } else {
+      setActiveDragId(e.target.id);
+      setCurrentPageX(e.pageX);
+      setCurrentPageY(e.pageY);
+    }
+
     dispatch(storeActions.setPepperoniDragEventActive(true));
   };
 
@@ -157,13 +164,25 @@ const CustomPepperoniLayout = () => {
         let currentYCoord =
           copyOfPepperoniLayoutDataBase[entry.pepperoniId].coordinates.y;
         let indexOfPInYCoord = currentYCoord.indexOf("p");
+        // pixels
         currentYCoord = currentYCoord.slice(0, indexOfPInYCoord);
 
         // updating the new element
-        let changeInX = e.pageX - currentPageX;
-        let changeInY = e.pageY - currentPageY;
-        let convertedXToPixels = +currentXCoord + changeInX;
-        let convertedYToPixels = +currentYCoord + changeInY;
+        let changeInX = 0;
+        let changeInY = 0;
+        let convertedXToPixels = 0;
+        let convertedYToPixels = 0;
+        if (e.pageX == null) {
+          changeInX = e.touches[0].pageX - currentPageX;
+          changeInY = e.touches[0].pageY - currentPageY;
+          convertedXToPixels = +currentXCoord + changeInX;
+          convertedYToPixels = +currentYCoord + changeInY;
+        } else {
+          changeInX = e.pageX - currentPageX;
+          changeInY = e.pageY - currentPageY;
+          convertedXToPixels = +currentXCoord + changeInX;
+          convertedYToPixels = +currentYCoord + changeInY;
+        }
 
         // Running validation Check to see if the dropped point is within the pizza pan's radius.
 
