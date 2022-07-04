@@ -82,7 +82,9 @@ const CartHomepage = () => {
             sx={{
               textAlign: "left",
               position: "relative",
-              width: "max(100%,100%)",
+              width: "max(300px,300px)",
+              display: "inline-block",
+              marginRight: "auto",
 
               "@media(max-width:1970px)": {
                 marginLeft: "20px",
@@ -94,8 +96,21 @@ const CartHomepage = () => {
               },
               "@media(max-width:600px)": {
                 fontSize: "16px",
+                width: "max(250px,250px)",
               },
-              "@media(max-width:420px)": { fontSize: "12px" },
+              "@media(max-width:550px)": {
+                fontSize: "16px",
+                width: "max(200px,200px)",
+              },
+
+              "@media(max-width:440px)": {
+                fontSize: "12px",
+                width: "max(150px,150px)",
+              },
+              "@media(max-width:400px)": {
+                fontSize: "10px",
+                width: "max(120px,120px)",
+              },
             }}
             variant="h5"
           >
@@ -105,6 +120,7 @@ const CartHomepage = () => {
               sx={{
                 position: "relative",
                 marginLeft: "10px",
+                display: "inline-block",
 
                 fontSize: "16px",
                 "@media(max-width:670px)": {
@@ -115,9 +131,9 @@ const CartHomepage = () => {
                   fontSize: "12px",
                 },
                 "@media(max-width:420px)": {
-                  fontSize: "10px",
-                  left: "5px",
-                  marginRight: "0",
+                  fontSize: "8px",
+                  marginLeft: "5px",
+                  marginRight: "0px",
                 },
               }}
             >
@@ -153,6 +169,13 @@ const CartHomepage = () => {
                   padding: "2.5px",
                   transform: "translate(120%,-50%)",
                 },
+
+                "@media(max-width:480px)": {
+                  width: "max(20px,20px)",
+                  height: "max(20px,20px)",
+                  padding: "2.5px",
+                  transform: "translate(120%,-50%)",
+                },
               }}
             />
           </StyledTypography>
@@ -177,11 +200,29 @@ const CartHomepage = () => {
               marginLeft: "30px",
               height: "max-content",
               position: "relative",
-              "@media(max-width:600px)": {
+              display: "inline-block",
+              fontSize: "24px",
+
+              "@media(max-width:640px)": {
                 fontSize: "20px",
               },
-              "@media(max-width:420px)": { fontSize: "16px" },
-              "@media(max-width:400px)": { fontSize: "14px" },
+              "@media(max-width:600px)": {
+                fontSize: "16px",
+              },
+              "@media(max-width:550px)": {
+                fontSize: "16px",
+              },
+
+              "@media(max-width:440px)": {
+                fontSize: "12px",
+              },
+              "@media(max-width:400px)": {
+                fontSize: "10px",
+              },
+
+              "@media(max-width:420px)": {
+                marginLeft: "15px",
+              },
             }}
             variant="h5"
           >
@@ -193,12 +234,14 @@ const CartHomepage = () => {
                 marginLeft: "10px",
                 fontSize: "16px",
                 textAlign: "left",
-                "@media(max-width:600px)": {
+                display: "inline-block",
+                "@media(max-width:640px)": {
                   fontSize: "12px",
+                  marginLeft: "5px",
                 },
-                "@media(max-width:420px)": { fontSize: "10px" },
+
+                "@media(max-width:420px)": { fontSize: "8px" },
               }}
-              variant="p"
             >
               {` ${item.userSelectedData.description} `}
             </StyledTypography>
@@ -296,6 +339,10 @@ const CartHomepage = () => {
                   "@media(max-width:540px)": {
                     fontSize: "28px",
                   },
+                  "@media(max-width:420px)": {
+                    marginLeft: "15px",
+                    fontSize: "22px",
+                  },
                 }}
               >
                 Total :
@@ -307,9 +354,12 @@ const CartHomepage = () => {
 
                   gridColumn: "2/span 1",
                   gridRow: "1/span 1",
-                  marginRight: "30px",
+                  marginRight: "15px",
                   "@media(max-width:540px)": {
                     fontSize: "28px",
+                  },
+                  "@media(max-width:420px)": {
+                    fontSize: "22px",
                   },
                 }}
               >

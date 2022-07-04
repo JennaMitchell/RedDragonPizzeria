@@ -105,6 +105,10 @@ const NonCustomItemContainer = styled("div", {
 
   position: "relative",
   marginTop: "10px",
+
+  "@media(max-width:480px)": {
+    gridTemplateColumns: "60% max-content",
+  },
 }));
 const CustomItemContainer = styled("div", {
   name: "CustomItemContainer",
@@ -113,16 +117,15 @@ const CustomItemContainer = styled("div", {
   width: "max(100%,100%)",
   height: "max(max-content,max-content)",
   backgroundColor: "inherit",
-  display: "grid",
+  display: "flex",
 
   alignItems: "center",
-  justifyContent: "space-between",
-  gridTemplateColumns: "100px 270px max-content",
-  gridTemplateRows: "max-content",
+
   gap: "10px",
   position: "relative",
   marginTop: "10px",
   marginBottom: "10px",
+
   "@media(max-width:690px)": {
     gap: "0px",
   },
