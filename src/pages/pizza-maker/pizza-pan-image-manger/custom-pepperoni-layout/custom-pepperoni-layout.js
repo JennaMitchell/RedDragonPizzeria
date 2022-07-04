@@ -21,6 +21,8 @@ const PepperoniImageContainer = styled("img", {
   placeItems: "center",
   position: "absolute",
   zIndex: 8,
+  userSelect: "none",
+  WebkitTouchCallout: "none",
 }));
 
 const CustomPepperoniLayout = () => {
@@ -134,7 +136,6 @@ const CustomPepperoniLayout = () => {
   };
 
   const dragStartHandler = (e) => {
-
     setActiveDragId(e.target.id);
     setCurrentPageX(e.pageX);
     setCurrentPageY(e.pageY);
@@ -146,7 +147,6 @@ const CustomPepperoniLayout = () => {
     // pepperoniId : {
     // coordinates: { x: "" y: ""}
     // shape : "circle"
-
 
     for (let entry of copyOfPepperoniLayoutDataBase) {
       if (entry.pepperoniId === activeDragId) {

@@ -33,12 +33,12 @@ function App() {
   const pepperoniDragEventActive = useSelector(
     (state) => state.pepperoniDragEventActive
   );
-  const root = document.getElementById("root");
+
   if (pepperoniDragEventActive) {
-    root.classList.add("overflowHidden");
+    document.body.classList.add("overflowHidden");
   } else {
-    if (root.classList.contains("overflowHidden")) {
-      root.classList.remove("overflowHidden");
+    if (document.body.classList.contains("overflowHidden")) {
+      document.body.classList.remove("overflowHidden");
     }
   }
   return (
