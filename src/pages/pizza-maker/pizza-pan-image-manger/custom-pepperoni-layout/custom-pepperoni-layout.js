@@ -137,8 +137,8 @@ const CustomPepperoniLayout = () => {
   const dragStartHandler = (e) => {
     if (e.pageX == null) {
       setActiveDragId(e.target.id);
-      setCurrentPageX(e.touches[0].pageX);
-      setCurrentPageY(e.touches[0].pageY);
+      setCurrentPageX(e.X);
+      setCurrentPageY(e.Y);
     } else {
       setActiveDragId(e.target.id);
       setCurrentPageX(e.pageX);
@@ -173,8 +173,8 @@ const CustomPepperoniLayout = () => {
         let convertedXToPixels = 0;
         let convertedYToPixels = 0;
         if (e.pageX == null) {
-          changeInX = e.touches[0].pageX - currentPageX;
-          changeInY = e.touches[0].pageY - currentPageY;
+          changeInX = e.X - currentPageX;
+          changeInY = e.Y - currentPageY;
           convertedXToPixels = +currentXCoord + changeInX;
           convertedYToPixels = +currentYCoord + changeInY;
         } else {
