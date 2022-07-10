@@ -136,6 +136,7 @@ const CustomPepperoniLayout = () => {
 
   const dragStartHandler = (e) => {
     if (e.pageX == null) {
+      console.log(e);
       setActiveDragId(e.target.id);
       setCurrentPageX(e.target.X);
       setCurrentPageY(e.target.Y);
