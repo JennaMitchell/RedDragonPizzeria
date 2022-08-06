@@ -1,3 +1,19 @@
+# Red Dragon Pizzeria
+
+## Project Description
+
+Red Dragon Pizzeria is a fictional DnD inspired pizzeria, looking to bring its users hot and ready pizza year round. The project includes a mobile friendly menu, a fully customizable pizza maker, and a online order ready menu.
+
+### Developer Aside
+
+This project was created to practice using MUI, react, javascript, HTML2Canvas, and the built in drag and drop events. The hardest part was learning how to handle drag n drop events on mobile.
+
+## How to Use the Project
+
+ See snippet below to use on your code editor or go to https://red-dragon-pizzeria.netlify.app/home to see the page live
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
