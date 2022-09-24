@@ -7,14 +7,14 @@ const ButtonContainer = styled("div", {
   width: "max(max-content,max-content)",
   height: "max(max-content,max-content)",
   display: "grid",
-  gridTemplateColumns: "repeat(6,max-content)",
+  gridTemplateColumns: "repeat(7,max-content)",
   alignItems: "center",
   justifyContent: "space-between",
   gap: "20px",
   zIndex: "inherit",
 
   position: "relative",
-  "@media (max-width:1200px)": {
+  "@media (max-width:1500px)": {
     gridTemplateColumns: "repeat(4,max-content)",
     gap: "0px",
   },

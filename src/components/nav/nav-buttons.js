@@ -21,7 +21,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { storeActions } from "../../store/store";
 
 const NavButtons = () => {
-  const buttonLimitReached = useMediaQuery("(max-width:1220px)");
+  const buttonLimitReached = useMediaQuery("(max-width:1500px)");
   const navMenuButtonClicked = useSelector(
     (state) => state.navMenuButtonClicked
   );
@@ -44,6 +44,10 @@ const NavButtons = () => {
     dispatch(storeActions.setNavMenuButtonClicked(false));
     dispatch(storeActions.setActiveNavButton("Order Online"));
   };
+  const creditsButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Credits"));
+  };
 
   const cartHandler = () => {
     dispatch(storeActions.setActiveNavButton(""));
@@ -63,8 +67,12 @@ const NavButtons = () => {
       function: orderOnlineButtonHandler,
       navLink: "/order-online",
     },
+    {
+      title: "Credits",
+      function: creditsButtonHandler,
+      navLink: "/credits",
+    },
   ];
-
   const dispatch = useDispatch();
   const navMenuHandler = () => {
     if (pizzaToppingsMenuActive) {

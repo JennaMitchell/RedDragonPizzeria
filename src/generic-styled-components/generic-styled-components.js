@@ -41,6 +41,7 @@ const StyledInActiveNavLink = styled(NavLink, {
   textDecoration: "none",
   textTransform: "uppercase",
   boxSizing: "content-box",
+  textAlign: "center",
 
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,
@@ -65,6 +66,7 @@ const StyledActiveNavLink = styled(NavLink, {
   textDecoration: "none",
   textTransform: "uppercase",
   boxSizing: "content-box",
+  textAlign: "center",
 
   "&:hover": {
     backgroundColor: theme.palette.secondary.light,

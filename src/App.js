@@ -8,7 +8,7 @@ import PizzaMakerHomepage from "./pages/pizza-maker/pizza-maker-homepage";
 import OrderOnlineHomepage from "./pages/order-online/order-online-homepage";
 import CartHomepage from "./pages/cart/cart-homepage";
 import { useSelector } from "react-redux";
-
+import Credits from "./pages/credits/credits";
 export const theme = createTheme({
   palette: {
     primary: {
@@ -92,6 +92,16 @@ function App() {
               <>
                 <NavBar />
                 <CartHomepage />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/credits"
+            element={
+              <>
+                <NavBar />
+                <Credits />
                 <Footer />
               </>
             }

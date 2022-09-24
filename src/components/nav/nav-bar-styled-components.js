@@ -12,7 +12,7 @@ const LogoContainer = styled("div", {
   display: "grid",
   alignItems: "center",
   justifyItems: "center",
-  marginLeft: "15px",
+  marginLeft: "0px",
   borderRadius: "50%",
 
   backgroundColor: theme.palette.secondary.dark,
@@ -111,7 +111,7 @@ const MenuButtonsContainer = styled("div", {
   borderEndStartRadius: "15px",
   borderEndEndRadius: "15px",
   display: "grid",
-  gridTemplateRows: "repeat(4,max-content)",
+  gridTemplateRows: "repeat(5,max-content)",
   gap: "10px",
   placeItems: "center",
   position: "absolute",

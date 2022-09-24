@@ -33,6 +33,7 @@ const NavBar = () => {
   const pizzaToppingsMenuActive = useSelector(
     (state) => state.pizzaToppingsMenuActive
   );
+  const buttonLimitReached = useMediaQuery("(max-width:1500px)");
 
   // Handeling On Refresh Events
   const buildAPizzaUserSelectedObject = useSelector(
@@ -103,6 +104,10 @@ const NavBar = () => {
     dispatch(storeActions.setNavMenuButtonClicked(false));
     dispatch(storeActions.setActiveNavButton("Order Online"));
   };
+  const creditsButtonHandler = () => {
+    dispatch(storeActions.setNavMenuButtonClicked(false));
+    dispatch(storeActions.setActiveNavButton("Credits"));
+  };
 
   const buttonTitles = [
     { title: "Home", function: homeButtonHandler, navLink: "/home" },
@@ -117,6 +122,11 @@ const NavBar = () => {
       function: orderOnlineButtonHandler,
       navLink: "/order-online",
     },
+    {
+      title: "Credits",
+      function: creditsButtonHandler,
+      navLink: "/credits",
+    },
   ];
 
   const renderReadyNavButtons = buttonTitles.map((object, index) => {
@@ -126,6 +136,7 @@ const NavBar = () => {
           key={index}
           onClick={object.function}
           to={object.navLink}
+          sx={{ width: `${buttonLimitReached && "max(75%,75%)"}` }}
         >
           {object.title}
         </StyledActiveNavLink>
@@ -136,6 +147,7 @@ const NavBar = () => {
           key={index}
           onClick={object.function}
           to={object.navLink}
+          sx={{ width: `${buttonLimitReached && "max(75%,75%)"}` }}
         >
           {object.title}
         </StyledInActiveNavLink>
@@ -143,7 +155,6 @@ const NavBar = () => {
     }
   });
 
-  const buttonLimitReached = useMediaQuery("(max-width:1200px)");
   let dropMenu = false;
   let roofZIndexChanged = false;
   if (navMenuButtonClicked) {
