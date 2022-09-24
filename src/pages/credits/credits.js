@@ -16,9 +16,12 @@ const Credits = () => {
     dispatch(storeActions.setActiveNavButton("Credits"));
   }
 
-  const renderReadyCreditsData = creditsData.map((data) => {
+  const renderReadyCreditsData = creditsData.map((data, index) => {
     return (
-      <div className={classes.imageContainer} key={data.desciption}>
+      <div
+        className={classes.imageContainer}
+        key={`${data.desciption} ${index} key`}
+      >
         <img
           className={classes.styledImage}
           src={data.photo}
@@ -35,28 +38,22 @@ const Credits = () => {
   });
 
   return (
-    <div>
-      <div className={classes.mainContainer}>
-        <div className={classes.gridContianer}>
-          {renderReadyCreditsData}
-          <div className={classes.imageContainer} key={"dragon logo"}>
-            <img
-              className={classes.styledImage}
-              src={logo}
-              alt={"dragon logo"}
-            />
-            <p className={classes.photoDescription}>
-              Created by Freepik from
-              <a
-                href={
-                  "https://www.flaticon.com/free-icon/dragon_5169290?term=dragon&page=1&position=17&page=1&position=17&related_id=5169290&origin=search"
-                }
-                className={classes.unsplashLink}
-              >
-                Flaticon
-              </a>
-            </p>
-          </div>
+    <div className={classes.mainContainer}>
+      <div className={classes.gridContainer}>
+        {renderReadyCreditsData}
+        <div className={classes.imageContainer} key={"dragon logo"}>
+          <img className={classes.styledImage} src={logo} alt={"dragon logo"} />
+          <p className={classes.photoDescription}>
+            Created by Freepik from
+            <a
+              href={
+                "https://www.flaticon.com/free-icon/dragon_5169290?term=dragon&page=1&position=17&page=1&position=17&related_id=5169290&origin=search"
+              }
+              className={classes.unsplashLink}
+            >
+              Flaticon
+            </a>
+          </p>
         </div>
       </div>
     </div>
