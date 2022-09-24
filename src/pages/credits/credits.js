@@ -56,7 +56,7 @@ const Credits = () => {
                 Flaticon
               </a>
             </p>
-          </div>{" "}
+          </div>
         </div>
       </div>
     </div>
